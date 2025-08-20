@@ -22,6 +22,138 @@
      
     <!--CSS-->
     <link rel="stylesheet" href="styles.css">
+    <style>
+  /* Parent container of tabs and content gets the gradient background */
+.tabs-container {
+  background: linear-gradient(90deg, var(--accent-gold), var(--accent-light));
+  border-radius: 1rem;
+  padding: 1rem;
+  box-shadow: var(--shadow);
+  max-width: 920px;
+  margin: 0 auto 4rem auto;
+}
+
+.custom-table {
+  border: 1px solid white; /* white border */
+  border-collapse: collapse;
+}
+
+.custom-table th, 
+.custom-table td {
+  border: 1px solid white; /* white borders on all cells */
+  padding: 12px;
+}
+
+.custom-table thead th {
+  background-color: black; /* almost black blue */
+  color: white; /* white text */
+}
+
+
+.custom-table tbody {
+  background-color: transparent; /* or any desired background */
+  color: black; /* body text color */
+}
+
+
+/* Tabs bar with transparent background to blend with parent */
+.nav-tabs {
+  background: transparent !important;
+  border-bottom: none !important;
+  justify-content: center !important;
+  padding: 0;
+}
+
+/* Tabs style remains as before */
+.nav-tabs .nav-link {
+  background-color: var(--white);
+  color: var(--primary-color);
+  border-radius: 1.25rem;
+  margin: 0 0.25rem;
+  padding: 0.7rem 1.5rem;
+  font-weight: 600;
+  font-size: 1.125rem;
+  border: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-tabs .nav-link.active {
+  background-color: var(--accent-gold);
+  color: var(--white) !important;
+  box-shadow: var(--shadow);
+}
+
+.nav-tabs .nav-link:hover:not(.active) {
+  background-color: var(--accent-light);
+  color: var(--white);
+  box-shadow: var(--shadow);
+}
+
+/* Content area with transparent background to show gradient behind */
+.tab-content {
+  background-color: transparent !important;
+  border: none !important;
+  border-radius: 0 0 1rem 1rem;
+  padding: 2rem 3rem;
+  box-shadow: none !important;
+  max-width: 100%;
+}
+/* Tabs container with yellow gradient background */
+.nav-tabs {
+  background: linear-gradient(90deg, var(--accent-gold), var(--accent-light));
+  border-radius: 0.75rem 0.75rem 0 0;
+  padding: 0.5rem 1rem;
+  box-shadow: var(--shadow);
+  justify-content: center !important;
+  border: none !important;
+}
+
+/* Tab links styled as pill buttons */
+.nav-tabs .nav-link {
+  background-color: var(--white);
+  color: var(--primary-color);
+  border-radius: 0.8rem;
+  margin: 0 0.25rem;
+  padding: 0.7rem 1.5rem;
+  font-weight: 600;
+  font-size: 1.125rem;
+  border: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Active tab with solid yellow background and no glow */
+.nav-tabs .nav-link.active {
+  background-color: var(--accent-gold);
+  color: var(--white) !important;
+  box-shadow: none;
+}
+
+/* Hover effect for tabs (lighter yellow) */
+.nav-tabs .nav-link:hover:not(.active) {
+  background-color: var(--accent-light);
+  color: var(--white);
+  box-shadow: none;
+}
+
+/* Card wrapping tab content with rounded corners */
+.tab-pane > .card {
+  border-radius: 1rem;
+  box-shadow: var(--shadow);
+  border: none;
+  padding: 2rem;
+  margin-top: 1rem;
+  background: var(--white);
+}
+
+/* Tab content area with rounded corners as well */
+.tab-content {
+  border-radius: 0 0 1rem 1rem;
+  background: transparent;
+  padding: 0;
+}
+
+
+    </style>
     </head>
     <body>
          <nav class="navbar navbar-expand-lg navbar-custom fixed-top" data-aos="fade-down">
@@ -65,7 +197,8 @@
             </div>
         </div>
     </nav>
- <section class="section-padding" style="margin-top: 100px;">
+
+    <!-- <section class="section-padding" style="margin-top: 100px;">
             <div class="container">
                 <div class="section-title" data-aos="fade-up">
                     <h2>Coaching Programs</h2>
@@ -150,8 +283,129 @@
                     </div>
                 </div>
             </div>
-        </section>  
-<!-- Footer -->
+        </section>   -->
+<div class="container section-padding" style="max-width: 1140px; margin-top: 100px;">
+  <h2 class="section-title">COACHING AND EXAMINATION</h2>
+  <p class="section-subtitle">Comprehensive preparation for UPSC Civil Services Examination.</p>
+
+  <!-- Nav Tabs -->
+  <ul class="nav nav-tabs justify-content-center" id="examTab" role="tablist" aria-label="Coaching programs tabs">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" id="prelims-tab" data-bs-toggle="tab" data-bs-target="#prelims" type="button" role="tab" aria-controls="prelims" aria-selected="true">Preliminary Examination</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="mains-tab" data-bs-toggle="tab" data-bs-target="#mains" type="button" role="tab" aria-controls="mains" aria-selected="false">Main Examination</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="personality-tab" data-bs-toggle="tab" data-bs-target="#personality" type="button" role="tab" aria-controls="personality" aria-selected="false">Personality Test</button>
+    </li>
+  </ul>
+
+  <!-- Tab Content -->
+  <div class="tab-content mt-4" id="examTabContent" style="min-height: 500px;">
+    <!-- Preliminary Examination -->
+    <div class="tab-pane fade show active" id="prelims" role="tabpanel" aria-labelledby="prelims-tab" tabindex="0">
+      <div class="card shadow-sm p-4">
+        <h3>Preliminary Examination:</h3>
+        <p>
+          Based on merit (through a competitive entrance Examination conducted throughout Tamil Nadu) and Community Reservation system, 225 aspirants are admitted in Residential coaching (Full-time) and 100 aspirants in Non-Residential (Part-time) coaching. From the year 2011-2018 onwards, ICR applications are issued to the aspirants through District Collectorate. The entrance examination is conducted in seventeen (17) centres in Tamil Nadu.
+        </p>
+        <p>
+          Now the entrance examination is conducted directly by All India Civil Services Centre, Chennai-28. When the entrance examination is conducted for preliminary coaching, notifications will be released on the website and newspaper advertisement also published. Except admission, other processing (application, hall ticket downloading, selection list, admit card) will be held online only.
+        </p>
+        <h5>Preliminary Examination Pattern:</h5>
+        <table class="table table-bordered w-75 mx-auto mb-3 custom-table">
+  <thead class="text-center">
+    <tr>
+      <th>Paper I (Maximum Marks 200)</th>
+      <th>Paper II (Maximum Marks 200)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="text-center">
+      <td>General Studies</td>
+      <td>CSAT (qualifying nature, 33% pass percentage not included for ranking)</td>
+    </tr>
+  </tbody>
+</table>
+
+        <p>The Institute guides aspirants for nearly 6 months (December to June) to take up the Preliminary examination.</p>
+      </div>
+    </div>
+
+    <!-- Main Examination -->
+    <div class="tab-pane fade" id="mains" role="tabpanel" aria-labelledby="mains-tab" tabindex="0">
+      <div class="card shadow-sm p-4">
+        <h3>Main Examination:</h3>
+        <p>
+          The aspirants who have cleared the UPSC Preliminary examination are admitted for Main Examination Coaching (225 aspirants). Intensive coaching for nearly two to four months is given to the aspirants. A monthly stipend of Rs. 3000/- is given to each candidate admitted for Main coaching, irrespective of the income ceiling to meet expenditure for accessing reading materials.
+        </p>
+        <h5>Main Examination Pattern</h5>
+      <table class="table table-bordered w-75 mx-auto mb-3 custom-table">
+  <thead class="text-center">
+    <tr>
+      <th>Paper</th>
+      <th>Marks</th>
+      <th>Total Marks</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="text-center">
+      <td>Language - English</td>
+      <td>---</td>
+      <td>(qualifying)</td>
+    </tr>
+    <tr class="text-center">
+      <td>Essay</td>
+      <td>250</td>
+      <td>(Compulsory)</td>
+    </tr>
+    <tr class="text-center">
+      <td>General Studies – Paper I, II, III & IV</td>
+      <td>250 x 4</td>
+      <td>(Compulsory) 1000</td>
+    </tr>
+    <tr class="text-center">
+      <td>Optional I & II (Only one optional)</td>
+      <td>250 x 2</td>
+      <td>(Compulsory) 500</td>
+    </tr>
+    <tr class="text-center">
+      <td>Personality Test</td>
+      <td>275</td>
+      <td></td>
+    </tr>
+    <tr class="text-center">
+      <td><strong>Total</strong></td>
+      <td></td>
+      <td><strong>2025</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+
+      </div>
+    </div>
+
+    <!-- Personality Test -->
+    <div class="tab-pane fade" id="personality" role="tabpanel" aria-labelledby="personality-tab" tabindex="0">
+      <div class="card shadow-sm p-4">
+        <h3>Personality Test:</h3>
+        <p>
+          The Institute conducts Model Personality Tests for candidates who have cleared their Main Examination. Sessions are conducted by senior officers and subject experts. Topics are discussed with experts. Accommodation is available in Tamilnadu House, New Delhi, with Rs. 2000/- travel allowance provided for attendance.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+        <!-- Footer -->
+
+
     <footer class="footer">
         <div class="container">
             <div class="row g-4">

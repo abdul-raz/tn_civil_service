@@ -1,0 +1,3274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AICSCC - Alternative Modern UI Design</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- AOS Animation -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #002147;
+            --accent-color: #228B22;
+            --primary-dark: #0f172a;
+            --primary-blue: #1e40af;
+            --accent-gold: #f59e0b;
+            --accent-light: #fbbf24;
+            --text-light: #64748b;
+            --primary-bg: #F8FAFC;
+            --primary-text: #1E293B;
+            --accent-blue: #3B82F6;
+            --success-green: #10B981;
+            --warm-orange: #F59E0B;
+            --deep-purple: #7C3AED;
+            --slate-grey: #64748B;
+            --white: #ffffff;
+            --card-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --card-shadow-hover: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            
+            --primary-gradient: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-blue) 100%);
+            --secondary-gradient: linear-gradient(135deg, var(--accent-color) 0%, var(--success-green) 100%);
+            --success-gradient: linear-gradient(135deg, var(--accent-blue) 0%, var(--deep-purple) 100%);
+            --warning-gradient: linear-gradient(135deg, var(--accent-gold) 0%, var(--warm-orange) 100%);
+            --dark-gradient: linear-gradient(135deg, var(--primary-dark) 0%, var(--slate-grey) 100%);
+            
+            --shadow-light: var(--card-shadow);
+            --shadow-medium: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-heavy: var(--card-shadow-hover);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--primary-text);
+            overflow-x: hidden;
+            background: var(--primary-bg);
+        }
+
+        .font-display {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* ===== PROGRAMS SECTION ===== */
+        .programs-alt {
+            padding: 5rem 0;
+            background: var(--white);
+            position: relative;
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .program-card-alt {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-light);
+            transition: all 0.4s ease;
+            position: relative;
+            border: 1px solid rgba(59, 130, 246, 0.1);
+        }
+
+        .program-card-alt::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--primary-gradient);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .program-card-alt:hover::before {
+            transform: scaleX(1);
+        }
+
+        .program-card-alt:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .program-image-alt {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .program-card-alt:hover .program-image-alt {
+            transform: scale(1.05);
+        }
+
+        .program-content-alt {
+            padding: 2rem;
+        }
+
+        .program-badge {
+            background: var(--warning-gradient);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .program-title-alt {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--primary-text);
+        }
+
+        .program-features {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 1.5rem;
+        }
+
+        .program-features li {
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            color: var(--text-light);
+        }
+
+        .program-features li i {
+            color: var(--accent-color);
+            margin-right: 0.5rem;
+        }
+
+        /* ===== FACULTY SECTION ===== */
+        .faculty-alt {
+            padding: 5rem 0;
+            background: var(--primary-bg);
+        }
+
+        .faculty-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .faculty-card-alt {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: var(--shadow-light);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .faculty-card-alt::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(16, 185, 129, 0.1), transparent);
+            animation: rotate 6s linear infinite;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .faculty-card-alt:hover::before {
+            opacity: 1;
+        }
+
+        .faculty-card-alt:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .faculty-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: var(--primary-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: var(--white);
+            font-size: 3rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .faculty-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--primary-text);
+            position: relative;
+            z-index: 2;
+        }
+
+        .faculty-designation {
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .faculty-experience {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ===== TESTIMONIALS SECTION ===== */
+        .testimonials-alt {
+            padding: 5rem 0;
+            background: var(--primary-gradient);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonials-alt::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><defs><pattern id="dots2" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100%" height="100%" fill="url(%23dots2)"/></svg>');
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .testimonial-card-alt {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .testimonial-card-alt:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .testimonial-quote {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .testimonial-quote::before {
+            content: '"';
+            font-size: 4rem;
+            color: var(--accent-gold);
+            position: absolute;
+            top: -1rem;
+            left: -1rem;
+            font-family: serif;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--secondary-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.5rem;
+            margin-right: 1rem;
+        }
+
+        .author-info h4 {
+            margin: 0;
+            font-size: 1.1rem;
+        }
+
+        .author-info p {
+            margin: 0;
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        /* ===== FACILITIES SECTION ===== */
+        .facilities-alt {
+            padding: 5rem 0;
+            background: var(--white);
+        }
+
+        .facilities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .facility-card-alt {
+            text-align: center;
+            transition: all 0.4s ease;
+        }
+
+        .facility-icon-container {
+            width: 120px;
+            height: 120px;
+            border-radius: 30px;
+            background: var(--success-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: var(--white);
+            font-size: 3rem;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .facility-icon-container::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border-radius: 35px;
+            background: var(--success-gradient);
+            opacity: 0.3;
+            transform: scale(0);
+            transition: transform 0.3s ease;
+        }
+
+        .facility-card-alt:hover .facility-icon-container::before {
+            transform: scale(1);
+        }
+
+        .facility-card-alt:hover .facility-icon-container {
+            transform: translateY(-10px) rotate(5deg);
+        }
+
+        .facility-title-alt {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--primary-text);
+        }
+
+        .facility-desc-alt {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* ===== NEWS SECTION ===== */
+        .news-alt {
+            padding: 5rem 0;
+            background: var(--primary-bg);
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .news-card-alt {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow-light);
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .news-card-alt:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .news-date {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--warning-gradient);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+
+        .news-image-alt {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .news-card-alt:hover .news-image-alt {
+            transform: scale(1.05);
+        }
+
+        .news-content-alt {
+            padding: 1.5rem;
+        }
+
+        .news-title-alt {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--primary-text);
+            line-height: 1.4;
+        }
+
+        .news-excerpt {
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .news-link {
+            color: var(--accent-blue);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .news-link:hover {
+            color: var(--primary-color);
+        }
+
+        /* ===== ADMISSION PROCESS SECTION ===== */
+        .admission-alt {
+            padding: 5rem 0;
+            background: var(--white);
+        }
+
+        .process-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .process-step {
+            display: flex;
+            align-items: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .process-step:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .process-step:nth-child(even) .step-content {
+            text-align: right;
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: var(--primary-gradient);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .step-content {
+            flex: 1;
+            padding: 2rem;
+            background: var(--primary-bg);
+            border-radius: 15px;
+            transition: all 0.4s ease;
+        }
+
+        .step-content:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .step-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--primary-text);
+        }
+
+        .step-desc {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* ===== SUCCESS STORIES SECTION ===== */
+        .success-alt {
+            padding: 5rem 0;
+            background: var(--dark-gradient);
+            color: var(--white);
+            position: relative;
+        }
+
+        .success-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .success-card-alt {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.4s ease;
+        }
+
+        .success-card-alt:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .success-rank {
+            font-size: 3rem;
+            font-weight: 800;
+            background: var(--warning-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+
+        .success-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .success-service {
+            color: var(--accent-gold);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .success-year {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        /* ===== STUDY MATERIALS SECTION ===== */
+        .study-materials-alt {
+            padding: 5rem 0;
+            background: var(--white);
+        }
+
+        .materials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .material-card-alt {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            box-shadow: var(--shadow-light);
+            transition: all 0.4s ease;
+            border: 1px solid rgba(59, 130, 246, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .material-card-alt::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--secondary-gradient);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .material-card-alt:hover::before {
+            transform: scaleX(1);
+        }
+
+        .material-card-alt:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .material-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--warning-gradient);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: var(--white);
+            font-size: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .material-card-alt:hover .material-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .material-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--primary-text);
+        }
+
+        .material-desc {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .material-stats {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        .material-stats span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* ===== MOCK TESTS SECTION ===== */
+        .mock-tests-alt {
+            padding: 5rem 0;
+            background: var(--primary-bg);
+        }
+
+        .tests-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .test-package-alt {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: var(--shadow-light);
+            transition: all 0.4s ease;
+            position: relative;
+            border: 2px solid transparent;
+        }
+
+        .test-package-alt:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .test-package-alt.featured {
+            border-color: var(--accent-gold);
+            transform: scale(1.05);
+        }
+
+        .test-package-alt.featured:hover {
+            transform: scale(1.05) translateY(-10px);
+        }
+
+        .package-badge {
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            background: var(--warning-gradient);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .package-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .package-header h3 {
+            font-size: 1.5rem;
+            color: var(--primary-text);
+            margin-bottom: 1rem;
+        }
+
+        .package-price {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--accent-color);
+        }
+
+        .package-features {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 2rem;
+        }
+
+        .package-features li {
+            padding: 0.75rem 0;
+            display: flex;
+            align-items: center;
+            color: var(--text-light);
+        }
+
+        .package-features li i {
+            color: var(--success-green);
+            margin-right: 0.75rem;
+        }
+
+        /* ===== ALUMNI SECTION ===== */
+        .alumni-alt {
+            padding: 5rem 0;
+            background: var(--white);
+        }
+
+        .alumni-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .alumni-card-alt {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            box-shadow: var(--shadow-light);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .alumni-card-alt::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(59, 130, 246, 0.1), transparent);
+            animation: rotate 8s linear infinite;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .alumni-card-alt:hover::before {
+            opacity: 1;
+        }
+
+        .alumni-card-alt:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .alumni-photo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: var(--primary-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: var(--white);
+            font-size: 2.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .alumni-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--primary-text);
+            position: relative;
+            z-index: 2;
+        }
+
+        .alumni-position {
+            color: var(--accent-blue);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .alumni-batch {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .alumni-quote {
+            font-style: italic;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ===== INFRASTRUCTURE SECTION ===== */
+        .infrastructure-alt {
+            padding: 5rem 0;
+            background: var(--primary-bg);
+        }
+
+        .infrastructure-showcase {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .infra-main-card {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 2rem;
+            height: 400px;
+        }
+
+        .infra-image {
+            position: relative;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .infra-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .infra-main-card:hover .infra-image img {
+            transform: scale(1.05);
+        }
+
+        .infra-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(15, 23, 42, 0.9), transparent);
+            color: var(--white);
+            padding: 2rem;
+        }
+
+        .infra-overlay h3 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .infra-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .infra-card-small {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow-light);
+            transition: all 0.4s ease;
+        }
+
+        .infra-card-small:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .infra-card-small img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .infra-card-small:hover img {
+            transform: scale(1.05);
+        }
+
+        .infra-content {
+            padding: 1.5rem;
+        }
+
+        .infra-content h4 {
+            color: var(--primary-text);
+            margin-bottom: 0.5rem;
+        }
+
+        .infra-content p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* ===== ONLINE LEARNING SECTION ===== */
+        .online-learning-alt {
+            padding: 5rem 0;
+            background: var(--white);
+        }
+
+        .learning-content {
+            padding-right: 2rem;
+        }
+
+        .learning-features {
+            margin: 2rem 0;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--success-gradient);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.5rem;
+            margin-right: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .feature-text h4 {
+            color: var(--primary-text);
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-text p {
+            color: var(--text-light);
+            margin: 0;
+        }
+
+        .learning-visual {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 400px;
+        }
+
+        .learning-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: var(--shadow-heavy);
+            max-width: 350px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .learning-card.floating {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            color: var(--accent-color);
+        }
+
+        .card-header i {
+            font-size: 1.5rem;
+            margin-right: 0.5rem;
+        }
+
+        .card-content h4 {
+            color: var(--primary-text);
+            margin-bottom: 0.5rem;
+        }
+
+        .card-content p {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e2e8f0;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 0.5rem;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--secondary-gradient);
+            border-radius: 4px;
+            transition: width 0.3s ease;
+        }
+
+        .progress-text {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .stats-floating {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--white);
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow-medium);
+            text-align: center;
+        }
+
+        .stats-floating .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent-blue);
+            display: block;
+        }
+
+        .stats-floating .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        /* ===== EVENTS SECTION ===== */
+        .events-alt {
+            padding: 5rem 0;
+            background: var(--primary-bg);
+        }
+
+        .events-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .event-card-featured {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-medium);
+            position: relative;
+            grid-row: span 2;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .event-card-featured .event-date {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            background: var(--warning-gradient);
+            color: var(--white);
+            border-radius: 15px;
+            padding: 1rem;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .event-date .day {
+            font-size: 2rem;
+            display: block;
+        }
+
+        .event-date .month {
+            font-size: 0.8rem;
+            display: block;
+        }
+
+        .event-content {
+            padding-right: 5rem;
+        }
+
+        .event-content h3 {
+            color: var(--primary-text);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .event-content p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .event-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .event-details span {
+            display: flex;
+            align-items: center;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .event-details i {
+            margin-right: 0.5rem;
+            color: var(--accent-blue);
+        }
+
+        .event-card-alt {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: var(--shadow-light);
+            transition: all 0.3s ease;
+        }
+
+        .event-card-alt:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .event-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .event-type {
+            background: var(--success-gradient);
+            color: var(--white);
+            padding: 0.3rem 0.8rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .event-date-small {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .event-card-alt h4 {
+            color: var(--primary-text);
+            margin-bottom: 1rem;
+        }
+
+        .event-card-alt p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* ===== DOWNLOADS SECTION ===== */
+        .downloads-alt {
+            padding: 5rem 0;
+            background: var(--white);
+        }
+
+        .downloads-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .download-category {
+            background: var(--primary-bg);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: var(--shadow-light);
+        }
+
+        .download-category h3 {
+            color: var(--primary-text);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .download-list {
+            space-y: 1rem;
+        }
+
+        .download-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--white);
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .download-item:hover {
+            transform: translateX(5px);
+            box-shadow: var(--shadow-light);
+        }
+
+        .download-name {
+            font-weight: 600;
+            color: var(--primary-text);
+            margin-bottom: 0.2rem;
+        }
+
+        .download-size {
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        .download-btn {
+            background: var(--secondary-gradient);
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            padding: 0.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .download-btn:hover {
+            transform: scale(1.1);
+            box-shadow: var(--shadow-light);
+        }
+
+        /* ===== ALTERNATIVE STATS SECTION ===== */
+        .stats-alt {
+            padding: 5rem 0;
+            background: var(--bg-light);
+            position: relative;
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .stat-card-alt {
+            background: white;
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: var(--shadow-light);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card-alt::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: var(--primary-gradient);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card-alt:hover::before {
+            transform: scaleX(1);
+        }
+
+        .stat-card-alt:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .stat-icon-alt {
+            width: 80px;
+            height: 80px;
+            background: var(--primary-gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: white;
+            font-size: 2rem;
+            animation: bounce-slow 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce-slow {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        .stat-number-alt {
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label-alt {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        /* ===== ALTERNATIVE FEATURES SECTION ===== */
+        .features-alt {
+            padding: 5rem 0;
+            background: white;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card-alt {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-light);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #f1f5f9;
+        }
+
+        .feature-card-alt::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(103, 126, 234, 0.1), transparent);
+            animation: rotate 4s linear infinite;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .feature-card-alt:hover::before {
+            opacity: 1;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .feature-card-alt:hover {
+            transform: translateY(-15px);
+            box-shadow: var(--shadow-heavy);
+            border-color: rgba(103, 126, 234, 0.3);
+        }
+
+        .feature-icon-alt {
+            width: 70px;
+            height: 70px;
+            background: var(--secondary-gradient);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 2;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card-alt:hover .feature-icon-alt {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .feature-title-alt {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+            position: relative;
+            z-index: 2;
+        }
+
+        .feature-desc-alt {
+            color: var(--text-light);
+            line-height: 1.7;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ===== ALTERNATIVE ABOUT SECTION ===== */
+        .about-alt {
+            padding: 5rem 0;
+            background: var(--dark-gradient);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-alt::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100%" height="100%" fill="url(%23dots)"/></svg>');
+        }
+
+        .about-content-alt {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .about-text-alt {
+            position: relative;
+        }
+
+        .about-badge {
+            display: inline-block;
+            background: var(--warning-gradient);
+            color: var(--text-dark);
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-title-alt {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .about-desc-alt {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .about-visual {
+            position: relative;
+        }
+
+        .about-card-stack {
+            position: relative;
+        }
+
+        .about-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .about-card:hover {
+            transform: translateX(10px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        /* ===== ALTERNATIVE GALLERY SECTION ===== */
+        .gallery-alt {
+            padding: 5rem 0;
+            background: var(--bg-light);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery-card-alt {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            height: 350px;
+            background: white;
+            box-shadow: var(--shadow-light);
+            transition: all 0.4s ease;
+        }
+
+        .gallery-card-alt:hover {
+            transform: scale(1.02);
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .gallery-image-alt {
+            width: 100%;
+            height: 70%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-card-alt:hover .gallery-image-alt {
+            transform: scale(1.1);
+        }
+
+        .gallery-content-alt {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+            color: white;
+            padding: 2rem;
+            transform: translateY(60%);
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-card-alt:hover .gallery-content-alt {
+            transform: translateY(0);
+        }
+
+        .gallery-title-alt {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .gallery-desc-alt {
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        /* ===== ALTERNATIVE CONTACT SECTION ===== */
+        .contact-alt {
+            padding: 5rem 0;
+            background: white;
+            position: relative;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            align-items: start;
+        }
+
+        .contact-info-alt {
+            background: var(--primary-gradient);
+            color: white;
+            padding: 3rem;
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-info-alt::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1), transparent);
+            animation: pulse-glow 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .contact-item-alt {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-icon-alt {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-right: 1.5rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-form-alt {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-medium);
+            border: 1px solid #f1f5f9;
+        }
+
+        .form-group-alt {
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .form-control-alt {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: #f8fafc;
+        }
+
+        .form-control-alt:focus {
+            outline: none;
+            border-color: #667eea;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .form-label-alt {
+            position: absolute;
+            top: 1rem;
+            left: 1.5rem;
+            color: var(--text-light);
+            transition: all 0.3s ease;
+            pointer-events: none;
+            background: white;
+            padding: 0 0.5rem;
+        }
+
+        .form-control-alt:focus + .form-label-alt,
+        .form-control-alt:not(:placeholder-shown) + .form-label-alt {
+            top: -0.5rem;
+            left: 1rem;
+            font-size: 0.8rem;
+            color: #667eea;
+        }
+
+        /* Section Headers */
+        .section-header-alt {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-badge {
+            display: inline-block;
+            background: var(--success-gradient);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-title-alt {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .section-desc-alt {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .btn-modern {
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            margin: 0 0.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+
+        .btn-primary-modern {
+            background: var(--secondary-gradient);
+            color: var(--white);
+            border: none;
+        }
+
+        .btn-secondary-modern {
+            background: transparent;
+            color: var(--primary-text);
+            border: 2px solid var(--accent-blue);
+        }
+
+        .btn-modern::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn-modern:hover::before {
+            left: 100%;
+        }
+
+        .btn-modern:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-heavy);
+            color: var(--white);
+        }
+
+        .btn-sm {
+            padding: 0.5rem 1.5rem;
+            font-size: 0.8rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-title-alt {
+                font-size: 2.5rem;
+            }
+
+            .about-content-alt,
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .feature-grid,
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .section-title-alt {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .stats-container {
+                grid-template-columns: 1fr;
+            }
+
+            .btn-modern {
+                display: block;
+                margin: 0.5rem auto;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Alternative Study Materials Section -->
+    <section class="study-materials-alt">
+        <div class="container">
+            <div class="section-header-alt">
+                <div class="section-badge" data-aos="fade-up">
+                    <i class="fas fa-book-open me-2"></i>Study Resources
+                </div>
+                <h2 class="section-title-alt font-display" data-aos="fade-up" data-aos-delay="100">
+                    Comprehensive Study Materials
+                </h2>
+                <p class="section-desc-alt" data-aos="fade-up" data-aos-delay="200">
+                    Access to extensive study resources and updated materials for complete preparation
+                </p>
+            </div>
+
+            <div class="materials-grid">
+                <div class="material-card-alt" data-aos="slide-right" data-aos-delay="100">
+                    <div class="material-icon">
+                        <i class="fas fa-file-pdf"></i>
+                    </div>
+                    <h3 class="material-title">PDF Study Guides</h3>
+                    <p class="material-desc">Comprehensive PDF materials covering all subjects with latest syllabus updates</p>
+                    <div class="material-stats">
+                        <span><i class="fas fa-download"></i> 500+ PDFs</span>
+                        <span><i class="fas fa-sync"></i> Weekly Updates</span>
+                    </div>
+                </div>
+
+                <div class="material-card-alt" data-aos="slide-right" data-aos-delay="200">
+                    <div class="material-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3 class="material-title">Video Lectures</h3>
+                    <p class="material-desc">HD quality recorded lectures by expert faculty for self-paced learning</p>
+                    <div class="material-stats">
+                        <span><i class="fas fa-play"></i> 1000+ Videos</span>
+                        <span><i class="fas fa-clock"></i> 24/7 Access</span>
+                    </div>
+                </div>
+
+                <div class="material-card-alt" data-aos="slide-right" data-aos-delay="300">
+                    <div class="material-icon">
+                        <i class="fas fa-newspaper"></i>
+                    </div>
+                    <h3 class="material-title">Current Affairs</h3>
+                    <p class="material-desc">Daily current affairs updates with analysis and practice questions</p>
+                    <div class="material-stats">
+                        <span><i class="fas fa-calendar-day"></i> Daily Updates</span>
+                        <span><i class="fas fa-chart-line"></i> Analysis Included</span>
+                    </div>
+                </div>
+
+                <div class="material-card-alt" data-aos="slide-right" data-aos-delay="400">
+                    <div class="material-icon">
+                        <i class="fas fa-question-circle"></i>
+                    </div>
+                    <h3 class="material-title">Practice Questions</h3>
+                    <p class="material-desc">Extensive question bank with previous year papers and model questions</p>
+                    <div class="material-stats">
+                        <span><i class="fas fa-list"></i> 10,000+ Questions</span>
+                        <span><i class="fas fa-check"></i> Solutions Included</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Alternative Mock Test Series Section -->
+    <section class="mock-tests-alt">
+        <div class="container">
+            <div class="section-header-alt">
+                <div class="section-badge" data-aos="fade-up">
+                    <i class="fas fa-clipboard-check me-2"></i>Test Series
+                </div>
+                <h2 class="section-title-alt font-display" data-aos="fade-up" data-aos-delay="100">
+                    Comprehensive Mock Test Series
+                </h2>
+                <p class="section-desc-alt" data-aos="fade-up" data-aos-delay="200">
+                    Practice with our extensive test series designed to simulate real exam conditions
+                </p>
+            </div>
+
+            <div class="tests-container">
+                <div class="test-package-alt" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="package-header">
+                        <h3>Prelims Test Series</h3>
+                        <div class="package-price">FREE</div>
+                    </div>
+                    <div class="package-content">
+                        <ul class="package-features">
+                            <li><i class="fas fa-check"></i> 50+ Mock Tests</li>
+                            <li><i class="fas fa-check"></i> Detailed Performance Analysis</li>
+                            <li><i class="fas fa-check"></i> All India Ranking</li>
+                            <li><i class="fas fa-check"></i> Solution Videos</li>
+                            <li><i class="fas fa-check"></i> Mobile App Access</li>
+                        </ul>
+                        <button class="btn-modern btn-primary-modern w-100">Start Testing</button>
+                    </div>
+                </div>
+
+                <div class="test-package-alt featured" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="package-badge">Most Popular</div>
+                    <div class="package-header">
+                        <h3>Mains Test Series</h3>
+                        <div class="package-price">FREE</div>
+                    </div>
+                    <div class="package-content">
+                        <ul class="package-features">
+                            <li><i class="fas fa-check"></i> 30+ Answer Writing Tests</li>
+                            <li><i class="fas fa-check"></i> Personal Mentor Review</li>
+                            <li><i class="fas fa-check"></i> Copy Evaluation</li>
+                            <li><i class="fas fa-check"></i> Writing Improvement Tips</li>
+                            <li><i class="fas fa-check"></i> Subject-wise Tests</li>
+                        </ul>
+                        <button class="btn-modern btn-primary-modern w-100">Start Practice</button>
+                    </div>
+                </div>
+
+                <div class="test-package-alt" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="package-header">
+                        <h3>Interview Practice</h3>
+                        <div class="package-price">FREE</div>
+                    </div>
+                    <div class="package-content">
+                        <ul class="package-features">
+                            <li><i class="fas fa-check"></i> Mock Interview Sessions</li>
+                            <li><i class="fas fa-check"></i> Panel of Ex-Officers</li>
+                            <li><i class="fas fa-check"></i> Personality Assessment</li>
+                            <li><i class="fas fa-check"></i> Communication Skills</li>
+                            <li><i class="fas fa-check"></i> Video Recording</li>
+                        </ul>
+                        <button class="btn-modern btn-primary-modern w-100">Book Session</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Alternative Alumni Network Section -->
+    <section class="alumni-alt">
+        <div class="container">
+            <div class="section-header-alt">
+                <div class="section-badge" data-aos="fade-up">
+                    <i class="fas fa-users me-2"></i>Alumni Network
+                </div>
+                <h2 class="section-title-alt font-display" data-aos="fade-up" data-aos-delay="100">
+                    Our Distinguished Alumni
+                </h2>
+                <p class="section-desc-alt" data-aos="fade-up" data-aos-delay="200">
+                    Connect with our successful alumni serving across various government departments
+                </p>
+            </div>
+
+            <div class="alumni-grid">
+                <div class="alumni-card-alt" data-aos="flip-up" data-aos-delay="100">
+                    <div class="alumni-photo">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 class="alumni-name">Rajesh Kumar IAS</h3>
+                    <p class="alumni-position">District Collector, Chennai</p>
+                    <p class="alumni-batch">AICSCC Batch 2018</p>
+                    <div class="alumni-quote">"AICSCC shaped my journey towards administrative excellence"</div>
+                </div>
+
+                <div class="alumni-card-alt" data-aos="flip-up" data-aos-delay="200">
+                    <div class="alumni-photo">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3 class="alumni-name">Priya Sharma IPS</h3>
+                    <p class="alumni-position">Superintendent of Police</p>
+                    <p class="alumni-batch">AICSCC Batch 2019</p>
+                    <div class="alumni-quote">"The mentorship and guidance here are unparalleled"</div>
+                </div>
+
+                <div class="alumni-card-alt" data-aos="flip-up" data-aos-delay="300">
+                    <div class="alumni-photo">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h3 class="alumni-name">Suresh Menon IFS</h3>
+                    <p class="alumni-position">Joint Secretary, MEA</p>
+                    <p class="alumni-batch">AICSCC Batch 2020</p>
+                    <div class="alumni-quote">"Foundation built here led to diplomatic success"</div>
+                </div>
+
+                <div class="alumni-card-alt" data-aos="flip-up" data-aos-delay="400">
+                    <div class="alumni-photo">
+                        <i class="fas fa-female"></i>
+                    </div>
+                    <h3 class="alumni-name">Meera Nair IRS</h3>
+                    <p class="alumni-position">Income Tax Commissioner</p>
+                    <p class="alumni-batch">AICSCC Batch 2021</p>
+                    <div class="alumni-quote">"Comprehensive preparation ensured my success"</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Alternative Infrastructure Section -->
+    <section class="infrastructure-alt">
+        <div class="container">
+            <div class="section-header-alt">
+                <div class="section-badge" data-aos="fade-up">
+                    <i class="fas fa-building me-2"></i>Campus Life
+                </div>
+                <h2 class="section-title-alt font-display" data-aos="fade-up" data-aos-delay="100">
+                    Modern Infrastructure & Campus Life
+                </h2>
+                <p class="section-desc-alt" data-aos="fade-up" data-aos-delay="200">
+                    Experience a conducive learning environment with state-of-the-art facilities
+                </p>
+            </div>
+
+            <div class="infrastructure-showcase">
+                <div class="infra-main-card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="infra-image">
+                        <img src="https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Campus Overview">
+                        <div class="infra-overlay">
+                            <h3>60-Acre Green Campus</h3>
+                            <p>Peaceful environment conducive to focused learning and personal growth</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="infra-grid">
+                    <div class="infra-card-small" data-aos="slide-up" data-aos-delay="200">
+                        <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Smart Classrooms">
+                        <div class="infra-content">
+                            <h4>Smart Classrooms</h4>
+                            <p>Technology-enabled learning spaces</p>
+                        </div>
+                    </div>
+
+                    <div class="infra-card-small" data-aos="slide-up" data-aos-delay="300">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Digital Library">
+                        <div class="infra-content">
+                            <h4>Digital Library</h4>
+                            <p>24/7 access to vast knowledge resources</p>
+                        </div>
+                    </div>
+
+                    <div class="infra-card-small" data-aos="slide-up" data-aos-delay="400">
+                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Recreation Center">
+                        <div class="infra-content">
+                            <h4>Recreation Center</h4>
+                            <p>Fitness and wellness facilities</p>
+                        </div>
+                    </div>
+
+                    <div class="infra-card-small" data-aos="slide-up" data-aos-delay="500">
+                        <img src="https://images.unsplash.com/photo-1555854877-bab0e564b8d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Hostel Facilities">
+                        <div class="infra-content">
+                            <h4>Comfortable Hostels</h4>
+                            <p>Safe and modern accommodation</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Alternative Online Learning Section -->
+    <section class="online-learning-alt">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
+                    <div class="learning-content">
+                        <div class="section-badge">
+                            <i class="fas fa-laptop me-2"></i>Digital Learning
+                        </div>
+                        <h2 class="section-title-alt font-display">Learn Anywhere, Anytime</h2>
+                        <p class="section-desc-alt">
+                            Access our comprehensive online learning platform with live classes, recorded sessions, and interactive content.
+                        </p>
+                        
+                        <div class="learning-features">
+                            <div class="feature-item" data-aos="fade-right" data-aos-delay="200">
+                                <div class="feature-icon">
+                                    <i class="fas fa-video"></i>
+                                </div>
+                                <div class="feature-text">
+                                    <h4>Live Interactive Classes</h4>
+                                    <p>Real-time sessions with expert faculty and Q&A support</p>
+                                </div>
+                            </div>
+
+                            <div class="feature-item" data-aos="fade-right" data-aos-delay="300">
+                                <div class="feature-icon">
+                                    <i class="fas fa-mobile-alt"></i>
+                                </div>
+                                <div class="feature-text">
+                                    <h4>Mobile App Learning</h4>
+                                    <p>Study on-the-go with our feature-rich mobile application</p>
+                                </div>
+                            </div>
+
+                            <div class="feature-item" data-aos="fade-right" data-aos-delay="400">
+                                <div class="feature-icon">
+                                    <i class="fas fa-cloud"></i>
+                                </div>
+                                <div class="feature-text">
+                                    <h4>Cloud-based Resources</h4>
+                                    <p>Access study materials and notes from anywhere</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="btn-modern btn-primary-modern" data-aos="fade-right" data-aos-delay="500">
+                            <i class="fas fa-play me-2"></i>Start Learning
+                        </button>
+                    </div>
+                </div>
+
+                <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
+                    <div class="learning-visual">
+                        <div class="learning-card floating" data-aos="zoom-in" data-aos-delay="300">
+                            <div class="card-header">
+                                <i class="fas fa-play-circle"></i>
+                                <span>Live Class in Progress</span>
+                            </div>
+                            <div class="card-content">
+                                <h4>Indian Polity - Fundamental Rights</h4>
+                                <p>By Dr. Rajesh Kumar</p>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 65%"></div>
+                                </div>
+                                <span class="progress-text">65% Complete</span>
+                            </div>
+                        </div>
+
+                        <div class="stats-floating" data-aos="zoom-in" data-aos-delay="400">
+                            <div class="stat-item">
+                                <span class="stat-number">2500+</span>
+                                <span class="stat-label">Online Students</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Alternative Events & Workshops Section -->
+    <section class="events-alt">
+        <div class="container">
+            <div class="section-header-alt">
+                <div class="section-badge" data-aos="fade-up">
+                    <i class="fas fa-calendar-alt me-2"></i>Events & Workshops
+                </div>
+                <h2 class="section-title-alt font-display" data-aos="fade-up" data-aos-delay="100">
+                    Upcoming Events & Special Programs
+                </h2>
+                <p class="section-desc-alt" data-aos="fade-up" data-aos-delay="200">
+                    Participate in exclusive workshops, seminars, and special programs by expert guest speakers
+                </p>
+            </div>
+
+            <div class="events-grid">
+                <div class="event-card-featured" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="event-date">
+                        <span class="day">25</span>
+                        <span class="month">AUG</span>
+                    </div>
+                    <div class="event-content">
+                        <h3>Motivational Session by IAS Toppers</h3>
+                        <p>Interactive session with rank holders sharing their success strategies and experiences</p>
+                        <div class="event-details">
+                            <span><i class="fas fa-clock"></i> 10:00 AM - 12:00 PM</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Main Auditorium</span>
+                        </div>
+                        <button class="btn-modern btn-primary-modern btn-sm">Register Now</button>
+                    </div>
+                </div>
+
+                <div class="event-card-alt" data-aos="slide-up" data-aos-delay="200">
+                    <div class="event-header">
+                        <span class="event-type">Workshop</span>
+                        <span class="event-date-small">Aug 28</span>
+                    </div>
+                    <h4>Essay Writing Masterclass</h4>
+                    <p>Comprehensive workshop on essay writing techniques for UPSC Mains</p>
+                    <button class="btn-modern btn-secondary-modern btn-sm">Join Workshop</button>
+                </div>
+
+                <div class="event-card-alt" data-aos="slide-up" data-aos-delay="300">
+                    <div class="event-header">
+                        <span class="event-type">Seminar</span>
+                        <span class="event-date-small">Sep 2</span>
+                    </div>
+                    <h4>Current Affairs Bootcamp</h4>
+                    <p>Intensive session covering important current affairs and their analysis</p>
+                    <button class="btn-modern btn-secondary-modern btn-sm">Book Seat</button>
+                </div>
+
+                <div class="event-card-alt" data-aos="slide-up" data-aos-delay="400">
+                    <div class="event-header">
+                        <span class="event-type">Guidance</span>
+                        <span class="event-date-small">Sep 5</span>
+                    </div>
+                    <h4>Optional Subject Selection</h4>
+                    <p>Expert guidance on choosing the right optional subject for better scores</p>
+                    <button class="btn-modern btn-secondary-modern btn-sm">Get Guidance</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Alternative Downloads & Resources Section -->
+    <section class="downloads-alt">
+        <div class="container">
+            <div class="section-header-alt">
+                <div class="section-badge" data-aos="fade-up">
+                    <i class="fas fa-download me-2"></i>Downloads & Forms
+                </div>
+                <h2 class="section-title-alt font-display" data-aos="fade-up" data-aos-delay="100">
+                    Important Downloads & Application Forms
+                </h2>
+                <p class="section-desc-alt" data-aos="fade-up" data-aos-delay="200">
+                    Access all necessary forms, brochures, and important documents for your admission process
+                </p>
+            </div>
+
+            <div class="downloads-grid">
+                <div class="download-category" data-aos="fade-right" data-aos-delay="100">
+                    <h3><i class="fas fa-file-alt me-2"></i>Application Forms</h3>
+                    <div class="download-list">
+                        <div class="download-item">
+                            <span class="download-name">Admission Application Form 2025</span>
+                            <span class="download-size">PDF • 2.5 MB</span>
+                            <button class="download-btn"><i class="fas fa-download"></i></button>
+                        </div>
+                        <div class="download-item">
+                            <span class="download-name">Scholarship Application Form</span>
+                            <span class="download-size">PDF • 1.8 MB</span>
+                            <button class="download-btn"><i class="fas fa-download"></i></button>
+                        </div>
+                        <div class="download-item">
+                            <span class="download-name">Hostel Accommodation Form</span>
+                            <span class="download-size">PDF • 1.2 MB</span>
+                            <button class="download-btn"><i class="fas fa-download"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="download-category" data-aos="fade-right" data-aos-delay="200">
+                    <h3><i class="fas fa-book me-2"></i>Study Materials</h3>
+                    <div class="download-list">
+                        <div class="download-item">
+                            <span class="download-name">General Studies Syllabus 2025</span>
+                            <span class="download-size">PDF • 800 KB</span>
+                            <button class="download-btn"><i class="fas fa-download"></i></button>
+                        </div>
+                        <div class="download-item">
+                            <span class="download-name">Previous Year Question Papers</span>
+                            <span class="download-size">ZIP • 15.2 MB</span>
+                            <button class="download-btn"><i class="fas fa-download"></i></button>
+                        </div>
+                        <div class="download-item">
+                            <span class="download-name">Current Affairs Monthly Magazine</span>
+                            <span class="download-size">PDF • 8.5 MB</span>
+                            <button class="download-btn"><i class="fas fa-download"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="download-category" data-aos="fade-right" data-aos-delay="300">
+                    <h3><i class="fas fa-info-circle me-2"></i>Information Brochures</h3>
+                    <div class="download-list">
+                        <div class="download-item">
+                            <span class="download-name">AICSCC Prospectus 2025</span>
+                            <span class="download-size">PDF • 5.2 MB</span>
+                            <button class="download-btn"><i class="fas fa-download"></i></button>
+                        </div>
+                        <div class="download-item">
+                            <span class="download-name">Fee Structure & Payment Options</span>
+                            <span class="download-size">PDF • 950 KB</span>
+                            <button class="download-btn"><i class="fas fa-download"></i></button>
+                        </div>
+                        <div class="download-item">
+                            <span class="download-name">Campus Facilities Guide</span>
+                            <span class="download-size">PDF • 3.8 MB</span>
+                            <button class="download-btn"><i class="fas fa-download"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="programs-alt">
+        <div class="container">
+            <div class="section-header-alt">
+                <div class="section-badge" data-aos="fade-up">
+                    <i class="fas fa-graduation-cap me-2"></i>Our Programs
+                </div>
+                <h2 class="section-title-alt font-display" data-aos="fade-up" data-aos-delay="100">
+                    Comprehensive Coaching Programs
+                </h2>
+                <p class="section-desc-alt" data-aos="fade-up" data-aos-delay="200">
+                    Structured preparation for every stage of UPSC Civil Services Examination
+                </p>
+            </div>
+
+            <div class="programs-grid">
+                <div class="program-card-alt" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://www.metisias.com/uploads/sliders/1721646573018.png" alt="Prelims Program" class="program-image-alt">
+                    <div class="program-content-alt">
+                        <div class="program-badge">Foundation to Advanced</div>
+                        <h3 class="program-title-alt">UPSC Prelims Program</h3>
+                        <ul class="program-features">
+                            <li><i class="fas fa-check"></i> General Studies Paper I & II</li>
+                            <li><i class="fas fa-check"></i> Current Affairs & Static GK</li>
+                            <li><i class="fas fa-check"></i> Mock Tests & Practice Sessions</li>
+                            <li><i class="fas fa-check"></i> Performance Analysis</li>
+                        </ul>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <span class="text-muted">Duration: 6 months</span>
+                            <a href="#" class="btn-modern btn-primary-modern btn-sm">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="program-card-alt" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://franchiseindia.s3.ap-south-1.amazonaws.com/uploads/content/edu/art/5a0a824fc28c7.jpg" alt="Mains Program" class="program-image-alt">
+                    <div class="program-content-alt">
+                        <div class="program-badge">Advanced Level</div>
+                        <h3 class="program-title-alt">UPSC Mains Program</h3>
+                        <ul class="program-features">
+                            <li><i class="fas fa-check"></i> Essay Writing Techniques</li>
+                            <li><i class="fas fa-check"></i> GS Papers I-IV Coverage</li>
+                            <li><i class="fas fa-check"></i> Optional Subject Support</li>
+                            <li><i class="fas fa-check"></i> Answer Writing Practice</li>
+                        </ul>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <span class="text-muted">Duration: 8 months</span>
+                            <a href="#" class="btn-modern btn-primary-modern btn-sm">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="program-card-alt" data-aos="fade-up" data-aos-delay="300">
+                    <img src="https://babafaridgroup.edu.in/assets/img/bfgi/free-career-guidance.jpg" alt="Interview Program" class="program-image-alt">
+                    <div class="program-content-alt">
+                        <div class="program-badge">Final Stage</div>
+                        <h3 class="program-title-alt">Interview & Personality Test</h3>
+                        <ul class="program-features">
+                            <li><i class="fas fa-check"></i> Mock Interview Panels</li>
+                            <li><i class="fas fa-check"></i> Personality Development</li>
+                            <li><i class="fas fa-check"></i> Communication Skills</li>
+                            <li><i class="fas fa-check"></i> Current Affairs Discussion</li>
+                        </ul>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <span class="text-muted">Duration: 2 months</span>
+                            <a href="#" class="btn-modern btn-primary-modern btn-sm">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Alternative Faculty Section -->
+    <section class="faculty-alt">
+        <div class="container">
+            <div class="section-header-alt">
+                <div class="section-badge" data-aos="fade-up">
+                    <i class="fas fa-chalkboard-teacher me-2"></i>Expert Faculty
+                </div>
+                <h2 class="section-title-alt font-display" data-aos="fade-up" data-aos-delay="100">
+                    Learn from the Best Minds
+                </h2>
+                <p class="section-desc-alt" data-aos="fade-up" data-aos-delay="200">
+                    Distinguished educators and former civil servants with proven track records
+                </p>
+            </div>
+
+            <div class="faculty-grid">
+                <div class="faculty-card-alt" data-aos="flip-left" data-aos-delay="100">
+                    <div class="faculty-avatar">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 class="faculty-name">Dr. Rajesh Kumar</h3>
+                    <p class="faculty-designation">Former IAS Officer</p>
+                    <p class="faculty-experience">25+ years experience in Public Administration and Policy Making</p>
+                </div>
+
+                <div class="faculty-card-alt" data-aos="flip-left" data-aos-delay="200">
+                    <div class="faculty-avatar">
+                        <i class="fas fa-female"></i>
+                    </div>
+                    <h3 class="faculty-name">Dr. Priya Sharma</h3>
+                    <p class="faculty-designation">Subject Expert - History</p>
+                    <p class="faculty-experience">PhD in Indian History, 20+ years teaching experience</p>
+                </div>
+
+                <div class="faculty-card-alt" data-aos="flip-left" data-aos-delay="300">
+                    <div class="faculty-avatar">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h3 class="faculty-name">Prof. Suresh Menon</h3>
+                    <p class="faculty-designation">Economics Faculty</p>
+                    <p class="faculty-experience">Former RBI Officer, Expert in Economic Policy</p>
+                </div>
+
+                <div class="faculty-card-alt" data-aos="flip-left" data-aos-delay="400">
+                    <div class="faculty-avatar">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h3 class="faculty-name">Adv. Meera Nair</h3>
+                    <p class="faculty-designation">Constitutional Law Expert</p>
+                    <p class="faculty-experience">Supreme Court Advocate, 18+ years legal practice</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Alternative Stats Section -->
+    <section class="stats-alt">
+        <div class="container">
+            <div class="stats-container">
+                <div class="stat-card-alt" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stat-icon-alt">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <div class="stat-number-alt" data-target="60">0</div>
+                    <div class="stat-label-alt">Years of Excellence</div>
+                </div>
+
+                <div class="stat-card-alt" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stat-icon-alt">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-number-alt" data-target="5000">0</div>
+                    <div class="stat-label-alt">Successful Officers</div>
+                </div>
+
+                <div class="stat-card-alt" data-aos="fade-up" data-aos-delay="300">
+                    <div class="stat-icon-alt">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="stat-number-alt" data-target="150">0</div>
+                    <div class="stat-label-alt">2024 Selections</div>
+                </div>
+
+                <div class="stat-card-alt" data-aos="fade-up" data-aos-delay="400">
+                    <div class="stat-icon-alt">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="stat-number-alt" data-target="95">0</div>
+                    <div class="stat-label-alt">Success Rate %</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Alternative Testimonials Section -->
+    <section class="testimonials-alt">
+        <div class="container">
+            <div class="section-header-alt">
+                <div class="section-badge" data-aos="fade-up">
+                    <i class="fas fa-quote-left me-2"></i>Success Stories
+                </div>
+                <h2 class="section-title-alt font-display text-white" data-aos="fade-up" data-aos-delay="100">
+                    What Our Students Say
+                </h2>
+                <p class="section-desc-alt text-white-50" data-aos="fade-up" data-aos-delay="200">
+                    Hear from our successful candidates who achieved their dreams
+                </p>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card-alt" data-aos="zoom-in" data-aos-delay="100">
+                    <p class="testimonial-quote">
+                        "AICSCC provided me with the perfect foundation and guidance. The faculty's expertise and personalized attention helped me crack the UPSC in my second attempt."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>Ananya Krishnan</h4>
+                            <p>IAS Officer, 2023 Batch</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card-alt" data-aos="zoom-in" data-aos-delay="200">
+                    <p class="testimonial-quote">
+                        "The mock interview sessions were instrumental in building my confidence. The panel of experts here truly understand what it takes to succeed."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>Vikram Patel</h4>
+                            <p>IPS Officer, 2024 Batch</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card-alt" data-aos="zoom-in" data-aos-delay="300">
+                    <p class="testimonial-quote">
+                        "The comprehensive study material and regular assessments kept me on track throughout my preparation journey. Grateful for the support."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>Srinidhi Raman</h4>
+                            <p>IFS Officer, 2024 Batch</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Alternative Features Section -->
+    <section class="features-alt">
+        <div class="container">
+            <div class="section-header-alt">
+                <div class="section-badge" data-aos="fade-up">
+                    <i class="fas fa-gem me-2"></i>Why Choose Us
+                </div>
+                <h2 class="section-title-alt font-display" data-aos="fade-up" data-aos-delay="100">
+                    Excellence in Every Aspect
+                </h2>
+                <p class="section-desc-alt" data-aos="fade-up" data-aos-delay="200">
+                    Discover what makes us the preferred choice for civil services preparation across Tamil Nadu
+                </p>
+            </div>
+
+            <div class="feature-grid">
+                <div class="feature-card-alt" data-aos="flip-left" data-aos-delay="100">
+                    <div class="feature-icon-alt">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3 class="feature-title-alt">Expert Mentorship</h3>
+                    <p class="feature-desc-alt">
+                        Learn from distinguished civil servants and subject matter experts with decades of experience in shaping successful careers.
+                    </p>
+                </div>
+
+                <div class="feature-card-alt" data-aos="flip-left" data-aos-delay="200">
+                    <div class="feature-icon-alt">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3 class="feature-title-alt">Comprehensive Coverage</h3>
+                    <p class="feature-desc-alt">
+                        Complete syllabus coverage with updated study materials, current affairs, and extensive practice sessions for all three stages.
+                    </p>
+                </div>
+
+                <div class="feature-card-alt" data-aos="flip-left" data-aos-delay="300">
+                    <div class="feature-icon-alt">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3 class="feature-title-alt">Personalized Approach</h3>
+                    <p class="feature-desc-alt">
+                        Individual attention with personalized study plans, regular assessments, and one-on-one mentoring sessions.
+                    </p>
+                </div>
+
+                <div class="feature-card-alt" data-aos="flip-left" data-aos-delay="400">
+                    <div class="feature-icon-alt">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3 class="feature-title-alt">Proven Results</h3>
+                    <p class="feature-desc-alt">
+                        Track record of consistent success with 95% pass rate and 150+ selections in 2024 alone across all civil services.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Alternative Facilities Section -->
+    <section class="facilities-alt">
+        <div class="container">
+            <div class="section-header-alt">
+                <div class="section-badge" data-aos="fade-up">
+                    <i class="fas fa-building me-2"></i>Infrastructure
+                </div>
+                <h2 class="section-title-alt font-display" data-aos="fade-up" data-aos-delay="100">
+                    World-Class Facilities
+                </h2>
+                <p class="section-desc-alt" data-aos="fade-up" data-aos-delay="200">
+                    State-of-the-art infrastructure designed for optimal learning environment
+                </p>
+            </div>
+
+            <div class="facilities-grid">
+                <div class="facility-card-alt" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="facility-icon-container">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3 class="facility-title-alt">Residential Hostel</h3>
+                    <p class="facility-desc-alt">
+                        Comfortable accommodation with study halls, mess facilities, and 24/7 security for focused preparation.
+                    </p>
+                </div>
+
+                <div class="facility-card-alt" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="facility-icon-container">
+                        <i class="fas fa-laptop"></i>
+                    </div>
+                    <h3 class="facility-title-alt">Digital Learning</h3>
+                    <p class="facility-desc-alt">
+                        Modern computer labs with high-speed internet, online test platforms, and e-learning resources.
+                    </p>
+                </div>
+
+                <div class="facility-card-alt" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="facility-icon-container">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3 class="facility-title-alt">Comprehensive Library</h3>
+                    <p class="facility-desc-alt">
+                        Extensive collection of reference books, journals, newspapers, and digital resources for research.
+                    </p>
+                </div>
+
+                <div class="facility-card-alt" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="facility-icon-container">
+                        <i class="fas fa-dumbbell"></i>
+                    </div>
+                    <h3 class="facility-title-alt">Recreation Center</h3>
+                    <p class="facility-desc-alt">
+                        Indoor games, gymnasium, and sports facilities for physical fitness and mental well-being.
+                    </p>
+                </div>
+
+                <div class="facility-card-alt" data-aos="zoom-in" data-aos-delay="500">
+                    <div class="facility-icon-container">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <h3 class="facility-title-alt">Health Care</h3>
+                    <p class="facility-desc-alt">
+                        On-campus medical facility with qualified doctors and nursing staff for student health care.
+                    </p>
+                </div>
+
+                <div class="facility-card-alt" data-aos="zoom-in" data-aos-delay="600">
+                    <div class="facility-icon-container">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="facility-title-alt">Counseling Support</h3>
+                    <p class="facility-desc-alt">
+                        Professional counseling services for academic guidance, stress management, and career planning.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Alternative News Section -->
+    <section class="news-alt">
+        <div class="container">
+            <div class="section-header-alt">
+                <div class="section-badge" data-aos="fade-up">
+                    <i class="fas fa-newspaper me-2"></i>Latest Updates
+                </div>
+                <h2 class="section-title-alt font-display" data-aos="fade-up" data-aos-delay="100">
+                    News & Announcements
+                </h2>
+                <p class="section-desc-alt" data-aos="fade-up" data-aos-delay="200">
+                    Stay updated with the latest news, notifications, and important announcements
+                </p>
+            </div>
+
+            <div class="news-grid">
+                <div class="news-card-alt" data-aos="slide-up" data-aos-delay="100">
+                    <div class="news-date">Aug 15, 2025</div>
+                    <img src="https://img.freepik.com/free-photo/students-taking-exam-classroom_329181-14066.jpg" alt="New Batch" class="news-image-alt">
+                    <div class="news-content-alt">
+                        <h3 class="news-title-alt">New Foundation Batch 2026 Commencing</h3>
+                        <p class="news-excerpt">
+                            Registration open for the comprehensive foundation course starting August 15th, 2025. Limited seats available.
+                        </p>
+                        <a href="#" class="news-link">Read More <i class="fas fa-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
+
+                <div class="news-card-alt" data-aos="slide-up" data-aos-delay="200">
+                    <div class="news-date">Aug 10, 2025</div>
+                    <img src="https://img.freepik.com/free-photo/medium-shot-people-with-graduation-caps_23-2149352499.jpg" alt="Results" class="news-image-alt">
+                    <div class="news-content-alt">
+                        <h3 class="news-title-alt">Outstanding UPSC 2024 Results</h3>
+                        <p class="news-excerpt">
+                            Congratulations to all our students! 150+ selections achieved in UPSC CSE 2024 with remarkable success rate.
+                        </p>
+                        <a href="#" class="news-link">Read More <i class="fas fa-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
+
+                <div class="news-card-alt" data-aos="slide-up" data-aos-delay="300">
+                    <div class="news-date">Aug 5, 2025</div>
+                    <img src="https://img.freepik.com/free-photo/online-message-blog-chat-communication-envelop-graphic-icon-concept_53876-139717.jpg" alt="Mock Tests" class="news-image-alt">
+                    <div class="news-content-alt">
+                        <h3 class="news-title-alt">Prelims Test Series 2025 Launch</h3>
+                        <p class="news-excerpt">
+                            Comprehensive test series now available with detailed analysis and performance tracking. Early bird discount available.
+                        </p>
+                        <a href="#" class="news-link">Read More <i class="fas fa-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Alternative Admission Process Section -->
+    <section class="admission-alt">
+        <div class="container">
+            <div class="section-header-alt">
+                <div class="section-badge" data-aos="fade-up">
+                    <i class="fas fa-clipboard-list me-2"></i>Admission Process
+                </div>
+                <h2 class="section-title-alt font-display" data-aos="fade-up" data-aos-delay="100">
+                    How to Join AICSCC
+                </h2>
+                <p class="section-desc-alt" data-aos="fade-up" data-aos-delay="200">
+                    Simple and transparent admission process for aspiring civil servants
+                </p>
+            </div>
+
+            <div class="process-container">
+                <div class="process-step" data-aos="fade-right" data-aos-delay="100">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Application Submission</h3>
+                        <p class="step-desc">
+                            Submit your online application with all required documents including educational certificates, domicile proof, and income certificate.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="process-step" data-aos="fade-left" data-aos-delay="200">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Entrance Examination</h3>
+                        <p class="step-desc">
+                            Appear for the entrance test covering general aptitude, reasoning, and current affairs. Merit-based selection process.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="process-step" data-aos="fade-right" data-aos-delay="300">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Document Verification</h3>
+                        <p class="step-desc">
+                            Physical verification of all submitted documents and certificates by our verification committee.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="process-step" data-aos="fade-left" data-aos-delay="400">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Final Selection & Enrollment</h3>
+                        <p class="step-desc">
+                            Merit list publication and enrollment process completion. Welcome to the AICSCC family!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Alternative Success Stories Section -->
+    <section class="success-alt">
+        <div class="container">
+            <div class="section-header-alt">
+                <div class="section-badge" data-aos="fade-up">
+                    <i class="fas fa-trophy me-2"></i>Hall of Fame
+                </div>
+                <h2 class="section-title-alt font-display text-white" data-aos="fade-up" data-aos-delay="100">
+                    Our Pride - Top Rankers
+                </h2>
+                <p class="section-desc-alt text-white-50" data-aos="fade-up" data-aos-delay="200">
+                    Celebrating our students who achieved top ranks in UPSC examinations
+                </p>
+            </div>
+
+            <div class="success-grid">
+                <div class="success-card-alt" data-aos="flip-up" data-aos-delay="100">
+                    <div class="success-rank">AIR 15</div>
+                    <h3 class="success-name">Kavitha Sundaram</h3>
+                    <p class="success-service">Indian Administrative Service</p>
+                    <p class="success-year">UPSC CSE 2024</p>
+                </div>
+
+                <div class="success-card-alt" data-aos="flip-up" data-aos-delay="200">
+                    <div class="success-rank">AIR 28</div>
+                    <h3 class="success-name">Rajesh Kumar</h3>
+                    <p class="success-service">Indian Police Service</p>
+                    <p class="success-year">UPSC CSE 2024</p>
+                </div>
+
+                <div class="success-card-alt" data-aos="flip-up" data-aos-delay="300">
+                    <div class="success-rank">AIR 42</div>
+                    <h3 class="success-name">Priya Natarajan</h3>
+                    <p class="success-service">Indian Foreign Service</p>
+                    <p class="success-year">UPSC CSE 2024</p>
+                </div>
+
+                <div class="success-card-alt" data-aos="flip-up" data-aos-delay="400">
+                    <div class="success-rank">AIR 67</div>
+                    <h3 class="success-name">Arjun Mehta</h3>
+                    <p class="success-service">Indian Revenue Service</p>
+                    <p class="success-year">UPSC CSE 2024</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Alternative Contact Section -->
+    <section class="contact-alt">
+        <div class="container">
+            <div class="section-header-alt">
+                <div class="section-badge" data-aos="fade-up">
+                    <i class="fas fa-envelope me-2"></i>Get In Touch
+                </div>
+                <h2 class="section-title-alt font-display" data-aos="fade-up" data-aos-delay="100">
+                    Start Your Journey Today
+                </h2>
+                <p class="section-desc-alt" data-aos="fade-up" data-aos-delay="200">
+                    Ready to transform your dreams into reality? Connect with us for guidance and admissions
+                </p>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-info-alt" data-aos="fade-right" data-aos-delay="300">
+                    <h3 class="mb-4">Connect With Excellence</h3>
+                    
+                    <div class="contact-item-alt">
+                        <div class="contact-icon-alt">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h5>Visit Our Campus</h5>
+                            <p>163/1, Kanchi, P.S.Kumarasamy Raja Salai,<br>R.A.Puram, Chennai - 600028</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item-alt">
+                        <div class="contact-icon-alt">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h5>Call Us Today</h5>
+                            <p>+91-44-24621475<br>+91-44-24621909</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item-alt">
+                        <div class="contact-icon-alt">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h5>Email Us</h5>
+                            <p>aicscc.gov@gmail.com</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item-alt">
+                        <div class="contact-icon-alt">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div>
+                            <h5>Office Hours</h5>
+                            <p>Mon-Fri: 9:00 AM - 5:00 PM<br>Saturday: 9:00 AM - 1:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form-alt" data-aos="fade-left" data-aos-delay="400">
+                    <h3 class="mb-4">Send Us a Message</h3>
+                    <form>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group-alt">
+                                    <input type="text" class="form-control-alt" placeholder=" " required>
+                                    <label class="form-label-alt">First Name</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group-alt">
+                                    <input type="text" class="form-control-alt" placeholder=" " required>
+                                    <label class="form-label-alt">Last Name</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group-alt">
+                            <input type="email" class="form-control-alt" placeholder=" " required>
+                            <label class="form-label-alt">Email Address</label>
+                        </div>
+
+                        <div class="form-group-alt">
+                            <input type="tel" class="form-control-alt" placeholder=" " required>
+                            <label class="form-label-alt">Phone Number</label>
+                        </div>
+
+                        <div class="form-group-alt">
+                            <textarea class="form-control-alt" rows="5" placeholder=" " required></textarea>
+                            <label class="form-label-alt">Your Message</label>
+                        </div>
+
+                        <button type="submit" class="btn-modern btn-primary-modern w-100">
+                            <i class="fas fa-paper-plane me-2"></i>Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            offset: 100,
+            once: true,
+            easing: 'ease-out-cubic'
+        });
+
+        // Enhanced Counter Animation
+        function animateCounter(element, target, duration = 2500) {
+            const start = 0;
+            const increment = target / (duration / 16);
+            let current = start;
+
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                
+                const suffix = target === 95 ? '%' : '+';
+                element.textContent = Math.floor(current) + suffix;
+            }, 16);
+        }
+
+        // Intersection Observer for Counter Animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target;
+                    const target = parseInt(counter.dataset.target);
+                    if (target) {
+                        animateCounter(counter, target);
+                        observer.unobserve(counter);
+                    }
+                }
+            });
+        }, { threshold: 0.5 });
+
+        // Observe all stat numbers
+        document.querySelectorAll('.stat-number-alt').forEach(counter => {
+            observer.observe(counter);
+        });
+
+        // Enhanced Card Interactions
+        document.querySelectorAll('.feature-card-alt').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-15px) rotateY(5deg)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) rotateY(0deg)';
+            });
+        });
+
+        // Program Card Interactions
+        document.querySelectorAll('.program-card-alt').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Faculty Card Interactions
+        document.querySelectorAll('.faculty-card-alt').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02) rotateY(2deg)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1) rotateY(0deg)';
+            });
+        });
+
+        // Facility Icon Hover Effects
+        document.querySelectorAll('.facility-card-alt').forEach(card => {
+            const icon = card.querySelector('.facility-icon-container');
+            
+            card.addEventListener('mouseenter', function() {
+                icon.style.transform = 'translateY(-10px) rotate(5deg) scale(1.1)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                icon.style.transform = 'translateY(0) rotate(0deg) scale(1)';
+            });
+        });
+
+        // Testimonial Card Interactions
+        document.querySelectorAll('.testimonial-card-alt').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px)';
+                this.style.background = 'rgba(255, 255, 255, 0.2)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+                this.style.background = 'rgba(255, 255, 255, 0.1)';
+            });
+        });
+
+        // News Card Hover Effects
+        document.querySelectorAll('.news-card-alt').forEach(card => {
+            const image = card.querySelector('.news-image-alt');
+            
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px)';
+                if(image) image.style.transform = 'scale(1.05)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+                if(image) image.style.transform = 'scale(1)';
+            });
+        });
+
+        // Success Card Flip Effect
+        document.querySelectorAll('.success-card-alt').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) rotateX(5deg)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) rotateX(0deg)';
+            });
+        });
+
+        // Smooth scrolling for buttons
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Parallax Effect for Background Elements
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            
+            // Testimonials background movement
+            const testimonialsBg = document.querySelector('.testimonials-alt::before');
+            if (testimonialsBg) {
+                testimonialsBg.style.transform = `translateY(${scrolled * 0.1}px)`;
+            }
+            
+            // Success section background movement
+            const successBg = document.querySelector('.success-alt');
+            if (successBg && scrolled > successBg.offsetTop - window.innerHeight) {
+                successBg.style.backgroundPosition = `center ${(scrolled - successBg.offsetTop) * 0.1}px`;
+            }
+        });
+
+        // Button Click Effects
+        document.querySelectorAll('.btn-modern').forEach(button => {
+            button.addEventListener('click', function(e) {
+                // Create ripple effect
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                
+                ripple.style.width = ripple.style.height = size + 'px';
+                ripple.style.left = (e.clientX - rect.left - size / 2) + 'px';
+                ripple.style.top = (e.clientY - rect.top - size / 2) + 'px';
+                ripple.style.position = 'absolute';
+                ripple.style.borderRadius = '50%';
+                ripple.style.background = 'rgba(255, 255, 255, 0.6)';
+                ripple.style.pointerEvents = 'none';
+                ripple.style.animation = 'ripple 0.6s linear';
+                
+                this.appendChild(ripple);
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+        });
+
+        // Add ripple animation CSS
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+            .btn-modern {
+                position: relative;
+                overflow: hidden;
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Dynamic Animations on Scroll
+        const animateOnScroll = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const element = entry.target;
+                    
+                    // Add special animations for different sections
+                    if (element.classList.contains('process-step')) {
+                        element.style.animation = 'slideInFromLeft 0.8s ease-out forwards';
+                    }
+                    
+                    if (element.classList.contains('facility-card-alt')) {
+                        element.style.animation = 'bounceIn 0.8s ease-out forwards';
+                    }
+                }
+            });
+        }, { threshold: 0.1 });
+
+        // Observe elements for scroll animations
+        document.querySelectorAll('.process-step, .facility-card-alt').forEach(el => {
+            animateOnScroll.observe(el);
+        });
+
+        // Add bounce animation
+        const bounceStyle = document.createElement('style');
+        bounceStyle.textContent = `
+            @keyframes bounceIn {
+                0% {
+                    transform: scale(0.3);
+                    opacity: 0;
+                }
+                50% {
+                    transform: scale(1.05);
+                }
+                70% {
+                    transform: scale(0.9);
+                }
+                100% {
+                    transform: scale(1);
+                    opacity: 1;
+                }
+            }
+            
+            @keyframes slideInFromLeft {
+                0% {
+                    transform: translateX(-100px);
+                    opacity: 0;
+                }
+                100% {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+        `;
+        document.head.appendChild(bounceStyle);
+
+        // Performance optimization
+        let ticking = false;
+        
+        function updateAnimations() {
+            // Update any scroll-based animations here
+            ticking = false;
+        }
+        
+        function requestTick() {
+            if (!ticking) {
+                requestAnimationFrame(updateAnimations);
+                ticking = true;
+            }
+        }
+        
+        window.addEventListener('scroll', requestTick);
+    </script>
+
+</body>
+</html>

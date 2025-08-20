@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All India Civil Services Coaching Centre - 60 Years of Excellence</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+    <!-- AOS Animation Library -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+     
+    <!--CSS-->
+    <link rel="stylesheet" href="styles.css">
+
+
+    <style>
+  /* ==== Global Variables ==== */
+  :root {
+    --primary-color: #002147;
+    --accent-color: #228B22;
+    --accent-gold: #f59e0b;
+    --text-primary: #1E293B;
+    --text-secondary: #64748b;
+    --bg-light: #f8fafc;
+    --bg-card: #ffffff;
+    --shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+    --shadow-hover: 0 12px 30px rgba(0, 0, 0, 0.12);
+  }
+
+  body {
+    background: var(--bg-light);
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-primary);
+    line-height: 1.6;
+    padding-top: 90px;
+  }
+
+  h3.section-title {
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--primary-color);
+    position: relative;
+  }
+
+  h3.section-title::after {
+    content: "";
+    display: block;
+    width: 70px;
+    height: 3px;
+    background: var(--accent-gold);
+    margin: 10px auto 0 auto;
+    border-radius: 2px;
+  }
+
+  /* ==== Card UI ==== */
+  .custom-card {
+    background: var(--bg-card);
+    border: none;
+    border-radius: 1rem;
+    box-shadow: var(--shadow);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease;
+  }
+
+  .custom-card:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-4px);
+  }
+
+  /* Class Schedule */
+  .schedule-box {
+    background: #f9fbfd;
+    border-left: 4px solid var(--primary-color);
+    padding: 1rem;
+    border-radius: 0.75rem;
+  }
+
+  /* Buttons */
+  .btn-download {
+    background: var(--accent-gold);
+    color: white;
+    border-radius: 50px;
+    font-weight: 600;
+    padding: 0.6rem 1.8rem;
+    box-shadow: var(--shadow);
+  }
+  .btn-download:hover { background: #d97706; }
+
+  /* Rank List */
+  .rank-list-box {
+    flex: 1;
+    min-width: 180px;
+    text-align: center;
+    padding: 1rem 1rem;
+    background: #f4f6fa;
+    border-radius: 0.75rem;
+    font-weight: 500;
+    color: var(--primary-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow);
+  }
+  .rank-list-box:hover {
+    background: var(--primary-color);
+    color: #fff;
+    transform: translateY(-6px);
+  }
+
+  /* Tables */
+  .table {
+    border-collapse: separate;
+    border-spacing: 0 0.6rem;
+  }
+  thead {
+    background: var(--primary-color);
+    color: #fff;
+  }
+  .table td, .table th {
+    border: none;
+    padding: 0.85rem 1rem;
+  }
+  tbody tr {
+    background: white;
+    box-shadow: var(--shadow);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  tbody tr:hover { background: #eef4ff; }
+
+  /* Footer */
+  footer {
+    margin-top: 3rem;
+    padding: 2.5rem 0;
+    background: var(--primary-color);
+    color: #e6e6e6;
+    font-size: 0.9rem;
+  }
+  footer h5 {
+    color: #fff;
+    margin-bottom: 1rem;
+  }
+  footer a {
+    color: #d1d5db;
+    text-decoration: none;
+  }
+  footer a:hover { color: var(--accent-gold); }
+
+  .accordion .accordion {
+    margin-top: 1rem;
+  }
+
+  /* Inner accordion header buttons */
+  .accordion .accordion .accordion-button {
+    background-color: #f0f4f8 !important; /* lighter background */
+    color: #004080 !important; /* darker blue text */
+    font-size: 0.95rem;
+    border-radius: 0.5rem;
+    padding-left: 2rem;
+  }
+
+  .accordion .accordion .accordion-button:not(.collapsed) {
+    background-color: #dbe9ff !important;
+    color: #003366 !important;
+    box-shadow: none;
+  }
+
+  /* Inner accordion button icon */
+  .accordion .accordion .accordion-button::after {
+    filter: invert(30%) sepia(80%) saturate(500%) hue-rotate(190deg) brightness(90%) contrast(85%);
+  }
+
+  /* Inner accordion body */
+  .accordion .accordion .accordion-body {
+    background-color: #f8fbff;
+    border-radius: 0 0 0.5rem 0.5rem;
+    padding: 1rem 1.5rem;
+    font-size: 0.9rem;
+    color: #1c2331;
+  }
+</style>
+
+    </head>
+<body>
+     <nav class="navbar navbar-expand-lg navbar-custom fixed-top" data-aos="fade-down">
+        <div class="container">
+            <a class="navbar-brand" href="#home">
+                <img src="https://www.civilservicecoaching.com/images/logo.png" alt="AICSCC Logo" class="me-0">
+                <div class="brand-text">
+                    <h5>All India Civil Services Coaching Centre</h5>
+                    <small>A Unit of Anna Institute of Management</small>
+                </div>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index 2 1.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="aboutus_new.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="gallery.html">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="programs.html">Coaching Programs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="facilities.html">Facilities</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="eligibility.html">Eligibility</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="exam_result.html">Exams & Result</a>
+                    </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="faq.html">FAQ</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+<div class="container my-5">
+  <h3 class="section-title">Frequently Asked Questions</h3>
+
+  <div class="accordion" id="mainFaqAccordion">
+
+    <!-- 1. SELECTION RELATED QUERIES -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingSelection">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSelection" aria-expanded="true" aria-controls="collapseSelection">
+          <i class="bi bi-info-circle-fill me-2 text-warning"></i> 1. SELECTION RELATED QUERIES
+        </button>
+      </h2>
+      <div id="collapseSelection" class="accordion-collapse collapse show" aria-labelledby="headingSelection" data-bs-parent="#mainFaqAccordion">
+        <div class="accordion-body px-4 pt-2 pb-4">
+
+          <div class="accordion" id="selectionSubAccordion">
+            <!-- Question a -->
+            <div class="accordion-item">
+              <h3 class="accordion-header" id="selectionHeadingA">
+                <button class="accordion-button collapsed fs-6" type="button" data-bs-toggle="collapse" data-bs-target="#selectionCollapseA" aria-expanded="false" aria-controls="selectionCollapseA">
+                  a. I was not shortlisted in the list for Scholarship. Kindly check my marks.
+                </button>
+              </h3>
+              <div id="selectionCollapseA" class="accordion-collapse collapse" aria-labelledby="selectionHeadingA" data-bs-parent="#selectionSubAccordion">
+                <div class="accordion-body">
+                  <p>No additional clarification available for this question.</p>
+                </div>
+              </div>
+            </div>
+            <!-- Question b -->
+            <div class="accordion-item">
+              <h3 class="accordion-header" id="selectionHeadingB">
+                <button class="accordion-button collapsed fs-6" type="button" data-bs-toggle="collapse" data-bs-target="#selectionCollapseB" aria-expanded="false" aria-controls="selectionCollapseB">
+                  b. I checked the answer key and I haven’t been selected.
+                </button>
+              </h3>
+              <div id="selectionCollapseB" class="accordion-collapse collapse" aria-labelledby="selectionHeadingB" data-bs-parent="#selectionSubAccordion">
+                <div class="accordion-body">
+                  <p>No additional clarification available for this question.</p>
+                </div>
+              </div>
+            </div>
+            <!-- Question c -->
+            <div class="accordion-item">
+              <h3 class="accordion-header" id="selectionHeadingC">
+                <button class="accordion-button collapsed fs-6" type="button" data-bs-toggle="collapse" data-bs-target="#selectionCollapseC" aria-expanded="false" aria-controls="selectionCollapseC">
+                  c. I got selected for AICSCC residential program but my name is not in naan mudhalvan selection list. Will I get Stipend?
+                </button>
+              </h3>
+              <div id="selectionCollapseC" class="accordion-collapse collapse" aria-labelledby="selectionHeadingC" data-bs-parent="#selectionSubAccordion">
+                <div class="accordion-body">
+                  <ul>
+                    <li>It is clarified that the entrance exam was conducted commonly under the Naan Mudhalvan Scheme for selecting candidates preparing for UPSC Preliminary-2024for Naan Mudhalvan scheme scholarship/stipend as well as the residential coaching at AICSCC (Full Time), ACCSCA (Madurai, Coimbatore) and non-residential coaching at AICSCC (Part Time).</li>
+                    <li>Based on the score card provided by the Naan Mudhalvan scheme, the provisional list has been released by the AICSCC.</li>
+                    <li>If the candidate’s name is not in the Naan Mudhalvan selection list, they will not be provided with the stipend.</li>
+                    <li>Though a candidate is not selected for the stipend under Naan Mudhalvan Scheme, based on the score card and the seats allotted for a particular category, provisional selection is given by the AICSCC.</li>
+                    <li>The provisional selection is given by the AICSCC will not entitle the candidate to get stipend under Naan Mudhalvan Scheme.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. ADMISSION RELATED QUERIES -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingAdmission">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAdmission" aria-expanded="false" aria-controls="collapseAdmission">
+          <i class="bi bi-people-fill me-2 text-warning"></i> 2. ADMISSION RELATED QUERIES
+        </button>
+      </h2>
+      <div id="collapseAdmission" class="accordion-collapse collapse" aria-labelledby="headingAdmission" data-bs-parent="#mainFaqAccordion">
+        <div class="accordion-body px-4 pt-2 pb-4">
+
+          <div class="accordion" id="admissionSubAccordion">
+
+            <!-- Admission a -->
+            <div class="accordion-item">
+              <h3 class="accordion-header" id="admissionHeadingA">
+                <button class="accordion-button collapsed fs-6" type="button" data-bs-toggle="collapse" data-bs-target="#admissionCollapseA" aria-expanded="false" aria-controls="admissionCollapseA">
+                  a. Provisional selection list has been announced. Those who are not selected are clueless.
+                </button>
+              </h3>
+              <div id="admissionCollapseA" class="accordion-collapse collapse" aria-labelledby="admissionHeadingA" data-bs-parent="#admissionSubAccordion">
+                <div class="accordion-body">
+                  <p><strong>CLARIFICATION:</strong><br>
+                    It is clarified that the provisionally selected candidates will be given admission first and if vacancy arises, waiting list will be announced on 20.10.2023 with schedule of certificate verification.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Admission b -->
+            <div class="accordion-item">
+              <h3 class="accordion-header" id="admissionHeadingB">
+                <button class="accordion-button collapsed fs-6" type="button" data-bs-toggle="collapse" data-bs-target="#admissionCollapseB" aria-expanded="false" aria-controls="admissionCollapseB">
+                  b. once the admission gets over, whether hostel room will be allotted and can we stay there
+                </button>
+              </h3>
+              <div id="admissionCollapseB" class="accordion-collapse collapse" aria-labelledby="admissionHeadingB" data-bs-parent="#admissionSubAccordion">
+                <div class="accordion-body">
+                  <ul>
+                    <li> It is clarified that the hostel room will be provided on the day of certificate verification at AICSCC, Chennai (Full time) if the aspirant produces all the necessary certificates and remits the refundable deposit of Rs.3000/-</li>
+                    <li>It is also clarified that the accommodation at ACCSCA, Madurai and Coimbatore will be provided only on the day of commencement of classes (30.10.2023) since the Universities have ensured the accommodation from the date of commencement of coaching classes.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Admission c -->
+            <div class="accordion-item">
+              <h3 class="accordion-header" id="admissionHeadingC">
+                <button class="accordion-button collapsed fs-6" type="button" data-bs-toggle="collapse" data-bs-target="#admissionCollapseC" aria-expanded="false" aria-controls="admissionCollapseC">
+                  c. I have exam scheduled on the date of admission. Can I come next day?
+                </button>
+              </h3>
+              <div id="admissionCollapseC" class="accordion-collapse collapse" aria-labelledby="admissionHeadingC" data-bs-parent="#admissionSubAccordion">
+                <div class="accordion-body">
+                  <p> <strong>CLARIFICATION:</strong><br> It is clarified that the provisionally selected candidates are supposed to attend only on the allotted dates. However, the request will be considered if appearing for other examination/interview on the production of necessary supporting documents.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Admission d -->
+            <div class="accordion-item">
+              <h3 class="accordion-header" id="admissionHeadingD">
+                <button class="accordion-button collapsed fs-6" type="button" data-bs-toggle="collapse" data-bs-target="#admissionCollapseD" aria-expanded="false" aria-controls="admissionCollapseD">
+                  d. While applying,selected the centre wrongly. Is it possible to change the centre now?
+                </button>
+              </h3>
+              <div id="admissionCollapseD" class="accordion-collapse collapse" aria-labelledby="admissionHeadingD" data-bs-parent="#admissionSubAccordion">
+                <div class="accordion-body">
+                  <p><strong>CLARIFICATION:</strong><br>It is clarified that it is not possible to change the centre at this point of time.</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. Certificate related queries -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingCertificate">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCertificate" aria-expanded="false" aria-controls="collapseCertificate">
+          <i class="bi bi-file-earmark-text-fill me-2 text-warning"></i> 3. Certificate related queries
+        </button>
+      </h2>
+      <div id="collapseCertificate" class="accordion-collapse collapse" aria-labelledby="headingCertificate" data-bs-parent="#mainFaqAccordion">
+        <div class="accordion-body px-4 pt-2 pb-4">
+
+          <div class="accordion" id="certificateSubAccordion">
+
+            <!-- Certificate a -->
+            <div class="accordion-item">
+              <h3 class="accordion-header" id="certificateHeadingA">
+                <button class="accordion-button collapsed fs-6" type="button" data-bs-toggle="collapse" data-bs-target="#certificateCollapseA" aria-expanded="false" aria-controls="certificateCollapseA">
+                  a. INCOME CERTIFICATE
+                </button>
+              </h3>
+              <div id="certificateCollapseA" class="accordion-collapse collapse" aria-labelledby="certificateHeadingA" data-bs-parent="#certificateSubAccordion">
+                <div class="accordion-body">
+                  <ol type="i" style="line-height: 1.5;">
+                    <li>can I produce my parents' payslip instead of Income certificate?</li>
+                    <li>should I use my old (2020) income certificate?</li>
+                    <li>In whose name the income certificate be?</li>
+                  </ol>
+                  <p class="mt-3"><strong>CLARIFICATION:</strong><br>Latest Income certificate (obtained within 6 months) of Parents should be produced. If the income certificate couldn’t be obtained before the admission date, the acknowledgement copy of the income certificate application be uploaded.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Certificate b -->
+            <div class="accordion-item">
+              <h3 class="accordion-header" id="certificateHeadingB">
+                <button class="accordion-button collapsed fs-6" type="button" data-bs-toggle="collapse" data-bs-target="#certificateCollapseB" aria-expanded="false" aria-controls="certificateCollapseB">
+                  b. BANK PASSBOOK– I don’t have a passbook
+                </button>
+              </h3>
+              <div id="certificateCollapseB" class="accordion-collapse collapse" aria-labelledby="certificateHeadingB" data-bs-parent="#certificateSubAccordion">
+                <div class="accordion-body">
+                  <p><strong>CLARIFICATION:</strong><br>Please upload the cancelled cheque or bank statement that shows the Bank account number, IFSC Code and Bank branch.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Certificate c -->
+            <div class="accordion-item">
+              <h3 class="accordion-header" id="certificateHeadingC">
+                <button class="accordion-button collapsed fs-6" type="button" data-bs-toggle="collapse" data-bs-target="#certificateCollapseC" aria-expanded="false" aria-controls="certificateCollapseC">
+                  c. TRANSFER CERTIFICATE – I don’t have Transfer Certificate
+                </button>
+              </h3>
+              <div id="certificateCollapseC" class="accordion-collapse collapse" aria-labelledby="certificateHeadingC" data-bs-parent="#certificateSubAccordion">
+                <div class="accordion-body">
+                  <p><strong>CLARIFICATION:</strong><br>If pursuing UG degree, get the bonafide certificate from the college stating that you are currently a student (mentioning roll number, degree and discipline/subject) and the original Transfer Certificate is held by the college. If you have opted for a residential course, get a “No Objection to reside in AICSCC/ACCSCA during the coaching duration” from the college in the Bonafide certificate itself.</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <p class="text-end fst-italic text-secondary mb-0 mt-4">CHENNAI, 12.10.2023</p>
+  <p class="text-end fw-semibold">PRINCIPAL</p>
+</div>
+
+
+
+
+  <footer class="footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="d-flex align-items-center mb-3">
+                        <img src="https://www.civilservicecoaching.com/images/logo.png" alt="AICSCC Logo" height="40"
+                            class="me-3">
+                        <div>
+                            <h5 style="color: white;">AICSCC</h5>
+                            <small>Anna Institute of Management</small>
+                        </div>
+                    </div>
+                    <p>Empowering civil service aspirants for over 60 years with world-class coaching and mentorship
+                        under the Government of Tamil Nadu.</p>
+                    <div class="social-icons">
+                        <a href="#" data-aos="zoom-in" data-aos-delay="200"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" data-aos="zoom-in" data-aos-delay="300"><i class="fab fa-twitter"></i></a>
+                        <a href="#" data-aos="zoom-in" data-aos-delay="400"><i class="fab fa-youtube"></i></a>
+                        <a href="#" data-aos="zoom-in" data-aos-delay="500"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-2" data-aos="fade-up" data-aos-delay="200">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#home" onclick="showPage('home')">Home</a></li>
+                        <li><a href="#about" onclick="showPage('about')">About Us</a></li>
+                        <li><a href="#gallery" onclick="showPage('gallery')">Gallery</a></li>
+                        <li><a href="#programs" onclick="showPage('programs')">Coaching Programs</a></li>
+                        <li><a href="#facilities" onclick="showPage('facilities')">Facilities</a></li>
+                        <li><a href="#eligibility" onclick="showPage('eligibility')">Eligibility</a></li>
+                        <li><a href="#contact" onclick="showPage('contact')">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3" data-aos="fade-up" data-aos-delay="300">
+                    <h5>Programs</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">UPSC Prelims</a></li>
+                        <li><a href="#">UPSC Mains</a></li>
+                        <li><a href="#">Interview Guidance</a></li>
+                        <li><a href="#">Mock Tests</a></li>
+                        <li><a href="#">Study Materials</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3" data-aos="fade-up" data-aos-delay="400">
+                    <h5>Contact Info</h5>
+                    <p><i class="fas fa-map-marker-alt me-2"></i>R.A.Puram, Chennai - 600028</p>
+                    <p><i class="fas fa-phone me-2"></i>044-24621475</p>
+                    <p><i class="fas fa-envelope me-2"></i>aicscc.gov@gmail.com</p>
+                </div>
+            </div>
+
+            <hr class="my-4" style="border-color: #444;">
+
+            <!-- Copyright Section -->
+            <div class="row align-items-center" data-aos="fade-up" data-aos-delay="500">
+                <div class="col-12 text-center mb-3 d-none">
+                    <div class="bg-warning text-dark rounded p-3 mb-3">
+                        <h6 class="mb-2"><i class="fas fa-copyright me-2"></i>Copyright Notice</h6>
+                        <p class="mb-0 small">All content, images, logos, and materials on this website are protected by
+                            copyright laws.
+                            Unauthorized reproduction, distribution, or use of any content without written permission is
+                            strictly prohibited.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2025 All India Civil Services Coaching Centre, Anna Institute of Management.
+                        All Rights Reserved.</p>
+                    <!-- <small class="text-muted">No part of this website may be reproduced without permission.</small> -->
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <small><strong>Government of Tamil Nadu | Official Website</strong></small><br>
+                    <!-- <small class="text-muted">Established under Tamil Nadu Government | Since 1963</small> -->
+                </div>
+            </div>
+
+            <!-- Additional Legal Information -->
+            <!-- <div class="row mt-3" data-aos="fade-up" data-aos-delay="600">
+                <div class="col-12 text-center">
+                    <div class="border-top pt-3" style="border-color: #444 !important;">
+                        <small class="text-muted">
+                            <a href="#" class="text-muted me-3">Privacy Policy</a> |
+                            <a href="#" class="text-muted mx-3">Terms of Service</a> |
+                            <a href="#" class="text-muted mx-3">Disclaimer</a> |
+                            <a href="#" class="text-muted ms-3">Website Policies</a>
+                        </small>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </footer>
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <!-- AOS Animation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            offset: 100,
+            once: true,
+            easing: 'ease-in-out'
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function () {
+            const navbar = document.querySelector('.navbar-custom');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Page navigation
+        function showPage(pageId) {
+            // Hide all pages
+            const pages = ['home', 'about', 'gallery', 'programs', 'facilities', 'eligibility', 'contact'];
+            pages.forEach(page => {
+                const pageElement = document.getElementById(page + '-page');
+                if (pageElement) {
+                    pageElement.classList.add('hidden');
+                }
+            });
+
+            // Show selected page
+            const targetPage = document.getElementById(pageId + '-page');
+            if (targetPage) {
+                targetPage.classList.remove('hidden');
+            }
+
+            // Update active nav link
+            const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+            });
+
+            const activeLink = document.querySelector(`[href="#${pageId}"]`);
+            if (activeLink) {
+                activeLink.classList.add('active');
+            }
+
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            // Collapse navbar on mobile
+            const navbarCollapse = document.querySelector('.navbar-collapse');
+            if (navbarCollapse.classList.contains('show')) {
+                const bsCollapse = new bootstrap.Collapse(navbarCollapse);
+                bsCollapse.hide();
+            }
+
+            // Re-initialize AOS for new content
+            setTimeout(() => {
+                AOS.refresh();
+            }, 100);
+        }
+
+        // Form submission
+        document.addEventListener('DOMContentLoaded', function () {
+            const forms = document.querySelectorAll('form');
+            forms.forEach(form => {
+                form.addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    alert('Thank you for your message! We will get back to you soon.');
+                    this.reset();
+                });
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target && !this.getAttribute('onclick')) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Counter animation for stats
+        function animateCounter(element, target, duration = 2000) {
+            const start = 0;
+            const increment = target / (duration / 16);
+            let current = start;
+
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                const suffix = element.textContent.includes('+') ? '+' :
+                    element.textContent.includes('%') ? '%' : '';
+                element.textContent = Math.floor(current) + suffix;
+            }, 16);
+        }
+
+        // Intersection Observer for counter animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target;
+                    const target = parseInt(counter.textContent.replace(/[^\d]/g, ''));
+                    animateCounter(counter, target);
+                    observer.unobserve(counter);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        // Observe stat numbers
+        document.querySelectorAll('.stat-number').forEach(counter => {
+            observer.observe(counter);
+        });
+
+        // Performance optimization
+        let resizeTimer;
+        window.addEventListener('resize', function () {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(function () {
+                AOS.refresh();
+            }, 250);
+        });
+
+        // Preload images for better performance
+        const imageUrls = [
+            'https://img.freepik.com/free-photo/room-interior-design_23-2148899444.jpg',
+            'https://img.freepik.com/free-photo/happy-male-candidate-greeting-member-human-resource-team-job-interview-office_637285-6567.jpg',
+            'https://media.licdn.com/dms/image/v2/C4D12AQGIP0kYaR5EOA/article-inline_image-shrink_1000_1488/article-inline_image-shrink_1000_1488/0/1650267975134'
+        ];
+
+        imageUrls.forEach(url => {
+            const link = document.createElement('link');
+            link.rel = 'preload';
+            link.as = 'image';
+            link.href = url;
+            document.head.appendChild(link);
+        });
+    </script></body>
+</html>

@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Previous Year Questions – AICSCC</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap CSS CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    
+    .downloads-alt {
+  padding: 5rem 0;
+  background: var(--white);
+}
+
+.downloads-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.download-category {
+  background: var(--primary-bg);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: var(--card-shadow);
+  transition: box-shadow 0.3s ease;
+}
+
+.download-category:hover {
+  box-shadow: var(--card-shadow-hover);
+}
+
+.download-category h3 {
+  color: var(--primary-text);
+  margin-bottom: 1.5rem;
+  font-size: 1.3rem;
+}
+
+.download-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.download-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--white);
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.05);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.download-item:hover {
+  transform: translateX(5px);
+  box-shadow: var(--card-shadow-hover);
+}
+
+.download-name {
+  font-weight: 600;
+  color: var(--primary-text);
+}
+
+.download-size {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  margin-right: 1rem;
+  white-space: nowrap;
+}
+
+.download-btn {
+  background: var(--accent-blue);
+  color: var(--white);
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 0.7rem;
+  cursor: pointer;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.download-btn:hover {
+  background: var(--accent-light);
+  color: var(--primary-text);
+  transform: scale(1.1);
+  box-shadow: var(--card-shadow-hover);
+}
+.section-title {
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            color: var(--primary-dark);
+            position: relative;
+            font-weight: 700;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-light) 100%);
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 50px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+         .hero-section {
+      background: url('https://www.civilservicecoaching.com/images/Lab.jpg') center/cover no-repeat;
+      transition: filter 0.4s ease;
+    }
+    .hero-section:hover {
+      filter: brightness(0.6);
+    }
+    .hero-overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      width: 90%;
+      max-width: 700px;
+      padding: 15px;
+      background: rgba(30, 41, 59, 0.75);
+      border-radius: 10px;
+    }
+    .hero-section:hover .hero-overlay {
+      opacity: 1;
+    }
+    .hero-overlay h1 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: 2.8rem;
+      margin-bottom: 0.5rem;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+    }
+    .hero-overlay p {
+      font-family: 'Poppins', sans-serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: 1.2rem;
+      opacity: 0.9;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+    }
+
+    @media (max-width: 768px) {
+      .hero-overlay h1 {
+        font-size: 2rem;
+      }
+      .hero-overlay p {
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-section {
+        height: 300px;
+      }
+      .hero-overlay h1 {
+        font-size: 1.6rem;
+      }
+      .hero-overlay p {
+        font-size: 0.9rem;
+      }
+    }
+
+
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-custom fixed-top" data-aos="fade-down">
+        <div class="container">
+            <a class="navbar-brand" href="#home">
+                <img src="https://www.civilservicecoaching.com/images/logo.png" alt="AICSCC Logo" class="me-0">
+                <div class="brand-text">
+                    <h5>All India Civil Services Coaching Centre</h5>
+                    <small>A Unit of Anna Institute of Management</small>
+                </div>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index 2 1.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="aboutus.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="gallery.html">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="programs.html">Coaching Programs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="facilities.html">Facilities</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="eligibility.html">Eligibility</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+<section class="hero-section" style="position: relative; height: 400px; max-height: 60vh; overflow: hidden; border-radius: 12px; cursor: pointer;">
+  <style>
+   
+  </style>
+
+  <div class="hero-overlay">
+ <h1>Previous Year Questions</h1>
+    <p>Access official AICSCC Entrance Exam question papers & answer keys</p>
+  </div>
+</section>
+
+  <!-- Main Content -->
+  <section class="downloads-alt">
+  <div class="container">
+
+      <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">
+        AICSCC Entrance Exam Question Papers & Answer Keys
+      </h2>
+      <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200">
+        Access official previous year question papers and answer keys for Entrance Exams
+      </p>
+    </div>
+
+    <div class="downloads-grid">
+      <div class="download-category" data-aos="fade-right" data-aos-delay="100">
+        <h3><i class="fas fa-question-circle me-2"></i>Question Papers</h3>
+        <div class="download-list">
+          <div class="download-item">
+            <span class="download-name">Entrance Exam 2023</span>
+            <span class="download-size">PDF • 1.2 MB</span>
+            <a href="https://www.civilservicecoaching.com/questions/2023_q.pdf" download class="download-btn" aria-label="Download Entrance Exam 2023 Question Paper">
+              <i class="fas fa-download"></i>
+            </a>
+          </div>
+          <div class="download-item">
+            <span class="download-name">Entrance Exam 2022</span>
+            <span class="download-size">PDF • 1.1 MB</span>
+            <a href="questions2022.pdf" download class="download-btn" aria-label="Download Entrance Exam 2022 Question Paper">
+              <i class="fas fa-download"></i>
+            </a>
+          </div>
+          <div class="download-item">
+            <span class="download-name">Entrance Exam 2021</span>
+            <span class="download-size">PDF • 1.0 MB</span>
+            <a href="questions2021.pdf" download class="download-btn" aria-label="Download Entrance Exam 2021 Question Paper">
+              <i class="fas fa-download"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="download-category" data-aos="fade-right" data-aos-delay="200">
+        <h3><i class="fas fa-check-circle me-2"></i>Answer Keys</h3>
+        <div class="download-list">
+          <div class="download-item">
+            <span class="download-name">Entrance Exam 2023</span>
+            <span class="download-size">PDF • 900 KB</span>
+            <a href="answerkey2023.pdf" download class="download-btn" aria-label="Download Entrance Exam 2023 Answer Key">
+              <i class="fas fa-download"></i>
+            </a>
+          </div>
+          <div class="download-item">
+            <span class="download-name">Entrance Exam 2022</span>
+            <span class="download-size">PDF • 850 KB</span>
+            <a href="answerkey2022.pdf" download class="download-btn" aria-label="Download Entrance Exam 2022 Answer Key">
+              <i class="fas fa-download"></i>
+            </a>
+          </div>
+          <div class="download-item">
+            <span class="download-name">Entrance Exam 2021</span>
+            <span class="download-size">PDF • 800 KB</span>
+            <a href="answerkey2021.pdf" download class="download-btn" aria-label="Download Entrance Exam 2021 Answer Key">
+              <i class="fas fa-download"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- Footer -->
+  <footer class="footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="d-flex align-items-center mb-3">
+                        <img src="https://www.civilservicecoaching.com/images/logo.png" alt="AICSCC Logo" height="40"
+                            class="me-3">
+                        <div>
+                            <h5 style="color: white;">AICSCC</h5>
+                            <small>Anna Institute of Management</small>
+                        </div>
+                    </div>
+                    <p>Empowering civil service aspirants for over 60 years with world-class coaching and mentorship
+                        under the Government of Tamil Nadu.</p>
+                    <div class="social-icons">
+                        <a href="#" data-aos="zoom-in" data-aos-delay="200"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" data-aos="zoom-in" data-aos-delay="300"><i class="fab fa-twitter"></i></a>
+                        <a href="#" data-aos="zoom-in" data-aos-delay="400"><i class="fab fa-youtube"></i></a>
+                        <a href="#" data-aos="zoom-in" data-aos-delay="500"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-2" data-aos="fade-up" data-aos-delay="200">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#home" onclick="showPage('home')">Home</a></li>
+                        <li><a href="#about" onclick="showPage('about')">About Us</a></li>
+                        <li><a href="#gallery" onclick="showPage('gallery')">Gallery</a></li>
+                        <li><a href="#programs" onclick="showPage('programs')">Coaching Programs</a></li>
+                        <li><a href="#facilities" onclick="showPage('facilities')">Facilities</a></li>
+                        <li><a href="#eligibility" onclick="showPage('eligibility')">Eligibility</a></li>
+                        <li><a href="#contact" onclick="showPage('contact')">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3" data-aos="fade-up" data-aos-delay="300">
+                    <h5>Programs</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">UPSC Prelims</a></li>
+                        <li><a href="#">UPSC Mains</a></li>
+                        <li><a href="#">Interview Guidance</a></li>
+                        <li><a href="#">Mock Tests</a></li>
+                        <li><a href="#">Study Materials</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3" data-aos="fade-up" data-aos-delay="400">
+                    <h5>Contact Info</h5>
+                    <p><i class="fas fa-map-marker-alt me-2"></i>R.A.Puram, Chennai - 600028</p>
+                    <p><i class="fas fa-phone me-2"></i>044-24621475</p>
+                    <p><i class="fas fa-envelope me-2"></i>aicscc.gov@gmail.com</p>
+                </div>
+            </div>
+
+            <hr class="my-4" style="border-color: #444;">
+
+            <!-- Copyright Section -->
+            <div class="row align-items-center" data-aos="fade-up" data-aos-delay="500">
+                <div class="col-12 text-center mb-3 d-none">
+                    <div class="bg-warning text-dark rounded p-3 mb-3">
+                        <h6 class="mb-2"><i class="fas fa-copyright me-2"></i>Copyright Notice</h6>
+                        <p class="mb-0 small">All content, images, logos, and materials on this website are protected by
+                            copyright laws.
+                            Unauthorized reproduction, distribution, or use of any content without written permission is
+                            strictly prohibited.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2025 All India Civil Services Coaching Centre, Anna Institute of Management.
+                        All Rights Reserved.</p>
+                    <!-- <small class="text-muted">No part of this website may be reproduced without permission.</small> -->
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <small><strong>Government of Tamil Nadu | Official Website</strong></small><br>
+                    <!-- <small class="text-muted">Established under Tamil Nadu Government | Since 1963</small> -->
+                </div>
+            </div>
+
+            <!-- Additional Legal Information -->
+            <!-- <div class="row mt-3" data-aos="fade-up" data-aos-delay="600">
+                <div class="col-12 text-center">
+                    <div class="border-top pt-3" style="border-color: #444 !important;">
+                        <small class="text-muted">
+                            <a href="#" class="text-muted me-3">Privacy Policy</a> |
+                            <a href="#" class="text-muted mx-3">Terms of Service</a> |
+                            <a href="#" class="text-muted mx-3">Disclaimer</a> |
+                            <a href="#" class="text-muted ms-3">Website Policies</a>
+                        </small>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </footer>
+
+   <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <!-- AOS Animation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            offset: 100,
+            once: true,
+            easing: 'ease-in-out'
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function () {
+            const navbar = document.querySelector('.navbar-custom');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Page navigation
+        function showPage(pageId) {
+            // Hide all pages
+            const pages = ['home', 'about', 'gallery', 'programs', 'facilities', 'eligibility', 'contact'];
+            pages.forEach(page => {
+                const pageElement = document.getElementById(page + '-page');
+                if (pageElement) {
+                    pageElement.classList.add('hidden');
+                }
+            });
+
+            // Show selected page
+            const targetPage = document.getElementById(pageId + '-page');
+            if (targetPage) {
+                targetPage.classList.remove('hidden');
+            }
+
+            // Update active nav link
+            const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+            });
+
+            const activeLink = document.querySelector(`[href="#${pageId}"]`);
+            if (activeLink) {
+                activeLink.classList.add('active');
+            }
+
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            // Collapse navbar on mobile
+            const navbarCollapse = document.querySelector('.navbar-collapse');
+            if (navbarCollapse.classList.contains('show')) {
+                const bsCollapse = new bootstrap.Collapse(navbarCollapse);
+                bsCollapse.hide();
+            }
+
+            // Re-initialize AOS for new content
+            setTimeout(() => {
+                AOS.refresh();
+            }, 100);
+        }
+
+        // Form submission
+        document.addEventListener('DOMContentLoaded', function () {
+            const forms = document.querySelectorAll('form');
+            forms.forEach(form => {
+                form.addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    alert('Thank you for your message! We will get back to you soon.');
+                    this.reset();
+                });
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target && !this.getAttribute('onclick')) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Counter animation for stats
+        function animateCounter(element, target, duration = 2000) {
+            const start = 0;
+            const increment = target / (duration / 16);
+            let current = start;
+
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                const suffix = element.textContent.includes('+') ? '+' :
+                    element.textContent.includes('%') ? '%' : '';
+                element.textContent = Math.floor(current) + suffix;
+            }, 16);
+        }
+
+        // Intersection Observer for counter animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target;
+                    const target = parseInt(counter.textContent.replace(/[^\d]/g, ''));
+                    animateCounter(counter, target);
+                    observer.unobserve(counter);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        // Observe stat numbers
+        document.querySelectorAll('.stat-number').forEach(counter => {
+            observer.observe(counter);
+        });
+
+        // Performance optimization
+        let resizeTimer;
+        window.addEventListener('resize', function () {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(function () {
+                AOS.refresh();
+            }, 250);
+        });
+
+        // Preload images for better performance
+        const imageUrls = [
+            'https://img.freepik.com/free-photo/room-interior-design_23-2148899444.jpg',
+            'https://img.freepik.com/free-photo/happy-male-candidate-greeting-member-human-resource-team-job-interview-office_637285-6567.jpg',
+            'https://media.licdn.com/dms/image/v2/C4D12AQGIP0kYaR5EOA/article-inline_image-shrink_1000_1488/article-inline_image-shrink_1000_1488/0/1650267975134'
+        ];
+
+        imageUrls.forEach(url => {
+            const link = document.createElement('link');
+            link.rel = 'preload';
+            link.as = 'image';
+            link.href = url;
+            document.head.appendChild(link);
+        });
+    </script></body>
+</html>

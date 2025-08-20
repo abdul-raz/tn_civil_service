@@ -33,6 +33,29 @@
   margin: 0 auto 4rem auto;
 }
 
+.custom-table {
+  border: 1px solid white; /* white border */
+  border-collapse: collapse;
+}
+
+.custom-table th, 
+.custom-table td {
+  border: 1px solid white; /* white borders on all cells */
+  padding: 12px;
+}
+
+.custom-table thead th {
+  background-color: black; /* almost black blue */
+  color: white; /* white text */
+}
+
+
+.custom-table tbody {
+  background-color: transparent; /* or any desired background */
+  color: black; /* body text color */
+}
+
+
 /* Tabs bar with transparent background to blend with parent */
 .nav-tabs {
   background: transparent !important;
@@ -291,20 +314,21 @@
           Now the entrance examination is conducted directly by All India Civil Services Centre, Chennai-28. When the entrance examination is conducted for preliminary coaching, notifications will be released on the website and newspaper advertisement also published. Except admission, other processing (application, hall ticket downloading, selection list, admit card) will be held online only.
         </p>
         <h5>Preliminary Examination Pattern:</h5>
-        <table class="table table-bordered w-75 mx-auto mb-3">
-          <thead class="table-primary text-center">
-            <tr>
-              <th>Paper I (Maximum Marks 200)</th>
-              <th>Paper II (Maximum Marks 200)</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="text-center">
-              <td>General Studies</td>
-              <td>CSAT (qualifying nature, 33% pass percentage not included for ranking)</td>
-            </tr>
-          </tbody>
-        </table>
+        <table class="table table-bordered w-75 mx-auto mb-3 custom-table">
+  <thead class="text-center">
+    <tr>
+      <th>Paper I (Maximum Marks 200)</th>
+      <th>Paper II (Maximum Marks 200)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="text-center">
+      <td>General Studies</td>
+      <td>CSAT (qualifying nature, 33% pass percentage not included for ranking)</td>
+    </tr>
+  </tbody>
+</table>
+
         <p>The Institute guides aspirants for nearly 6 months (December to June) to take up the Preliminary examination.</p>
       </div>
     </div>
@@ -317,52 +341,49 @@
           The aspirants who have cleared the UPSC Preliminary examination are admitted for Main Examination Coaching (225 aspirants). Intensive coaching for nearly two to four months is given to the aspirants. A monthly stipend of Rs. 3000/- is given to each candidate admitted for Main coaching, irrespective of the income ceiling to meet expenditure for accessing reading materials.
         </p>
         <h5>Main Examination Pattern</h5>
-        <table class="table table-bordered w-100 mb-4">
-          <thead class="table-primary text-center">
-            <tr>
-              <th>Papers</th>
-              <th>Marks</th>
-              <th>Total Marks</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Language</td>
-              <td class="text-center">---</td>
-              <td class="text-center">(qualifying)</td>
-            </tr>
-            <tr>
-              <td>English</td>
-              <td class="text-center">---</td>
-              <td class="text-center">(qualifying)</td>
-            </tr>
-            <tr>
-              <td>Essay</td>
-              <td class="text-center">250</td>
-              <td class="text-center">(Compulsory) 250</td>
-            </tr>
-            <tr>
-              <td>General Studies – Paper I, II, III & IV</td>
-              <td class="text-center">250 x 4</td>
-              <td class="text-center">(Compulsory) 1000</td>
-            </tr>
-            <tr>
-              <td>Optional I & II (Only one optional)</td>
-              <td class="text-center">250 x 2</td>
-              <td class="text-center">(Compulsory) 500</td>
-            </tr>
-            <tr>
-              <td>Personality Test</td>
-              <td></td>
-              <td class="text-center">275</td>
-            </tr>
-            <tr class="fw-bold">
-              <td>Total</td>
-              <td></td>
-              <td class="text-center">2025</td>
-            </tr>
-          </tbody>
-        </table>
+      <table class="table table-bordered w-75 mx-auto mb-3 custom-table">
+  <thead class="text-center">
+    <tr>
+      <th>Paper</th>
+      <th>Marks</th>
+      <th>Total Marks</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="text-center">
+      <td>Language - English</td>
+      <td>---</td>
+      <td>(qualifying)</td>
+    </tr>
+    <tr class="text-center">
+      <td>Essay</td>
+      <td>250</td>
+      <td>(Compulsory)</td>
+    </tr>
+    <tr class="text-center">
+      <td>General Studies – Paper I, II, III & IV</td>
+      <td>250 x 4</td>
+      <td>(Compulsory) 1000</td>
+    </tr>
+    <tr class="text-center">
+      <td>Optional I & II (Only one optional)</td>
+      <td>250 x 2</td>
+      <td>(Compulsory) 500</td>
+    </tr>
+    <tr class="text-center">
+      <td>Personality Test</td>
+      <td>275</td>
+      <td></td>
+    </tr>
+    <tr class="text-center">
+      <td><strong>Total</strong></td>
+      <td></td>
+      <td><strong>2025</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+
       </div>
     </div>
 

@@ -128,6 +128,7 @@
         .navbar-toggler:focus {
             box-shadow: none;
         }
+        
 
         /* Hero Section */
         .hero-section {
@@ -149,12 +150,27 @@
         }
 
         .hero-content h1 {
-            font-size: 3rem;
+            font-size: 5rem;
             font-weight: 700;
             margin-bottom: 1.5rem;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
             line-height: 1.2;
         }
+        .hero-overlay h1 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+    }
+    .hero-overlay p {
+      font-family: 'Poppins', sans-serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: 1.2rem;
+      opacity: 0.9;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+    }
 
         .hero-content .subtitle {
             font-size: 1.3rem;

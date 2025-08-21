@@ -12,8 +12,7 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"> -->
 
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
@@ -205,14 +204,14 @@
 
   </style> -->
 <style>
-    body {
+    /* body {
       font-family: 'Poppins', sans-serif;
       background: var(--primary-bg, #F8FAFC);
       color: var(--primary-text, #1E293B);
-    }
+    } */
     .section-title {
       text-align: center;
-      font-size: 2.8rem;
+      font-size: 2rem;
       margin-bottom: 1rem;
       color: var(--primary-dark, #0f172a);
       position: relative;
@@ -295,6 +294,71 @@
       margin-left: 2px;
       transition: color 0.2s;
     }
+    /* Container for tabs with transparent background and centered alignment */
+.nav-tabs {
+  background: transparent !important;
+  border-bottom: none !important;
+  justify-content: center !important;
+  padding: 0;
+  margin-bottom: 1rem;
+}
+
+/* Individual tab buttons styled as pills */
+.nav-tabs .nav-link {
+  background-color: var(--white);
+  color: var(--primary-color);
+  border-radius: 1.25rem; /* pill shape */
+  margin: 0 0.25rem;
+  padding: 0.7rem 1.5rem;
+  font-weight: 600;
+  font-size: 1.125rem;
+  border: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* for icon-text spacing */
+}
+
+/* Active tab button with strong accent color and white text */
+.nav-tabs .nav-link.active {
+  background-color: var(--accent-gold);
+  color: var(--white) !important;
+  box-shadow: none;
+}
+
+/* Hover effect for non-active tabs with lighter accent */
+.nav-tabs .nav-link:hover:not(.active) {
+  background-color: var(--accent-light);
+  color: var(--white);
+  box-shadow: none;
+}
+
+/* Tab content container with no border and rounded bottom corners */
+.tab-content {
+  background-color: transparent !important;
+  border: none !important;
+  border-radius: 0 0 1rem 1rem;
+  padding: 0;
+  max-width: 100%;
+}
+
+/* Card inside tab pane for separate content box styling */
+.tab-pane > .card {
+  border-radius: 1rem;
+  box-shadow: var(--shadow);
+  border: none;
+  padding: 2rem;
+  margin-top: 1rem;
+  background: var(--white);
+}
+
+/* Icon inside tab aligned with some margin to the right */
+.nav-tabs .nav-link i.fas {
+  line-height: 1;
+  font-size: 1.1rem;
+  margin-right: 0.5rem;
+}
+
     .download-btn:hover, .download-btn:focus {
       background: var(--accent-light, #fbbf24);
       color: var(--primary-text, #1E293B);
@@ -311,7 +375,7 @@
       .test-table th, .test-table td {font-size: 0.93rem;}
     }
     @media (max-width: 480px) {
-      .section-title {font-size: 1.3rem;}
+      .section-title {font-size: 1rem;}
       .tab-pane {padding:9px 0;}
       .test-table th, .test-table td {font-size: 0.85rem;}
     }
@@ -359,24 +423,24 @@
             </div>
         </div>
     </nav>
-    <section class="hero-section" style="position: relative; height: 400px; max-height: 60vh; overflow: hidden; border-radius: 12px; cursor: pointer;">
+    <section class="hero-section" >
   <style>
    
   </style>
 
   <div class="hero-overlay">
- <h1>Previous Year Questions</h1>
-    <p>Access official AICSCC Entrance Exam question papers & answer keys</p>
+ <h1>TEST SERIES</h1>
+    
   </div>
 </section>
     <div class="container py-5">
     <!-- Section Header -->
-    <h2 class="section-title">TEST SERIES - UPSC PRELIMINARY</h2>
+    <h2 class="section-title">UPSC PRELIMINARY</h2>
     <p class="section-subtitle">
       Comprehensive Test Series – Access question papers, answer keys, and detailed solutions by year.
     </p>
     <!-- Nav Tabs -->
-    <ul class="nav nav-tabs justify-content-center mb-3" id="testSeriesTab" role="tablist">
+    <!-- <ul class="nav nav-tabs justify-content-center mb-3" id="testSeriesTab" role="tablist">
       <li class="nav-item" role="presentation">
         <button class="nav-link active" id="tab-2023" data-bs-toggle="tab" data-bs-target="#pane-2023" type="button" role="tab" aria-controls="pane-2023" aria-selected="true"><i class="fas fa-calendar-alt me-1"></i>2023</button>
       </li>
@@ -386,7 +450,24 @@
       <li class="nav-item" role="presentation">
         <button class="nav-link" id="tab-2021" data-bs-toggle="tab" data-bs-target="#pane-2021" type="button" role="tab" aria-controls="pane-2021" aria-selected="false"><i class="fas fa-calendar-alt me-1"></i>2021</button>
       </li>
-    </ul>
+    </ul> -->
+    <ul class="nav nav-tabs justify-content-center mb-3" id="testSeriesTab" role="tablist">
+  <li class="nav-item" role="presentation">
+    <button class="nav-link active" id="tab-2023" data-bs-toggle="tab" data-bs-target="#pane-2023" type="button" role="tab" aria-controls="pane-2023" aria-selected="true">
+      2023
+    </button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="tab-2022" data-bs-toggle="tab" data-bs-target="#pane-2022" type="button" role="tab" aria-controls="pane-2022" aria-selected="false">
+      2022
+    </button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="tab-2021" data-bs-toggle="tab" data-bs-target="#pane-2021" type="button" role="tab" aria-controls="pane-2021" aria-selected="false">
+      2021
+    </button>
+  </li>
+</ul>
     <div class="tab-content" id="testSeriesTabContent">
       <!-- 2023 Tab -->
       <div class="tab-pane fade show active" id="pane-2023" role="tabpanel" aria-labelledby="tab-2023">
@@ -407,25 +488,34 @@
                 <td>1</td>
                 <td>Test-1</td>
                 <td>INDIAN POLITY</td>
-                <td><a href="#" class="download-btn" download>View <i class="fas fa-arrow-down"></i></a></td>
-                <td><a href="#" class="download-btn" download>View <i class="fas fa-arrow-down"></i></a></td>
-                <td><a href="#" class="download-btn" download>View <i class="fas fa-arrow-down"></i></a></td>
+                <td><a href="#" class="download-btn" download><i class="bi-eye-fill"></i>
+  <span style="margin-left: 0.5em;">View</span></a></td>
+                <td><a href="#" class="download-btn" download><i class="bi-eye-fill"></i>
+  <span style="margin-left: 0.5em;">View</span></a></td>
+                <td><a href="#" class="download-btn" download><i class="bi-eye-fill"></i>
+  <span style="margin-left: 0.5em;">View</span></a></td>
               </tr>
               <tr>
                 <td>2</td>
                 <td>Test-2</td>
                 <td>GEOGRAPHY</td>
-                <td><a href="#" class="download-btn" download>View <i class="fas fa-arrow-down"></i></a></td>
-                <td><a href="#" class="download-btn" download>View <i class="fas fa-arrow-down"></i></a></td>
-                <td><a href="#" class="download-btn" download>View <i class="fas fa-arrow-down"></i></a></td>
+                <td><a href="#" class="download-btn" download><i class="bi-eye-fill"></i>
+  <span style="margin-left: 0.5em;">View</span></a></td>
+                <td><a href="#" class="download-btn" download><i class="bi-eye-fill"></i>
+  <span style="margin-left: 0.5em;">View</span></a></td>
+                <td><a href="#" class="download-btn" download><i class="bi-eye-fill"></i>
+  <span style="margin-left: 0.5em;">View</span></a></td>
               </tr>
               <tr>
                 <td>3</td>
                 <td>Test-3</td>
                 <td>INDIAN HISTORY AND CULTURE</td>
-                <td><a href="#" class="download-btn" download>View <i class="fas fa-arrow-down"></i></a></td>
-                <td><a href="#" class="download-btn" download>View <i class="fas fa-arrow-down"></i></a></td>
-                <td><a href="#" class="download-btn" download>View <i class="fas fa-arrow-down"></i></a></td>
+                <td><a href="#" class="download-btn" download><i class="bi-eye-fill"></i>
+  <span style="margin-left: 0.5em;">View</span></a></td>
+                <td><a href="#" class="download-btn" download><i class="bi-eye-fill"></i>
+  <span style="margin-left: 0.5em;">View</span></a></td>
+                <td><a href="#" class="download-btn" download><i class="bi-eye-fill"></i>
+  <span style="margin-left: 0.5em;">View</span></a></td>
               </tr>
               <!-- More rows as needed -->
             </tbody>
@@ -451,17 +541,23 @@
                 <td>1</td>
                 <td>Test-1</td>
                 <td>GENERAL SCIENCE</td>
-                <td><a href="#" class="download-btn" download>View <i class="fas fa-arrow-down"></i></a></td>
-                <td><a href="#" class="download-btn" download>View <i class="fas fa-arrow-down"></i></a></td>
-                <td><a href="#" class="download-btn" download>View <i class="fas fa-arrow-down"></i></a></td>
+                <td><a href="#" class="download-btn" download><i class="bi-eye-fill"></i>
+  <span style="margin-left: 0.5em;">View</span></a></td>
+                <td><a href="#" class="download-btn" download><i class="bi-eye-fill"></i>
+  <span style="margin-left: 0.5em;">View</span></a></td>
+                <td><a href="#" class="download-btn" download><i class="bi-eye-fill"></i>
+  <span style="margin-left: 0.5em;">View</span></a></td>
               </tr>
               <tr>
                 <td>2</td>
                 <td>Test-2</td>
                 <td>INDIAN ECONOMY</td>
-                <td><a href="#" class="download-btn" download>View <i class="fas fa-arrow-down"></i></a></td>
-                <td><a href="#" class="download-btn" download>View <i class="fas fa-arrow-down"></i></a></td>
-                <td><a href="#" class="download-btn" download>View <i class="fas fa-arrow-down"></i></a></td>
+                <td><a href="#" class="download-btn" download><i class="bi-eye-fill"></i>
+  <span style="margin-left: 0.5em;">View</span></a></td>
+                <td><a href="#" class="download-btn" download><i class="bi-eye-fill"></i>
+  <span style="margin-left: 0.5em;">View</span></a></td>
+                <td><a href="#" class="download-btn" download><i class="bi-eye-fill"></i>
+  <span style="margin-left: 0.5em;">View</span></a></td>
               </tr>
               <!-- More rows as needed -->
             </tbody>
@@ -487,9 +583,12 @@
                 <td>1</td>
                 <td>Test-1</td>
                 <td>CURRENT AFFAIRS</td>
-                <td><a href="#" class="download-btn" download>View <i class="fas fa-arrow-down"></i></a></td>
-                <td><a href="#" class="download-btn" download>View <i class="fas fa-arrow-down"></i></a></td>
-                <td><a href="#" class="download-btn" download>View <i class="fas fa-arrow-down"></i></a></td>
+                <td><a href="#" class="download-btn" download><i class="bi-eye-fill"></i>
+  <span style="margin-left: 0.5em;">View</span></a></td>
+                <td><a href="#" class="download-btn" download><i class="bi-eye-fill"></i>
+  <span style="margin-left: 0.5em;">View</span></a></td>
+                <td><a href="#" class="download-btn" download><i class="bi-eye-fill"></i>
+  <span style="margin-left: 0.5em;">View</span></a></td>
               </tr>
               <!-- More rows as needed -->
             </tbody>

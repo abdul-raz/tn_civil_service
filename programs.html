@@ -32,28 +32,25 @@
   max-width: 920px;
   margin: 0 auto 4rem auto;
 }
-
 .custom-table {
-  border: 1px solid white; /* white border */
   border-collapse: collapse;
-}
-
-.custom-table th, 
-.custom-table td {
-  border: 1px solid white; /* white borders on all cells */
-  padding: 12px;
+  border: 1px solid white; /* white border around the whole table */
 }
 
 .custom-table thead th {
-  background-color: black; /* almost black blue */
-  color: white; /* white text */
+  border: 1px solid white; /* white borders around header cells */
+  background-color: black; /* almost black blue replaced with black */
+  color: white; /* white text in header */
+  padding: 12px;
 }
 
-
-.custom-table tbody {
-  background-color: transparent; /* or any desired background */
+.custom-table tbody td {
+  border: 1px solid #d3d3d3; /* light grey borders for body cells */
+  padding: 12px;
   color: black; /* body text color */
+  background-color: transparent;
 }
+
 
 
 /* Tabs bar with transparent background to blend with parent */

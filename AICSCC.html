@@ -127,14 +127,37 @@
             margin-left: auto;
             margin-right: auto;
         }
-         .hero-section {
-      background: url('https://www.civilservicecoaching.com/images/Lab.jpg') center/cover no-repeat;
-      transition: filter 0.4s ease;
-    }
+     
+     /* .hero-section {
+  height: 350px;
+  max-height: 10vh; */
+  /* transition: filter 0.4s ease;
+  background-position: center;
+  position: relative;
+  display: flex;
+  direction: column;
+  overflow: hidden;
+  border-radius: 12px;
+  cursor: pointer;
+} */
+.hero-section {
+    /* background: url('https://www.civilservicecoaching.com/images/Lab.jpg') center/cover no-repeat; */
+  
+    background-position: center;
+    height: 1rem;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; */
+    color: white;
+    /* text-align: center; */
+    /* position: relative; */
+}
+
     .hero-section:hover {
       filter: brightness(0.6);
     }
-    .hero-overlay {
+    /* .hero-overlay {
       position: absolute;
       top: 50%;
       left: 50%;
@@ -148,10 +171,10 @@
       padding: 15px;
       background: rgba(30, 41, 59, 0.75);
       border-radius: 10px;
-    }
-    .hero-section:hover .hero-overlay {
+    } */
+    /* .hero-section:hover .hero-overlay {
       opacity: 1;
-    }
+    } */
     .hero-overlay h1 {
       font-family: 'Poppins', sans-serif;
       font-weight: 700;
@@ -179,7 +202,7 @@
 
     @media (max-width: 480px) {
       .hero-section {
-        height: 300px;
+        /* height: 100px; */
       }
       .hero-overlay h1 {
         font-size: 1.6rem;
@@ -235,7 +258,7 @@
             </div>
         </div>
     </nav>
-<section class="hero-section" style="position: relative; height: 400px; max-height: 60vh; overflow: hidden; border-radius: 12px; cursor: pointer;">
+<div class="hero-section" >
   <style>
    
   </style>
@@ -244,7 +267,7 @@
  <h1>Previous Year Questions</h1>
     <p>Access official AICSCC Entrance Exam question papers & answer keys</p>
   </div>
-</section>
+</div>
 
   <!-- Main Content -->
   <section class="downloads-alt">
@@ -280,6 +303,20 @@
             <span class="download-name">Entrance Exam 2021</span>
             <span class="download-size">PDF • 1.0 MB</span>
             <a href="questions2021.pdf" download class="download-btn" aria-label="Download Entrance Exam 2021 Question Paper">
+              <i class="fas fa-download"></i>
+            </a>
+          </div>
+           <div class="download-item">
+            <span class="download-name">Entrance Exam 2022</span>
+            <span class="download-size">PDF • 1.1 MB</span>
+            <a href="questions2022.pdf" download class="download-btn" aria-label="Download Entrance Exam 2022 Question Paper">
+              <i class="fas fa-download"></i>
+            </a>
+          </div>
+           <div class="download-item">
+            <span class="download-name">Entrance Exam 2022</span>
+            <span class="download-size">PDF • 1.1 MB</span>
+            <a href="questions2022.pdf" download class="download-btn" aria-label="Download Entrance Exam 2022 Question Paper">
               <i class="fas fa-download"></i>
             </a>
           </div>

@@ -15,7 +15,9 @@
             --deep-purple: #7C3AED;
             --slate-grey: #64748B;
             --white: #ffffff;
-            --card-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --card-shadow: 
+  0 -5px 15px rgba(0, 0, 0, 0.1),   /* shadow above */
+  0 5px 10px rgba(0, 0, 0, 0.05);    /* shadow below */
             --card-shadow-hover: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
         }
 
@@ -46,6 +48,9 @@
             font-family: 'Poppins', sans-serif;
             font-weight: 600;
         }
+
+    
+
 
         /* Custom Navbar */
         .navbar-custom {
@@ -126,7 +131,7 @@
 
         /* Hero Section */
         .hero-section {
-            height: 1vh;
+            height: vh;
             min-height: 400px;
             background: linear-gradient(rgba(30, 41, 59, 0.85), rgba(59, 130, 246, 0.3)),
                 url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
@@ -725,6 +730,134 @@
         .hidden {
             display: none;
         }
+
+
+        /* Scroll to Top Button */
+        /* Parent container of tabs and content gets the gradient background */
+.tabs-container {
+  border-radius: 1rem;
+  padding: 1rem;
+  box-shadow: var(--card-shadow);
+  //
+  max-width: 920px;
+  margin: 0 auto 4rem auto;
+}
+
+.custom-table {
+  border-collapse: collapse;
+  border: 1px solid white; /* white border around the whole table */
+}
+
+.custom-table thead th {
+  border: 1px solid white; /* white borders around header cells */
+  background-color: black; /* almost black blue replaced with black */
+  color: white; /* white text in header */
+  padding: 12px;
+}
+
+.custom-table tbody td {
+  border: 1px solid #d3d3d3; /* light grey borders for body cells */
+  padding: 12px;
+  color: black; /* body text color */
+  background-color: transparent;
+}
+
+/* Tabs bar with transparent background to blend with parent */
+.nav-tabs {
+  background: transparent !important;
+  border-bottom: none !important;
+  justify-content: center !important;
+  padding: 0;
+}
+
+/* Tabs style remains as before */
+.nav-tabs .nav-link {
+  background-color: var(--white);
+  color: var(--primary-color);
+  border-radius: 1.25rem;
+  margin: 0 0.25rem;
+  padding: 0.7rem 1.5rem;
+  font-weight: 600;
+  font-size: 1.125rem;
+  border: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-tabs .nav-link.active {
+  background-color: var(--accent-gold);
+  color: var(--white) !important;
+  box-shadow: var(--shadow);
+}
+
+.nav-tabs .nav-link:hover:not(.active) {
+  background-color: var(--accent-light);
+  color: var(--white);
+  box-shadow: var(--shadow);
+}
+
+/* Tabs and tabs content  */
+.tab-content {
+  background-color: transparent !important;
+  border: none !important;
+  border-radius: 0 0 1rem 1rem;
+  padding: 2rem 3rem;
+  box-shadow: none !important;
+  max-width: 100%;
+}
+
+/* Tabs container with yellow gradient background
+.nav-tabs {
+  background: linear-gradient(90deg, var(--accent-gold), var(--accent-light));
+  border-radius: 0.75rem 0.75rem 0 0;
+  padding: 0.5rem 1rem;
+  box-shadow: var(--shadow);
+  justify-content: center !important;
+  border: none !important;
+} */
+
+/* Tab links styled as pill buttons */
+.nav-tabs .nav-link {
+  background-color: var(--white);
+  color: var(--primary-color);
+  border-radius: 0.8rem;
+  margin: 0 0.25rem;
+  padding: 0.7rem 1.5rem;
+  font-weight: 600;
+  font-size: 1.125rem;
+  border: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Active tab with solid yellow background and no glow */
+.nav-tabs .nav-link.active {
+  background-color: var(--accent-gold);
+  color: var(--white) !important;
+  box-shadow: none;
+}
+
+/* Hover effect for tabs (lighter yellow) */
+.nav-tabs .nav-link:hover:not(.active) {
+  background-color: var(--accent-light);
+  color: var(--white);
+  box-shadow: none;
+}
+
+/* Card wrapping tab content with rounded corners */
+.tab-pane > .card {
+  border-radius: 1rem;
+  box-shadow: var(--shadow);
+  border: none;
+  padding: 2rem;
+  margin-top: 1rem;
+  background: var(--white);
+}
+
+/* Tab content area with rounded corners as well */
+.tab-content {
+  border-radius: 0 0 1rem 1rem;
+  background: transparent;
+  padding: 0;
+}
 
         /* Animations */
         @keyframes float {

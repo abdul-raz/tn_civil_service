@@ -24,14 +24,6 @@
     <link rel="stylesheet" href="styles.css">
     <style>
   /* Parent container of tabs and content gets the gradient background */
-.tabs-container {
-  background: linear-gradient(90deg, var(--accent-gold), var(--accent-light));
-  border-radius: 1rem;
-  padding: 1rem;
-  box-shadow: var(--shadow);
-  max-width: 920px;
-  margin: 0 auto 4rem auto;
-}
 .custom-table {
   border-collapse: collapse;
   border: 1px solid white; /* white border around the whole table */
@@ -53,15 +45,15 @@
 
 
 
-/* Tabs bar with transparent background to blend with parent */
+/* Tabs bar with transparent background to blend with parent
 .nav-tabs {
   background: transparent !important;
   border-bottom: none !important;
   justify-content: center !important;
   padding: 0;
-}
+} */
 
-/* Tabs style remains as before */
+/* Tabs style remains as before
 .nav-tabs .nav-link {
   background-color: var(--white);
   color: var(--primary-color);
@@ -78,25 +70,25 @@
   background-color: var(--accent-gold);
   color: var(--white) !important;
   box-shadow: var(--shadow);
-}
-
+} */
+/* 
 .nav-tabs .nav-link:hover:not(.active) {
   background-color: var(--accent-light);
   color: var(--white);
   box-shadow: var(--shadow);
-}
+} */
 
 /* Content area with transparent background to show gradient behind */
-.tab-content {
+/* .tab-content {
   background-color: transparent !important;
   border: none !important;
   border-radius: 0 0 1rem 1rem;
   padding: 2rem 3rem;
   box-shadow: none !important;
   max-width: 100%;
-}
+} */
 /* Tabs container with yellow gradient background */
-.nav-tabs {
+/* .nav-tabs {
   background: linear-gradient(90deg, var(--accent-gold), var(--accent-light));
   border-radius: 0.75rem 0.75rem 0 0;
   padding: 0.5rem 1rem;
@@ -106,7 +98,7 @@
 }
 
 /* Tab links styled as pill buttons */
-.nav-tabs .nav-link {
+/* .nav-tabs .nav-link {
   background-color: var(--white);
   color: var(--primary-color);
   border-radius: 0.8rem;
@@ -119,20 +111,20 @@
 }
 
 /* Active tab with solid yellow background and no glow */
-.nav-tabs .nav-link.active {
+/* .nav-tabs .nav-link.active {
   background-color: var(--accent-gold);
   color: var(--white) !important;
   box-shadow: none;
-}
+} */ 
 
 /* Hover effect for tabs (lighter yellow) */
-.nav-tabs .nav-link:hover:not(.active) {
+/* .nav-tabs .nav-link:hover:not(.active) {
   background-color: var(--accent-light);
   color: var(--white);
   box-shadow: none;
-}
+} */ */
 
-/* Card wrapping tab content with rounded corners */
+/* Card wrapping tab content with rounded corners
 .tab-pane > .card {
   border-radius: 1rem;
   box-shadow: var(--shadow);
@@ -140,14 +132,14 @@
   padding: 2rem;
   margin-top: 1rem;
   background: var(--white);
-}
+} */
 
-/* Tab content area with rounded corners as well */
+/* Tab content area with rounded corners as well
 .tab-content {
   border-radius: 0 0 1rem 1rem;
   background: transparent;
   padding: 0;
-}
+} */
 
 
     </style>
@@ -298,6 +290,8 @@
     </li>
   </ul>
 
+
+  
   <!-- Tab Content -->
   <div class="tab-content mt-4" id="examTabContent" style="min-height: 500px;">
     <!-- Preliminary Examination -->
@@ -387,7 +381,7 @@
     <!-- Personality Test -->
     <div class="tab-pane fade" id="personality" role="tabpanel" aria-labelledby="personality-tab" tabindex="0">
       <div class="card shadow-sm p-4">
-        <h3>Personality Test:</h3>
+        <h3>Personalty Test:</h3>
         <p>
           The Institute conducts Model Personality Tests for candidates who have cleared their Main Examination. Sessions are conducted by senior officers and subject experts. Topics are discussed with experts. Accommodation is available in Tamilnadu House, New Delhi, with Rs. 2000/- travel allowance provided for attendance.
         </p>

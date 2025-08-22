@@ -7,7 +7,7 @@
 
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
@@ -37,16 +37,61 @@
     --shadow-hover: 0 12px 30px rgba(0, 0, 0, 0.12);
   } */
 
-      ul li a {
-  text-decoration: none;
-  color: inherit; /* Inherit color from parent, avoid default blue */
-  transition: color 0.3s ease;
-      }
-
-   ul li a:hover {
-  color: var(--accent-gold); /* Change color on hover */
-  text-decoration: underline; /* Optional: underline on hover */
+  .tabs-container{
+    border:none;
+    border-radius:25px;
+  }
+.tab-pane > .card {
+  border-radius: 1rem;
+  border-left: 3px solid var(--accent-gold);
+  border-right: 3px solid var(--accent-gold);
+  border-top: none;
+  border-bottom: none;
+  padding: 2rem;
+  margin-top: 1rem;
+  background: var(--white);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* subtle soft shadow below for depth */
 }
+
+.tab-pane {
+  background: #fff;
+  border-radius: 0 0 16px 16px;
+  box-shadow: 0 2px 14px rgba(0,0,0,0.07);
+  padding: 28px 18px 18px;
+  margin-top: -2px;
+}
+
+.test-table {
+  margin-bottom: 0;
+  width: 75%; /* matching your w-75 */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.test-table th {
+  background: var(--primary-dark, #0f172a);
+  color: #fff;
+  font-weight: 600;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 1rem;
+  border: 1px solid #fff;
+  padding: 12px;
+}
+
+.test-table td {
+  vertical-align: middle;
+  text-align: center;
+  font-size: 1rem;
+  border: 1px solid #d3d3d3;
+  padding: 12px;
+  background-color: transparent;
+  color: black;
+}
+
+/* Remove underline and inherit color for links only inside tab content */
+
+
 
 
   /* /* .custom-table {
@@ -72,13 +117,13 @@
   color: white;        /* gold text on hover */
 }
 
-.custom-table thead th {
-  border: 1px solid white; /* white borders around header cells */
-  background-color: black; /* black header background */
-  color: white; /* white text in header */
+/* .custom-table thead th {
+  border: 1px solid white; 
+  background-color: black; 
+  color: white; 
   padding: 12px;
   text-align:center;
-}
+} */
 /* Override tabs-container when inside columns */
 .col-md-6 .tabs-container {
   max-width: none;
@@ -92,6 +137,13 @@
   margin: 0 auto 4rem auto;
 }
 
+.exam-tabs-wrapper {
+  display: inline-block;
+border-radius: 50px;
+  padding: 0.5rem;
+  box-shadow: -4px 0 8px rgba(0, 0, 0, 0.1), 4px 0 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
+}
 /* Container with gradient background */
 /* .tabs-container {
   background: linear-gradient(90deg, var(--accent-gold), var(--accent-light));
@@ -349,6 +401,69 @@
 } */
 
   /* Footer */
+.bg-soft {
+  background-color: #f1f5f9; /* light grey */
+  color: var(--primary-color); 
+  font-weight: 500;
+  border-radius: 0.5rem;
+}
+.tab-pane > .card {
+  border-radius: 1rem;
+  border-left: 3px solid var(--accent-gold);
+  border-right: 3px solid var(--accent-gold);
+  border-top: none;
+  border-bottom: none;
+  padding: 2rem;
+  margin-top: 1rem;
+  background: var(--white);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* subtle soft shadow below for depth */
+}
+
+
+/* Nav pills styling */
+.nav-pills .nav-link {
+  background-color: rgb(222, 222, 222); /* Light grey background for inactive pills */
+  color: white;
+  border-radius: 25px;
+  padding: 0.6rem 1.5rem;
+  font-weight: 600;
+  font-size: 1.125rem;
+  border: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-pills .nav-link.active {
+  background-color: var(--accent-gold) !important;
+  color: white !important;
+  border-radius: 25px;
+  box-shadow: none;
+}
+
+.nav-pills .nav-link:hover:not(.active) {
+  background-color: var(--accent-light);
+  color: white;
+  border-radius: 25px;
+  box-shadow: none;
+}
+
+.exam-tabs-wrapper ul.nav-pills {
+  display: flex;
+  justify-content: center;
+  gap: 1rem; /* adds space between the tab buttons */
+}
+/* Exam tabs wrapper */
+/* .exam-tabs-wrapper {
+  display: inline-block;
+  border-radius: 0.75rem 0.75rem 0 0;
+  padding: 0.5rem;
+  box-shadow: -4px 0 8px rgba(0, 0, 0, 0.1), 4px 0 8px rgba(0, 0, 0, 0.1);
+  
+} */
+
+/* Nav link color override */
+.nav-link {
+  color: rgb(232, 232, 232);
+}
   footer {
     margin-top: 3rem;
     padding: 2.5rem 0;
@@ -365,6 +480,36 @@
     text-decoration: none;
   }
   footer a:hover { color: var(--accent-gold); }
+
+  /* Style the list items inside tab content */#yearTabContent ul.list-unstyled li {
+  background-color: transparent; /* Remove card-like background */
+  padding: 0; /* Remove extra padding */
+  border-radius: 0; /* No rounding */
+  margin-bottom: 0.4rem; /* Spacing between items */
+  transition: background-color 0.3s ease;
+}
+
+#yearTabContent ul.list-unstyled li:hover {
+  background-color: transparent; /* No background change on li hover */
+}
+
+#yearTabContent ul.list-unstyled li a {
+  color: var(--primary-color);
+  font-weight: 500;
+  text-decoration: none;
+  display: inline; /* default inline */
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+#yearTabContent ul.list-unstyled li a:hover {
+  color: var(--accent-gold);
+  text-decoration: underline;
+}
+
+
+
+
+  
 </style>
 
     </head>
@@ -417,11 +562,11 @@
   <!-- Section 1: Class Schedule -->
 <div class="container my-5">
   <h3 class="section-title">Class Schedule</h3>
-
+<br>
   <div class="row g-4 equal-height">
     <!-- Full-time -->
     <div class="col-md-6 d-flex flex-column">
-      <div class="tabs-container p-4 flex-grow-1">
+      <div class=" card shadow-lg tabs-container p-4 flex-grow-1">
         <h5 class="fw-bold mb-4">Full-time (Residential)</h5>
         <div class="schedule-table">
           <div class="schedule-icon"><i class="bi bi-calendar-check text-primary fs-4"></i></div>
@@ -445,25 +590,25 @@
 
     <!-- Part-time -->
     <div class="col-md-6 d-flex flex-column">
-      <div class="tabs-container p-4 flex-grow-1">
+      <div class=" card shadow-lg tabs-container p-4 flex-grow-1">
         <h5 class="fw-bold mb-4">Part-time</h5>
         <div class="parttime-table">
           <div class="row">
-            <div class="col-md-6 mb-3 d-flex align-items-center">
+            <div class="col-md-6 mb-3 d-flex align-items-start">
               <i class="bi bi-calendar-check text-primary fs-4 me-3"></i>
               <div><strong>Monday to Friday:</strong><br>1 session with tests for 4 Months</div>
             </div>
-            <div class="col-md-6 mb-3 d-flex align-items-center">
+            <div class="col-md-6 mb-3 d-flex align-items-start">
               <i class="bi bi-clock text-success fs-4 me-3"></i>
               <div><strong>Timing:</strong><br>6:30 p.m. to 8:30 p.m.</div>
             </div>
           </div>
           <div class="row">
-            <div class="col-md-6 mb-3 d-flex align-items-center">
+            <div class="col-md-6 mb-3 d-flex align-items-start">
               <i class="bi bi-calendar-week text-warning fs-4 me-3"></i>
               <div><strong>Saturday & Sunday:</strong><br>2 Sessions with tests for 4 months</div>
             </div>
-            <div class="col-md-6 mb-3 d-flex align-items-center">
+            <div class="col-md-6 mb-3 d-flex align-items-start">
               <i class="bi bi-clock text-success fs-4 me-3"></i>
               <div>
                 <strong>F.N:</strong> 10:30 a.m. to 12:30 p.m.<br>
@@ -478,47 +623,75 @@
 
   
 <!-- Tests & Model Tests -->
-<div class="row g-4 mt-5">
-  <div class="col-md-12">
-    <div class="tabs-container p-4" style="max-width: none; margin: 0;">
-      <h5 class="fw-bold mb-4 text-center">Tests & Model Tests (Full-time & Part-time)</h5>
-      <div class="row text-center">
-        <div class="col-md-6 d-flex flex-column">
-          <div class="schedule-item flex-grow-1">
-            <div class="schedule-icon"><i class="bi bi-calendar-event text-danger fs-4 mb-2"></i></div>
-            <div class="schedule-label"><strong>Duration</strong></div>
-            <div class="schedule-content">Mon – Fri (For 2 months)</div>
-          </div>
-        </div>
-        <div class="col-md-6 d-flex flex-column">
-          <div class="schedule-item flex-grow-1">
-            <div class="schedule-icon"><i class="bi bi-clock text-success fs-4 mb-2"></i></div>
-            <div class="schedule-label"><strong>Timings</strong></div>
-            <div class="schedule-content">Morning & Afternoon</div>
-          </div>
-        </div>
-      </div>
+<!-- Tests & Model Tests -->
+<div class="mt-5">
+  <div class="card shadow-lg  tabs-container p-4" style="max-width: none; margin: 0;">
+    <h5 class="fw-bold mb-4 text-center">Tests & Model Tests (Full-time & Part-time)</h5>
+
+    <!-- Bootstrap Grid Row -->
+    <div class="row justify-content-center gx-5 gy-3">
+
+      <!-- Duration Column -->
+    <div class="col-md-5 d-flex align-items-center">
+  <i class="bi bi-calendar-event text-danger fs-4 me-2"></i>
+  <div style="display: flex; gap: 0.5rem; white-space: nowrap;">
+    <div class="schedule-label fw-bold">Duration:</div>
+    <div class="schedule-content">Monday – Friday (For 2 months)</div>
+  </div>
+</div>
+
+
+      <!-- Timings Column -->
+     <div class="col-md-5 d-flex align-items-center">
+  <i class="bi bi-clock text-success fs-4 me-2"></i>
+  <div style="display: flex; gap: 0.5rem; white-space: nowrap;">
+    <div class="schedule-label fw-bold">Timings:</div>
+    <div class="schedule-content">Morning & Afternoon</div>
+  </div>
+</div>
+
+
     </div>
   </div>
 </div>
 
 
+
+
+
+
 </div>
 
 
 
 
+
+
+<h3 class="section-title">RESULT</h3>
+<br>
+<div style="display: flex; align-items: center; gap: 0.5rem; font-weight: 600; font-size: 1rem; color: #333; justify-content: center; background-color: #fff8e1; padding: 0.5rem 1rem; border-radius: 0.5rem; box-shadow: 0 0 8px rgba(255, 193, 7, 0.3); max-width: fit-content; margin: 0 auto;">
+  <i class="bi bi-check-circle-fill" style="color: var(--accent-gold); font-size: 1.25rem; "></i>
+  <div>
+    From the year 2015 to 2021, Successfully UPSC Cleared AICSCC Students
+  </div>
+ <a href="https://www.civilservicecoaching.com/results/overall-passed-upsc.pdf" 
+   class="btn btn-success btn-sm px-3" target="_blank" style="text-decoration: none; display: inline-flex; align-items: center; gap: 0.3rem;">
+  <i class="bi bi-download"></i> Download
+</a>
+
+</div>
 <br>
 
+<style>
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+  }
+</style>
 
-  <!-- Section 2: Results Download -->
-  <h3 class="section-title">RESULTS</h2>
- <div class="text-center mb-4 results-section tabs-container">
-  <div class="mb-2">From the year 2015 to 2021, Successfully UPSC Cleared AICSCC Students</div>
-  <button class="btn download-btn px-4 py-2">
-    <a href="https://www.civilservicecoaching.com/results/overall-passed-upsc.pdf" class="btn btn-success btn-sm px-3" target="_blank"> Download </a>
-  </button>
-</div>
+
+
+
 
 
 
@@ -528,209 +701,277 @@
 <h3 class="section-title">AICSCC ADMISSION PROCESS AND RANK LIST</h3>
 <br>
 <!-- Year Tabs -->
-<ul class="nav nav-tabs justify-content-center" id="yearTab" role="tablist">
-  <li class="nav-item" role="presentation">
-    <button class="nav-link active" id="y2023-tab" data-bs-toggle="tab" data-bs-target="#y2023" type="button" role="tab" aria-controls="y2023" aria-selected="true">
-      2023-2024
-    </button>
-  </li>
-  <li class="nav-item" role="presentation">
-    <button class="nav-link" id="y2022-tab" data-bs-toggle="tab" data-bs-target="#y2022" type="button" role="tab" aria-controls="y2022" aria-selected="false">
-      2022-2023
-    </button>
-  </li>
-  <li class="nav-item" role="presentation">
-    <button class="nav-link" id="y2021-tab" data-bs-toggle="tab" data-bs-target="#y2021" type="button" role="tab" aria-controls="y2021" aria-selected="false">
-      2021-2022
-    </button>
-  </li>
-  <li class="nav-item" role="presentation">
-    <button class="nav-link" id="y2020-tab" data-bs-toggle="tab" data-bs-target="#y2020" type="button" role="tab" aria-controls="y2020" aria-selected="false">
-      2020-2021
-    </button>
-  </li>
-  <li class="nav-item" role="presentation">
-    <button class="nav-link" id="y2019-tab" data-bs-toggle="tab" data-bs-target="#y2019" type="button" role="tab" aria-controls="y2019" aria-selected="false">
-      2019-2020
-    </button>
-  </li>
-</ul>
-
-<!-- Tab Content -->
-<div class="tab-content mt-4" id="yearTabContent" style="min-height: 500px;">
-
-  <div class="tab-pane fade show active" id="y2023" role="tabpanel" aria-labelledby="y2023-tab" tabindex="0">
-    <div class="card shadow-sm p-4">
-      <h5 class="mb-4">AICSCC Selection Process 2023-24</h5>
-
-      <section class="mb-4">
-        <h6 class="text-primary fw-semibold mb-2">Appeared List</h6>
-        <ul class="list-unstyled ps-3">
-          <li><a href="#" target="_blank" rel="noopener">Chennai Full Time Download</a></li>
-          <li><a href="#" target="_blank" rel="noopener">Chennai Part Time Download</a></li>
-          <li><a href="#" target="_blank" rel="noopener">Coimbatore Download</a></li>
-          <li><a href="#" target="_blank" rel="noopener">Madurai Download</a></li>
-        </ul>
-      </section>
-
-      <section class="mb-4">
-        <h6 class="text-primary fw-semibold mb-2">Rank List</h6>
-        <ul class="list-unstyled ps-3">
-          <li><a href="#" target="_blank" rel="noopener">Chennai Full Time Download</a></li>
-          <li><a href="#" target="_blank" rel="noopener">Chennai Part Time Download</a></li>
-          <li><a href="#" target="_blank" rel="noopener">Coimbatore Download</a></li>
-          <li><a href="#" target="_blank" rel="noopener">Madurai Download</a></li>
-        </ul>
-      </section>
-
-      <section class="mb-4">
-        <h6 class="text-primary fw-semibold mb-2">Cutoff</h6>
-        <ul class="list-unstyled ps-3">
-          <li><a href="#" target="_blank" rel="noopener">Download</a></li>
-        </ul>
-      </section>
-
-      <section>
-        <h6 class="text-primary fw-semibold mb-2">Admission Breakup</h6>
-        <ul class="list-unstyled ps-3">
-          <li><a href="#" target="_blank" rel="noopener">Chennai Full Time Download</a></li>
-          <li><a href="#" target="_blank" rel="noopener">Chennai Part Time Download</a></li>
-          <li><a href="#" target="_blank" rel="noopener">Coimbatore Download</a></li>
-          <li><a href="#" target="_blank" rel="noopener">Madurai Download</a></li>
-        </ul>
-      </section>
-    </div>
+<div class="d-flex justify-content-center ">
+  <div class="exam-tabs-wrapper">
+    <ul class="nav nav-pills justify-content-center" id="yearTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="y2023-tab" data-bs-toggle="pill" data-bs-target="#y2023" type="button" role="tab" aria-controls="y2023" aria-selected="true">
+          2023-2024
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="y2022-tab" data-bs-toggle="pill" data-bs-target="#y2022" type="button" role="tab" aria-controls="y2022" aria-selected="false">
+          2022-2023
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="y2021-tab" data-bs-toggle="pill" data-bs-target="#y2021" type="button" role="tab" aria-controls="y2021" aria-selected="false">
+          2021-2022
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="y2020-tab" data-bs-toggle="pill" data-bs-target="#y2020" type="button" role="tab" aria-controls="y2020" aria-selected="false">
+          2020-2021
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="y2019-tab" data-bs-toggle="pill" data-bs-target="#y2019" type="button" role="tab" aria-controls="y2019" aria-selected="false">
+          2019-2020
+        </button>
+      </li>
+    </ul>
   </div>
-
-  <div class="tab-pane fade" id="y2022" role="tabpanel" aria-labelledby="y2022-tab" tabindex="0">
-    <div class="card shadow-sm p-4">
-      <h5 class="mb-4">AICSCC Selection Process DEC 2022</h5>
-
-      <section class="mb-4">
-        <h6 class="text-primary fw-semibold mb-2">Appeared List</h6>
-        <ul class="list-unstyled ps-3">
-          <li><a href="#" target="_blank" rel="noopener">Chennai Download</a></li>
-          <li><a href="#" target="_blank" rel="noopener">Coimbatore Download</a></li>
-          <li><a href="#" target="_blank" rel="noopener">Madurai Download</a></li>
-        </ul>
-      </section>
-
-      <section class="mb-4">
-        <h6 class="text-primary fw-semibold mb-2">Rank List</h6>
-        <ul class="list-unstyled ps-3">
-          <li><a href="#" target="_blank" rel="noopener">Chennai Full Time Download</a></li>
-          <li><a href="#" target="_blank" rel="noopener">Chennai Part Time Download</a></li>
-          <li><a href="#" target="_blank" rel="noopener">Coimbatore Download</a></li>
-          <li><a href="#" target="_blank" rel="noopener">Madurai Download</a></li>
-        </ul>
-      </section>
-
-      <section class="mb-4">
-        <h6 class="text-primary fw-semibold mb-2">Cutoff</h6>
-        <ul class="list-unstyled ps-3">
-          <li><a href="#" target="_blank" rel="noopener">Download</a></li>
-        </ul>
-      </section>
-
-      <section>
-        <h6 class="text-primary fw-semibold mb-2">Admission Breakup</h6>
-        <ul class="list-unstyled ps-3">
-          <li><a href="#" target="_blank" rel="noopener">Chennai Full Time Download</a></li>
-          <li><a href="#" target="_blank" rel="noopener">Chennai Part Time Download</a></li>
-          <li><a href="#" target="_blank" rel="noopener">Coimbatore Download</a></li>
-          <li><a href="#" target="_blank" rel="noopener">Madurai Download</a></li>
-        </ul>
-      </section>
-    </div>
-  </div>
-
-  <div class="tab-pane fade" id="y2021" role="tabpanel" aria-labelledby="y2021-tab" tabindex="0">
-    <div class="card shadow-sm p-4">
-      <h5 class="mb-4">AICSCC Selection Process FEB 2022</h5>
-
-      <section class="mb-4">
-        <h6 class="text-primary fw-semibold mb-2">Appeared List</h6>
-        <ul class="list-unstyled ps-3">
-          <li><a href="#" target="_blank" rel="noopener">Download</a></li>
-        </ul>
-      </section>
-
-      <section class="mb-4">
-        <h6 class="text-primary fw-semibold mb-2">Rank List</h6>
-        <ul class="list-unstyled ps-3">
-          <li><a href="#" target="_blank" rel="noopener">Coimbatore Download</a></li>
-          <li><a href="#" target="_blank" rel="noopener">Madurai Download</a></li>
-        </ul>
-      </section>
-
-      <section class="mb-4">
-        <h6 class="text-primary fw-semibold mb-2">Cutoff</h6>
-        <ul class="list-unstyled ps-3">
-          <li><a href="#" target="_blank" rel="noopener">Download</a></li>
-        </ul>
-      </section>
-
-      <section>
-        <h6 class="text-primary fw-semibold mb-2">Admission Breakup</h6>
-        <ul class="list-unstyled ps-3">
-          <li><a href="#" target="_blank" rel="noopener">Chennai Full Time Download</a></li>
-          <li><a href="#" target="_blank" rel="noopener">Chennai Part Time Download</a></li>
-        </ul>
-      </section>
-    </div>
-  </div>
-
-  <div class="tab-pane fade" id="y2020" role="tabpanel" aria-labelledby="y2020-tab" tabindex="0">
-    <div class="card shadow-sm p-4">
-      <h5 class="mb-4">AICSCC Selection Process FEB 2021</h5>
-
-      <section class="mb-4">
-        <h6 class="text-primary fw-semibold mb-2">Appeared List</h6>
-        <ul class="list-unstyled ps-3">
-          <li><a href="#" target="_blank" rel="noopener">Chennai Download</a></li>
-        </ul>
-      </section>
-
-      <section class="mb-4">
-        <h6 class="text-primary fw-semibold mb-2">Rank List</h6>
-        <ul class="list-unstyled ps-3">
-          <li><a href="#" target="_blank" rel="noopener">Chennai Full Time Download</a></li>
-          <li><a href="#" target="_blank" rel="noopener">Chennai Part Time Download</a></li>
-        </ul>
-      </section>
-
-      <section>
-        <h6 class="text-primary fw-semibold mb-2">Cutoff</h6>
-        <ul class="list-unstyled ps-3">
-          <li><a href="#" target="_blank" rel="noopener">Download</a></li>
-        </ul>
-      </section>
-    </div>
-  </div>
-
-  <div class="tab-pane fade" id="y2019" role="tabpanel" aria-labelledby="y2019-tab" tabindex="0">
-    <div class="card shadow-sm p-4">
-      <h5 class="mb-4">AICSCC Selection Process 2019-2020</h5>
-
-      <section class="mb-4">
-        <h6 class="text-primary fw-semibold mb-2">Appeared List</h6>
-        <ul class="list-unstyled ps-3">
-          <li><a href="#" target="_blank" rel="noopener">Chennai Download</a></li>
-        </ul>
-      </section>
-
-      <section>
-        <h6 class="text-primary fw-semibold mb-2">Rank List</h6>
-        <ul class="list-unstyled ps-3">
-          <li><a href="#" target="_blank" rel="noopener">Chennai Full Time Download</a></li>
-          <li><a href="#" target="_blank" rel="noopener">Chennai Part Time Download</a></li>
-        </ul>
-      </section>
-    </div>
-  </div>
-
 </div>
 
+
+
+
+<!-- Tab Content -->
+<div class="tab-content" id="yearTabContent" style="min-height: 200px; margin-top: 0;">
+  <!-- 2023-24 Tab Pane -->
+  <div class="tab-pane fade show active" id="y2023" role="tabpanel" aria-labelledby="y2023-tab" tabindex="0">
+    <div class="card shadow p-4" style="
+      border-left: 3px solid var(--accent-gold);
+      border-right: 3px solid var(--accent-gold);
+      border-top: none;
+      border-bottom: none;
+      border-radius: 1rem;
+      margin-top: 1rem;
+      background: var(--white);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    ">
+      <h5 class="mb-4" style="color: var(--primary-color); font-weight: 600;">AICSCC Selection Process 2023-24</h5>
+
+      <div class="row g-4">
+        <section class="col-3">
+          <h6 class="fw-semibold mb-2" style="color: #304a6b;">Appeared List</h6>
+          <ul class="list-unstyled ps-3">
+            <li><a href="#" target="_blank" rel="noopener">Chennai Full Time Download</a></li>
+            <li><a href="#" target="_blank" rel="noopener">Chennai Part Time Download</a></li>
+            <li><a href="#" target="_blank" rel="noopener">Coimbatore Download</a></li>
+            <li><a href="#" target="_blank" rel="noopener">Madurai Download</a></li>
+          </ul>
+        </section>
+
+        <section class="col-3">
+          <h6 class="fw-semibold mb-2" style="color: #304a6b;">Rank List</h6>
+          <ul class="list-unstyled ps-3">
+            <li><a href="#" target="_blank" rel="noopener">Chennai Full Time Download</a></li>
+            <li><a href="#" target="_blank" rel="noopener">Chennai Part Time Download</a></li>
+            <li><a href="#" target="_blank" rel="noopener">Coimbatore Download</a></li>
+            <li><a href="#" target="_blank" rel="noopener">Madurai Download</a></li>
+          </ul>
+        </section>
+
+        <section class="col-3">
+          <h6 class="fw-semibold mb-2" style="color: #304a6b;">Cutoff</h6>
+          <ul class="list-unstyled ps-3">
+            <li><a href="#" target="_blank" rel="noopener">Download</a></li>
+          </ul>
+        </section>
+
+        <section class="col-3">
+          <h6 class="fw-semibold mb-2" style="color: #304a6b;">Admission Breakup</h6>
+          <ul class="list-unstyled ps-3">
+            <li><a href="#" target="_blank" rel="noopener">Chennai Full Time Download</a></li>
+            <li><a href="#" target="_blank" rel="noopener">Chennai Part Time Download</a></li>
+            <li><a href="#" target="_blank" rel="noopener">Coimbatore Download</a></li>
+            <li><a href="#" target="_blank" rel="noopener">Madurai Download</a></li>
+          </ul>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2022-23 Tab Pane -->
+  <div class="tab-pane fade" id="y2022" role="tabpanel" aria-labelledby="y2022-tab" tabindex="0">
+    <div class="card shadow p-4" style="
+      border-left: 3px solid var(--accent-gold);
+      border-right: 3px solid var(--accent-gold);
+      border-top: none;
+      border-bottom: none;
+      border-radius: 1rem;
+      margin-top: 1rem;
+      background: var(--white);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    ">
+      <h5 class="mb-4" style="color: var(--primary-color); font-weight: 600;">AICSCC Selection Process DEC 2022</h5>
+
+      <div class="row g-4">
+        <section class="col-3">
+          <h6 class="fw-semibold mb-2" style="color: #304a6b;">Appeared List</h6>
+          <ul class="list-unstyled ps-3">
+            <li><a href="#" target="_blank" rel="noopener">Chennai Download</a></li>
+            <li><a href="#" target="_blank" rel="noopener">Coimbatore Download</a></li>
+            <li><a href="#" target="_blank" rel="noopener">Madurai Download</a></li>
+          </ul>
+        </section>
+
+        <section class="col-3">
+          <h6 class="fw-semibold mb-2" style="color: #304a6b;">Rank List</h6>
+          <ul class="list-unstyled ps-3">
+            <li><a href="#" target="_blank" rel="noopener">Chennai Full Time Download</a></li>
+            <li><a href="#" target="_blank" rel="noopener">Chennai Part Time Download</a></li>
+            <li><a href="#" target="_blank" rel="noopener">Coimbatore Download</a></li>
+            <li><a href="#" target="_blank" rel="noopener">Madurai Download</a></li>
+          </ul>
+        </section>
+
+        <section class="col-3">
+          <h6 class="fw-semibold mb-2" style="color: #304a6b;">Cutoff</h6>
+          <ul class="list-unstyled ps-3">
+            <li><a href="#" target="_blank" rel="noopener">Download</a></li>
+          </ul>
+        </section>
+
+        <section class="col-3">
+          <h6 class="fw-semibold mb-2" style="color: #304a6b;">Admission Breakup</h6>
+          <ul class="list-unstyled ps-3">
+            <li><a href="#" target="_blank" rel="noopener">Chennai Full Time Download</a></li>
+            <li><a href="#" target="_blank" rel="noopener">Chennai Part Time Download</a></li>
+            <li><a href="#" target="_blank" rel="noopener">Coimbatore Download</a></li>
+            <li><a href="#" target="_blank" rel="noopener">Madurai Download</a></li>
+          </ul>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2021-22 Tab Pane -->
+  <div class="tab-pane fade" id="y2021" role="tabpanel" aria-labelledby="y2021-tab" tabindex="0">
+    <div class="card shadow p-4" style="
+      border-left: 3px solid var(--accent-gold);
+      border-right: 3px solid var(--accent-gold);
+      border-top: none;
+      border-bottom: none;
+      border-radius: 1rem;
+      margin-top: 1rem;
+      background: var(--white);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    ">
+      <h5 class="mb-4" style="color: var(--primary-color); font-weight: 600;">AICSCC Selection Process FEB 2022</h5>
+
+      <div class="row g-4">
+        <section class="col-3">
+          <h6 class="fw-semibold mb-2" style="color: #304a6b;">Appeared List</h6>
+          <ul class="list-unstyled ps-3">
+            <li><a href="#" target="_blank" rel="noopener">Download</a></li>
+          </ul>
+        </section>
+
+        <section class="col-3">
+          <h6 class="fw-semibold mb-2" style="color: #304a6b;">Rank List</h6>
+          <ul class="list-unstyled ps-3">
+            <li><a href="#" target="_blank" rel="noopener">Coimbatore Download</a></li>
+            <li><a href="#" target="_blank" rel="noopener">Madurai Download</a></li>
+          </ul>
+        </section>
+
+        <section class="col-3">
+          <h6 class="fw-semibold mb-2" style="color: #304a6b;">Cutoff</h6>
+          <ul class="list-unstyled ps-3">
+            <li><a href="#" target="_blank" rel="noopener">Download</a></li>
+          </ul>
+        </section>
+
+        <section class="col-3">
+          <h6 class="fw-semibold mb-2" style="color: #304a6b;">Admission Breakup</h6>
+          <ul class="list-unstyled ps-3">
+            <li><a href="#" target="_blank" rel="noopener">Chennai Full Time Download</a></li>
+            <li><a href="#" target="_blank" rel="noopener">Chennai Part Time Download</a></li>
+          </ul>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2020-21 Tab Pane -->
+  <div class="tab-pane fade" id="y2020" role="tabpanel" aria-labelledby="y2020-tab" tabindex="0">
+    <div class="card shadow p-4" style="
+      border-left: 3px solid var(--accent-gold);
+      border-right: 3px solid var(--accent-gold);
+      border-top: none;
+      border-bottom: none;
+      border-radius: 1rem;
+      margin-top: 1rem;
+      background: var(--white);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    ">
+      <h5 class="mb-4" style="color: var(--primary-color); font-weight: 600;">AICSCC Selection Process FEB 2021</h5>
+
+      <div class="row g-4">
+        <section class="col-3">
+          <h6 class="fw-semibold mb-2" style="color: #304a6b;">Appeared List</h6>
+          <ul class="list-unstyled ps-3">
+            <li><a href="#" target="_blank" rel="noopener">Chennai Download</a></li>
+          </ul>
+        </section>
+
+        <section class="col-3">
+          <h6 class="fw-semibold mb-2" style="color: #304a6b;">Rank List</h6>
+          <ul class="list-unstyled ps-3">
+            <li><a href="#" target="_blank" rel="noopener">Chennai Full Time Download</a></li>
+            <li><a href="#" target="_blank" rel="noopener">Chennai Part Time Download</a></li>
+          </ul>
+        </section>
+
+        <section class="col-3">
+          <h6 class="fw-semibold mb-2" style="color: #304a6b;">Cutoff</h6>
+          <ul class="list-unstyled ps-3">
+            <li><a href="#" target="_blank" rel="noopener">Download</a></li>
+          </ul>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2019-20 Tab Pane -->
+  <div class="tab-pane fade" id="y2019" role="tabpanel" aria-labelledby="y2019-tab" tabindex="0">
+    <div class="card shadow p-4" style="
+      border-left: 3px solid var(--accent-gold);
+      border-right: 3px solid var(--accent-gold);
+      border-top: none;
+      border-bottom: none;
+      border-radius: 1rem;
+      margin-top: 1rem;
+      background: var(--white);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    ">
+      <h5 class="mb-4" style="color: var(--primary-color); font-weight: 600;">AICSCC Selection Process 2019-2020</h5>
+
+      <div class="row g-4">
+        <section class="col-3">
+          <h6 class="fw-semibold mb-2" style="color: #304a6b;">Appeared List</h6>
+          <ul class="list-unstyled ps-3">
+            <li><a href="#" target="_blank" rel="noopener">Chennai Download</a></li>
+          </ul>
+        </section>
+
+        <section class="col-3">
+          <h6 class="fw-semibold mb-2" style="color: #304a6b;">Rank List</h6>
+          <ul class="list-unstyled ps-3">
+            <li><a href="#" target="_blank" rel="noopener">Chennai Full Time Download</a></li>
+            <li><a href="#" target="_blank" rel="noopener">Chennai Part Time Download</a></li>
+          </ul>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<br>
 
 
   <!-- <div class="d-flex justify-content-center mb-4 flex-wrap">
@@ -742,14 +983,16 @@
   </div> -->
 
   <!-- Section 4: Aspirants Statistics Table -->
-  <div class="mb-4">
-    <br><br>
-<div class="badge bg-secondary fs-6 p-3 w-100 text-center">
+  <div >
+        <h3 class="section-title mt-4">AICSCC Aspirants Statistics</h3>
+        <br>
+
+<div class="badge fs-6 p-3 w-100 text-center bg-soft" style="border: 2px dotted var(--primary-color);">
   From the year 2000 to 2020, 747 candidates of this Institute have entered
   into the Civil Services all over India.
 </div>
 
-  <br><br>
+
     <div class="table-responsive mt-3">
       <table class="table table-bordered custom-table">
         <thead>

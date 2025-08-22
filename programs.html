@@ -22,9 +22,8 @@
      
     <!--CSS-->
     <link rel="stylesheet" href="styles.css">
-    <style>/* Parent container of tabs and content gets the gradient background - removed duplicate .nav-tabs styles */
+<style>/* Parent container of tabs and content gets the gradient background - removed duplicate .nav-tabs styles */
 
-/* Card inside tab-pane */
 .tab-pane > .card {
   border-radius: 1rem;
   border-left: 3px solid var(--accent-gold);
@@ -34,17 +33,31 @@
   padding: 2rem;
   margin-top: 1rem;
   background: var(--white);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* subtle soft shadow below for depth */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
 
+.test-table {
+  margin-bottom: 0;
+}
+.test-table th {
+  background: var(--primary-dark, #0f172a);
+  color: #fff;
+  font-weight: 600;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 1rem;
+}
+.test-table td {
+  vertical-align: middle;
+  text-align: center;
+  font-size: 1rem;
+}
 
-
-
-/* Nav pills styling */
+/* Nav pills styling - FORCE 25px border radius everywhere */
 .nav-pills .nav-link {
-  background-color: rgb(222, 222, 222); /* Light grey background for inactive pills */
+  background-color: rgb(222, 222, 222);
   color: white;
-  border-radius: 25px;
+  border-radius: 25px !important;
   padding: 0.6rem 1.5rem;
   font-weight: 600;
   font-size: 1.125rem;
@@ -55,21 +68,29 @@
 .nav-pills .nav-link.active {
   background-color: var(--accent-gold) !important;
   color: white !important;
-  border-radius: 25px;
+  border-radius: 25px !important;
   box-shadow: none;
 }
 
 .nav-pills .nav-link:hover:not(.active) {
   background-color: var(--accent-light);
   color: white;
-  border-radius: 25px;
+  border-radius: 25px !important;
   box-shadow: none;
 }
 
-/* Exam tabs wrapper */
+/* Force border radius with higher specificity */
+.exam-tabs-wrapper .nav-pills .nav-link,
+.exam-tabs-wrapper .nav-pills .nav-link.active,
+.exam-tabs-wrapper .nav-pills .nav-link:hover {
+  border-radius: 45px !important;
+}
+
+/* Exam tabs wrapper - BASE STYLES */
 .exam-tabs-wrapper {
-  display: inline-block;
-border-radius: 50px;
+  display: block;
+  width: 100%;
+  border-radius: 50px;
   padding: 0.5rem;
   box-shadow: -4px 0 8px rgba(0, 0, 0, 0.1), 4px 0 8px rgba(0, 0, 0, 0.1);
   margin-bottom: 1rem;
@@ -78,7 +99,10 @@ border-radius: 50px;
 .exam-tabs-wrapper ul.nav-pills {
   display: flex;
   justify-content: center;
-  gap: 1rem; /* adds space between the tab buttons */
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  flex-wrap: nowrap;
 }
 
 /* Nav link color override */
@@ -86,47 +110,128 @@ border-radius: 50px;
   color: rgb(232, 232, 232);
 }
 
-/* Custom table styling */
-/* .custom-table {
-  border-collapse: collapse;
-  border: 1px solid white;
-  border-radius: 10px;
-
+h3.section-title {
+  font-weight: 600;
+  letter-spacing: 1px;
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--primary-color);
+  position: relative;
 }
-
-.custom-table thead th {
-  border: 1px solid white;
-  background-color: black;
-  color: white;
-  padding: 12px;
-  
-
-}
-
-.custom-table tbody td {
-  border: 1px solid #d3d3d3;
-  padding: 12px;
-  color: black;
-  background-color: transparent;
-} */
-
-/* Yearly tab content container */
-
-
-
-/* Golden diamond marker before section headings */
-
-
-/* Links */
-
 
 /* Headings */
 h1, h2, h3, h4, h5, h6 {
   color: rgb(48, 74, 107);
 }
 
+/* RESPONSIVE BREAKPOINTS - Non-overlapping and clean */
+
+/* Mobile - stack vertically */
+/* Mobile - compact 3-column grid */
+@media (max-width: 576px) {
+  .exam-tabs-wrapper {
+    width: 100%;
+    padding: 0.25rem;
+    border-radius: 25px;
+  }
+  
+  .exam-tabs-wrapper ul.nav-pills {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.25rem;
+  }
+  
+  .nav-pills .nav-link {
+    padding: 0.4rem 0.2rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-align: center;
+    border-radius: 25px !important;
+    line-height: 1.2;
+  }
+}
+
+
+/* Very small phones */
+@media (max-width: 480px) {
+  .exam-tabs-wrapper {
+    margin-left: -0.5rem;
+    margin-right: -0.5rem;
+    border-radius: 15px;
+  }
+  
+  .nav-pills .nav-link {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.8rem;
+    max-width: 260px;
+    border-radius: 25px !important;
+  }
+}
+
+/* Small tablets - keep in one line */
+@media (min-width: 577px) and (max-width: 768px) {
+  .exam-tabs-wrapper {
+    width: 100%;
+    padding: 0.4rem;
+  }
+  
+  .exam-tabs-wrapper ul.nav-pills {
+    flex-direction: row;
+    gap: 0.5rem;
+  }
+  
+  .nav-pills .nav-link {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    border-radius: 25px !important;
+  }
+}
+
+/* Medium screens - keep in one line */
+@media (min-width: 769px) and (max-width: 992px) {
+  .exam-tabs-wrapper {
+    display: inline-block;
+    width: auto;
+  }
+  
+  .exam-tabs-wrapper ul.nav-pills {
+    flex-direction: row;
+    gap: 0.75rem;
+  }
+  
+  .nav-pills .nav-link {
+    padding: 0.5rem 1.2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 25px !important;
+  }
+}
+
+/* Large screens and above */
+@media (min-width: 993px) {
+  .exam-tabs-wrapper {
+    display: inline-block;
+    width: auto;
+  }
+  
+  .exam-tabs-wrapper ul.nav-pills {
+    flex-direction: row;
+    gap: 1rem;
+  }
+  
+  .nav-pills .nav-link {
+    padding: 0.6rem 1.5rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+    border-radius: 25px !important;
+  }
+}
 
 </style>
+
+
     </head>
     <body>
          <nav class="navbar navbar-expand-lg navbar-custom fixed-top" data-aos="fade-down">
@@ -171,8 +276,8 @@ h1, h2, h3, h4, h5, h6 {
         </div>
     </nav>
     
-<div class="container section-padding mt-5">
-  <h2 class="section-title">COACHING AND EXAMINATION</h2>
+<div class="container section-padding " style="margin-top: 120px;">
+  <h3 class="section-title">COACHING AND EXAMINATION</h3>
   <p class="section-subtitle">Comprehensive preparation for UPSC Civil Services Examination.</p>
 
 <div class="d-flex justify-content-center mt-4">

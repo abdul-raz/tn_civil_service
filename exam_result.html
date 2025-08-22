@@ -23,201 +23,92 @@
     <link rel="stylesheet" href="styles.css">
 
 
-    <style>
-  /* ==== Global Variables ==== */
-  /* :root {
-    --primary-color: #002147;
-    --accent-color: #228B22;
-    --accent-gold: #f59e0b;
-    --text-primary: #1E293B;
-    --text-secondary: #64748b;
-    --bg-light: #f8fafc;
-    --bg-card: #ffffff;
-    --shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
-    --shadow-hover: 0 12px 30px rgba(0, 0, 0, 0.12);
-  } */
-
-  .tabs-container{
-    border:none;
-    border-radius:25px;
+   <style>
+  /* ========== BASE STYLES (UNCHANGED) ========== */
+  .tab-pane > .card {
+    border-radius: 1rem;
+    border-left: 3px solid var(--accent-gold);
+    border-right: 3px solid var(--accent-gold);
+    border-top: none;
+    border-bottom: none;
+    padding: 2rem;
+    margin-top: 1rem;
+    background: var(--white);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
   }
-.tab-pane > .card {
-  border-radius: 1rem;
-  border-left: 3px solid var(--accent-gold);
-  border-right: 3px solid var(--accent-gold);
-  border-top: none;
-  border-bottom: none;
-  padding: 2rem;
-  margin-top: 1rem;
-  background: var(--white);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* subtle soft shadow below for depth */
-}
 
-.tab-pane {
-  background: #fff;
-  border-radius: 0 0 16px 16px;
-  box-shadow: 0 2px 14px rgba(0,0,0,0.07);
-  padding: 28px 18px 18px;
-  margin-top: -2px;
-}
+  .tab-pane {
+    background: #fff;
+    border-radius: 0 0 16px 16px;
+    box-shadow: 0 2px 14px rgba(0,0,0,0.07);
+    padding: 28px 18px 18px;
+    margin-top: -2px;
+  }
 
-.test-table {
-  margin-bottom: 0;
-  width: 75%; /* matching your w-75 */
-  margin-left: auto;
-  margin-right: auto;
-}
+  .test-table {
+    margin-bottom: 0;
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
-.test-table th {
-  background: var(--primary-dark, #0f172a);
-  color: #fff;
-  font-weight: 600;
-  text-align: center;
-  vertical-align: middle;
-  font-size: 1rem;
-  border: 1px solid #fff;
-  padding: 12px;
-}
+  .test-table th {
+    background: var(--primary-dark, #0f172a);
+    color: #fff;
+    font-weight: 600;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 1rem;
+    border: 1px solid #fff;
+    padding: 12px;
+  }
 
-.test-table td {
-  vertical-align: middle;
-  text-align: center;
-  font-size: 1rem;
-  border: 1px solid #d3d3d3;
-  padding: 12px;
-  background-color: transparent;
-  color: black;
-}
+  .test-table td {
+    vertical-align: middle;
+    text-align: center;
+    font-size: 1rem;
+    border: 1px solid #d3d3d3;
+    padding: 12px;
+    background-color: transparent;
+    color: black;
+  }
 
-/* Remove underline and inherit color for links only inside tab content */
+  .rank-list-box a {
+    text-decoration: none;
+  }
 
+  .rank-list-box:hover {
+    background-color: grey;
+    color: white;
+    transform: translateY(-6px);
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+  }
 
+  .rank-list-box a:hover {
+    text-decoration: none;
+    color: white;
+  }
 
+  .col-md-12 .tabs-container {
+    max-width: 920px;
+    margin: 0 auto 4rem auto;
+  }
 
-  /* /* .custom-table {
-  border-collapse: collapse;
-  border: 1px solid white; 
-}  */
-.rank-list-box a {
-  text-decoration: none;
-}
+  .exam-tabs-wrapper {
+    display: inline-block;
+    border-radius: 50px;
+    padding: 0.5rem;
+    box-shadow: -4px 0 8px rgba(0, 0, 0, 0.1), 4px 0 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+  }
 
-.rank-list-box:hover {
-  background-color: grey; /* darker shade of blue or any color you prefer */
-  color: white;            /* gold text color for contrast */
-  transform: translateY(-6px);
-  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
-}
-.rank-list-box a {
-  text-decoration: none;
-}
-
-.rank-list-box a:hover {
-  text-decoration: none; /* keep links without underline */
-  color: white;        /* gold text on hover */
-}
-
-/* .custom-table thead th {
-  border: 1px solid white; 
-  background-color: black; 
-  color: white; 
-  padding: 12px;
-  text-align:center;
-} */
-/* Override tabs-container when inside columns */
-.col-md-6 .tabs-container {
-  max-width: none;
-  margin: 0;
-  width: 100%;
-}
-
-/* Keep the original styling for full-width tabs-container */
-.col-md-12 .tabs-container {
-  max-width: 920px;
-  margin: 0 auto 4rem auto;
-}
-
-.exam-tabs-wrapper {
-  display: inline-block;
-border-radius: 50px;
-  padding: 0.5rem;
-  box-shadow: -4px 0 8px rgba(0, 0, 0, 0.1), 4px 0 8px rgba(0, 0, 0, 0.1);
-  margin-bottom: 1rem;
-}
-/* Container with gradient background */
-/* .tabs-container {
-  background: linear-gradient(90deg, var(--accent-gold), var(--accent-light));
-  border-radius: 1rem;
-  padding: 1rem;
-  box-shadow: var(--shadow);
-  max-width: 920px;
-  margin: 0 auto 4rem auto;
-} */
-
-/* Nav tabs bar with gradient background and rounded top corners
-.tabs-container .nav-tabs {
-  background: linear-gradient(90deg, var(--accent-gold), var(--accent-light));
-  border-radius: 0.75rem 0.75rem 0 0;
-  padding: 0.5rem 1rem;
-  box-shadow: var(--shadow);
-  justify-content: center !important;
-  border: none !important;
-} */
-
-/* Tab link styling (pill shapes)
-.tabs-container .nav-tabs .nav-link {
-  background-color: var(--white);
-  color: var(--primary-color);
-  border-radius: 0.8rem;
-  margin: 0 0.25rem;
-  padding: 0.7rem 1.5rem;
-  font-weight: 600;
-  font-size: 1.125rem;
-  border: none;
-  transition: background-color 0.3s ease, color 0.3s ease;
-} */
-
-/* Active tab with accent gold background
-.tabs-container .nav-tabs .nav-link.active {
-  background-color: var(--accent-gold);
-  color: var(--white) !important;
-  box-shadow: none;
-} */
-/* 
-/* Hover effect on tabs is lighter yellow */
-/* .tabs-container .nav-tabs .nav-link:hover:not(.active) {
-  background-color: var(--accent-light);
-  color: var(--white);
-  box-shadow: none;
-} */
-
-/* Tab content area styling */
-/* .tabs-container .tab-content {
-  border-radius: 0 0 1rem 1rem;
-  background: var(--white);
-  box-shadow: var(--shadow);
-  padding: 2rem 3rem;
-  max-width: 100%;
-} 
-
-/* Optional: card style inside tab panes */
-/* .tabs-container .tab-pane > .card {
-  border-radius: 1rem;
-  box-shadow: var(--shadow);
-  border: none;
-  padding: 2rem;
-  margin-top: 1rem;
-  background: var(--white);
-} */ */
-
-.custom-table tbody td {
-  border: 1px solid #d3d3d3; /* light grey borders for body cells */
-  padding: 12px;
-  color: black; /* body text color */
-  background-color: transparent;
-  text-align:center; /* center align text in body cells */
-}
-
+  .custom-table tbody td {
+    border: 1px solid #d3d3d3;
+    padding: 12px;
+    color: black;
+    background-color: transparent;
+    text-align: center;
+  }
 
   body {
     background: var(--bg-light);
@@ -247,7 +138,6 @@ border-radius: 50px;
     border-radius: 2px;
   }
 
-  /* ==== Card UI ==== */
   .custom-card {
     background: var(--bg-card);
     border: none;
@@ -264,11 +154,9 @@ border-radius: 50px;
   }
 
   .results-section {
-  padding: 4rem 1rem; 
-  /* adjust padding top/bottom and left/right as needed */
-}
+    padding: 4rem 1rem;
+  }
 
-  /* Class Schedule */
   .schedule-box {
     background: #f9fbfd;
     border-left: 4px solid var(--primary-color);
@@ -276,7 +164,6 @@ border-radius: 50px;
     border-radius: 0.75rem;
   }
 
-  /* Buttons */
   .btn-download {
     background: var(--accent-gold);
     color: white;
@@ -285,9 +172,9 @@ border-radius: 50px;
     padding: 0.6rem 1.8rem;
     box-shadow: var(--shadow);
   }
+
   .btn-download:hover { background: #d97706; }
 
-  /* Rank List */
   .rank-list-box {
     flex: 1;
     min-width: 180px;
@@ -301,169 +188,82 @@ border-radius: 50px;
     transition: all 0.3s ease;
     box-shadow: var(--shadow);
   }
+
   .rank-list-box:hover {
     background: var(--primary-color);
     color: #fff;
     transform: translateY(-6px);
   }
-.test-model-schedule {
-  display: flex;
-  justify-content: center;
-  gap: 3rem;
-}
-/* Scoped styling for Year Tabs content cards */
-/* .year-tab-card {
-  background: var(--bg-card);
-  padding: 1.5rem 2rem;
-  border-radius: 1rem;
-  box-shadow: var(--shadow);
-  margin-bottom: 2rem;
-  color: var(--text-primary);
-  line-height: 1.5;
-} */
 
-
-
-
-
-
-
-.test-model-schedule .schedule-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-.schedule-table.test-model-schedule {
-  display: flex !important;
-  justify-content: center !important;
-  gap: 3rem !important;
-}
-
-.schedule-table.test-model-schedule .schedule-item {
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  text-align: center !important;
-}
-
-
-  .schedule-table {
-    display: grid;
-    grid-template-columns: 40px 140px 1fr;
-    gap: 0.8rem 1rem;
-    align-items: center;
+  .test-model-schedule {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
   }
-  .schedule-icon {
+
+  .test-model-schedule .schedule-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
   }
-  .schedule-label {
-    font-weight: 600;
+
+  .schedule-table.test-model-schedule {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 3rem !important;
+  }
+
+  .schedule-table.test-model-schedule .schedule-item {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  .bg-soft {
+    background-color: #f1f5f9;
     color: var(--primary-color);
-  }
-  .schedule-content {
-    color: var(--text-primary);
+    font-weight: 500;
+    border-radius: 0.5rem;
   }
 
-
-  /* Tables */
-  /* .table {
-    border-collapse: separate;
-    border-spacing: 0 !important;
-  }
-  thead {
-    background: var(--primary-color);
-    color: #fff;
-  }
-  .table td, .table th {
+  /* Nav pills styling */
+  .nav-pills .nav-link {
+    background-color: rgb(222, 222, 222);
+    color: white;
+    border-radius: 25px;
+    padding: 0.6rem 1.5rem;
+    font-weight: 600;
+    font-size: 1.125rem;
     border: none;
-    padding: 0.85rem 1rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
-  tbody tr {
-    background: white;
-    box-shadow: var(--shadow);
-    border-radius: 12px;
-    overflow: hidden;
+
+  .nav-pills .nav-link.active {
+    background-color: var(--accent-gold) !important;
+    color: white !important;
+    border-radius: 25px;
+    box-shadow: none;
   }
-  tbody tr:hover { background: #eef4ff; } */
-/* .row.equal-height {
-  display: flex;
-  flex-wrap: wrap;
-}
 
-.row.equal-height > [class*='col-'] {
-  display: flex;
-  flex-direction: column;
-}
+  .nav-pills .nav-link:hover:not(.active) {
+    background-color: var(--accent-light);
+    color: white;
+    border-radius: 25px;
+    box-shadow: none;
+  }
 
-.tabs-container.h-100 {
-  flex-grow: 1; /* fill the height 
-} */
+  .exam-tabs-wrapper ul.nav-pills {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
 
-  /* Footer */
-.bg-soft {
-  background-color: #f1f5f9; /* light grey */
-  color: var(--primary-color); 
-  font-weight: 500;
-  border-radius: 0.5rem;
-}
-.tab-pane > .card {
-  border-radius: 1rem;
-  border-left: 3px solid var(--accent-gold);
-  border-right: 3px solid var(--accent-gold);
-  border-top: none;
-  border-bottom: none;
-  padding: 2rem;
-  margin-top: 1rem;
-  background: var(--white);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* subtle soft shadow below for depth */
-}
+  .nav-link {
+    color: rgb(232, 232, 232);
+  }
 
-
-/* Nav pills styling */
-.nav-pills .nav-link {
-  background-color: rgb(222, 222, 222); /* Light grey background for inactive pills */
-  color: white;
-  border-radius: 25px;
-  padding: 0.6rem 1.5rem;
-  font-weight: 600;
-  font-size: 1.125rem;
-  border: none;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.nav-pills .nav-link.active {
-  background-color: var(--accent-gold) !important;
-  color: white !important;
-  border-radius: 25px;
-  box-shadow: none;
-}
-
-.nav-pills .nav-link:hover:not(.active) {
-  background-color: var(--accent-light);
-  color: white;
-  border-radius: 25px;
-  box-shadow: none;
-}
-
-.exam-tabs-wrapper ul.nav-pills {
-  display: flex;
-  justify-content: center;
-  gap: 1rem; /* adds space between the tab buttons */
-}
-/* Exam tabs wrapper */
-/* .exam-tabs-wrapper {
-  display: inline-block;
-  border-radius: 0.75rem 0.75rem 0 0;
-  padding: 0.5rem;
-  box-shadow: -4px 0 8px rgba(0, 0, 0, 0.1), 4px 0 8px rgba(0, 0, 0, 0.1);
-  
-} */
-
-/* Nav link color override */
-.nav-link {
-  color: rgb(232, 232, 232);
-}
   footer {
     margin-top: 3rem;
     padding: 2.5rem 0;
@@ -471,46 +271,260 @@ border-radius: 50px;
     color: #e6e6e6;
     font-size: 0.9rem;
   }
+
   footer h5 {
     color: #fff;
     margin-bottom: 1rem;
   }
+
   footer a {
     color: #d1d5db;
     text-decoration: none;
   }
+
   footer a:hover { color: var(--accent-gold); }
 
-  /* Style the list items inside tab content */#yearTabContent ul.list-unstyled li {
-  background-color: transparent; /* Remove card-like background */
-  padding: 0; /* Remove extra padding */
-  border-radius: 0; /* No rounding */
-  margin-bottom: 0.4rem; /* Spacing between items */
-  transition: background-color 0.3s ease;
-}
+  #yearTabContent ul.list-unstyled li {
+    background-color: transparent;
+    padding: 0;
+    border-radius: 0;
+    margin-bottom: 0.4rem;
+    transition: background-color 0.3s ease;
+  }
 
-#yearTabContent ul.list-unstyled li:hover {
-  background-color: transparent; /* No background change on li hover */
-}
+  #yearTabContent ul.list-unstyled li:hover {
+    background-color: transparent;
+  }
 
-#yearTabContent ul.list-unstyled li a {
-  color: var(--primary-color);
-  font-weight: 500;
-  text-decoration: none;
-  display: inline; /* default inline */
-  transition: color 0.3s ease, text-decoration 0.3s ease;
-}
+  #yearTabContent ul.list-unstyled li a {
+    color: var(--primary-color);
+    font-weight: 500;
+    text-decoration: none;
+    display: inline;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+  }
 
-#yearTabContent ul.list-unstyled li a:hover {
-  color: var(--accent-gold);
-  text-decoration: underline;
-}
+  #yearTabContent ul.list-unstyled li a:hover {
+    color: var(--accent-gold);
+    text-decoration: underline;
+  }
 
+  /* ========== CLASS SCHEDULE SECTION RESPONSIVE ========== */
 
+  /* Base Class Schedule styling */
+  .tabs-container {
+    border: none;
+    border-radius: 25px;
+    background: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    max-width: none;
+    margin: 0;
+    width: 100%;
+  }
 
+  .tabs-container:hover {
+    transform: translateY(-2px);
+  }
 
-  
+  .schedule-table {
+    display: grid;
+    grid-template-columns: 40px 140px 1fr;
+    gap: 0.8rem 1rem;
+    align-items: center;
+    width: 100%;
+  }
+
+  .schedule-icon {
+    text-align: center;
+  }
+
+  .schedule-label {
+    font-weight: 600;
+    color: var(--primary-color);
+  }
+
+  .schedule-content {
+    color: var(--text-primary);
+  }
+
+  .parttime-table .row {
+    margin: 0;
+  }
+
+  .parttime-table .col-md-6 {
+    padding: 0.5rem;
+  }
+
+  /* Desktop and large tablets - no changes needed */
+  @media (min-width: 769px) {
+    .tabs-container {
+      max-width: none;
+      margin: 0;
+      width: 100%;
+    }
+  }
+
+  /* Tablets - 768px and below */
+  @media (max-width: 768px) {
+    .container.my-5 {
+      margin-top: 2rem !important;
+      margin-bottom: 2rem !important;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+    
+    .equal-height .col-md-6 {
+      margin-bottom: 1.5rem;
+    }
+    
+    .tabs-container {
+      padding: 1.5rem !important;
+    }
+    
+    .schedule-table {
+      grid-template-columns: 1fr;
+      gap: 0.8rem;
+    }
+    
+    .schedule-table > div {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    
+    .schedule-icon {
+      flex-shrink: 0;
+    }
+    
+    .parttime-table .col-md-6 {
+      flex: 0 0 100%;
+      max-width: 100%;
+      margin-bottom: 1rem;
+    }
+    
+    .row.justify-content-center .col-md-5 {
+      flex: 0 0 100%;
+      max-width: 100%;
+      margin-bottom: 1rem;
+      justify-content: center !important;
+    }
+    
+    .col-md-5 > div[style*="white-space: nowrap"] {
+      white-space: normal !important;
+      flex-wrap: wrap !important;
+    }
+    
+    .tabs-container h5 {
+      font-size: 1.1rem;
+    }
+    
+    .schedule-label {
+      font-size: 0.9rem;
+    }
+    
+    .schedule-content {
+      font-size: 0.85rem;
+      line-height: 1.4;
+    }
+  }
+
+  /* Mobile phones - 576px and below */
+  @media (max-width: 576px) {
+    .container.my-5 {
+      margin-top: 1.5rem !important;
+      margin-bottom: 1.5rem !important;
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+    }
+    
+    .tabs-container {
+      padding: 1rem !important;
+      margin-left: -0.25rem;
+      margin-right: -0.25rem;
+    }
+    
+    .tabs-container h5 {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+    
+    .schedule-table {
+      gap: 0.5rem;
+    }
+    
+    .schedule-table > div {
+      gap: 0.5rem;
+    }
+    
+    .schedule-icon i {
+      font-size: 1.1rem !important;
+    }
+    
+    .schedule-label {
+      font-size: 0.85rem;
+    }
+    
+    .schedule-content {
+      font-size: 0.8rem;
+      line-height: 1.3;
+    }
+    
+    .parttime-table .d-flex {
+      flex-direction: column;
+      align-items: flex-start !important;
+      text-align: left;
+    }
+    
+    .parttime-table .d-flex i {
+      margin-bottom: 0.25rem;
+      margin-right: 0 !important;
+    }
+    
+    .row.justify-content-center {
+      gap: 0.5rem;
+    }
+    
+    .col-md-5 .d-flex {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    
+    .col-md-5 .d-flex i {
+      margin-bottom: 0.5rem;
+      margin-right: 0 !important;
+    }
+  }
+
+  /* Very small phones - 480px and below */
+  @media (max-width: 480px) {
+    .tabs-container {
+      border-radius: 15px;
+      padding: 0.75rem !important;
+    }
+    
+    .tabs-container h5 {
+      font-size: 0.95rem;
+    }
+    
+    .schedule-label strong,
+    .schedule-label {
+      font-size: 0.8rem;
+    }
+    
+    .schedule-content {
+      font-size: 0.75rem;
+    }
+    
+    .schedule-icon i,
+    .parttime-table i,
+    .col-md-5 i {
+      font-size: 1rem !important;
+    }
+  }
 </style>
+
 
     </head>
 <body>

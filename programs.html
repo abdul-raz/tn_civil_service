@@ -22,154 +22,105 @@
      
     <!--CSS-->
     <link rel="stylesheet" href="styles.css">
-    <style>
-  /* Parent container of tabs and content gets the gradient background */
-/* Base pill style with whitesmoke background for all tabs */
-.nav-pills .nav-link {
-  background-color: whitesmoke;
-  color: var(--primary-color); /* keep your site's primary color */
-  border-radius: 0.8rem;
-  margin: 0 0.25rem;
-  padding: 0.7rem 1.5rem;
-  font-weight: 600;
-  font-size: 1.125rem;
-  border: none;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
+    <style>/* Parent container of tabs and content gets the gradient background - removed duplicate .nav-tabs styles */
 
-/* Active pill with accent background and white text */
-.nav-pills .nav-link.active {
-  background-color: var(--accent-gold); /* your accent gold */
-  color: white !important;
-  box-shadow: none;
-}
-
-/* Hover effect for pills - keep whitesmoke as base, lighter accent on hover */
-.nav-pills .nav-link:hover:not(.active) {
-  background-color: var(--accent-light); /* lighter accent color */
-  color: white;
-  box-shadow: none;
-}
-
-.custom-table {
-  border-collapse: collapse;
-  border: 1px solid white; /* white border around the whole table */
-}
-
-.custom-table thead th {
-  border: 1px solid white; /* white borders around header cells */
-  background-color: black; /* almost black blue replaced with black */
-  color: white; /* white text in header */
-  padding: 12px;
-}
-
-.custom-table tbody td {
-  border: 1px solid #d3d3d3; /* light grey borders for body cells */
-  padding: 12px;
-  color: black; /* body text color */
-  background-color: transparent;
-}
-
-
-
-/* Tabs bar with transparent background to blend with parent
-.nav-tabs {
-  background: transparent !important;
-  border-bottom: none !important;
-  justify-content: center !important;
-  padding: 0;
-} */
-
-/* Tabs style remains as before
-.nav-tabs .nav-link {
-  background-color: var(--white);
-  color: var(--primary-color);
-  border-radius: 1.25rem;
-  margin: 0 0.25rem;
-  padding: 0.7rem 1.5rem;
-  font-weight: 600;
-  font-size: 1.125rem;
-  border: none;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.nav-tabs .nav-link.active {
-  background-color: var(--accent-gold);
-  color: var(--white) !important;
-  box-shadow: var(--shadow);
-} */
-/* 
-.nav-tabs .nav-link:hover:not(.active) {
-  background-color: var(--accent-light);
-  color: var(--white);
-  box-shadow: var(--shadow);
-} */
-
-/* Content area with transparent background to show gradient behind */
-/* .tab-content {
-  background-color: transparent !important;
-  border: none !important;
-  border-radius: 0 0 1rem 1rem;
-  padding: 2rem 3rem;
-  box-shadow: none !important;
-  max-width: 100%;
-} */
-/* Tabs container with yellow gradient background */
-/* .nav-tabs {
-  background: linear-gradient(90deg, var(--accent-gold), var(--accent-light));
-  border-radius: 0.75rem 0.75rem 0 0;
-  padding: 0.5rem 1rem;
-  box-shadow: var(--shadow);
-  justify-content: center !important;
-  border: none !important;
-}
-
-/* Tab links styled as pill buttons */
-/* .nav-tabs .nav-link {
-  background-color: var(--white);
-  color: var(--primary-color);
-  border-radius: 0.8rem;
-  margin: 0 0.25rem;
-  padding: 0.7rem 1.5rem;
-  font-weight: 600;
-  font-size: 1.125rem;
-  border: none;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-/* Active tab with solid yellow background and no glow */
-/* .nav-tabs .nav-link.active {
-  background-color: var(--accent-gold);
-  color: var(--white) !important;
-  box-shadow: none;
-} */ 
-
-/* Hover effect for tabs (lighter yellow) */
-/* .nav-tabs .nav-link:hover:not(.active) {
-  background-color: var(--accent-light);
-  color: var(--white);
-  box-shadow: none;
-} */ */
-
-/* Card wrapping tab content with rounded corners
+/* Card inside tab-pane */
 .tab-pane > .card {
   border-radius: 1rem;
-  box-shadow: var(--shadow);
-  border: none;
+  border-left: 3px solid var(--accent-gold);
+  border-right: 3px solid var(--accent-gold);
+  border-top: none;
+  border-bottom: none;
   padding: 2rem;
   margin-top: 1rem;
   background: var(--white);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* subtle soft shadow below for depth */
+}
+
+
+
+
+/* Nav pills styling */
+.nav-pills .nav-link {
+  background-color: rgb(222, 222, 222); /* Light grey background for inactive pills */
+  color: white;
+  border-radius: 25px;
+  padding: 0.6rem 1.5rem;
+  font-weight: 600;
+  font-size: 1.125rem;
+  border: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-pills .nav-link.active {
+  background-color: var(--accent-gold) !important;
+  color: white !important;
+  border-radius: 25px;
+  box-shadow: none;
+}
+
+.nav-pills .nav-link:hover:not(.active) {
+  background-color: var(--accent-light);
+  color: white;
+  border-radius: 25px;
+  box-shadow: none;
+}
+
+/* Exam tabs wrapper */
+.exam-tabs-wrapper {
+  display: inline-block;
+border-radius: 50px;
+  padding: 0.5rem;
+  box-shadow: -4px 0 8px rgba(0, 0, 0, 0.1), 4px 0 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
+}
+
+/* Nav link color override */
+.nav-link {
+  color: rgb(232, 232, 232);
+}
+
+/* Custom table styling */
+/* .custom-table {
+  border-collapse: collapse;
+  border: 1px solid white;
+  border-radius: 10px;
+
+}
+
+.custom-table thead th {
+  border: 1px solid white;
+  background-color: black;
+  color: white;
+  padding: 12px;
+  
+
+}
+
+.custom-table tbody td {
+  border: 1px solid #d3d3d3;
+  padding: 12px;
+  color: black;
+  background-color: transparent;
 } */
 
-/* Tab content area with rounded corners as well
-.tab-content {
-  border-radius: 0 0 1rem 1rem;
-  background: transparent;
-  padding: 0;
-} */
+/* Yearly tab content container */
 
 
-    </style>
+
+/* Golden diamond marker before section headings */
+
+
+/* Links */
+
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  color: rgb(48, 74, 107);
+}
+
+
+</style>
     </head>
     <body>
          <nav class="navbar navbar-expand-lg navbar-custom fixed-top" data-aos="fade-down">
@@ -213,117 +164,41 @@
             </div>
         </div>
     </nav>
-
-    <!-- <section class="section-padding" style="margin-top: 100px;">
-            <div class="container">
-                <div class="section-title" data-aos="fade-up">
-                    <h2>Coaching Programs</h2>
-                </div>
-                <p class="text-center section-subtitle" data-aos="fade-up" data-aos-delay="100">
-                    Comprehensive preparation for UPSC Civil Services Examination
-                </p>
-
-                <div class="row">
-                    <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100">
-                        <img src="https://www.metisias.com/uploads/sliders/1721646573018.png" alt="Prelims Coaching"
-                            class="program-image">
-                        <div class="program-card">
-                            <h4><i class="fas fa-book-reader me-2 text-primary"></i>Prelims Coaching</h4>
-                            <p style="font-weight: 500;">Comprehensive preparation for UPSC Preliminary
-                                examination covering:</p>
-                            <ul class="list-unstyled">
-                                <li style="font-weight: 500;font-size: 14px;margin-bottom: 10px;"><i
-                                        class="fas fa-check text-success me-2"></i>General Studies Paper I</li>
-                                <li style="font-weight: 500;font-size: 14px;margin-bottom: 10px;"><i
-                                        class="fas fa-check text-success me-2"></i>General Studies Paper II (CSAT)</li>
-                                <li style="font-weight: 500;font-size: 14px;margin-bottom: 10px;"><i
-                                        class="fas fa-check text-success me-2"></i>Current Affairs & Static GK</li>
-                                <li style="font-weight: 500;font-size: 14px;margin-bottom: 10px;"><i
-                                        class="fas fa-check text-success me-2"></i>Regular Mock Tests</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200">
-                        <img src="https://franchiseindia.s3.ap-south-1.amazonaws.com/uploads/content/edu/art/5a0a824fc28c7.jpg"
-                            alt="Mains Coaching" class="program-image">
-                        <div class="program-card">
-                            <h4><i class="fas fa-pen-fancy me-2 text-primary"></i>Mains Coaching</h4>
-                            <p style="font-weight: 500;">In-depth preparation for UPSC Mains examination including:</p>
-                            <ul class="list-unstyled">
-                                <li style="font-weight: 500;font-size: 14px;margin-bottom: 10px;"><i
-                                        class="fas fa-check text-success me-2"></i>Essay Writing</li>
-                                <li style="font-weight: 500;font-size: 14px;margin-bottom: 10px;"><i
-                                        class="fas fa-check text-success me-2"></i>General Studies Papers I-IV</li>
-                                <li style="font-weight: 500;font-size: 14px;margin-bottom: 10px;"><i
-                                        class="fas fa-check text-success me-2"></i>Optional Subject Guidance</li>
-                                <li style="font-weight: 500;font-size: 14px;margin-bottom: 10px;"><i
-                                        class="fas fa-check text-success me-2"></i>Answer Writing Practice</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="300">
-                        <img src="https://babafaridgroup.edu.in/assets/img/bfgi/free-career-guidance.jpg"
-                            alt="Interview Guidance" class="program-image">
-                        <div class="program-card">
-                            <h4><i class="fas fa-users me-2 text-primary"></i>Interview Guidance</h4>
-                            <p style="font-weight: 500;">Personality test preparation with:</p>
-                            <ul class="list-unstyled">
-                                <li style="font-weight: 500;font-size: 14px;margin-bottom: 10px;"><i
-                                        class="fas fa-check text-success me-2"></i>Mock Interview Sessions</li>
-                                <li style="font-weight: 500;font-size: 14px;margin-bottom: 10px;"><i
-                                        class="fas fa-check text-success me-2"></i>Personality Development</li>
-                                <li style="font-weight: 500;font-size: 14px;margin-bottom: 10px;"><i
-                                        class="fas fa-check text-success me-2"></i>Current Affairs Discussion</li>
-                                <li style="font-weight: 500;font-size: 14px;margin-bottom: 10px;"><i
-                                        class="fas fa-check text-success me-2"></i>Individual Counseling</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="notice-board" data-aos="fade-up" data-aos-delay="400">
-                    <h4 class="mb-3"><i class="fas fa-bullhorn me-2"></i>Latest Announcements</h4>
-                    <div class="notice-item" data-aos="fade-right" data-aos-delay="500">
-                        <strong>New Batch Starting:</strong> Foundation Course for 2026 batch begins from August
-                        15th, 2025. Limited seats available.
-                    </div>
-                    <div class="notice-item" data-aos="fade-right" data-aos-delay="600">
-                        <strong>Mock Test Series:</strong> Prelims test series 2025 registration now open. Early
-                        bird discount available till August 10th.
-                    </div>
-                    <div class="notice-item" data-aos="fade-right" data-aos-delay="700">
-                        <strong>Result Announcement:</strong> Congratulations to all our students who cleared
-                        UPSC 2024 - 150+ selections achieved!
-                    </div>
-                </div>
-            </div>
-        </section>   -->
+    
 <div class="container section-padding" style="max-width: 1140px; margin-top: 100px;">
   <h2 class="section-title">COACHING AND EXAMINATION</h2>
   <p class="section-subtitle">Comprehensive preparation for UPSC Civil Services Examination.</p>
 
-  <!-- Nav Tabs with background and no bottom padding/margin -->
-  <div style="background-color: white; padding: 12px 12px 0 12px; border-radius: 8px; max-width: fit-content; margin: 0 auto;">
-    <ul class="nav nav-pills justify-content-center mb-0" id="examTab" role="tablist" aria-label="Coaching programs tabs" style="margin-bottom: 0;">
+<div class="d-flex justify-content-center mt-4">
+  <div class="exam-tabs-wrapper">
+    <ul class="nav nav-pills justify-content-center" id="examTab" role="tablist">
       <li class="nav-item" role="presentation">
-        <button class="nav-link active" id="prelims-tab" data-bs-toggle="tab" data-bs-target="#prelims" type="button" role="tab" aria-controls="prelims" aria-selected="true">Preliminary Examination</button>
+        <button class="nav-link active" id="prelims-tab" data-bs-toggle="tab" data-bs-target="#prelims" type="button" role="tab" aria-controls="prelims" aria-selected="true">
+          Preliminary Examination
+        </button>
       </li>
       <li class="nav-item" role="presentation">
-        <button class="nav-link" id="mains-tab" data-bs-toggle="tab" data-bs-target="#mains" type="button" role="tab" aria-controls="mains" aria-selected="false">Main Examination</button>
+        <button class="nav-link" id="mains-tab" data-bs-toggle="tab" data-bs-target="#mains" type="button" role="tab" aria-controls="mains" aria-selected="false">
+          Main Examination
+        </button>
       </li>
       <li class="nav-item" role="presentation">
-        <button class="nav-link" id="personality-tab" data-bs-toggle="tab" data-bs-target="#personality" type="button" role="tab" aria-controls="personality" aria-selected="false">Personality Test</button>
+        <button class="nav-link" id="personality-tab" data-bs-toggle="tab" data-bs-target="#personality" type="button" role="tab" aria-controls="personality" aria-selected="false">
+          Personality Test
+        </button>
       </li>
     </ul>
   </div>
+</div>
+
+
+
 
   <!-- Tab Content with no top margin -->
-  <div class="tab-content" id="examTabContent" style="min-height: 500px; margin-top: 0;">
+  <div class="tab-content mt-4;" id="examTabContent" style="min-height: 500px; ">  
     <!-- Preliminary Examination -->
     <div class="tab-pane fade show active" id="prelims" role="tabpanel" aria-labelledby="prelims-tab" tabindex="0">
-      <div class="card shadow-sm p-4" style="border-top:none; margin-top: 0;">
+      <div class="card shadow p-4" style="border-top:none; margin-top: 0;">
         <h3>Preliminary Examination:</h3>
         <p>
           Based on merit (through a competitive entrance Examination conducted throughout Tamil Nadu) and Community Reservation system, 225 aspirants are admitted in Residential coaching (Full-time) and 100 aspirants in Non-Residential (Part-time) coaching. From the year 2011-2018 onwards, ICR applications are issued to the aspirants through District Collectorate. The entrance examination is conducted in seventeen (17) centres in Tamil Nadu.
@@ -351,8 +226,8 @@
     </div>
 
     <!-- Main Examination -->
-    <div class="tab-pane fade" id="mains" role="tabpanel" aria-labelledby="mains-tab" tabindex="0">
-      <div class="card shadow-sm p-4" style="border-top:none; margin-top: 0;">
+    <!-- <div class="tab-pane fade" id="mains" role="tabpanel" aria-labelledby="mains-tab" tabindex="0">
+      <div class="card shadow p-4" style="border-top:none; margin-top: 0;">
         <h3>Main Examination:</h3>
         <p>
           The aspirants who have cleared the UPSC Preliminary examination are admitted for Main Examination Coaching (225 aspirants). Intensive coaching for nearly two to four months is given to the aspirants. A monthly stipend of Rs. 3000/- is given to each candidate admitted for Main coaching, irrespective of the income ceiling to meet expenditure for accessing reading materials.
@@ -400,11 +275,74 @@
           </tbody>
         </table>
       </div>
-    </div>
+    </div> -->
+
+
+
+
+    <div class="tab-pane fade" id="mains" role="tabpanel" aria-labelledby="mains-tab" tabindex="0">
+  <div class="card shadow p-4" style="
+    border-left: 3px solid var(--accent-gold);
+    border-right: 3px solid var(--accent-gold);
+    border-top: none;
+    border-bottom: none;
+    border-radius: 1rem;
+    margin-top: 1rem;
+    background: var(--white);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  ">
+    <h3>Main Examination:</h3>
+    <p>
+      The aspirants who have cleared the UPSC Preliminary examination are admitted for Main Examination Coaching (225 aspirants). Intensive coaching for nearly two to four months is given to the aspirants. A monthly stipend of Rs. 3000/- is given to each candidate admitted for Main coaching, irrespective of the income ceiling to meet expenditure for accessing reading materials.
+    </p>
+    <h5>Main Examination Pattern</h5>
+    <table class="table table-bordered test-table w-75 mx-auto mb-3">
+      <thead>
+        <tr class="text-center">
+          <th>Paper</th>
+          <th>Marks</th>
+          <th>Total Marks</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="text-center">
+          <td>Language - English</td>
+          <td>---</td>
+          <td>(qualifying)</td>
+        </tr>
+        <tr class="text-center">
+          <td>Essay</td>
+          <td>250</td>
+          <td>(Compulsory)</td>
+        </tr>
+        <tr class="text-center">
+          <td>General Studies – Paper I, II, III &amp; IV</td>
+          <td>250 x 4</td>
+          <td>(Compulsory) 1000</td>
+        </tr>
+        <tr class="text-center">
+          <td>Optional I &amp; II (Only one optional)</td>
+          <td>250 x 2</td>
+          <td>(Compulsory) 500</td>
+        </tr>
+        <tr class="text-center">
+          <td>Personality Test</td>
+          <td>275</td>
+          <td></td>
+        </tr>
+        <tr class="text-center">
+          <td><strong>Total</strong></td>
+          <td></td>
+          <td><strong>2025</strong></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
 
     <!-- Personality Test -->
     <div class="tab-pane fade" id="personality" role="tabpanel" aria-labelledby="personality-tab" tabindex="0">
-      <div class="card shadow-sm p-4" style="border-top:none; margin-top: 0;">
+      <div class="card shadow p-4" style="border-top:none; margin-top: 0;">
         <h3>Personality Test:</h3>
         <p>
           The Institute conducts Model Personality Tests for candidates who have cleared their Main Examination. Sessions are conducted by senior officers and subject experts. Topics are discussed with experts. Accommodation is available in Tamilnadu House, New Delhi, with Rs. 2000/- travel allowance provided for attendance.
@@ -413,7 +351,7 @@
     </div>
   </div>
 </div>
-
+=
 
 
 

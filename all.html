@@ -205,6 +205,66 @@
 
   </style> -->
 <style>
+  .tab-pane > .card {
+  border-radius: 1rem;
+  border-left: 3px solid var(--accent-gold);
+  border-right: 3px solid var(--accent-gold);
+  border-top: none;
+  border-bottom: none;
+  padding: 2rem;
+  margin-top: 1rem;
+  background: var(--white);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* subtle soft shadow below for depth */
+}
+.exam-tabs-wrapper {
+  display: inline-flex;                /* shrink-wrap the wrapper */
+  border-radius: 50px;
+  padding: 0.5rem;
+  box-shadow: -4px 0 8px rgba(0,0,0,0.1), 4px 0 8px rgba(0,0,0,0.1);
+  background: var(--white, #fff);
+  margin-bottom: 10px;
+  /* No margin-left/right here */
+}
+
+
+.exam-tabs-wrapper ul.nav-pills {
+  display: flex;                  /* keep pills in a row */
+  gap: 1rem;                     /* spacing between pills */
+  margin: 0;
+  padding: 0;
+  list-style: none;              /* remove list bullet */
+}
+
+
+.nav-pills .nav-link {
+  background-color: rgb(222, 222, 222);   /* Light grey bg for inactive */
+  color: white;
+  border-radius: 25px;
+  padding: 0.6rem 1.5rem;
+  font-weight: 600;
+  font-size: 1.125rem;
+  border: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-pills .nav-link.active {
+  background-color: var(--accent-gold, #f59e0b) !important;
+  color: white !important;
+  box-shadow: none;
+}
+
+.nav-pills .nav-link:hover:not(.active) {
+  background-color: var(--accent-light, #fbbf24);
+  color: white;
+  box-shadow: none;
+}
+.nav-link {
+  color: rgb(232, 232, 232);
+}
+
     /* body {
       font-family: 'Poppins', sans-serif;
       background: var(--primary-bg, #F8FAFC);
@@ -269,14 +329,17 @@
     }
     .test-table {
       margin-bottom: 0;
+      
     }
     .test-table th {
+      
       background: var(--primary-dark, #0f172a);
       color: #fff;
       font-weight: 600;
       text-align: center;
       vertical-align: middle;
       font-size: 1rem;
+      border: none;
     }
     .test-table td {
       vertical-align: middle;
@@ -482,24 +545,30 @@
     <p class="section-subtitle">
       Comprehensive Test Series – Access question papers, answer keys, and detailed solutions by year.
     </p>
-    
-    <ul class="nav nav-tabs justify-content-center mb-3" id="testSeriesTab" role="tablist">
-  <li class="nav-item" role="presentation">
-    <button class="nav-link active" id="tab-2023" data-bs-toggle="tab" data-bs-target="#pane-2023" type="button" role="tab" aria-controls="pane-2023" aria-selected="true">
-      2023
-    </button>
-  </li>
-  <li class="nav-item" role="presentation">
-    <button class="nav-link" id="tab-2022" data-bs-toggle="tab" data-bs-target="#pane-2022" type="button" role="tab" aria-controls="pane-2022" aria-selected="false">
-      2022
-    </button>
-  </li>
-  <li class="nav-item" role="presentation">
-    <button class="nav-link" id="tab-2021" data-bs-toggle="tab" data-bs-target="#pane-2021" type="button" role="tab" aria-controls="pane-2021" aria-selected="false">
-      2021
-    </button>
-  </li>
-</ul>
+    <div class=" d-flex justify-content-center mt-4">
+<div class="exam-tabs-wrapper">
+  <ul class="nav nav-pills" id="testSeriesTab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" id="tab-2023" data-bs-toggle="tab" data-bs-target="#pane-2023" type="button" role="tab" aria-controls="pane-2023" aria-selected="true">
+        2023
+      </button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="tab-2022" data-bs-toggle="tab" data-bs-target="#pane-2022" type="button" role="tab" aria-controls="pane-2022" aria-selected="false">
+        2022
+      </button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="tab-2021" data-bs-toggle="tab" data-bs-target="#pane-2021" type="button" role="tab" aria-controls="pane-2021" aria-selected="false">
+        2021
+      </button>
+    </li>
+  </ul>
+</div>
+</div>
+
+
+
     <div class="tab-content" id="testSeriesTabContent">
       <!-- 2023 Tab -->
       <div class="tab-pane fade show active" id="pane-2023" role="tabpanel" aria-labelledby="tab-2023">

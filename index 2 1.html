@@ -19,15 +19,10 @@
 
     <!-- AOS Animation Library -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
-
-
-<!-- Bootstrap Bundle JS (includes Popper) -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
      
     <!--CSS-->
     <!-- <link rel="stylesheet" href="styles.css"> -->
     <style>
-
         :root {
             --primary-color: #002147;
             --accent-color: #228B22;
@@ -74,8 +69,9 @@
         h6 {
             font-family: 'Poppins', sans-serif;
             font-weight: 600;
+            color: #002147;
         }
-       
+
         /* Custom Navbar */
         .navbar-custom {
             background: rgba(15, 23, 42, 0.95);
@@ -100,7 +96,6 @@
             height: 50px;
             width: auto;
         }
-
         .brand-text h5 {
             color: #fff;
             font-weight: 700;
@@ -115,6 +110,10 @@
             opacity: 0.9;
         }
 
+        .navbar-nav{
+            font-size:15px;
+        }
+        
         .navbar-nav .nav-link {
             color: #fff !important;
             font-weight: 500;
@@ -152,59 +151,316 @@
         .navbar-toggler:focus {
             box-shadow: none;
         }
-        /* Remove default Bootstrap dropdown arrow */
-.nav-item.dropdown > .nav-link.dropdown-toggle::after {
-  content: none !important;
+        .navbar-custom {
+    /* background: var(--navbar-bg); */
+    box-shadow: 0 2px 20px rgba(0, 33, 71, 0.1);
+    transition: all 0.3s ease;
+    padding: 1rem 0;
+    backdrop-filter: blur(10px);
+    min-height: 70px;
 }
 
-/* Dropdown menu styles matching your navbar */
-
-.dropdown-menu {
-  background: rgba(15, 23, 42, 0.95);
-  backdrop-filter: blur(10px);
-  border: none;
-  box-shadow: 0 4px 15px rgba(0, 33, 71, 0.3);
-  margin-top: 0.3rem;
-  border-radius: 8px;
-  min-width: 200px;
-  padding: 0.5rem 0;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  opacity: 0;
-  transform: translateY(-10px);
-  pointer-events: none;
-  position: absolute;
-  z-index: 1050;
+.navbar-custom.scrolled {
+    padding: 0.5rem 0;
+    /* background: var(--navbar-bg-scrolled); */
+    min-height: 60px;
 }
 
-/* Show dropdown menu smoothly */
-.show > .dropdown-menu {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-decoration: none;
+    flex: 1;
+    /* min-width: 0; Allow flex item to shrink */
 }
 
-/* Dropdown items */
-.dropdown-menu .dropdown-item {
-  color: #fff;
-  padding: 0.5rem 1.5rem;
-  transition: background-color 0.3s ease, color 0.3s ease;
+.navbar-brand:hover {
+    text-decoration: none;
 }
 
-.dropdown-menu .dropdown-item:hover,
-.dropdown-menu .dropdown-item:focus {
-  background-color: var(--accent-blue);
-  color: #fff;
+.navbar-brand img {
+    height: 50px;
+    width: auto;
+    flex-shrink: 0;
+    transition: height 0.3s ease;
 }
 
-.dropdown-menu .dropdown-item:focus {
-  outline: none;
+.brand-text {
+    min-width: 0; /* Allow text to wrap */
+    flex: 1;
 }
 
+.brand-text h5 {
+    color: #fff;
+    font-weight: 700;
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.brand-text small {
+    color: #fff;
+    font-size: 0.8rem;
+    opacity: 0.9;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.navbar-nav .nav-link {
+    color: #fff !important;
+    font-weight: 500;
+    margin: 0 5px;
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 0.5rem 1rem;
+    white-space: nowrap;
+}
+
+.navbar-nav .nav-link:hover {
+    color: var(--accent-blue) !important;
+}
+
+.navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 50%;
+    background: var(--accent-blue);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.navbar-nav .nav-link:hover::after {
+    width: 100%;
+}
+
+.navbar-toggler {
+    border: none;
+    outline: none;
+    padding: 4px 8px;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='m4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    filter: brightness(0) invert(1);
+}
+
+/* Responsive Breakpoints */
+
+/* Extra Small Devices (350px - 575px) */
+@media (max-width: 575.98px) {
+    .navbar-custom {
+        padding: 0.5rem 0;
+    }
+    
+    .container {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    
+    .navbar-brand {
+        gap: 8px;
+    }
+    
+    .navbar-brand img {
+        height: 35px;
+    }
+    
+    .brand-text h5 {
+        font-size: 12px;
+        max-width: 180px;
+    }
+    
+    .brand-text small {
+        font-size: 0.65rem;
+        max-width: 180px;
+    }
+    
+    .navbar-toggler {
+        padding: 2px 6px;
+        margin-left: 5px;
+    }
+    
+    .navbar-nav {
+        padding-top: 1rem;
+    }
+    
+    .navbar-nav .nav-link {
+        padding: 0.7rem 1rem;
+        margin: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .navbar-nav .nav-link:last-child {
+        border-bottom: none;
+    }
+}
+
+/* Small Devices (576px - 767px) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .navbar-brand img {
+        height: 40px;
+    }
+    
+    .brand-text h5 {
+        font-size: 14px;
+        max-width: 220px;
+    }
+    
+    .brand-text small {
+        font-size: 0.7rem;
+        max-width: 220px;
+    }
+    
+    .navbar-nav .nav-link {
+        padding: 0.6rem 1rem;
+        margin: 0;
+    }
+}
+
+/* Medium Devices (768px - 991px) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .navbar-brand img {
+        height: 45px;
+    }
+    
+    .brand-text h5 {
+        font-size: 15px;
+    }
+    
+    .brand-text small {
+        font-size: 0.75rem;
+    }
+    
+    .navbar-nav .nav-link {
+        margin: 0 3px;
+        padding: 0.5rem 0.8rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Large Devices (992px - 1199px) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .navbar-brand img {
+        height: 48px;
+    }
+    
+    .brand-text h5 {
+        font-size: 15.5px;
+    }
+    
+    .navbar-nav .nav-link {
+        margin: 0 8px;
+        padding: 0.5rem 0.9rem;
+    }
+}
+
+/* Extra Large Devices (1200px - 1399px) */
+@media (min-width: 1200px) and (max-width: 1399.98px) {
+    .navbar-brand img {
+        height: 50px;
+    }
+    
+    .brand-text h5 {
+        font-size: 16px;
+    }
+    
+    .navbar-nav .nav-link {
+        margin: 0 10px;
+        padding: 0.5rem 1rem;
+    }
+}
+
+/* XXL Devices (1400px - 1600px+) */
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1400px;
+    }
+    
+    .navbar-brand img {
+        height: 55px;
+    }
+    
+    .brand-text h5 {
+        font-size: 18px;
+    }
+    
+    .brand-text small {
+        font-size: 0.85rem;
+    }
+    
+    .navbar-nav .nav-link {
+        margin: 0 12px;
+        padding: 0.5rem 1.2rem;
+        font-size: 1.05rem;
+    }
+}
+
+/* Very small screens (350px and below) */
+@media (max-width: 349.98px) {
+    .container {
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+    
+    .navbar-brand {
+        gap: 6px;
+    }
+    
+    .navbar-brand img {
+        height: 30px;
+    }
+    
+    .brand-text h5 {
+        font-size: 10px;
+        max-width: 140px;
+    }
+    
+    .brand-text small {
+        font-size: 0.6rem;
+        max-width: 140px;
+    }
+    
+    .navbar-toggler {
+        padding: 1px 4px;
+        font-size: 0.8rem;
+    }
+}
+
+/* Ensure proper mobile menu behavior */
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        background: var(--navbar-bg);
+        margin-top: 0.5rem;
+        border-radius: 8px;
+        padding: 0.5rem 0;
+    }
+    
+    .navbar-nav .nav-link {
+        text-align: center;
+    }
+    
+    .navbar-nav .nav-link::after {
+        display: none; /* Hide hover effects on mobile */
+    }
+}
 
         /* Hero Section */
         .hero-section {
-            height: 100vh;
-            min-height: 600px;
+            /* height: 100vh; */
+            /* min-height: 600px; */
             background: linear-gradient(rgba(30, 41, 59, 0.85), rgba(59, 130, 246, 0.3)),
                 url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
@@ -221,7 +477,9 @@
         }
 
         .hero-content h1 {
-            font-size: 3.5rem;
+            color: #fff;
+            margin-top: 26px;
+            font-size: 40px; 
             font-weight: 700;
             margin-bottom: 1.5rem;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
@@ -241,10 +499,17 @@
             padding: 0.8rem 2rem;
             border-radius: 50px;
             font-weight: 600;
-            margin-bottom: 2rem;
+            margin-top: 4rem;
             display: inline-block;
             animation: pulse 2s infinite;
-            font-size: 1.1rem;
+            font-size: 14px;
+            height: 36px;
+            padding: 8px 10px;
+        }
+
+        .hero-content span{
+            font-size:34px;
+            
         }
 
         @keyframes pulse {
@@ -299,7 +564,7 @@
 
         /* Section Styling */
         .section-padding {
-            padding: 80px 0;
+            padding: 35px 0;
         }
 
         .section-title {
@@ -386,7 +651,7 @@
         }
 
         .feature-card h4 {
-            color: var(--primary-text);
+            color:#002147;
             margin-bottom: 1rem;
             font-size: 1.3rem;
         }
@@ -426,7 +691,7 @@
         }
 
         .stat-number {
-            font-size: 3.5rem;
+            font-size: 2rem;
             font-weight: 700;
             color: var(--warm-orange);
             display: block;
@@ -449,6 +714,12 @@
             height: 300px;
         }
 
+         .gallery-overlay h5{
+                color: var(--accent-light);
+                font-weight: 600;
+            }
+
+
         .gallery-item:hover {
             transform: translateY(-10px);
             box-shadow: var(--card-shadow-hover);
@@ -463,6 +734,7 @@
 
         .gallery-item:hover img {
             transform: scale(1.1);
+            backdrop-filter: blur(15px);
         }
 
         .gallery-overlay {
@@ -760,7 +1032,7 @@
 
         .footer h5 {
             color: var(--warm-orange);
-            margin-bottom: 1.5rem;
+            /* margin-bottom: 1.5rem; */
             font-size: 1.3rem;
         }
 
@@ -774,6 +1046,10 @@
             color: var(--accent-blue);
             transform: translateX(5px);
         }
+
+         .footer-heading h5{
+                margin-bottom: 0px;
+            }
 
         .social-icons a {
             display: inline-block;
@@ -1081,7 +1357,7 @@
 
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-custom fixed-top" data-aos="fade-down">
+    <nav class="navbar navbar-expand-xl navbar-custom fixed-top" data-aos="fade-down">
         <div class="container">
             <a class="navbar-brand" href="#home">
                 <img src="https://www.civilservicecoaching.com/images/logo.png" alt="AICSCC Logo" class="me-0">
@@ -1112,44 +1388,25 @@
                     <li class="nav-item">
                         <a class="nav-link" href="facilities.html">Facilities</a>
                     </li>
+                    <li class="nav-item"></li>
+                        <!-- <a class="nav-link" href="#">Question Bank</a> -->
+                        <button class="btn btn-secondary dropdown-toggle nav-link"  data-bs-toggle="dropdown" aria-expanded="false">Question Bank</button>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="AICSCC.html">AICSC</a></li>
+    <li><a class="dropdown-item" href="AICSCC.html">UPSC</a></li>
+    <li><a class="dropdown-item" href="all.html">Test Series</a></li>
+  </ul>
+</div>
+
+
+                    </li>
+                    
                     <li class="nav-item">
                         <a class="nav-link" href="eligibility.html">Eligibility</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="contact.html">Contact</a>
                     </li>
-                    <!-- <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" href="#" id="questionDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-        Question
-      </a>
-      <ul class="dropdown-menu" aria-labelledby="questionDropdown">
-        <li><a class="dropdown-item" href="aicscc-qn-banks.html">AICSCC Qn Banks</a></li>
-        <li><a class="dropdown-item" href="upsa-question-bank.html">UPSA Question Bank</a></li>
-        <li><a class="dropdown-item" href="test-series.html">Test Series</a></li>
-      </ul>
-    </li> -->
-<li class="nav-item dropdown">
-  <a class="nav-link dropdown-toggle" href="#" id="questionDropdown" role="button"
-     data-bs-toggle="dropdown" aria-expanded="false">
-    Question
-  </a>
-  <ul class="dropdown-menu" aria-labelledby="questionDropdown">
-    <li><a class="dropdown-item" href="aicscc-qn-banks.html">AICSCC Qn Banks</a></li>
-    <li><a class="dropdown-item" href="upsa-question-bank.html">UPSA Question Bank</a></li>
-    <li><a class="dropdown-item" href="test-series.html">Test Series</a></li>
-  </ul>
-</li>
-
-                 
-    <li class="nav-item">
-                        <a class="nav-link" href="exam_result.html">Exams & Result</a>
-                    </li>
-                    
-                     <li class="nav-item">
-                        <a class="nav-link" href="faq.html">FAQ</a>
-                    </li>
-                    
-                   
                 </ul>
             </div>
         </div>
@@ -1635,7 +1892,7 @@
         </section> -->
 
         <!-- Find Us Section -->
-        <section class="section-padding" style="background: white;">
+        <!-- <section class="section-padding" style="background: white;">
             <div class="container">
                 <div class="section-title" data-aos="fade-up">
                     <h2>Find Us</h2>
@@ -1650,11 +1907,12 @@
                             <h4 class="text-center mb-4"><i class="fas fa-map-marker-alt me-2"></i>Our Location</h4>
                             <div style="height: 450px; border-radius: 15px; overflow: hidden; margin-bottom: 2rem;">
                                 <iframe
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.2948!2d80.2516!3d13.0358!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5267e0b3c19c57%3A0x7e8f8e8e8e8e8e8e!2sR.A.Puram%2C%20Chennai%2C%20Tamil%20Nadu%20600028!5e0!3m2!1sen!2sin!4v1627890123456!5m2!1sen!2sin"
+                                    src="https://maps.google.com/maps?q=All%20India%20Civil%20Services%20Coaching%20Centre%20163%2F1%2C%20Kanchi%2C%20P.S.Kumarasamy%20Raja%20Salai%2C%20Greenways%20Rd%2C%20Raja%20Annamalai%20Puram%2C%20Chennai%2C%20Tamil%20Nadu%20600028&z=15&output=embed"
                                     width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
                                     referrerpolicy="no-referrer-when-downgrade">
-                                </iframe>
-                            </div>
+                            </iframe> -->
+                                <!-- <iframe src="https://www.google.com/maps?q= https://maps.app.goo.gl/AueiZnCtUHcTeZft7&z=[ZOOM_LEVEL]&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe> -->
+                            <!-- </div>
 
                             <div class="row text-center d-none">
                                 <div class="col-md-4 mb-3" data-aos="fade-up" data-aos-delay="300">
@@ -1687,7 +1945,7 @@
                 </div>
             </div>
         </section>
-    </div>
+    </div> -->
 
     <!-- About Page -->
     <!-- <div id="about-page" class="page-content hidden"> -->
@@ -2225,7 +2483,7 @@
                     <div class="d-flex align-items-center mb-3">
                         <img src="https://www.civilservicecoaching.com/images/logo.png" alt="AICSCC Logo" height="40"
                             class="me-3">
-                        <div>
+                        <div class="footer-heading">
                             <h5 style="color: white;">AICSCC</h5>
                             <small>Anna Institute of Management</small>
                         </div>
@@ -2240,9 +2498,9 @@
                     </div>
                 </div>
 
-                <div class="col-lg-2" data-aos="fade-up" data-aos-delay="200">
+                <div class="col-lg" data-aos="fade-up" data-aos-delay="200">
                     <h5>Quick Links</h5>
-                    <ul class="list-unstyled">
+                    <ul class="list-unstyled" style="line-height: 2;">
                         <li><a href="#home" onclick="showPage('home')">Home</a></li>
                         <li><a href="#about" onclick="showPage('about')">About Us</a></li>
                         <li><a href="#gallery" onclick="showPage('gallery')">Gallery</a></li>
@@ -2253,7 +2511,7 @@
                     </ul>
                 </div>
 
-                <div class="col-lg-3" data-aos="fade-up" data-aos-delay="300">
+                <div class="col-lg" data-aos="fade-up" data-aos-delay="300">
                     <h5>Programs</h5>
                     <ul class="list-unstyled">
                         <li><a href="#">UPSC Prelims</a></li>
@@ -2264,7 +2522,7 @@
                     </ul>
                 </div>
 
-                <div class="col-lg-3" data-aos="fade-up" data-aos-delay="400">
+                <div class="col-lg" data-aos="fade-up" data-aos-delay="400">
                     <h5>Contact Info</h5>
                     <p><i class="fas fa-map-marker-alt me-2"></i>R.A.Puram, Chennai - 600028</p>
                     <p><i class="fas fa-phone me-2"></i>044-24621475</p>

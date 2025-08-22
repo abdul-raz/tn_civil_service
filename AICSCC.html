@@ -79,7 +79,7 @@
   white-space: nowrap;
 }
 
-   .download-btn {
+   /* .download-btn {
       background: var(--accent-blue);
       color: var(--white);
       border: none;
@@ -99,7 +99,40 @@
       color: var(--primary-text);
       transform: scale(1.1);
       box-shadow: var(--card-shadow-hover);
-    }
+    } */
+     .download-btn {
+  /* background: var(--accent-blue, #3B82F6); */
+  color:rgb(48, 74,107);
+
+  border: none;
+  border-radius: 6px;
+  padding: 0.3rem 0.8rem;
+  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: 500;
+  /* box-shadow: 0 1px 4px rgba(0,0,0,0.05); */
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.download-btn i {
+  font-size: 1em;
+  transition: color 0.2s ease;
+}
+
+.download-btn:hover, .download-btn:focus {
+  background: var(); /* softer yellow */
+  color: var(--accent-gold, #f59e0b);
+  transform: scale(1.03); /* less aggressive zoom */
+  box-shadow: 0 2px 8px rgba(245,158,11,0.1);
+  text-decoration: none;
+}
+
+.download-btn:hover i, .download-btn:focus i {
+  color: var(--accent-gold, #f59e0b);
+}
 .section-title {
             text-align: center;
             font-size: 2rem;

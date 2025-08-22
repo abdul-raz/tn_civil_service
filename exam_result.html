@@ -36,6 +36,11 @@
     --shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
     --shadow-hover: 0 12px 30px rgba(0, 0, 0, 0.12);
   } */
+
+  .tabs-container{
+    border:none;
+    border-radius:25px;
+  }
 .tab-pane > .card {
   border-radius: 1rem;
   border-left: 3px solid var(--accent-gold);
@@ -441,6 +446,11 @@ border-radius: 50px;
   box-shadow: none;
 }
 
+.exam-tabs-wrapper ul.nav-pills {
+  display: flex;
+  justify-content: center;
+  gap: 1rem; /* adds space between the tab buttons */
+}
 /* Exam tabs wrapper */
 /* .exam-tabs-wrapper {
   display: inline-block;
@@ -556,7 +566,7 @@ border-radius: 50px;
   <div class="row g-4 equal-height">
     <!-- Full-time -->
     <div class="col-md-6 d-flex flex-column">
-      <div class="tabs-container p-4 flex-grow-1">
+      <div class=" card shadow-lg tabs-container p-4 flex-grow-1">
         <h5 class="fw-bold mb-4">Full-time (Residential)</h5>
         <div class="schedule-table">
           <div class="schedule-icon"><i class="bi bi-calendar-check text-primary fs-4"></i></div>
@@ -580,7 +590,7 @@ border-radius: 50px;
 
     <!-- Part-time -->
     <div class="col-md-6 d-flex flex-column">
-      <div class="tabs-container p-4 flex-grow-1">
+      <div class=" card shadow-lg tabs-container p-4 flex-grow-1">
         <h5 class="fw-bold mb-4">Part-time</h5>
         <div class="parttime-table">
           <div class="row">
@@ -615,7 +625,7 @@ border-radius: 50px;
 <!-- Tests & Model Tests -->
 <!-- Tests & Model Tests -->
 <div class="mt-5">
-  <div class="tabs-container p-4" style="max-width: none; margin: 0;">
+  <div class="card shadow-lg  tabs-container p-4" style="max-width: none; margin: 0;">
     <h5 class="fw-bold mb-4 text-center">Tests & Model Tests (Full-time & Part-time)</h5>
 
     <!-- Bootstrap Grid Row -->

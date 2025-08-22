@@ -283,7 +283,7 @@
       text-align: center;
       font-size: 1rem;
     }
-    .download-btn {
+    /* .download-btn {
       background: var(--accent-blue, #3B82F6);
       color: var(--white, #ffffff);
       border: none;
@@ -302,9 +302,43 @@
       font-size: 1.1em;
       margin-left: 2px;
       transition: color 0.2s;
-    }
+    } */
     /* Container for tabs with transparent background and centered alignment */
-.nav-tabs {
+.download-btn {
+  /* background: var(--accent-blue, #3B82F6); */
+  color:rgb(48, 74,107);
+
+  border: none;
+  border-radius: 6px;
+  padding: 0.3rem 0.8rem;
+  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: 500;
+  /* box-shadow: 0 1px 4px rgba(0,0,0,0.05); */
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.download-btn i {
+  font-size: 1em;
+  transition: color 0.2s ease;
+}
+
+.download-btn:hover, .download-btn:focus {
+  background: var(); /* softer yellow */
+  color: var(--accent-gold, #f59e0b);
+  transform: scale(1.03); /* less aggressive zoom */
+  box-shadow: 0 2px 8px rgba(245,158,11,0.1);
+  text-decoration: none;
+}
+
+.download-btn:hover i, .download-btn:focus i {
+  color: var(--accent-gold, #f59e0b);
+}
+
+    .nav-tabs {
   background: transparent !important;
   border-bottom: none !important;
   justify-content: center !important;
@@ -368,7 +402,7 @@
   margin-right: 0.5rem;
 }
 
-    .download-btn:hover, .download-btn:focus {
+    /* .download-btn:hover, .download-btn:focus {
       background: var(--accent-light, #fbbf24);
       color: var(--primary-text, #1E293B);
       transform: scale(1.09);
@@ -377,7 +411,7 @@
     }
     .download-btn:hover i, .download-btn:focus i {
       color: var(--primary-text, #1E293B);
-    }
+    } */
     @media (max-width: 767px) {
       .section-title {font-size: 1.9rem;}
       .tab-pane {padding:18px 0;}
@@ -448,18 +482,7 @@
     <p class="section-subtitle">
       Comprehensive Test Series – Access question papers, answer keys, and detailed solutions by year.
     </p>
-    <!-- Nav Tabs -->
-    <!-- <ul class="nav nav-tabs justify-content-center mb-3" id="testSeriesTab" role="tablist">
-      <li class="nav-item" role="presentation">
-        <button class="nav-link active" id="tab-2023" data-bs-toggle="tab" data-bs-target="#pane-2023" type="button" role="tab" aria-controls="pane-2023" aria-selected="true"><i class="fas fa-calendar-alt me-1"></i>2023</button>
-      </li>
-      <li class="nav-item" role="presentation">
-        <button class="nav-link" id="tab-2022" data-bs-toggle="tab" data-bs-target="#pane-2022" type="button" role="tab" aria-controls="pane-2022" aria-selected="false"><i class="fas fa-calendar-alt me-1"></i>2022</button>
-      </li>
-      <li class="nav-item" role="presentation">
-        <button class="nav-link" id="tab-2021" data-bs-toggle="tab" data-bs-target="#pane-2021" type="button" role="tab" aria-controls="pane-2021" aria-selected="false"><i class="fas fa-calendar-alt me-1"></i>2021</button>
-      </li>
-    </ul> -->
+    
     <ul class="nav nav-tabs justify-content-center mb-3" id="testSeriesTab" role="tablist">
   <li class="nav-item" role="presentation">
     <button class="nav-link active" id="tab-2023" data-bs-toggle="tab" data-bs-target="#pane-2023" type="button" role="tab" aria-controls="pane-2023" aria-selected="true">

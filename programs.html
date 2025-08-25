@@ -24,209 +24,16 @@
     <link rel="stylesheet" href="styles.css">
 <style>/* Parent container of tabs and content gets the gradient background - removed duplicate .nav-tabs styles */
 
-.tab-pane > .card {
-  border-radius: 1rem;
-  border-left: 3px solid var(--accent-gold);
-  border-right: 3px solid var(--accent-gold);
-  border-top: none;
-  border-bottom: none;
-  padding: 2rem;
-  margin-top: 1rem;
-  background: var(--white);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-}
-
-.test-table {
-  margin-bottom: 0;
-}
-.test-table th {
-  background: var(--primary-dark, #0f172a);
-  color: #fff;
-  font-weight: 600;
-  text-align: center;
-  vertical-align: middle;
-  font-size: 1rem;
-}
-.test-table td {
-  vertical-align: middle;
-  text-align: center;
-  font-size: 1rem;
-}
-
-/* Nav pills styling - FORCE 25px border radius everywhere */
-.nav-pills .nav-link {
-  background-color: rgb(222, 222, 222);
-  color: white;
-  border-radius: 25px !important;
-  padding: 0.6rem 1.5rem;
-  font-weight: 600;
-  font-size: 1.125rem;
-  border: none;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.nav-pills .nav-link.active {
-  background-color: var(--accent-gold) !important;
-  color: white !important;
-  border-radius: 25px !important;
-  box-shadow: none;
-}
-
-.nav-pills .nav-link:hover:not(.active) {
-  background-color: var(--accent-light);
-  color: white;
-  border-radius: 25px !important;
-  box-shadow: none;
-}
-
-/* Force border radius with higher specificity */
-.exam-tabs-wrapper .nav-pills .nav-link,
-.exam-tabs-wrapper .nav-pills .nav-link.active,
-.exam-tabs-wrapper .nav-pills .nav-link:hover {
-  border-radius: 45px !important;
-}
-
-/* Exam tabs wrapper - BASE STYLES */
-.exam-tabs-wrapper {
-  display: block;
-  width: 100%;
-  border-radius: 50px;
-  padding: 0.5rem;
-  box-shadow: -4px 0 8px rgba(0, 0, 0, 0.1), 4px 0 8px rgba(0, 0, 0, 0.1);
-  margin-bottom: 1rem;
-}
-
-.exam-tabs-wrapper ul.nav-pills {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin: 0;
-  padding: 0;
-  flex-wrap: nowrap;
-}
-
-/* Nav link color override */
-.nav-link {
-  color: rgb(232, 232, 232);
-}
-
-h3.section-title {
-  font-weight: 600;
-  letter-spacing: 1px;
-  font-size: 1.5rem;
-  text-align: center;
-  margin-bottom: 2rem;
-  color: var(--primary-color);
-  position: relative;
-}
-
-/* Headings */
-h1, h2, h3, h4, h5, h6 {
-  color: rgb(48, 74, 107);
-}
-
-/* RESPONSIVE BREAKPOINTS - Non-overlapping and clean */
-
-/* Mobile - stack vertically */
-/* Mobile - compact 3-column grid */
-@media (max-width: 576px) {
-  .exam-tabs-wrapper {
+   .navbar-nav .nav-link.active::after {
+    content: '';
+    position: absolute;
     width: 100%;
-    padding: 0.25rem;
-    border-radius: 25px;
-  }
-  
-  .exam-tabs-wrapper ul.nav-pills {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0.25rem;
-  }
-  
-  .nav-pills .nav-link {
-    padding: 0.4rem 0.2rem;
-    font-size: 0.75rem;
-    font-weight: 500;
-    text-align: center;
-    border-radius: 25px !important;
-    line-height: 1.2;
-  }
-}
-
-
-/* Very small phones */
-@media (max-width: 480px) {
-  .exam-tabs-wrapper {
-    margin-left: -0.5rem;
-    margin-right: -0.5rem;
-    border-radius: 15px;
-  }
-  
-  .nav-pills .nav-link {
-    font-size: 0.85rem;
-    padding: 0.4rem 0.8rem;
-    max-width: 260px;
-    border-radius: 25px !important;
-  }
-}
-
-/* Small tablets - keep in one line */
-@media (min-width: 577px) and (max-width: 768px) {
-  .exam-tabs-wrapper {
-    width: 100%;
-    padding: 0.4rem;
-  }
-  
-  .exam-tabs-wrapper ul.nav-pills {
-    flex-direction: row;
-    gap: 0.5rem;
-  }
-  
-  .nav-pills .nav-link {
-    padding: 0.4rem 0.8rem;
-    font-size: 0.95rem;
-    font-weight: 500;
-    border-radius: 25px !important;
-  }
-}
-
-/* Medium screens - keep in one line */
-@media (min-width: 769px) and (max-width: 992px) {
-  .exam-tabs-wrapper {
-    display: inline-block;
-    width: auto;
-  }
-  
-  .exam-tabs-wrapper ul.nav-pills {
-    flex-direction: row;
-    gap: 0.75rem;
-  }
-  
-  .nav-pills .nav-link {
-    padding: 0.5rem 1.2rem;
-    font-size: 1rem;
-    font-weight: 600;
-    border-radius: 25px !important;
-  }
-}
-
-/* Large screens and above */
-@media (min-width: 993px) {
-  .exam-tabs-wrapper {
-    display: inline-block;
-    width: auto;
-  }
-  
-  .exam-tabs-wrapper ul.nav-pills {
-    flex-direction: row;
-    gap: 1rem;
-  }
-  
-  .nav-pills .nav-link {
-    padding: 0.6rem 1.5rem;
-    font-size: 1.125rem;
-    font-weight: 600;
-    border-radius: 25px !important;
-  }
+    height: 2px;
+    bottom: -5px;
+    left: 50%;
+    background: var(--accent-blue);
+    transform: translateX(-50%);
+    transition: all 0.3s ease;
 }
 
 </style>
@@ -234,47 +41,78 @@ h1, h2, h3, h4, h5, h6 {
 
     </head>
     <body>
-         <nav class="navbar navbar-expand-lg navbar-custom fixed-top" data-aos="fade-down">
-        <div class="container">
-            <a class="navbar-brand" href="#home">
-                <img src="https://www.civilservicecoaching.com/images/logo.png" alt="AICSCC Logo" class="me-0">
-                <div class="brand-text">
-                    <h5>All India Civil Services Coaching Centre</h5>
-                    <small>A Unit of Anna Institute of Management</small>
+            <!-- Navigation -->
+        <nav class="navbar navbar-expand-xl navbar-custom fixed-top" data-aos="fade-down">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#home">
+                    <img src="https://www.civilservicecoaching.com/images/logo.png" alt="AICSCC Logo" class="me-0">
+                    <div class="brand-text">
+                        <h5>All India Civil Services Coaching Centre</h5>
+                        <small>A Unit of Anna Institute of Management</small>
+                    </div>
+                </a>
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index 2 1.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="aboutus_new.html">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="gallery_new.html">Gallery</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a
+                                class="btn dropdown-toggle nav-link"
+                                href="contact.html"
+                                role="button"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
+                                style="color: #fff; border-style: none;"
+                            >Question Bank</a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" href="AICSCC.html">AICSCC Question Bank</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="AICSCC.html">UPSC Question Bank</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="test_series.html">Test Series</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="exam_result.html">Exam Results</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active"  aria-current="page" href="programs.html">Coaching Programs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="facilities.html">Facilities</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="eligibility.html">Eligibility</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="faq.html">FAQ</a>
+                        </li>
+                    </ul>
                 </div>
-            </a>
-
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index 2 1.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="aboutus_new.html">About Us</a>About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="gallery.html">Gallery</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="programs.html">Coaching Programs</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="facilities.html">Facilities</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="eligibility.html">Eligibility</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact</a>
-                    </li>
-                </ul>
             </div>
-        </div>
-    </nav>
+        </nav>
     
 <div class="container section-padding " style="margin-top: 120px;">
   <h3 class="section-title">COACHING AND EXAMINATION</h3>

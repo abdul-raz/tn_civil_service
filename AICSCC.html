@@ -128,7 +128,7 @@
   background: var(); /* softer yellow */
   color: var(--accent-gold, #f59e0b);
   transform: scale(1.03); /* less aggressive zoom */
-  box-shadow: 0 2px 8px rgba(245,158,11,0.1);
+  /* box-shadow: 0 2px 8px rgba(245,158,11,0.1); */
   text-decoration: none;
 }
 
@@ -201,47 +201,80 @@
 </head>
 <body>
   <!-- Navbar -->
-      <nav class="navbar navbar-expand-lg navbar-custom fixed-top" data-aos="fade-down">
-        <div class="container">
-            <a class="navbar-brand" href="#home">
-                <img src="https://www.civilservicecoaching.com/images/logo.png" alt="AICSCC Logo" class="me-0">
-                <div class="brand-text">
-                    <h5>All India Civil Services Coaching Centre</h5>
-                    <small>A Unit of Anna Institute of Management</small>
+            <!-- Navigation -->
+        <nav class="navbar navbar-expand-xl navbar-custom fixed-top" data-aos="fade-down">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#home">
+                    <img src="https://www.civilservicecoaching.com/images/logo.png" alt="AICSCC Logo" class="me-0">
+                    <div class="brand-text">
+                        <h5>All India Civil Services Coaching Centre</h5>
+                        <small>A Unit of Anna Institute of Management</small>
+                    </div>
+                </a>
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index 2 1.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="aboutus_new.html">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="gallery_new.html">Gallery</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a
+                                class="btn dropdown-toggle nav-link active"
+                                href="contact.html"
+                                role="button"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
+                                style="color: #fff; border-style: none;"
+                                aria-current="page"
+
+                            >Question Bank</a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item"  href="AICSCC.html">AICSCC Question Bank</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="AICSCC.html">UPSC Question Bank</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="test_series.html">Test Series</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="exam_result.html">Exam Results</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="programs.html">Coaching Programs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="facilities.html">Facilities</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="eligibility.html">Eligibility</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="faq.html">FAQ</a>
+                        </li>
+                    </ul>
                 </div>
-            </a>
-
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index 2 1.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="aboutus_new.html">About Us</a>About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="gallery.html">Gallery</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="programs.html">Coaching Programs</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="facilities.html">Facilities</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="eligibility.html">Eligibility</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact</a>
-                    </li>
-                </ul>
             </div>
-        </div>
-    </nav>
+        </nav>
   <section class="hero-section">
     <style>
    

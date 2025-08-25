@@ -1,0 +1,473 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>All India Civil Services Coaching Centre - 60 Years of Excellence</title>
+        <!-- Bootstrap 5 CSS -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+        <!-- Font Awesome -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+        <!-- AOS Animation Library -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+        <!--CSS-->
+        <!-- <link rel="stylesheet" href="styles.css"> -->
+          <!--CSS-->
+        <link rel="stylesheet" href="styles.css">
+    </head> 
+<body>
+        <!-- Navbar -->
+              <!-- Navigation -->
+        <nav class="navbar navbar-expand-xl navbar-custom fixed-top" data-aos="fade-down">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#home">
+                    <img src="https://www.civilservicecoaching.com/images/logo.png" alt="AICSCC Logo" class="me-0">
+                    <div class="brand-text">
+                        <h5>All India Civil Services Coaching Centre</h5>
+                        <small>A Unit of Anna Institute of Management</small>
+                    </div>
+                </a>
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index 2 1.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="aboutus_new.html">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="gallery_new.html">Gallery</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a
+                                class="btn dropdown-toggle nav-link"
+                                href="contact.html"
+                                role="button"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
+                                style="color: #fff; border-style: none;"
+                            >Question Bank</a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" href="AICSCC.html">AICSCC Question Bank</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="AICSCC.html">UPSC Question Bank</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="test_series.html">Test Series</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="exam_result.html">Exam Results</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="programs.html">Coaching Programs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="facilities.html">Facilities</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="eligibility.html">Eligibility</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="faq.html">FAQ</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    <div class="header-section">
+        <div class="container">
+            <!-- Category Tabs -->
+            <div class="category-tabs">
+                <ul class="nav nav-pills" id="categoryTabs">
+                    <li class="nav-item">
+                        <button class="nav-link active" data-category="all" type="button">All</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link" data-category="category1" type="button">Category 1</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link" data-category="category2" type="button">Category 2</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link" data-category="category3" type="button">Category 3</button>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Gallery Controls -->
+            <div class="gallery-controls">
+                <div class="items-info">
+                    Showing <span id="itemsShown">1</span> to <span id="itemsTo">6</span> of <span id="totalItems">24</span> entries
+                </div>
+                <div class="items-per-page">
+                    <label for="itemsPerPage">Items per page:</label>
+                    <select id="itemsPerPage">
+                        <option value="6" selected>6</option>
+                        <option value="9">9</option>
+                        <option value="12">12</option>
+                        <option value="24">24</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Gallery items will be dynamically inserted here -->
+            </div>
+
+            <!-- Loading State -->
+            <div class="loading d-none" id="loading">
+                <i class="fas fa-spinner"></i>
+                <p>Loading gallery...</p>
+            </div>
+
+            <!-- Empty State -->
+            <div class="empty-state d-none" id="emptyState">
+                <i class="fas fa-images"></i>
+                <h4>No images found</h4>
+                <p>There are no images in this category yet.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="d-flex align-items-center mb-3">
+                        <img
+                            src="https://www.civilservicecoaching.com/images/logo.png"
+                            alt="AICSCC Logo"
+                            height="40"
+                            class="me-3"
+                        >
+                        <div class="footer-heading">
+                            <h5 style="color: white;">AICSCC</h5>
+                            <small>Anna Institute of Management</small>
+                        </div>
+                    </div>
+                    <p>
+                        Empowering civil service aspirants for over 60 years with world-class coaching and mentorship
+                        under the Government of Tamil Nadu.
+                    </p>
+                    <div class="social-icons">
+                        <a href="#" data-aos="zoom-in" data-aos-delay="200">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" data-aos="zoom-in" data-aos-delay="300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" data-aos="zoom-in" data-aos-delay="400">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="#" data-aos="zoom-in" data-aos-delay="500">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg" data-aos="fade-up" data-aos-delay="200">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled" style="line-height: 2;">
+                        <li>
+                            <a href="#home" onclick="showPage('home')">Home</a>
+                        </li>
+                        <li>
+                            <a href="#about" onclick="showPage('about')">About Us</a>
+                        </li>
+                        <li>
+                            <a href="#gallery" onclick="showPage('gallery')">Gallery</a>
+                        </li>
+                        <li>
+                            <a href="#programs" onclick="showPage('programs')">Coaching Programs</a>
+                        </li>
+                        <li>
+                            <a href="#facilities" onclick="showPage('facilities')">Facilities</a>
+                        </li>
+                        <li>
+                            <a href="#eligibility" onclick="showPage('eligibility')">Eligibility</a>
+                        </li>
+                        <li>
+                            <a href="#contact" onclick="showPage('contact')">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg" data-aos="fade-up" data-aos-delay="300">
+                    <h5>Programs</h5>
+                    <ul class="list-unstyled" style="line-height: 2;">
+                        <li>
+                            <a href="#">UPSC Prelims</a>
+                        </li>
+                        <li>
+                            <a href="#">UPSC Mains</a>
+                        </li>
+                        <li>
+                            <a href="#">Interview Guidance</a>
+                        </li>
+                        <li>
+                            <a href="#">Mock Tests</a>
+                        </li>
+                        <li>
+                            <a href="#">Study Materials</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg" data-aos="fade-up" data-aos-delay="400">
+                    <h5>Contact Info</h5>
+                    <p>
+                        <i class="fas fa-map-marker-alt me-2"></i>
+                        R.A.Puram, Chennai - 600028
+                    </p>
+                    <p>
+                        <i class="fas fa-phone me-2"></i>
+                        044-24621475
+                    </p>
+                    <p>
+                        <i class="fas fa-envelope me-2"></i>
+                        aicscc.gov@gmail.com
+                    </p>
+                </div>
+            </div>
+            <hr class="my-4" style="border-color: #444;">
+            <!-- Copyright Section -->
+            <div class="row align-items-center" data-aos="fade-up" data-aos-delay="500">
+                <div class="col-12 text-center mb-3 d-none">
+                    <div class="bg-warning text-dark rounded p-3 mb-3">
+                        <h6 class="mb-2">
+                            <i class="fas fa-copyright me-2"></i>
+                            Copyright Notice
+                        </h6>
+                        <p class="mb-0 small">
+                            All content, images, logos, and materials on this website are protected by
+                            copyright laws.
+                            Unauthorized reproduction, distribution, or use of any content without written permission is
+                            strictly prohibited.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <p class="mb-0">
+                        &copy; 2025 All India Civil Services Coaching Centre, Anna Institute of Management.
+                        All Rights Reserved.
+                    </p>
+                    <!-- <small class="text-muted">No part of this website may be reproduced without permission.</small> -->
+                </div>
+               <div class="col-md-6 text-md-end">
+                        <p>Government of Tamil Nadu | Official Website</p>
+                    <br>
+                    <!-- <small class="text-muted">Established under Tamil Nadu Government | Since 1963</small> -->
+                </div>
+            </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Gallery data
+        const galleryData = {
+            category1: [
+                { url: 'https://www.civilservicecoaching.com/galleries/853194-..png', title: 'TRAINING EXCELLENCE IN ACTION', description: 'Advanced coaching methodologies being implemented in our state-of-the-art facilities with experienced faculty guidance.' },
+                { url: 'https://www.civilservicecoaching.com/galleries/302140-..png', title: 'MODERN LEARNING ENVIRONMENT', description: 'Contemporary classroom setup designed to enhance learning experience with modern teaching aids and comfortable seating.' },
+                { url: 'https://www.civilservicecoaching.com/galleries/178551-..png', title: 'INTERACTIVE SESSION DYNAMICS', description: 'Students actively participating in interactive sessions that promote critical thinking and analytical skills development.' },
+                { url: 'https://www.civilservicecoaching.com/galleries/750815-..png', title: 'COMPREHENSIVE STUDY APPROACH', description: 'Systematic approach to covering vast UPSC syllabus with structured learning modules and regular assessments.' },
+                { url: 'https://www.civilservicecoaching.com/galleries/869853-..png', title: 'FACULTY EXPERTISE SHOWCASE', description: 'Renowned faculty members sharing their expertise and real-world insights with aspiring civil servants.' },
+                { url: 'https://www.civilservicecoaching.com/galleries/914468-..png', title: 'STUDENT SUCCESS STORIES', description: 'Celebrating achievements of our successful candidates who cleared various competitive examinations.' },
+                { url: 'https://www.civilservicecoaching.com/galleries/920238-..png', title: 'INNOVATIVE TEACHING METHODS', description: 'Implementation of cutting-edge teaching techniques to make learning more effective and engaging.' },
+                { url: 'https://www.civilservicecoaching.com/galleries/264152-..png', title: 'PERSONAL MENTORING SESSIONS', description: 'One-on-one mentoring sessions providing personalized guidance to address individual learning needs.' },
+                { url: 'https://www.civilservicecoaching.com/galleries/663083-...png', title: 'MOCK INTERVIEW PREPARATION', description: 'Comprehensive interview preparation sessions conducted by experienced panel members and successful candidates.' },
+                { url: 'https://www.civilservicecoaching.com/galleries/651729-...png', title: 'RESULT ORIENTED COACHING', description: 'Focused coaching approach that has consistently produced successful candidates in civil services examinations.' }
+            ],
+            category2: [
+                { url: 'https://www.civilservicecoaching.com/galleries/207857-...png', title: 'DIGITAL LEARNING INTEGRATION', description: 'Integration of digital platforms and online resources to complement traditional classroom teaching methods.' },
+                { url: 'https://www.civilservicecoaching.com/galleries/902875-...png', title: 'ASSESSMENT AND EVALUATION', description: 'Regular testing and evaluation system to track progress and identify areas requiring additional attention.' },
+                { url: 'https://www.civilservicecoaching.com/galleries/267988-...png', title: 'LIBRARY AND RESOURCES', description: 'Extensive library facilities with comprehensive collection of books, journals, and reference materials.' },
+                { url: 'https://www.civilservicecoaching.com/galleries/682610-...png', title: 'GROUP STUDY SESSIONS', description: 'Collaborative learning environment where students engage in group discussions and peer learning activities.' },
+                { url: 'https://www.civilservicecoaching.com/galleries/21262-...png', title: 'CURRENT AFFAIRS UPDATES', description: 'Regular current affairs sessions keeping students updated with latest developments across various sectors.' },
+                { url: 'https://www.civilservicecoaching.com/galleries/452141-...png', title: 'PERSONALITY DEVELOPMENT', description: 'Holistic development programs focusing on personality enhancement and communication skills improvement.' },
+                { url: 'https://www.civilservicecoaching.com/galleries/778850-...png', title: 'PRACTICE TEST SERIES', description: 'Comprehensive test series designed to simulate actual examination conditions and improve time management.' },
+                { url: 'https://www.civilservicecoaching.com/galleries/829531-...png', title: 'DOUBT CLEARING SESSIONS', description: 'Dedicated sessions for addressing student queries and clearing conceptual doubts in various subjects.' },
+                { url: 'https://www.civilservicecoaching.com/galleries/800109-...png', title: 'MOTIVATIONAL SEMINARS', description: 'Inspirational seminars conducted by successful candidates and motivational speakers to boost confidence.' },
+                { url: 'https://www.civilservicecoaching.com/galleries/253969-...png', title: 'STRATEGIC EXAM PREPARATION', description: 'Strategic approach to exam preparation with emphasis on smart study techniques and effective revision methods.' }
+            ],
+            category3: [
+                { url: 'https://www.civilservicecoaching.com/galleries/979811-hihij-jjjhiji.png', title: 'CAMPUS INFRASTRUCTURE OVERVIEW', description: 'Modern infrastructure facilities providing conducive environment for serious civil services preparation and studies.' },
+                { url: 'https://www.civilservicecoaching.com/galleries/645055-huhih.png', title: 'RECREATIONAL FACILITIES', description: 'Well-planned recreational areas and facilities to ensure work-life balance during intensive preparation period.' },
+                { url: 'https://www.civilservicecoaching.com/galleries/697052-huhih.png', title: 'ADMINISTRATIVE EXCELLENCE', description: 'Efficient administrative support system ensuring smooth functioning of all academic and non-academic activities.' },
+                { url: 'https://www.civilservicecoaching.com/galleries/77968-test.png', title: 'FUTURE VISION PLANNING', description: 'Strategic planning and vision for continuous improvement in coaching methodologies and infrastructure development.' }
+            ]
+        };
+
+        // State management
+        let currentCategory = 'all';
+        let itemsPerPage = 6;
+        let currentPage = 1;
+
+        // DOM elements
+        const galleryGrid = document.getElementById('galleryGrid');
+        const loading = document.getElementById('loading');
+        const emptyState = document.getElementById('emptyState');
+        const itemsShown = document.getElementById('itemsShown');
+        const itemsTo = document.getElementById('itemsTo');
+        const totalItems = document.getElementById('totalItems');
+        const itemsPerPageSelect = document.getElementById('itemsPerPage');
+
+        // Initialize gallery
+        function initGallery() {
+            setupEventListeners();
+            renderGallery();
+        }
+
+        // Setup event listeners
+        function setupEventListeners() {
+            // Category tabs
+            document.querySelectorAll('[data-category]').forEach(tab => {
+                tab.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    switchCategory(e.target.dataset.category);
+                });
+            });
+
+            // Items per page
+            itemsPerPageSelect.addEventListener('change', (e) => {
+                itemsPerPage = parseInt(e.target.value);
+                currentPage = 1;
+                renderGallery();
+            });
+        }
+
+        // Switch category
+        function switchCategory(category) {
+            currentCategory = category;
+            currentPage = 1;
+
+            // Update active tab
+            document.querySelectorAll('[data-category]').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.querySelector(`[data-category="${category}"]`).classList.add('active');
+
+            renderGallery();
+        }
+
+        // Get current data
+        function getCurrentData() {
+            if (currentCategory === 'all') {
+                return [...galleryData.category1, ...galleryData.category2, ...galleryData.category3];
+            }
+            return galleryData[currentCategory] || [];
+        }
+
+        // Render gallery
+        function renderGallery() {
+            showLoading();
+            
+            setTimeout(() => {
+                const data = getCurrentData();
+                const startIndex = (currentPage - 1) * itemsPerPage;
+                const endIndex = startIndex + itemsPerPage;
+                const pageData = data.slice(startIndex, endIndex);
+
+                hideLoading();
+
+                if (pageData.length === 0) {
+                    showEmptyState();
+                    return;
+                }
+
+                hideEmptyState();
+                renderCards(pageData);
+                updateInfo(data.length, pageData.length, startIndex + 1, Math.min(endIndex, data.length));
+            }, 300);
+        }
+
+        // Render cards
+        function renderCards(data) {
+            const categoryNames = {
+                category1: 'Category 1',
+                category2: 'Category 2',
+                category3: 'Category 3'
+            };
+
+            galleryGrid.innerHTML = data.map((item, index) => {
+                const category = currentCategory === 'all' ? 
+                    (index < 10 ? 'Category 1' : index < 20 ? 'Category 2' : 'Category 3') : 
+                    categoryNames[currentCategory];
+
+                const authors = ['Punith', 'Rohini', 'Tamil'];
+                const dates = ['08 Mar, 2024', '15 Mar, 2024', '13 Mar, 2024'];
+                
+                const author = authors[Math.floor(Math.random() * authors.length)];
+                const date = dates[Math.floor(Math.random() * dates.length)];
+
+                return `
+                    <div class="gallery-card">
+                        <div class="card-image">
+                            <img src="${item.url}" alt="${item.title}" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDMwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIzMDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjZjhmOWZhIi8+CjxwYXRoIGQ9Ik0xNTAgMTAwQzE1MCA5My4zNzI2IDE0NC42MjcgODggMTM4IDg4QzEzMS4zNzMgODggMTI2IDkzLjM3MjYgMTI2IDEwMEMxMjYgMTA2LjYyNyAxMzEuMzczIDExMiAxMzggMTEyQzE0NC42MjcgMTEyIDE1MCAxMDYuNjI3IDE1MCAxMDBaIiBmaWxsPSIjZGVlMmU2Ii8+CjxwYXRoIGQ9Ik0xMjYgMTI2SDE3NEwxNjIgMTE0TDE1MCAxMjZIMTM4TDEyNiAxMTRWMTI2WiIgZmlsbD0iI2RlZTJlNiIvPgo8L3N2Zz4K'">
+                        </div>
+                        <div class="card-content">
+                            <div class="card-category">${category}</div>
+                            <h3 class="card-title">${item.title}</h3>
+                            <p class="card-description">${item.description}</p>
+                            <div class="card-meta">
+                                <div>
+                                    <div class="card-author">Author: ${author}</div>
+                                </div>
+                                <div>
+                                    <div class="card-date">Published on: ${date}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Utility functions
+        function showLoading() {
+            loading.classList.remove('d-none');
+            galleryGrid.style.display = 'none';
+            emptyState.classList.add('d-none');
+        }
+
+        function hideLoading() {
+            loading.classList.add('d-none');
+            galleryGrid.style.display = 'grid';
+        }
+
+        function showEmptyState() {
+            emptyState.classList.remove('d-none');
+            galleryGrid.style.display = 'none';
+        }
+
+        function hideEmptyState() {
+            emptyState.classList.add('d-none');
+            galleryGrid.style.display = 'grid';
+        }
+
+        function updateInfo(total, showing, from, to) {
+            totalItems.textContent = total;
+            itemsShown.textContent = from;
+            itemsTo.textContent = to;
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', initGallery);
+    </script>
+</body>
+</html>

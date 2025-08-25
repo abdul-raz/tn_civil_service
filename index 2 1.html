@@ -1,28 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All India Civil Services Coaching Centre - 60 Years of Excellence</title>
-
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-
-    <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-
-    <!-- AOS Animation Library -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
-     
-    <!--CSS-->
-    <!-- <link rel="stylesheet" href="styles.css"> -->
-    <style>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>All India Civil Services Coaching Centre - 60 Years of Excellence</title>
+        <!-- Bootstrap 5 CSS -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+        <!-- Font Awesome -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+        <!-- AOS Animation Library -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+        <!--CSS-->
+        <!-- <link rel="stylesheet" href="styles.css"> -->
+        <style>
         :root {
             --primary-color: #002147;
             --accent-color: #228B22;
@@ -100,18 +93,19 @@
             color: #fff;
             font-weight: 700;
             margin: 0;
-            font-size: 16px;
+            font-size: 13px;
             line-height: 1.2;
         }
 
         .brand-text small {
             color: #fff;
-            font-size: 0.8rem;
+            font-size: 12px;
             opacity: 0.9;
         }
 
         .navbar-nav{
             font-size:15px;
+            margin-right: 36px;
         }
         
         .navbar-nav .nav-link {
@@ -122,6 +116,19 @@
             position: relative;
             padding: 0.5rem 1rem;
         }
+
+   .navbar-nav .nav-link.active::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -5px;
+    left: 50%;
+    background: var(--accent-blue);
+    transform: translateX(-50%);
+    transition: all 0.3s ease;
+}
+
 
         .navbar-nav .nav-link:hover {
             color: var(--accent-blue) !important;
@@ -169,9 +176,10 @@
 .navbar-brand {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 9px;
     text-decoration: none;
     flex: 1;
+    margin-left: 36px;
     /* min-width: 0; Allow flex item to shrink */
 }
 
@@ -195,7 +203,7 @@
     color: #fff;
     font-weight: 700;
     margin: 0;
-    font-size: 16px;
+    font-size: 13px !important;
     line-height: 1.2;
     white-space: nowrap;
     overflow: hidden;
@@ -204,7 +212,7 @@
 
 .brand-text small {
     color: #fff;
-    font-size: 0.8rem;
+    font-size: 12px !important;
     opacity: 0.9;
     display: block;
     white-space: nowrap;
@@ -220,6 +228,7 @@
     position: relative;
     padding: 0.5rem 1rem;
     white-space: nowrap;
+    font-size: 13px;
 }
 
 .navbar-nav .nav-link:hover {
@@ -316,12 +325,12 @@
     
     .brand-text h5 {
         font-size: 14px;
-        max-width: 220px;
+        max-width: 270px;
     }
     
     .brand-text small {
         font-size: 0.7rem;
-        max-width: 220px;
+        max-width: 250px;
     }
     
     .navbar-nav .nav-link {
@@ -364,13 +373,14 @@
     .navbar-nav .nav-link {
         margin: 0 8px;
         padding: 0.5rem 0.9rem;
+        text-align: center;
     }
 }
 
 /* Extra Large Devices (1200px - 1399px) */
 @media (min-width: 1200px) and (max-width: 1399.98px) {
     .navbar-brand img {
-        height: 50px;
+        height: 47px;
     }
     
     .brand-text h5 {
@@ -378,7 +388,7 @@
     }
     
     .navbar-nav .nav-link {
-        margin: 0 10px;
+        /* margin: 0 10px; */
         padding: 0.5rem 1rem;
     }
 }
@@ -402,9 +412,9 @@
     }
     
     .navbar-nav .nav-link {
-        margin: 0 12px;
+        /* margin: 0 12px; */
         padding: 0.5rem 1.2rem;
-        font-size: 1.05rem;
+        font-size: 15px;
     }
 }
 
@@ -1043,7 +1053,7 @@
         }
 
         .footer a:hover {
-            color: var(--accent-blue);
+            color:#fff;
             transform: translateX(5px);
         }
 
@@ -1065,7 +1075,7 @@
         }
 
         .social-icons a:hover {
-            background: var(--success-green);
+            background: var(--warm-orange);
             transform: translateY(-3px);
             box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3);
         }
@@ -1352,227 +1362,231 @@
 
         .feature-card:hover::before {
             transform: scaleX(1);
-        }</style>
-</head>
-
-<body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-xl navbar-custom fixed-top" data-aos="fade-down">
-        <div class="container">
-            <a class="navbar-brand" href="#home">
-                <img src="https://www.civilservicecoaching.com/images/logo.png" alt="AICSCC Logo" class="me-0">
-                <div class="brand-text">
-                    <h5>All India Civil Services Coaching Centre</h5>
-                    <small>A Unit of Anna Institute of Management</small>
-                </div>
-            </a>
-
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index 2 1.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="aboutus_new.html">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="gallery.html">Gallery</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="programs.html">Coaching Programs</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="facilities.html">Facilities</a>
-                    </li>
-                    <li class="nav-item"></li>
-                        <!-- <a class="nav-link" href="#">Question Bank</a> -->
-                        <button class="btn btn-secondary dropdown-toggle nav-link"  data-bs-toggle="dropdown" aria-expanded="false">Question Bank</button>
-  <ul class="dropdown-menu">
-    <li><a class="dropdown-item" href="AICSCC.html">AICSC</a></li>
-    <li><a class="dropdown-item" href="AICSCC.html">UPSC</a></li>
-    <li><a class="dropdown-item" href="all.html">Test Series</a></li>
-  </ul>
-</div>
-
-
-                    </li>
-                    
-                    <li class="nav-item">
-                        <a class="nav-link" href="eligibility.html">Eligibility</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Home Page -->
-    <div id="home-page" class="page-content">
-        <!-- Hero Section -->
-        <section class="hero-section">
-            <div class="container">
-                <div class="hero-content">
-                    <div class="anniversary-badge" data-aos="zoom-in" data-aos-delay="200">
-                        🏆 Celebrating 60 Years of Excellence
+        }
+        </style>
+    </head>
+    <body>
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-xl navbar-custom fixed-top" data-aos="fade-down">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#home">
+                    <img src="https://www.civilservicecoaching.com/images/logo.png" alt="AICSCC Logo" class="me-0">
+                    <div class="brand-text">
+                        <h5>All India Civil Services Coaching Centre</h5>
+                        <small>A Unit of Anna Institute of Management</small>
                     </div>
-                    <h1 data-aos="fade-up" data-aos-delay="400">Empowering Aspirants.<br><span
-                            style="color: var(--warm-orange);">Shaping Administrators.</span>
-                    </h1>
-                    <p class="subtitle" data-aos="fade-up" data-aos-delay="600">Promoting Civil Services Aspirants from
-                        Tamil Nadu</p>
-                    <div class="mt-4" data-aos="fade-up" data-aos-delay="800">
-                        <a href="#" class="btn-hero btn-primary-hero">Apply Now</a>
-                        <a href="#" class="btn-hero btn-secondary-hero">Know More</a>
-                    </div>
+                </a>
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="index 2 1.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="aboutus_new.html">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="gallery_new.html">Gallery</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a
+                                class="btn dropdown-toggle nav-link"
+                                href="contact.html"
+                                role="button"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
+                                style="color: #fff; border-style: none;"
+                            >Question Bank</a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" href="AICSCC.html">AICSCC Question Bank</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="AICSCC.html">UPSC Question Bank</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="test_series.html">Test Series</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="exam_result.html">Exam Results</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="programs.html">Coaching Programs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="facilities.html">Facilities</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="eligibility.html">Eligibility</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="faq.html">FAQ</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
-        </section>
-
-        <!-- Stats Section -->
-        <section class="stats-section section-padding py-2">
-            <div class="container">
-                <div class="row text-center">
-                    <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                        <div class="stat-item">
-                            <span class="stat-number">60+</span>
-                            <div class="stat-label">Years of Excellence</div>
+        </nav>
+        <!-- Home Page -->
+        <div id="home-page" class="page-content">
+            <!-- Hero Section -->
+            <section class="hero-section">
+                <div class="container">
+                    <div class="hero-content">
+                        <div class="anniversary-badge" data-aos="zoom-in" data-aos-delay="200">
+                            🏆 Celebrating 60 Years of Excellence
                         </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                        <div class="stat-item">
-                            <span class="stat-number">5000+</span>
-                            <div class="stat-label">Successful Officers</div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                        <div class="stat-item">
-                            <span class="stat-number">150+</span>
-                            <div class="stat-label">2024 Selections</div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
-                        <div class="stat-item">
-                            <span class="stat-number">95%</span>
-                            <div class="stat-label">Success Rate</div>
+                        <h1 data-aos="fade-up" data-aos-delay="400">
+                            Empowering Aspirants.
+                            <br>
+                            <span style="color: var(--warm-orange);">Shaping Administrators.</span>
+                        </h1>
+                        <p class="subtitle" data-aos="fade-up" data-aos-delay="600">
+                            Promoting Civil Services Aspirants from
+                        Tamil Nadu
+                        </p>
+                        <div class="mt-4" data-aos="fade-up" data-aos-delay="800">
+                            <a href="#" class="btn-hero btn-primary-hero">Apply Now</a>
+                            <a href="#" class="btn-hero btn-secondary-hero">Know More</a>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <!-- Gallery Section -->
-        <section class="section-padding" style="background: white;">
-            <div class="container">
-                <div class="section-title" data-aos="fade-up">
-                    <h2>Our Coaching Excellence</h2>
-                </div>
-                <p class="text-center section-subtitle" data-aos="fade-up" data-aos-delay="100">
-                    Glimpses of our world-class facilities and training programs
-                </p>
-
-                <div class="row">
-                    <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
-                        <div class="gallery-item">
-                            <img src="https://img.freepik.com/free-photo/room-interior-design_23-2148899444.jpg?t=st=1753857017~exp=1753860617~hmac=2bb35d1add7f3335b6eb81a8a98cde967c2b656f63787b3e58e09acae9224506&w=1380"
-                                alt="Modern Classroom">
-                            <div class="gallery-overlay">
-                                <h5>State-of-the-Art Classrooms</h5>
-                                <p>Modern learning environment with advanced teaching aids and technology integration
-                                </p>
+            </section>
+            <!-- Stats Section -->
+            <section class="stats-section section-padding py-2">
+                <div class="container">
+                    <div class="row text-center">
+                        <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                            <div class="stat-item">
+                                <span class="stat-number">60+</span>
+                                <div class="stat-label">Years of Excellence</div>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
-                        <div class="gallery-item">
-                            <img src="https://img.freepik.com/free-photo/happy-male-candidate-greeting-member-human-resource-team-job-interview-office_637285-6567.jpg?t=st=1753858262~exp=1753861862~hmac=ecd0e0b9a3f7c7870926fc9601197ac761612bdd1a2281a8e0b52ebb931da4f9&w=1380"
-                                alt="Interview Preparation">
-                            <div class="gallery-overlay">
-                                <h5>Interview Training</h5>
-                                <p>Comprehensive personality development and mock interview sessions</p>
+                        <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                            <div class="stat-item">
+                                <span class="stat-number">5000+</span>
+                                <div class="stat-label">Successful Officers</div>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
-                        <div class="gallery-item">
-                            <img src="https://media.licdn.com/dms/image/v2/C4D12AQGIP0kYaR5EOA/article-inline_image-shrink_1000_1488/article-inline_image-shrink_1000_1488/0/1650267975134?e=1758758400&v=beta&t=arisg-FHFBXds2DJrtMW1Y29LTTBLpjuNl0wd2l83A0"
-                                alt="Group Discussion">
-                            <div class="gallery-overlay">
-                                <h5>Group Discussions</h5>
-                                <p>Interactive sessions for current affairs and topic discussions</p>
+                        <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                            <div class="stat-item">
+                                <span class="stat-number">150+</span>
+                                <div class="stat-label">2024 Selections</div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                            <div class="stat-item">
+                                <span class="stat-number">95%</span>
+                                <div class="stat-label">Success Rate</div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <!-- Why Choose AICSCC Section -->
-        <section class="section-padding">
-            <div class="container">
-                <div class="section-title" data-aos="fade-up">
-                    <h2>Why Choose AICSCC?</h2>
-                </div>
-                <p class="text-center section-subtitle" data-aos="fade-up" data-aos-delay="100">
-                    Discover what makes us the preferred choice for civil services preparation in Tamil Nadu
-                </p>
-
-                <div class="row justify-content-center">
-                    <div class="col-lg-3 col-md-6 mb-4 d-flex" data-aos="fade-up" data-aos-delay="100">
-                        <div class="feature-card">
-                            <div class="icon">
-                                <i class="fas fa-chalkboard-teacher"></i>
-                            </div>
-                            <h4>Expert Faculty</h4>
-                            <p>Experienced educators and former civil servants dedicated to your success.</p>
-                        </div>
+            </section>
+            <!-- Gallery Section -->
+            <section class="section-padding" style="background: white;">
+                <div class="container">
+                    <div class="section-title" data-aos="fade-up">
+                        <h2>Our Coaching Excellence</h2>
                     </div>
-
-                    <div class="col-lg-3 col-md-6 mb-4 d-flex" data-aos="fade-up" data-aos-delay="200">
-                        <div class="feature-card">
-                            <div class="icon">
-                                <i class="fas fa-language"></i>
+                    <p class="text-center section-subtitle" data-aos="fade-up" data-aos-delay="100">
+                        Glimpses of our world-class facilities and training programs
+                    </p>
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                            <div class="gallery-item">
+                                <img src="https://img.freepik.com/free-photo/room-interior-design_23-2148899444.jpg?t=st=1753857017~exp=1753860617~hmac=2bb35d1add7f3335b6eb81a8a98cde967c2b656f63787b3e58e09acae9224506&w=1380" alt="Modern Classroom">
+                                <div class="gallery-overlay">
+                                    <h5>State-of-the-Art Classrooms</h5>
+                                    <p>
+                                        Modern learning environment with advanced teaching aids and technology integration
+                                    </p>
+                                </div>
                             </div>
-                            <h4>Bilingual Coaching</h4>
-                            <p>Classes available in both Tamil and English medium for better understanding.</p>
                         </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6 mb-4 d-flex" data-aos="fade-up" data-aos-delay="300">
-                        <div class="feature-card">
-                            <div class="icon">
-                                <i class="fas fa-laptop"></i>
+                        <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                            <div class="gallery-item">
+                                <img src="https://img.freepik.com/free-photo/happy-male-candidate-greeting-member-human-resource-team-job-interview-office_637285-6567.jpg?t=st=1753858262~exp=1753861862~hmac=ecd0e0b9a3f7c7870926fc9601197ac761612bdd1a2281a8e0b52ebb931da4f9&w=1380" alt="Interview Preparation">
+                                <div class="gallery-overlay">
+                                    <h5>Interview Training</h5>
+                                    <p>Comprehensive personality development and mock interview sessions</p>
+                                </div>
                             </div>
-                            <h4>Online & Offline</h4>
-                            <p>Flexible learning options with comprehensive mock tests and study materials.</p>
                         </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6 mb-4 d-flex" data-aos="fade-up" data-aos-delay="400">
-                        <div class="feature-card">
-                            <div class="icon">
-                                <i class="fas fa-home"></i>
+                        <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+                            <div class="gallery-item">
+                                <img src="https://media.licdn.com/dms/image/v2/C4D12AQGIP0kYaR5EOA/article-inline_image-shrink_1000_1488/article-inline_image-shrink_1000_1488/0/1650267975134?e=1758758400&v=beta&t=arisg-FHFBXds2DJrtMW1Y29LTTBLpjuNl0wd2l83A0" alt="Group Discussion">
+                                <div class="gallery-overlay">
+                                    <h5>Group Discussions</h5>
+                                    <p>Interactive sessions for current affairs and topic discussions</p>
+                                </div>
                             </div>
-                            <h4>Residential Facility</h4>
-                            <p>Hostel accommodation available for select candidates with focused environment.</p>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <!-- About Section -->
-        <!-- <section class="section-padding" style="background: white;">
+            </section>
+            <!-- Why Choose AICSCC Section -->
+            <section class="section-padding">
+                <div class="container">
+                    <div class="section-title" data-aos="fade-up">
+                        <h2>Why Choose AICSCC?</h2>
+                    </div>
+                    <p class="text-center section-subtitle" data-aos="fade-up" data-aos-delay="100">
+                        Discover what makes us the preferred choice for civil services preparation in Tamil Nadu
+                    </p>
+                    <div class="row justify-content-center">
+                        <div class="col-lg-3 col-md-6 mb-4 d-flex" data-aos="fade-up" data-aos-delay="100">
+                            <div class="feature-card">
+                                <div class="icon">
+                                    <i class="fas fa-chalkboard-teacher"></i>
+                                </div>
+                                <h4>Expert Faculty</h4>
+                                <p>Experienced educators and former civil servants dedicated to your success.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 mb-4 d-flex" data-aos="fade-up" data-aos-delay="200">
+                            <div class="feature-card">
+                                <div class="icon">
+                                    <i class="fas fa-language"></i>
+                                </div>
+                                <h4>Bilingual Coaching</h4>
+                                <p>Classes available in both Tamil and English medium for better understanding.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 mb-4 d-flex" data-aos="fade-up" data-aos-delay="300">
+                            <div class="feature-card">
+                                <div class="icon">
+                                    <i class="fas fa-laptop"></i>
+                                </div>
+                                <h4>Online & Offline</h4>
+                                <p>Flexible learning options with comprehensive mock tests and study materials.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 mb-4 d-flex" data-aos="fade-up" data-aos-delay="400">
+                            <div class="feature-card">
+                                <div class="icon">
+                                    <i class="fas fa-home"></i>
+                                </div>
+                                <h4>Residential Facility</h4>
+                                <p>Hostel accommodation available for select candidates with focused environment.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- About Section -->
+            <!-- <section class="section-padding" style="background: white;">
             <div class="container">
                 <div class="section-title" data-aos="fade-up">
                     <h2>About AICSCC</h2>
@@ -1635,9 +1649,8 @@
                 </div>
             </div>
         </section> -->
-
-        <!-- Our Facilities Section -->
-        <!-- <section class="section-padding">
+            <!-- Our Facilities Section -->
+            <!-- <section class="section-padding">
             <div class="container">
                 <div class="section-title" data-aos="fade-up">
                     <h2>Our Facilities</h2>
@@ -1709,9 +1722,8 @@
                 </div>
             </div>
         </section> -->
-
-        <!-- Eligibility Criteria Section -->
-        <!-- <section class="section-padding" style="background: white;">
+            <!-- Eligibility Criteria Section -->
+            <!-- <section class="section-padding" style="background: white;">
             <div class="container">
                 <div class="section-title" data-aos="fade-up">
                     <h2>Eligibility Criteria</h2>
@@ -1831,9 +1843,8 @@
                 </div>
             </div>
         </section> -->
-
-        <!-- Contact Us Section -->
-        <!-- <section class="section-padding">
+            <!-- Contact Us Section -->
+            <!-- <section class="section-padding">
             <div class="container">
                 <div class="section-title" data-aos="fade-up">
                     <h2>Contact Us</h2>
@@ -1880,19 +1891,17 @@
                             <h5>Phone</h5>
                             <p>044-24621475</p>
                         </div> -->
-
-                        <!-- <div class="contact-card" data-aos="zoom-in" data-aos-delay="600">
+            <!-- <div class="contact-card" data-aos="zoom-in" data-aos-delay="600">
                             <i class="fas fa-envelope contact-icon"></i>
                             <h5>Email</h5>
                             <p>aicscc.gov@gmail.com</p>
                         </div> -->
-                    <!-- </div>
+            <!-- </div>
                 </div>
             </div>
         </section> -->
-
-        <!-- Find Us Section -->
-        <!-- <section class="section-padding" style="background: white;">
+            <!-- Find Us Section -->
+            <!-- <section class="section-padding" style="background: white;">
             <div class="container">
                 <div class="section-title" data-aos="fade-up">
                     <h2>Find Us</h2>
@@ -1911,8 +1920,8 @@
                                     width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
                                     referrerpolicy="no-referrer-when-downgrade">
                             </iframe> -->
-                                <!-- <iframe src="https://www.google.com/maps?q= https://maps.app.goo.gl/AueiZnCtUHcTeZft7&z=[ZOOM_LEVEL]&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe> -->
-                            <!-- </div>
+            <!-- <iframe src="https://www.google.com/maps?q= https://maps.app.goo.gl/AueiZnCtUHcTeZft7&z=[ZOOM_LEVEL]&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe> -->
+            <!-- </div>
 
                             <div class="row text-center d-none">
                                 <div class="col-md-4 mb-3" data-aos="fade-up" data-aos-delay="300">
@@ -1946,10 +1955,9 @@
             </div>
         </section>
     </div> -->
-
-    <!-- About Page -->
-    <!-- <div id="about-page" class="page-content hidden"> -->
-        <!-- <section class="section-padding" style="margin-top: 100px;">
+            <!-- About Page -->
+            <!-- <div id="about-page" class="page-content hidden"> -->
+            <!-- <section class="section-padding" style="margin-top: 100px;">
             <div class="container">
                 <div class="section-title" data-aos="fade-up">
                     <h2>About Our Institution</h2>
@@ -1995,11 +2003,10 @@
                 </div>
             </div>
         </section> -->
-    <!-- </div> -->
-
-    <!-- Gallery Page -->
-    <!-- <div id="gallery-page" class="page-content hidden"> -->
-        <!-- <section class="section-padding" style="margin-top: 100px;">
+            <!-- </div> -->
+            <!-- Gallery Page -->
+            <!-- <div id="gallery-page" class="page-content hidden"> -->
+            <!-- <section class="section-padding" style="margin-top: 100px;">
             <div class="container">
                 <div class="section-title" data-aos="fade-up">
                     <h2>Our Coaching Excellence</h2>
@@ -2078,11 +2085,10 @@
                 </div>
             </div>
         </section> -->
-    <!-- </div> -->
-
-    <!-- Programs Page -->
-    <div id="programs-page" class="page-content hidden">
-        <!-- <section class="section-padding" style="margin-top: 100px;">
+            <!-- </div> -->
+            <!-- Programs Page -->
+            <div id="programs-page" class="page-content hidden">
+                <!-- <section class="section-padding" style="margin-top: 100px;">
             <div class="container">
                 <div class="section-title" data-aos="fade-up">
                     <h2>Coaching Programs</h2>
@@ -2169,9 +2175,8 @@
             </div>
         </section>  
     </div> -->
-
-    <!-- Facilities Page -->
-    <!-- <div id="facilities-page" class="page-content hidden">
+                <!-- Facilities Page -->
+                <!-- <div id="facilities-page" class="page-content hidden">
         <section class="section-padding" style="margin-top: 100px;">
             <div class="container">
                 <div class="section-title" data-aos="fade-up">
@@ -2245,10 +2250,9 @@
             </div>
         </section>
     </div> -->
-
-    <!-- Eligibility Page -->
-    <!-- <div id="eligibility-page" class="page-content hidden"> -->
-        <!-- <section class="section-padding" style="margin-top: 100px;">
+                <!-- Eligibility Page -->
+                <!-- <div id="eligibility-page" class="page-content hidden"> -->
+                <!-- <section class="section-padding" style="margin-top: 100px;">
             <div class="container">
                 <div class="section-title" data-aos="fade-up">
                     <h2>Eligibility Criteria</h2>
@@ -2393,9 +2397,8 @@
             </div>
         </section>
     </div> -->
-
-    <!-- Contact Page -->
-    <!-- <div id="contact-page" class="page-content hidden">
+                <!-- Contact Page -->
+                <!-- <div id="contact-page" class="page-content hidden">
         <section class="section-padding" style="margin-top: 100px;">
             <div class="container">
                 <div class="section-title" data-aos="fade-up">
@@ -2451,22 +2454,31 @@
                         </div>
                     </div>
                 </div> -->
-
                 <!-- Google Map -->
                 <div class="row mt-5" data-aos="fade-up" data-aos-delay="700">
                     <div class="col-12">
                         <div class="contact-card">
-                            <h4><i class="fas fa-map-marker-alt me-2"></i>Find Us</h4>
+                            <h4>
+                                <i class="fas fa-map-marker-alt me-2"></i>
+                                Find Us
+                            </h4>
                             <div style="height: 400px; border-radius: 15px; overflow: hidden;">
                                 <iframe
                                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.2948!2d80.2516!3d13.0358!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5267e0b3c19c57%3A0x7e8f8e8e8e8e8e8e!2sR.A.Puram%2C%20Chennai%2C%20Tamil%20Nadu%20600028!5e0!3m2!1sen!2sin!4v1627890123456!5m2!1sen!2sin"
-                                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
-                                    referrerpolicy="no-referrer-when-downgrade">
-                                </iframe>
+                                    width="100%"
+                                    height="100%"
+                                    style="border:0;"
+                                    allowfullscreen=""
+                                    loading="lazy"
+                                    referrerpolicy="no-referrer-when-downgrade"
+                                ></iframe>
                             </div>
                             <div class="mt-3 text-center">
-                                <p class="mb-0"><strong>Address:</strong> 163/1, Kanchi, P.S.Kumarasamy Raja Salai,
-                                    R.A.Puram (Greenways Road), Chennai - 600028</p>
+                                <p class="mb-0">
+                                    <strong>Address:</strong>
+                                    163/1, Kanchi, P.S.Kumarasamy Raja Salai,
+                                    R.A.Puram (Greenways Road), Chennai - 600028
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -2474,86 +2486,134 @@
             </div>
         </section>
     </div>
-
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="row g-4">
                 <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
                     <div class="d-flex align-items-center mb-3">
-                        <img src="https://www.civilservicecoaching.com/images/logo.png" alt="AICSCC Logo" height="40"
-                            class="me-3">
+                        <img
+                            src="https://www.civilservicecoaching.com/images/logo.png"
+                            alt="AICSCC Logo"
+                            class="me-3"
+                            style="height: 50px;"
+                        >
                         <div class="footer-heading">
                             <h5 style="color: white;">AICSCC</h5>
                             <small>Anna Institute of Management</small>
                         </div>
                     </div>
-                    <p>Empowering civil service aspirants for over 60 years with world-class coaching and mentorship
-                        under the Government of Tamil Nadu.</p>
+                    <p>
+                        Empowering civil service aspirants for over 60 years with world-class coaching and mentorship
+                        under the Government of Tamil Nadu.
+                    </p>
                     <div class="social-icons">
-                        <a href="#" data-aos="zoom-in" data-aos-delay="200"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" data-aos="zoom-in" data-aos-delay="300"><i class="fab fa-twitter"></i></a>
-                        <a href="#" data-aos="zoom-in" data-aos-delay="400"><i class="fab fa-youtube"></i></a>
-                        <a href="#" data-aos="zoom-in" data-aos-delay="500"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" data-aos="zoom-in" data-aos-delay="200">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" data-aos="zoom-in" data-aos-delay="300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" data-aos="zoom-in" data-aos-delay="400">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="#" data-aos="zoom-in" data-aos-delay="500">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
                     </div>
                 </div>
-
                 <div class="col-lg" data-aos="fade-up" data-aos-delay="200">
                     <h5>Quick Links</h5>
                     <ul class="list-unstyled" style="line-height: 2;">
-                        <li><a href="#home" onclick="showPage('home')">Home</a></li>
-                        <li><a href="#about" onclick="showPage('about')">About Us</a></li>
-                        <li><a href="#gallery" onclick="showPage('gallery')">Gallery</a></li>
-                        <li><a href="#programs" onclick="showPage('programs')">Coaching Programs</a></li>
-                        <li><a href="#facilities" onclick="showPage('facilities')">Facilities</a></li>
-                        <li><a href="#eligibility" onclick="showPage('eligibility')">Eligibility</a></li>
-                        <li><a href="#contact" onclick="showPage('contact')">Contact</a></li>
+                        <li>
+                            <a href="#home" onclick="showPage('home')">Home</a>
+                        </li>
+                        <li>
+                            <a href="#about" onclick="showPage('about')">About Us</a>
+                        </li>
+                        <li>
+                            <a href="#gallery" onclick="showPage('gallery')">Gallery</a>
+                        </li>
+                        <li>
+                            <a href="#programs" onclick="showPage('programs')">Coaching Programs</a>
+                        </li>
+                        <li>
+                            <a href="#facilities" onclick="showPage('facilities')">Facilities</a>
+                        </li>
+                        <li>
+                            <a href="#eligibility" onclick="showPage('eligibility')">Eligibility</a>
+                        </li>
+                        <li>
+                            <a href="#contact" onclick="showPage('contact')">Contact</a>
+                        </li>
                     </ul>
                 </div>
-
                 <div class="col-lg" data-aos="fade-up" data-aos-delay="300">
                     <h5>Programs</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#">UPSC Prelims</a></li>
-                        <li><a href="#">UPSC Mains</a></li>
-                        <li><a href="#">Interview Guidance</a></li>
-                        <li><a href="#">Mock Tests</a></li>
-                        <li><a href="#">Study Materials</a></li>
+                    <ul class="list-unstyled" style="line-height: 2;">
+                        <li>
+                            <a href="#">UPSC Prelims</a>
+                        </li>
+                        <li>
+                            <a href="#">UPSC Mains</a>
+                        </li>
+                        <li>
+                            <a href="#">Interview Guidance</a>
+                        </li>
+                        <li>
+                            <a href="#">Mock Tests</a>
+                        </li>
+                        <li>
+                            <a href="#">Study Materials</a>
+                        </li>
                     </ul>
                 </div>
-
                 <div class="col-lg" data-aos="fade-up" data-aos-delay="400">
                     <h5>Contact Info</h5>
-                    <p><i class="fas fa-map-marker-alt me-2"></i>R.A.Puram, Chennai - 600028</p>
-                    <p><i class="fas fa-phone me-2"></i>044-24621475</p>
-                    <p><i class="fas fa-envelope me-2"></i>aicscc.gov@gmail.com</p>
+                    <p>
+                        <i class="fas fa-map-marker-alt me-2"></i>
+                        R.A.Puram, Chennai - 600028
+                    </p>
+                    <p>
+                        <i class="fas fa-phone me-2"></i>
+                        044-24621475
+                    </p>
+                    <p>
+                        <i class="fas fa-envelope me-2"></i>
+                        aicscc.gov@gmail.com
+                    </p>
                 </div>
             </div>
-
             <hr class="my-4" style="border-color: #444;">
-
             <!-- Copyright Section -->
             <div class="row align-items-center" data-aos="fade-up" data-aos-delay="500">
                 <div class="col-12 text-center mb-3 d-none">
                     <div class="bg-warning text-dark rounded p-3 mb-3">
-                        <h6 class="mb-2"><i class="fas fa-copyright me-2"></i>Copyright Notice</h6>
-                        <p class="mb-0 small">All content, images, logos, and materials on this website are protected by
+                        <h6 class="mb-2">
+                            <i class="fas fa-copyright me-2"></i>
+                            Copyright Notice
+                        </h6>
+                        <p class="mb-0 small">
+                            All content, images, logos, and materials on this website are protected by
                             copyright laws.
                             Unauthorized reproduction, distribution, or use of any content without written permission is
-                            strictly prohibited.</p>
+                            strictly prohibited.
+                        </p>
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <p class="mb-0">&copy; 2025 All India Civil Services Coaching Centre, Anna Institute of Management.
-                        All Rights Reserved.</p>
+                    <p class="mb-0">
+                        &copy; 2025 All India Civil Services Coaching Centre, Anna Institute of Management.
+                        All Rights Reserved.
+                    </p>
                     <!-- <small class="text-muted">No part of this website may be reproduced without permission.</small> -->
                 </div>
                 <div class="col-md-6 text-md-end">
-                    <small><strong>Government of Tamil Nadu | Official Website</strong></small><br>
+                    <p>Government of Tamil Nadu | Official Website</p>
+                    <br>
                     <!-- <small class="text-muted">Established under Tamil Nadu Government | Since 1963</small> -->
                 </div>
             </div>
-
             <!-- Additional Legal Information -->
             <!-- <div class="row mt-3" data-aos="fade-up" data-aos-delay="600">
                 <div class="col-12 text-center">
@@ -2569,13 +2629,10 @@
             </div> -->
         </div>
     </footer>
-
     <!-- Bootstrap JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-
     <!-- AOS Animation -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-
     <script>
         // Initialize AOS
         AOS.init({
@@ -2725,5 +2782,4 @@
         });
     </script>
 </body>
-
 </html>

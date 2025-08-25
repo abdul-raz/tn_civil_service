@@ -1,31 +1,207 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All India Civil Services Coaching Centre - 60 Years of Excellence</title>
+  <meta charset="UTF-8">
+  <title>Previous Year Questions – AICSCC</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap CSS CDN -->
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    
+    .downloads-alt {
+  padding: 5rem 0;
+  background: var(--white);
+}
 
-    <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+.downloads-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
-    <!-- AOS Animation Library -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+.download-category {
+  background: var(--primary-bg);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: var(--card-shadow);
+  transition: box-shadow 0.3s ease;
+}
+
+.download-category:hover {
+  box-shadow: var(--card-shadow-hover);
+}
+
+.download-category h3 {
+  color: var(--primary-text);
+  margin-bottom: 1.5rem;
+  font-size: 1.3rem;
+}
+
+.download-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.download-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--white);
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.05);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.download-item:hover {
+  transform: translateX(5px);
+  box-shadow: var(--card-shadow-hover);
+}
+
+.download-name {
+  font-weight: 600;
+  color: var(--primary-text);
+}
+
+.download-size {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  margin-right: 1rem;
+  white-space: nowrap;
+}
+
+   /* .download-btn {
+      background: var(--accent-blue);
+      color: var(--white);
+      border: none;
+      border-radius: 8px;
+      padding: 0.2rem 0.4rem;
+      cursor: pointer;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .download-btn:hover {
+      background: var(--accent-light);
+      color: var(--primary-text);
+      transform: scale(1.1);
+      box-shadow: var(--card-shadow-hover);
+    } */
+     .download-btn {
+  /* background: var(--accent-blue, #3B82F6); */
+  color:rgb(48, 74,107);
+
+  border: none;
+  border-radius: 6px;
+  padding: 0.3rem 0.8rem;
+  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: 500;
+  /* box-shadow: 0 1px 4px rgba(0,0,0,0.05); */
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.download-btn i {
+  font-size: 1em;
+  transition: color 0.2s ease;
+}
+
+.download-btn:hover, .download-btn:focus {
+  background: var(); /* softer yellow */
+  color: var(--accent-gold, #f59e0b);
+  transform: scale(1.03); /* less aggressive zoom */
+  box-shadow: 0 2px 8px rgba(245,158,11,0.1);
+  text-decoration: none;
+}
+
+.download-btn:hover i, .download-btn:focus i {
+  color: var(--accent-gold, #f59e0b);
+}
+.section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--primary-dark);
+            position: relative;
+            font-weight: 700;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-light) 100%);
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 50px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
      
-    <!--CSS-->
-    <link rel="stylesheet" href="styles.css">
-    </head>
-    <body>
-        <!-- Navigation -->
-                <!-- Navigation -->
+    
+
+    /* @media (max-width: 768px) {
+      .hero-overlay h1 {
+        font-size: rem;
+      }
+      .hero-overlay p {
+        font-size: 1rem;
+      } */
+    /* } */
+    .hero-overlay h1 {
+          color: whitesmoke;
+           font-weight: 400;
+                    margin-bottom: 1.5rem;
+                    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+                    line-height: 1.2;
+    }
+
+    @media (max-width: 480px) {
+      .hero-section {
+        /* height: 100px; */
+      }
+      /* .hero-overlay h1 {
+        font-size: 1.6rem;
+      } */
+      /* .hero-overlay p {
+        font-size: 0.9rem;
+      } */
+    }
+
+
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+            <!-- Navigation -->
         <nav class="navbar navbar-expand-xl navbar-custom fixed-top" data-aos="fade-down">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#home">
@@ -68,7 +244,7 @@
                                     <a class="dropdown-item" href="AICSCC.html">AICSCC Question Bank</a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="AICSCC.html">UPSC Question Bank</a>
+                                    <a class="dropdown-item" href="UPSC.html">UPSC Question Bank</a>
                                 </li>
                                 <li>
                                     <a class="dropdown-item" href="test_series.html">Test Series</a>
@@ -88,7 +264,7 @@
                             <a class="nav-link" href="eligibility.html">Eligibility</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page"href="contact.html">Contact</a>
+                            <a class="nav-link" href="contact.html">Contact</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="faq.html">FAQ</a>
@@ -97,128 +273,201 @@
                 </div>
             </div>
         </nav>
-    <section class="section-padding" style="margin-top: 100px;">
-            <div class="container">
-                <div class="section-title" data-aos="fade-up">
-                    <h2>Contact Us</h2>
-                </div>
-                <p class="text-center section-subtitle" data-aos="fade-up" data-aos-delay="100">
-                    Get in touch with us for any queries or assistance
-                </p>
+  <section class="hero-section">
+    <style>
+   
+  </style>
+     <div class="hero-overlay">
+ <h1>Previous Year Questions</h1>
+    
+  </div>
+  </section>
+  
 
-                <div class="row">
-                    <div class="col-lg-8 mb-4" data-aos="fade-right" data-aos-delay="200">
-                        <div class="contact-form">
-                            <h4 class="mb-4">Send us a Message</h4>
-                            <form>
-                                <div class="row">
-                                    <div class="col-md-6 mb-3">
-                                        <input type="text" class="form-control" placeholder="Your Name" required>
-                                    </div>
-                                    <div class="col-md-6 mb-3">
-                                        <input type="email" class="form-control" placeholder="Your Email" required>
-                                    </div>
-                                </div>
-                                <div class="mb-3">
-                                    <input type="text" class="form-control" placeholder="Subject" required>
-                                </div>
-                                <div class="mb-3">
-                                    <textarea class="form-control" rows="5" placeholder="Your Message"
-                                        required></textarea>
-                                </div>
-                                <button type="submit" class="btn btn-custom btn-primary-custom">Send Message</button>
-                            </form>
-                        </div>
-                    </div>
+ 
 
-                    <div class="col-lg-4" data-aos="fade-left" data-aos-delay="300">
-                        <div class="contact-card mb-3" data-aos="zoom-in" data-aos-delay="400">
-                            <i class="fas fa-map-marker-alt contact-icon"></i>
-                            <h5>Address</h5>
-                            <p>163/1, Kanchi, P.S.Kumarasamy Raja Salai,<br>R.A.Puram (Greenways Road),<br>Chennai -
-                                600028</p>
-                        </div>
 
-                        <div class="contact-card mb-3" data-aos="zoom-in" data-aos-delay="500">
-                            <i class="fas fa-phone contact-icon"></i>
-                            <h5>Phone</h5>
-                            <p>044-24621475</p>
-                        </div>
+  <!-- Main Content -->
+  <section class="downloads-alt">
+  <div class="container">
 
-                        <!-- <div class="contact-card" data-aos="zoom-in" data-aos-delay="600">
-                            <i class="fas fa-envelope contact-icon"></i>
-                            <h5>Email</h5>
-                            <p>aicscc.gov@gmail.com</p>
-                        </div> -->
-                    </div>
-                </div>
-            </div>
-        </section>
-        
+      <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">
+        UPSC PREVIOUS YEAR QUESTIONS PAPERS & Answer Keys
+      </h2>
+      <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200">
+        Official previous year question papers and answer keys
+      </p>
+    </div>
 
-        <section class="section-padding" style="background: white;">
-            <div class="container">
-                    <!-- <div class="section-title" data-aos="fade-up">
-                        <h2>Find Us</h2>
-                    </div>
-                    <p class="text-center section-subtitle" data-aos="fade-up" data-aos-delay="100">
-                        Locate our campus and plan your visit
-                    </p> -->
+    <div class="downloads-grid">
+      <div class="download-category" data-aos="fade-right" data-aos-delay="100">
+        <h3>Question Papers</h3>
+        <div class="download-list">
+          <div class="download-item">
+            <span class="download-name">Entrance Exam 2023</span>
+            <span class="download-size">PDF • 1.2 MB</span>
+              <a href="https://www.civilservicecoaching.com/questions/2023_q.pdf" 
+   target="_blank" 
+   rel="noopener noreferrer" 
+   class="download-btn" 
+   aria-label="View Entrance Exam 2023 Question Paper">
+  <i class="bi-eye-fill"></i>
+  <span style="margin-left: 0.5em;">View</span>
+  
+</a>
+          </div>
+          <!-- <div class="download-item">
+            <span class="download-name">Entrance Exam 2022</span>
+            <span class="download-size">PDF • 1.1 MB</span>
+              <a href="https://www.civilservicecoaching.com/questions/2022_q.pdf" 
+   target="_blank" 
+   rel="noopener noreferrer" 
+   class="download-btn" 
+   aria-label="View Entrance Exam 2022 Question Paper">
 
-                <div class="row" data-aos="fade-up" data-aos-delay="200">
-                    <div class="col-12">
-                        <div class="contact-card">
-                            <h4 class="text-center mb-4"><i class="fas fa-map-marker-alt me-2"></i>Our Location</h4>
-                            <div style="height: 450px; border-radius: 15px; overflow: hidden; margin-bottom: 2rem;">
-                                <iframe
-                                    src="https://maps.google.com/maps?q=All%20India%20Civil%20Services%20Coaching%20Centre%20163%2F1%2C%20Kanchi%2C%20P.S.Kumarasamy%20Raja%20Salai%2C%20Greenways%20Rd%2C%20Raja%20Annamalai%20Puram%2C%20Chennai%2C%20Tamil%20Nadu%20600028&z=15&output=embed"
-                                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
-                                    referrerpolicy="no-referrer-when-downgrade">
-                            </iframe>
-                                <!-- <iframe src="https://www.google.com/maps?q= https://maps.app.goo.gl/AueiZnCtUHcTeZft7&z=[ZOOM_LEVEL]&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe> -->
-                            </div>
+ <i class="bi-eye-fill"></i>
+  <span style="margin-left: 0.5em;">View</span>
+ </a>
+          </div> -->
+          <!-- <div class="download-item">
+            <span class="download-name">Entrance Exam 2021</span>
+            <span class="download-size">PDF • 1.0 MB</span>
+             <a href="https://www.civilservicecoaching.com/questions/2021_q.pdf" 
+   target="_blank" 
+   rel="noopener noreferrer" 
+   class="download-btn" 
+   aria-label="View Entrance Exam 2021 Question Paper">
 
-                            <div class="row text-center d-none">
-                                <div class="col-md-4 mb-3" data-aos="fade-up" data-aos-delay="300">
-                                    <div class="p-3 bg-light rounded">
-                                        <i class="fas fa-map-marker-alt text-primary mb-2" style="font-size: 2rem;"></i>
-                                        <h6>Address</h6>
-                                        <p class="mb-0 small">163/1, Kanchi, P.S.Kumarasamy Raja Salai, R.A.Puram
-                                            (Greenways Road), Chennai - 600028</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 mb-3" data-aos="fade-up" data-aos-delay="400">
-                                    <div class="p-3 bg-light rounded">
-                                        <i class="fas fa-bus text-primary mb-2" style="font-size: 2rem;"></i>
-                                        <h6>Public Transport</h6>
-                                        <p class="mb-0 small">Well connected by bus routes. Nearest metro station:
-                                            Greenways Road</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 mb-3" data-aos="fade-up" data-aos-delay="500">
-                                    <div class="p-3 bg-light rounded">
-                                        <i class="fas fa-clock text-primary mb-2" style="font-size: 2rem;"></i>
-                                        <h6>Office Hours</h6>
-                                        <p class="mb-0 small">Monday - Friday: 9:00 AM - 5:00 PM<br>Saturday: 9:00 AM -
-                                            1:00 PM</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+   <i class="bi-eye-fill"></i>
+  <span style="margin-left: 0.5em;">View</span>
 
-<!-- Footer -->
-    <footer class="footer">
+</a>
+          </div>
+           <div class="download-item">
+            <span class="download-name">Entrance Exam 2019</span>
+            <span class="download-size">PDF • 1.1 MB</span> -->
+            <!-- <a href="questions2022.pdf" download class="download-btn" aria-label="Download Entrance Exam 2022 Question Paper">
+              <i class="fas fa-download"></i>
+            </a> -->
+            
+  
+  <!-- <a href="https://www.civilservicecoaching.com/questions/2019_q.pdf" 
+   target="_blank" 
+   rel="noopener noreferrer" 
+   class="download-btn" 
+   aria-label="View Entrance Exam 2019 Question Paper">
+
+   <i class="bi-eye-fill"></i>
+  <span style="margin-left: 0.5em;">View</span>
+
+</a> -->
+
+          <!-- </div> -->
+           <!-- <div class="download-item">
+            <span class="download-name">Entrance Exam 2018</span>
+            <span class="download-size">PDF • 1.1 MB</span>
+              <a href="https://www.civilservicecoaching.com/questions/2018_q.pdf" 
+   target="_blank" 
+   rel="noopener noreferrer" 
+   class="download-btn" 
+   aria-label="View Entrance Exam 2018 Question Paper">
+
+   <i class="bi-eye-fill"></i>
+  <span style="margin-left: 0.5em;">View</span>
+
+</a>
+          </div> -->
+        </div>
+      </div>
+
+      <div class="download-category" data-aos="fade-right" data-aos-delay="200">
+        <h3>Answer Keys</h3>
+        <div class="download-list">
+          <div class="download-item">
+            <span class="download-name">Entrance Exam 2023</span>
+            <span class="download-size">PDF • 900 KB</span>
+              <a href="https://www.civilservicecoaching.com/answers/2023_a.pdf" 
+   target="_blank" 
+   rel="noopener noreferrer" 
+   class="download-btn" 
+   aria-label="View Entrance Exam 2023 Answer Key">
+
+   <i class="bi-eye-fill"></i>
+  <span style="margin-left: 0.5em;">View</span>
+
+</a>
+          </div>
+          <!-- <div class="download-item">
+            <span class="download-name">Entrance Exam 2022</span>
+            <span class="download-size">PDF • 850 KB</span>
+              <a href="https://www.civilservicecoaching.com/answers/2022_a.pdf" 
+   target="_blank" 
+   rel="noopener noreferrer" 
+   class="download-btn" 
+   aria-label="View Entrance Exam 2022 Answer Key">
+
+   <i class="bi-eye-fill"></i>
+  <span style="margin-left: 0.5em;">View</span>
+
+</a>
+          </div>
+          <div class="download-item">
+            <span class="download-name">Entrance Exam 2021</span>
+            <span class="download-size">PDF • 800 KB</span>
+              <a href="https://www.civilservicecoaching.com/answers/2021_a.xlsx" 
+   target="_blank" 
+   rel="noopener noreferrer" 
+   class="download-btn" 
+   aria-label="View Entrance Exam 2021 Answer Key">
+
+   <i class="bi-eye-fill"></i>
+  <span style="margin-left: 0.5em;">View</span>
+
+</a>
+          </div>
+                    <div class="download-item">
+            <span class="download-name">Entrance Exam 2019</span>
+            <span class="download-size">PDF • 850 KB</span>
+              <a href="https://www.civilservicecoaching.com/answers/2019_a.pdf" 
+   target="_blank" 
+   rel="noopener noreferrer" 
+   class="download-btn" 
+   aria-label="View Entrance Exam 2021 Answer Key">
+  
+   <i class="bi-eye-fill"></i>
+  <span style="margin-left: 0.5em;">View</span>
+
+</a>
+          </div>
+                    <div class="download-item">
+            <span class="download-name">Entrance Exam 2018</span>
+            <span class="download-size">PDF • 850 KB</span>
+              <a href="https://www.civilservicecoaching.com/answers/2018_a.pdf" 
+   target="_blank" 
+   rel="noopener noreferrer" 
+   class="download-btn" 
+   aria-label="View Entrance Exam 2018 Answer Key">
+
+   <i class="bi-eye-fill"></i>
+  <span style="margin-left: 0.5em;">View</span>
+
+</a>
+          </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- Footer -->
+  <footer class="footer">
         <div class="container">
             <div class="row g-4">
                 <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
                     <div class="d-flex align-items-center mb-3">
-                        <img src="https://www.civilservicecoaching.com/images/logo.png" alt="AICSCC Logo" style="height: 50px;"
+                        <img src="https://www.civilservicecoaching.com/images/logo.png" alt="AICSCC Logo" height="40"
                             class="me-3">
-                        <div class="footer-heading">
+                        <div>
                             <h5 style="color: white;">AICSCC</h5>
                             <small>Anna Institute of Management</small>
                         </div>
@@ -233,9 +482,9 @@
                     </div>
                 </div>
 
-                <div class="col-lg" data-aos="fade-up" data-aos-delay="200">
+                <div class="col-lg-2" data-aos="fade-up" data-aos-delay="200">
                     <h5>Quick Links</h5>
-                    <ul class="list-unstyled" style="line-height: 2;">
+                    <ul class="list-unstyled">
                         <li><a href="#home" onclick="showPage('home')">Home</a></li>
                         <li><a href="#about" onclick="showPage('about')">About Us</a></li>
                         <li><a href="#gallery" onclick="showPage('gallery')">Gallery</a></li>
@@ -246,9 +495,9 @@
                     </ul>
                 </div>
 
-                <div class="col-lg" data-aos="fade-up" data-aos-delay="300">
+                <div class="col-lg-3" data-aos="fade-up" data-aos-delay="300">
                     <h5>Programs</h5>
-                   <ul class="list-unstyled" style="line-height: 2;">
+                    <ul class="list-unstyled">
                         <li><a href="#">UPSC Prelims</a></li>
                         <li><a href="#">UPSC Mains</a></li>
                         <li><a href="#">Interview Guidance</a></li>
@@ -257,7 +506,7 @@
                     </ul>
                 </div>
 
-                <div class="col-lg" data-aos="fade-up" data-aos-delay="400">
+                <div class="col-lg-3" data-aos="fade-up" data-aos-delay="400">
                     <h5>Contact Info</h5>
                     <p><i class="fas fa-map-marker-alt me-2"></i>R.A.Puram, Chennai - 600028</p>
                     <p><i class="fas fa-phone me-2"></i>044-24621475</p>
@@ -283,9 +532,8 @@
                         All Rights Reserved.</p>
                     <!-- <small class="text-muted">No part of this website may be reproduced without permission.</small> -->
                 </div>
-              <div class="col-md-6 text-md-end">
-                        <p>Government of Tamil Nadu | Official Website</p>
-                    <br>
+                <div class="col-md-6 text-md-end">
+                    <small><strong>Government of Tamil Nadu | Official Website</strong></small><br>
                     <!-- <small class="text-muted">Established under Tamil Nadu Government | Since 1963</small> -->
                 </div>
             </div>
@@ -306,7 +554,7 @@
         </div>
     </footer>
 
-    <!-- Bootstrap JS -->
+   <!-- Bootstrap JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 
     <!-- AOS Animation -->
@@ -459,7 +707,5 @@
             link.href = url;
             document.head.appendChild(link);
         });
-    </script>
-</body>
-
+    </script></body>
 </html>

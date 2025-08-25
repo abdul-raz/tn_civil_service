@@ -1,338 +1,409 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>All India Civil Services Coaching Centre - FAQ</title>
 
     <!-- Bootstrap 5 CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
-    
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css"
+    />
+
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
     <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+
     <!-- AOS Animation Library -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+      rel="stylesheet"
+    />
 
     <style>
-        :root {
-            --primary-color: #002147;
-            --accent-color: #228B22;
-            --primary-dark: #0f172a;
-            --primary-blue: #1e40af;
-            --accent-gold: #f59e0b;
-            --accent-light: #fbbf24;
-            --text-light: #64748b;
-            --primary-bg: #F8FAFC;
-            --primary-text: #1E293B;
-            --accent-blue: #3B82F6;
-            --success-green: #10B981;
-            --warm-orange: #F59E0B;
-            --deep-purple: #7C3AED;
-            --slate-grey: #64748B;
-            --white: #ffffff;
-            --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-            --card-shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.15);
-        }
+      .navbar-nav .nav-link.active {
+        position: relative;
+      }
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            /* background-color: var(--primary-bg); */
-            color: var(--primary-text);
-            line-height: 1.5;
-            overflow-x: hidden;
-            padding-top: 80px;
-        }
+      :root {
+        --primary-color: #002147;
+        --accent-color: #228b22;
+        --primary-dark: #0f172a;
+        --primary-blue: #1e40af;
+        --accent-gold: #f59e0b;
+        --accent-light: #fbbf24;
+        --text-light: #64748b;
+        --primary-bg: #f8fafc;
+        --primary-text: #1e293b;
+        --accent-blue: #3b82f6;
+        --success-green: #10b981;
+        --warm-orange: #f59e0b;
+        --deep-purple: #7c3aed;
+        --slate-grey: #64748b;
+        --white: #ffffff;
+        --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        --card-shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.15);
+      }
 
-        /* Navbar styling */
-        .navbar-custom {
-            background: rgba(15, 23, 42, 0.95);
-            box-shadow: 0 1px 10px rgba(0, 33, 71, 0.1);
-            transition: all 0.3s ease;
-            padding: 0.75rem 0;
-            backdrop-filter: blur(10px);
-        }
+      body {
+        font-family: "Poppins", sans-serif;
+        /* background-color: var(--primary-bg); */
+        color: var(--primary-text);
+        line-height: 1.5;
+        overflow-x: hidden;
+        padding-top: 80px;
+      }
 
-        .navbar-custom.scrolled {
-            padding: 0.5rem 0;
-            background: rgba(15, 23, 42, 0.98);
-        }
+      /* Navbar styling */
+      .navbar-custom {
+        background: rgba(15, 23, 42, 0.95);
+        box-shadow: 0 1px 10px rgba(0, 33, 71, 0.1);
+        transition: all 0.3s ease;
+        padding: 0.75rem 0;
+        backdrop-filter: blur(10px);
+      }
 
-        .navbar-brand {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
+      .navbar-custom.scrolled {
+        padding: 0.5rem 0;
+        background: rgba(15, 23, 42, 0.98);
+      }
 
-        .navbar-brand img {
-            height: 40px;
-            width: auto;
-        }
+      .navbar-brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
 
-        .brand-text h5 {
-            color: #fff;
-            font-weight: 600;
-            margin: 0;
-            font-size: 14px;
-            line-height: 1.2;
-        }
+      .navbar-brand img {
+        height: 40px;
+        width: auto;
+      }
 
-        .brand-text small {
-            color: #fff;
-            font-size: 0.75rem;
-            opacity: 0.85;
-        }
+      .brand-text h5 {
+        color: #fff;
+        font-weight: 600;
+        margin: 0;
+        font-size: 14px;
+        line-height: 1.2;
+      }
 
-        .navbar-nav .nav-link {
-            color: #fff !important;
-            font-weight: 500;
-            margin: 0 5px;
-            transition: color 0.2s ease;
-            padding: 0.4rem 0.8rem;
-            font-size: 0.9rem;
-        }
+      .brand-text small {
+        color: #fff;
+        font-size: 0.75rem;
+        opacity: 0.85;
+      }
 
-        .navbar-nav .nav-link:hover {
-            color: var(--accent-blue) !important;
-        }
+      .navbar-nav .nav-link {
+        color: #fff !important;
+        font-weight: 500;
+        margin: 0 5px;
+        transition: color 0.2s ease;
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+      }
 
-        /* Section title styling */
+      .navbar-nav .nav-link:hover {
+        color: var(--accent-blue) !important;
+      }
+
+      .navbar-nav .nav-link.active::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        bottom: -5px;
+        left: 50%;
+        background: var(--accent-blue);
+        transform: translateX(-50%);
+        transition: all 0.3s ease;
+      }
+      /* Section title styling */
+      .section-title {
+        text-align: center;
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+        color: var(--primary-dark);
+        position: relative;
+        font-weight: 600;
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: -8px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 50px;
+        height: 3px;
+        background: var(--accent-gold);
+        border-radius: 2px;
+      }
+
+      /* Compact accordion styling */
+      .accordion {
+        --bs-accordion-border-radius: 8px;
+        --bs-accordion-border-width: 0;
+        margin-bottom: 2rem;
+      }
+
+      .accordion-item {
+        background: var(--white);
+        border: 1px solid #e5e7eb;
+        border-radius: 8px !important;
+        box-shadow: var(--card-shadow);
+        margin-bottom: 0.75rem;
+        overflow: hidden;
+        transition: all 0.2s ease;
+      }
+
+      .accordion-item:hover {
+        box-shadow: var(--card-shadow-hover);
+      }
+
+      .accordion-button {
+        background: var(--white) !important;
+        color: var(--primary-text) !important;
+        font-weight: 500;
+        font-size: 0.95rem;
+        border: none;
+        padding: 1rem 1.25rem;
+        border-radius: 8px !important;
+        box-shadow: none;
+        transition: all 0.2s ease;
+      }
+
+      .accordion-button:not(.collapsed) {
+        background: var(--primary-color) !important;
+        color: var(--white) !important;
+      }
+
+      .accordion-button::after {
+        background-image: none;
+        content: "\f107";
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
+        font-size: 0.9rem;
+        transition: transform 0.2s ease;
+      }
+
+      .accordion-button:not(.collapsed)::after {
+        transform: rotate(180deg);
+        color: var(--white);
+      }
+
+      .accordion-button:focus {
+        box-shadow: none;
+        border: none;
+      }
+
+      .accordion-body {
+        padding: 1.25rem;
+        background: var(--white);
+        color: var(--primary-text);
+        line-height: 1.6;
+        font-size: 0.9rem;
+      }
+
+      .accordion-body ul {
+        padding-left: 1.25rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .accordion-body li {
+        margin-bottom: 0.5rem;
+      }
+
+      .accordion-body li::marker {
+        color: var(--accent-gold);
+      }
+
+      .accordion-body b {
+        color: var(--primary-dark);
+        font-weight: 600;
+      }
+
+      .accordion-body p {
+        margin-bottom: 0.75rem;
+      }
+
+      /* Footer */
+      .footer {
+        background: var(--primary-text);
+        color: white;
+        padding: 2.5rem 0 1.5rem;
+        position: relative;
+      }
+
+      .footer h5 {
+        color: var(--warm-orange);
+        margin-bottom: 1rem;
+        font-size: 1.1rem;
+      }
+
+      .footer a {
+        color: #ccc;
+        text-decoration: none;
+        transition: color 0.2s ease;
+        font-size: 0.9rem;
+      }
+
+      .footer a:hover {
+        color: var(--accent-blue);
+      }
+
+      .social-icons a {
+        display: inline-block;
+        width: 35px;
+        height: 35px;
+        background: var(--accent-blue);
+        border-radius: 50%;
+        text-align: center;
+        line-height: 35px;
+        margin: 0 5px;
+        transition: background-color 0.2s ease;
+        font-size: 0.9rem;
+      }
+
+      .social-icons a:hover {
+        background: var(--success-green);
+      }
+
+      /* Signature section */
+      .signature-section {
+        background: var(--primary-color);
+        color: white;
+        padding: 1.25rem;
+        border-radius: 8px;
+        margin-top: 2rem;
+        text-align: right;
+        font-size: 0.9rem;
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
         .section-title {
-            text-align: center;
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-            color: var(--primary-dark);
-            position: relative;
-            font-weight: 600;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 50px;
-            height: 3px;
-            background: var(--accent-gold);
-            border-radius: 2px;
-        }
-
-        /* Compact accordion styling */
-        .accordion {
-            --bs-accordion-border-radius: 8px;
-            --bs-accordion-border-width: 0;
-            margin-bottom: 2rem;
-        }
-
-        .accordion-item {
-            background: var(--white);
-            border: 1px solid #e5e7eb;
-            border-radius: 8px !important;
-            box-shadow: var(--card-shadow);
-            margin-bottom: 0.75rem;
-            overflow: hidden;
-            transition: all 0.2s ease;
-        }
-
-        .accordion-item:hover {
-            box-shadow: var(--card-shadow-hover);
+          font-size: 1.6rem;
         }
 
         .accordion-button {
-            background: var(--white) !important;
-            color: var(--primary-text) !important;
-            font-weight: 500;
-            font-size: 0.95rem;
-            border: none;
-            padding: 1rem 1.25rem;
-            border-radius: 8px !important;
-            box-shadow: none;
-            transition: all 0.2s ease;
-        }
-
-        .accordion-button:not(.collapsed) {
-            background: var(--primary-color) !important;
-            color: var(--white) !important;
-        }
-
-        .accordion-button::after {
-            background-image: none;
-            content: '\f107';
-            font-family: 'Font Awesome 6 Free';
-            font-weight: 900;
-            font-size: 0.9rem;
-            transition: transform 0.2s ease;
-        }
-
-        .accordion-button:not(.collapsed)::after {
-            transform: rotate(180deg);
-            color: var(--white);
-        }
-
-        .accordion-button:focus {
-            box-shadow: none;
-            border: none;
+          padding: 0.875rem 1rem;
+          font-size: 0.85rem;
         }
 
         .accordion-body {
-            padding: 1.25rem;
-            background: var(--white);
-            color: var(--primary-text);
-            line-height: 1.6;
-            font-size: 0.9rem;
+          padding: 1rem;
+          font-size: 0.85rem;
         }
 
-        .accordion-body ul {
-            padding-left: 1.25rem;
-            margin-bottom: 0.75rem;
+        .container {
+          padding-left: 1rem;
+          padding-right: 1rem;
         }
-
-        .accordion-body li {
-            margin-bottom: 0.5rem;
-        }
-
-        .accordion-body li::marker {
-            color: var(--accent-gold);
-        }
-
-        .accordion-body b {
-            color: var(--primary-dark);
-            font-weight: 600;
-        }
-
-        .accordion-body p {
-            margin-bottom: 0.75rem;
-        }
-
-        /* Footer */
-        .footer {
-            background: var(--primary-text);
-            color: white;
-            padding: 2.5rem 0 1.5rem;
-            position: relative;
-        }
-
-        .footer h5 {
-            color: var(--warm-orange);
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-        }
-
-        .footer a {
-            color: #ccc;
-            text-decoration: none;
-            transition: color 0.2s ease;
-            font-size: 0.9rem;
-        }
-
-        .footer a:hover {
-            color: var(--accent-blue);
-        }
-
-        .social-icons a {
-            display: inline-block;
-            width: 35px;
-            height: 35px;
-            background: var(--accent-blue);
-            border-radius: 50%;
-            text-align: center;
-            line-height: 35px;
-            margin: 0 5px;
-            transition: background-color 0.2s ease;
-            font-size: 0.9rem;
-        }
-
-        .social-icons a:hover {
-            background: var(--success-green);
-        }
-
-        /* Signature section */
-        .signature-section {
-            background: var(--primary-color);
-            color: white;
-            padding: 1.25rem;
-            border-radius: 8px;
-            margin-top: 2rem;
-            text-align: right;
-            font-size: 0.9rem;
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .section-title {
-                font-size: 1.6rem;
-            }
-            
-            .accordion-button {
-                padding: 0.875rem 1rem;
-                font-size: 0.85rem;
-            }
-            
-            .accordion-body {
-                padding: 1rem;
-                font-size: 0.85rem;
-            }
-
-            .container {
-                padding-left: 1rem;
-                padding-right: 1rem;
-            }
-        }
+      }
     </style>
-</head>
+  </head>
 
-<body>
-    <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="#home">
-                <img src="https://www.civilservicecoaching.com/images/logo.png" alt="AICSCC Logo" class="me-0">
-                <div class="brand-text">
-                    <h5>All India Civil Services Coaching Centre</h5>
-                    <small>A Unit of Anna Institute of Management</small>
-                </div>
-            </a>
-
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index 2 1.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="aboutus_new.html">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="gallery.html">Gallery</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="programs.html">Coaching Programs</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="facilities.html">Facilities</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="eligibility.html">Eligibility</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="exam_result.html">Exams & Result</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="faq.html">FAQ</a>
-                    </li>
-                </ul>
-            </div>
+  <body>
+    <!-- Navigation -->
+    <nav
+      class="navbar navbar-expand-xl navbar-custom fixed-top"
+      data-aos="fade-down"
+    >
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#home">
+          <img
+            src="https://www.civilservicecoaching.com/images/logo.png"
+            alt="AICSCC Logo"
+            class="me-0"
+          />
+          <div class="brand-text">
+            <h5>All India Civil Services Coaching Centre</h5>
+            <small>A Unit of Anna Institute of Management</small>
+          </div>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index 2 1.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="aboutus_new.html">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="gallery_new.html">Gallery</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="btn dropdown-toggle nav-link"
+                href="contact.html"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                style="color: #fff; border-style: none"
+                >Question Bank</a
+              >
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="AICSCC.html"
+                    >AICSCC Question Bank</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="AICSCC.html"
+                    >UPSC Question Bank</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="test_series.html"
+                    >Test Series</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="exam_result.html">Exam Results</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="programs.html">Coaching Programs</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="facilities.html">Facilities</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="eligibility.html">Eligibility</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="faq.html"
+                >FAQ</a
+              >
+            </li>
+          </ul>
         </div>
+      </div>
     </nav>
 
    <div class="container my-4">
@@ -511,68 +582,87 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <div class="row g-3">
-                <div class="col-lg-4">
-                    <div class="d-flex align-items-center mb-3">
-                        <img src="https://www.civilservicecoaching.com/images/logo.png" alt="AICSCC Logo" height="35" class="me-3">
-                        <div>
-                            <h5>AICSCC</h5>
-                            <small>Anna Institute of Management</small>
-                        </div>
-                    </div>
-                    <p>Empowering civil service aspirants for over 60 years with world-class coaching and mentorship under the Government of Tamil Nadu.</p>
-                    <div class="social-icons">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-
-                <div class="col-lg-2">
-                    <h5>Quick Links</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#gallery">Gallery</a></li>
-                        <li><a href="#programs">Coaching Programs</a></li>
-                        <li><a href="#facilities">Facilities</a></li>
-                        <li><a href="#eligibility">Eligibility</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-lg-3">
-                    <h5>Programs</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#">UPSC Prelims</a></li>
-                        <li><a href="#">UPSC Mains</a></li>
-                        <li><a href="#">Interview Guidance</a></li>
-                        <li><a href="#">Mock Tests</a></li>
-                        <li><a href="#">Study Materials</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-lg-3">
-                    <h5>Contact Info</h5>
-                    <p><i class="fas fa-map-marker-alt me-2"></i>R.A.Puram, Chennai - 600028</p>
-                    <p><i class="fas fa-phone me-2"></i>044-24621475</p>
-                    <p><i class="fas fa-envelope me-2"></i>aicscc.gov@gmail.com</p>
-                </div>
+      <div class="container">
+        <div class="row g-3">
+          <div class="col-lg-4">
+            <div class="d-flex align-items-center mb-3">
+              <img
+                src="https://www.civilservicecoaching.com/images/logo.png"
+                alt="AICSCC Logo"
+                height="35"
+                class="me-3"
+              />
+              <div>
+                <h5>AICSCC</h5>
+                <small>Anna Institute of Management</small>
+              </div>
             </div>
-
-            <hr class="my-3" style="border-color: #444;">
-
-            <div class="row align-items-center">
-                <div class="col-md-6">
-                    <p class="mb-0 small">&copy; 2025 All India Civil Services Coaching Centre, Anna Institute of Management. All Rights Reserved.</p>
-                </div>
-                <div class="col-md-6 text-md-end">
-                    <small><strong>Government of Tamil Nadu | Official Website</strong></small>
-                </div>
+            <p>
+              Empowering civil service aspirants for over 60 years with
+              world-class coaching and mentorship under the Government of Tamil
+              Nadu.
+            </p>
+            <div class="social-icons">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-youtube"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
             </div>
+          </div>
+
+          <div class="col-lg-2">
+            <h5>Quick Links</h5>
+            <ul class="list-unstyled">
+              <li><a href="#home">Home</a></li>
+              <li><a href="#about">About Us</a></li>
+              <li><a href="#gallery">Gallery</a></li>
+              <li><a href="#programs">Coaching Programs</a></li>
+              <li><a href="#facilities">Facilities</a></li>
+              <li><a href="#eligibility">Eligibility</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3">
+            <h5>Programs</h5>
+            <ul class="list-unstyled">
+              <li><a href="#">UPSC Prelims</a></li>
+              <li><a href="#">UPSC Mains</a></li>
+              <li><a href="#">Interview Guidance</a></li>
+              <li><a href="#">Mock Tests</a></li>
+              <li><a href="#">Study Materials</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3">
+            <h5>Contact Info</h5>
+            <p>
+              <i class="fas fa-map-marker-alt me-2"></i>R.A.Puram, Chennai -
+              600028
+            </p>
+            <p><i class="fas fa-phone me-2"></i>044-24621475</p>
+            <p><i class="fas fa-envelope me-2"></i>aicscc.gov@gmail.com</p>
+          </div>
         </div>
+
+        <hr class="my-3" style="border-color: #444" />
+
+        <div class="row align-items-center">
+          <div class="col-md-6">
+            <p class="mb-0 small">
+              &copy; 2025 All India Civil Services Coaching Centre, Anna
+              Institute of Management. All Rights Reserved.
+            </p>
+          </div>
+          <div class="col-md-6 text-md-end">
+            <small
+              ><strong
+                >Government of Tamil Nadu | Official Website</strong
+              ></small
+            >
+          </div>
+        </div>
+      </div>
     </footer>
 
     <!-- Bootstrap JS -->
@@ -581,23 +671,23 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 
     <script>
-        // Initialize AOS
-        AOS.init({
-            duration: 800,
-            offset: 50,
-            once: true,
-            easing: 'ease-in-out'
-        });
+      // Initialize AOS
+      AOS.init({
+        duration: 800,
+        offset: 50,
+        once: true,
+        easing: "ease-in-out",
+      });
 
-        // Navbar scroll effect
-        window.addEventListener('scroll', function () {
-            const navbar = document.querySelector('.navbar-custom');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
+      // Navbar scroll effect
+      window.addEventListener("scroll", function () {
+        const navbar = document.querySelector(".navbar-custom");
+        if (window.scrollY > 50) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
     </script>
-</body>
+  </body>
 </html>

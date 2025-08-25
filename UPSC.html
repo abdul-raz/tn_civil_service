@@ -1,252 +1,206 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All India Civil Services Coaching Centre - 60 Years of Excellence</title>
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>Previous Year Questions – AICSCC</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap CSS CDN -->
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    
 
-    <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-
-    <!-- AOS Animation Library -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
-     
-    <!--CSS-->
-    <link rel="stylesheet" href="styles.css">
-<style>/* Parent container of tabs and content gets the gradient background - removed duplicate .nav-tabs styles */
-
-.tab-pane > .card {
-  border-radius: 1rem;
-  border-left: 3px solid var(--accent-gold);
-  border-right: 3px solid var(--accent-gold);
-  border-top: none;
-  border-bottom: none;
-  padding: 2rem;
-  margin-top: 1rem;
+    
+    .downloads-alt {
+  padding: 5rem 0;
   background: var(--white);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
 
-.test-table {
-  margin-bottom: 0;
-}
-.test-table thead {
-  margin-bottom: 0;
-  background: linear-gradient(135deg, var(--primary-text) 0%, var(--slate-grey) 100%);
-}
-.eligibility-header {
-    background: linear-gradient(135deg, var(--primary-text) 0%, var(--slate-grey) 100%);
-    color: white;
-    padding: 1.5rem;
-    border-radius: 15px 15px 0px 0px;
-    margin: -2.5rem -2.5rem 2rem -2.5rem;
-    text-align: center;
-}
-.test-table th {
-  background: none;
-    color: white;
-    padding: 1.5rem;
-  border:none;
-    margin: -2.5rem -2.5rem 2rem -2.5rem;
-    text-align: center;
-}
-.test-table td {
-  vertical-align: middle;
-  text-align: center;
-  font-size: 1rem;
+.downloads-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-/* Nav pills styling - FORCE 25px border radius everywhere */
-.nav-pills .nav-link {
-  background-color: rgb(222, 222, 222);
-  color: white;
-  border-radius: 25px !important;
-  padding: 0.6rem 1.5rem;
-  font-weight: 600;
-  font-size: 1.125rem;
-  border: none;
-  transition: background-color 0.3s ease, color 0.3s ease;
+.download-category {
+  background: var(--primary-bg);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: var(--card-shadow);
+  transition: box-shadow 0.3s ease;
 }
 
-.nav-pills .nav-link.active {
-  background-color: var(--accent-gold) !important;
-  color: white !important;
-  border-radius: 25px !important;
-  box-shadow: none;
+.download-category:hover {
+  box-shadow: var(--card-shadow-hover);
 }
 
-.nav-pills .nav-link:hover:not(.active) {
-  background-color: var(--accent-light);
-  color: white;
-  border-radius: 25px !important;
-  box-shadow: none;
+.download-category h3 {
+  color: var(--primary-text);
+  margin-bottom: 1.5rem;
+  font-size: 1.3rem;
 }
 
-/* Force border radius with higher specificity */
-.exam-tabs-wrapper .nav-pills .nav-link,
-.exam-tabs-wrapper .nav-pills .nav-link.active,
-.exam-tabs-wrapper .nav-pills .nav-link:hover {
-  border-radius: 45px !important;
-}
-
-/* Exam tabs wrapper - BASE STYLES */
-.exam-tabs-wrapper {
-  display: block;
-  width: 100%;
-  border-radius: 50px;
-  padding: 0.5rem;
-  box-shadow: -4px 0 8px rgba(0, 0, 0, 0.1), 4px 0 8px rgba(0, 0, 0, 0.1);
-  margin-bottom: 1rem;
-}
-
-.exam-tabs-wrapper ul.nav-pills {
+.download-list {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   gap: 1rem;
-  margin: 0;
-  padding: 0;
-  flex-wrap: nowrap;
 }
 
-/* Nav link color override */
-.nav-link {
-  color: rgb(232, 232, 232);
+.download-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--white);
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.05);
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
 
-h3.section-title {
+.download-item:hover {
+  transform: translateX(5px);
+  box-shadow: var(--card-shadow-hover);
+}
+
+.download-name {
   font-weight: 600;
-  letter-spacing: 1px;
-  font-size: 1.5rem;
-  text-align: center;
-  margin-bottom: 2rem;
-  color: var(--primary-color);
-  position: relative;
+  color: var(--primary-text);
 }
 
-/* Headings */
-h1, h2, h3, h4, h5, h6 {
-  color: rgb(48, 74, 107);
+.download-size {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  margin-right: 1rem;
+  white-space: nowrap;
 }
 
-/* RESPONSIVE BREAKPOINTS - Non-overlapping and clean */
+   /* .download-btn {
+      background: var(--accent-blue);
+      color: var(--white);
+      border: none;
+      border-radius: 8px;
+      padding: 0.2rem 0.4rem;
+      cursor: pointer;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
 
-/* Mobile - stack vertically */
-/* Mobile - compact 3-column grid */
-@media (max-width: 576px) {
-  .exam-tabs-wrapper {
-    width: 100%;
-    padding: 0.25rem;
-    border-radius: 25px;
-  }
-  
-  .exam-tabs-wrapper ul.nav-pills {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0.25rem;
-  }
-  
-  .nav-pills .nav-link {
-    padding: 0.4rem 0.2rem;
-    font-size: 0.75rem;
-    font-weight: 500;
-    text-align: center;
-    border-radius: 25px !important;
-    line-height: 1.2;
-  }
+    .download-btn:hover {
+      background: var(--accent-light);
+      color: var(--primary-text);
+      transform: scale(1.1);
+      box-shadow: var(--card-shadow-hover);
+    } */
+     .download-btn {
+  /* background: var(--accent-blue, #3B82F6); */
+  color:rgb(48, 74,107);
+
+  border: none;
+  border-radius: 6px;
+  padding: 0.3rem 0.8rem;
+  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: 500;
+  /* box-shadow: 0 1px 4px rgba(0,0,0,0.05); */
+  transition: all 0.2s ease;
+  text-decoration: none;
 }
 
-
-/* Very small phones */
-@media (max-width: 480px) {
-  .exam-tabs-wrapper {
-    margin-left: -0.5rem;
-    margin-right: -0.5rem;
-    border-radius: 15px;
-  }
-  
-  .nav-pills .nav-link {
-    font-size: 0.85rem;
-    padding: 0.4rem 0.8rem;
-    max-width: 260px;
-    border-radius: 25px !important;
-  }
+.download-btn i {
+  font-size: 1em;
+  transition: color 0.2s ease;
 }
 
-/* Small tablets - keep in one line */
-@media (min-width: 577px) and (max-width: 768px) {
-  .exam-tabs-wrapper {
-    width: 100%;
-    padding: 0.4rem;
-  }
-  
-  .exam-tabs-wrapper ul.nav-pills {
-    flex-direction: row;
-    gap: 0.5rem;
-  }
-  
-  .nav-pills .nav-link {
-    padding: 0.4rem 0.8rem;
-    font-size: 0.95rem;
-    font-weight: 500;
-    border-radius: 25px !important;
-  }
+.download-btn:hover, .download-btn:focus {
+  background: var(); /* softer yellow */
+  color: var(--accent-gold, #f59e0b);
+  transform: scale(1.03); /* less aggressive zoom */
+  box-shadow: 0 2px 8px rgba(245,158,11,0.1);
+  text-decoration: none;
 }
 
-/* Medium screens - keep in one line */
-@media (min-width: 769px) and (max-width: 992px) {
-  .exam-tabs-wrapper {
-    display: inline-block;
-    width: auto;
-  }
-  
-  .exam-tabs-wrapper ul.nav-pills {
-    flex-direction: row;
-    gap: 0.75rem;
-  }
-  
-  .nav-pills .nav-link {
-    padding: 0.5rem 1.2rem;
-    font-size: 1rem;
-    font-weight: 600;
-    border-radius: 25px !important;
-  }
+.download-btn:hover i, .download-btn:focus i {
+  color: var(--accent-gold, #f59e0b);
 }
+.section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--primary-dark);
+            position: relative;
+            font-weight: 700;
+        }
 
-/* Large screens and above */
-@media (min-width: 993px) {
-  .exam-tabs-wrapper {
-    display: inline-block;
-    width: auto;
-  }
-  
-  .exam-tabs-wrapper ul.nav-pills {
-    flex-direction: row;
-    gap: 1rem;
-  }
-  
-  .nav-pills .nav-link {
-    padding: 0.6rem 1.5rem;
-    font-size: 1.125rem;
-    font-weight: 600;
-    border-radius: 25px !important;
-  }
-}
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-light) 100%);
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 50px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+     
+    
+
+    /* @media (max-width: 768px) {
+      .hero-overlay h1 {
+        font-size: rem;
+      }
+      .hero-overlay p {
+        font-size: 1rem;
+      } */
+    /* } */
+    .hero-overlay h1 {
+          color: whitesmoke;
+           font-weight: 400;
+                    margin-bottom: 1.5rem;
+                    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+                    line-height: 1.2;
+    }
+
+    @media (max-width: 480px) {
+      .hero-section {
+        /* height: 100px; */
+      }
+      /* .hero-overlay h1 {
+        font-size: 1.6rem;
+      } */
+      /* .hero-overlay p {
+        font-size: 0.9rem;
+      } */
+    }
 
 
-</style>
-
-
-    </head>
-    <body>
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
             <!-- Navigation -->
         <nav class="navbar navbar-expand-xl navbar-custom fixed-top" data-aos="fade-down">
             <div class="container-fluid">
@@ -290,7 +244,7 @@ h1, h2, h3, h4, h5, h6 {
                                     <a class="dropdown-item" href="AICSCC.html">AICSCC Question Bank</a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="AICSCC.html">UPSC Question Bank</a>
+                                    <a class="dropdown-item" href="UPSC.html">UPSC Question Bank</a>
                                 </li>
                                 <li>
                                     <a class="dropdown-item" href="test_series.html">Test Series</a>
@@ -301,7 +255,7 @@ h1, h2, h3, h4, h5, h6 {
                             <a class="nav-link" href="exam_result.html">Exam Results</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active"  aria-current="page" href="programs.html">Coaching Programs</a>
+                            <a class="nav-link" href="programs.html">Coaching Programs</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="facilities.html">Facilities</a>
@@ -319,158 +273,194 @@ h1, h2, h3, h4, h5, h6 {
                 </div>
             </div>
         </nav>
-     <section class="hero-section">
-            <div class="hero-content">
-                <div class="breadcrumb">
-                    <a href="#">Home</a>
-                    <span>/</span>
-                    <span>COACHING</span>
-                </div>
-                <h1 class="breadcrumb-tab">COACHING</h1>
-            </div>
-        </section>
-<div class="container section-padding " style="margin-top: 40px;">
-  <h3 class="section-title">Coaching And Examination</h3>
-  <p class="section-subtitle">Comprehensive preparation for UPSC Civil Services Examination.</p>
-
-<div class="d-flex justify-content-center mt-4">
-  <div class="exam-tabs-wrapper">
-    <ul class="nav nav-pills justify-content-center" id="examTab" role="tablist">
-      <li class="nav-item" role="presentation">
-        <button class="nav-link active" id="prelims-tab" data-bs-toggle="tab" data-bs-target="#prelims" type="button" role="tab" aria-controls="prelims" aria-selected="true">
-          Preliminary Examination
-        </button>
-      </li>
-      <li class="nav-item" role="presentation">
-        <button class="nav-link" id="mains-tab" data-bs-toggle="tab" data-bs-target="#mains" type="button" role="tab" aria-controls="mains" aria-selected="false">
-          Main Examination
-        </button>
-      </li>
-      <li class="nav-item" role="presentation">
-        <button class="nav-link" id="personality-tab" data-bs-toggle="tab" data-bs-target="#personality" type="button" role="tab" aria-controls="personality" aria-selected="false">
-          Personality Test
-        </button>
-      </li>
-    </ul>
-  </div>
-</div>
-
-<br>
-<!-- Tab Content with no top margin -->
-  <div class="tab-content mt-4;" id="examTabContent" style="min-height: 500px; ">  
-    <!-- Preliminary Examination -->
-    <div class="tab-pane fade show active" id="prelims" role="tabpanel" aria-labelledby="prelims-tab" tabindex="0">
-      <div class="card shadow p-4" style="border-top:none; margin-top: 0;">
-        <h3>Preliminary Examination</h3>
-        <p>
-          Based on merit (through a competitive entrance Examination conducted throughout Tamil Nadu) and Community Reservation system, 225 aspirants are admitted in Residential coaching (Full-time) and 100 aspirants in Non-Residential (Part-time) coaching. From the year 2011-2018 onwards, ICR applications are issued to the aspirants through District Collectorate. The entrance examination is conducted in seventeen (17) centres in Tamil Nadu.
-        </p>
-        <p>
-          Now the entrance examination is conducted directly by All India Civil Services Centre, Chennai-28. When the entrance examination is conducted for preliminary coaching, notifications will be released on the website and newspaper advertisement also published. Except admission, other processing (application, hall ticket downloading, selection list, admit card) will be held online only.
-        </p>
-        <h5>Preliminary Examination Pattern:</h5>
-        <table class="table table-bordered w-75 mx-auto mb-3 test-table">
-          <thead class="text-center">
-            <tr>
-              <th >Paper I (Maximum Marks 200)</th>
-              <th >Paper II (Maximum Marks 200)</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="text-center">
-              <td>General Studies</td>
-              <td>CSAT (qualifying nature, 33% pass percentage not included for ranking)</td>
-            </tr>
-          </tbody>
-        </table>
-        <p>The Institute guides aspirants for nearly 6 months (December to June) to take up the Preliminary examination.</p>
-      </div>
-    </div>
-
-
-    <div class="tab-pane fade" id="mains" role="tabpanel" aria-labelledby="mains-tab" tabindex="0">
-  <div class="card shadow p-4" style="
-    border-left: 3px solid var(--accent-gold);
-    border-right: 3px solid var(--accent-gold);
-    border-top: none;
-    border-bottom: none;
-    border-radius: 1rem;
-   margin-top: 0;
-    background: var(--white);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-  ">
-    <h3>Main Examination</h3>
-    <p>
-      The aspirants who have cleared the UPSC Preliminary examination are admitted for Main Examination Coaching (225 aspirants). Intensive coaching for nearly two to four months is given to the aspirants. A monthly stipend of Rs. 3000/- is given to each candidate admitted for Main coaching, irrespective of the income ceiling to meet expenditure for accessing reading materials.
-    </p>
-    <h5>Main Examination Pattern</h5>
-    <table class="table table-bordered test-table w-75 mx-auto mb-3">
-      <thead>
-        <tr class="text-center">
-          <th>Paper</th>
-          <th>Marks</th>
-          <th>Total Marks</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr class="text-center">
-          <td>Language - English</td>
-          <td>---</td>
-          <td>(qualifying)</td>
-        </tr>
-        <tr class="text-center">
-          <td>Essay</td>
-          <td>250</td>
-          <td>(Compulsory)</td>
-        </tr>
-        <tr class="text-center">
-          <td>General Studies – Paper I, II, III &amp; IV</td>
-          <td>250 x 4</td>
-          <td>(Compulsory) 1000</td>
-        </tr>
-        <tr class="text-center">
-          <td>Optional I &amp; II (Only one optional)</td>
-          <td>250 x 2</td>
-          <td>(Compulsory) 500</td>
-        </tr>
-        <tr class="text-center">
-          <td>Personality Test</td>
-          <td>275</td>
-          <td></td>
-        </tr>
-        <tr class="text-center">
-          <td><strong>Total</strong></td>
-          <td></td>
-          <td><strong>2025</strong></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
-
-    <!-- Personality Test -->
-    <div class="tab-pane fade" id="personality" role="tabpanel" aria-labelledby="personality-tab" tabindex="0">
-      <div class="card shadow p-4" style="border-top:none; margin-top: 0;">
-        <h3>Personality Test</h3>
-        <p>
-          The Institute conducts Model Personality Tests for candidates who have cleared their Main Examination. Sessions are conducted by senior officers and subject experts. Topics are discussed with experts. Accommodation is available in Tamilnadu House, New Delhi, with Rs. 2000/- travel allowance provided for attendance.
-        </p>
-      </div>
-    </div>
-
-
+  <section class="hero-section">
+    <style>
+   
+  </style>
+     <div class="hero-overlay">
+ <h1>Previous Year Questions</h1>
     
   </div>
-</div>
+  </section>
+  
+
+ 
 
 
+  <!-- Main Content -->
+  <section class="downloads-alt">
+  <div class="container">
 
+      <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">
+        UPSC PREVIOUS YEAR QUESTIONS PAPERS & Answer Keys
+      </h2>
+      <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200">
+        Official previous year question papers and answer keys
+      </p>
+    </div>
 
+    <div class="downloads-grid">
+      <div class="download-category" data-aos="fade-right" data-aos-delay="100">
+        <h3>Question Papers</h3>
+        <div class="download-list">
+          <div class="download-item">
+            <span class="download-name">Entrance Exam 2023</span>
+            <span class="download-size">PDF • 1.2 MB</span>
+              <a href="https://www.civilservicecoaching.com/questions/2023_q.pdf" 
+   target="_blank" 
+   rel="noopener noreferrer" 
+   class="download-btn" 
+   aria-label="View Entrance Exam 2023 Question Paper">
+  <i class="bi-eye-fill"></i>
+  <span style="margin-left: 0.5em;">View</span>
+  
+</a>
+          </div>
+          <!-- <div class="download-item">
+            <span class="download-name">Entrance Exam 2022</span>
+            <span class="download-size">PDF • 1.1 MB</span>
+              <a href="https://www.civilservicecoaching.com/questions/2022_q.pdf" 
+   target="_blank" 
+   rel="noopener noreferrer" 
+   class="download-btn" 
+   aria-label="View Entrance Exam 2022 Question Paper">
 
-        <!-- Footer -->
+ <i class="bi-eye-fill"></i>
+  <span style="margin-left: 0.5em;">View</span>
+ </a>
+          </div> -->
+          <!-- <div class="download-item">
+            <span class="download-name">Entrance Exam 2021</span>
+            <span class="download-size">PDF • 1.0 MB</span>
+             <a href="https://www.civilservicecoaching.com/questions/2021_q.pdf" 
+   target="_blank" 
+   rel="noopener noreferrer" 
+   class="download-btn" 
+   aria-label="View Entrance Exam 2021 Question Paper">
 
+   <i class="bi-eye-fill"></i>
+  <span style="margin-left: 0.5em;">View</span>
 
-    <footer class="footer">
+</a>
+          </div>
+           <div class="download-item">
+            <span class="download-name">Entrance Exam 2019</span>
+            <span class="download-size">PDF • 1.1 MB</span> -->
+            <!-- <a href="questions2022.pdf" download class="download-btn" aria-label="Download Entrance Exam 2022 Question Paper">
+              <i class="fas fa-download"></i>
+            </a> -->
+            
+  
+  <!-- <a href="https://www.civilservicecoaching.com/questions/2019_q.pdf" 
+   target="_blank" 
+   rel="noopener noreferrer" 
+   class="download-btn" 
+   aria-label="View Entrance Exam 2019 Question Paper">
+
+   <i class="bi-eye-fill"></i>
+  <span style="margin-left: 0.5em;">View</span>
+
+</a> -->
+
+          <!-- </div> -->
+           <!-- <div class="download-item">
+            <span class="download-name">Entrance Exam 2018</span>
+            <span class="download-size">PDF • 1.1 MB</span>
+              <a href="https://www.civilservicecoaching.com/questions/2018_q.pdf" 
+   target="_blank" 
+   rel="noopener noreferrer" 
+   class="download-btn" 
+   aria-label="View Entrance Exam 2018 Question Paper">
+
+   <i class="bi-eye-fill"></i>
+  <span style="margin-left: 0.5em;">View</span>
+
+</a>
+          </div> -->
+        </div>
+      </div>
+
+      <div class="download-category" data-aos="fade-right" data-aos-delay="200">
+        <h3>Answer Keys</h3>
+        <div class="download-list">
+          <div class="download-item">
+            <span class="download-name">Entrance Exam 2023</span>
+            <span class="download-size">PDF • 900 KB</span>
+              <a href="https://www.civilservicecoaching.com/answers/2023_a.pdf" 
+   target="_blank" 
+   rel="noopener noreferrer" 
+   class="download-btn" 
+   aria-label="View Entrance Exam 2023 Answer Key">
+
+   <i class="bi-eye-fill"></i>
+  <span style="margin-left: 0.5em;">View</span>
+
+</a>
+          </div>
+          <!-- <div class="download-item">
+            <span class="download-name">Entrance Exam 2022</span>
+            <span class="download-size">PDF • 850 KB</span>
+              <a href="https://www.civilservicecoaching.com/answers/2022_a.pdf" 
+   target="_blank" 
+   rel="noopener noreferrer" 
+   class="download-btn" 
+   aria-label="View Entrance Exam 2022 Answer Key">
+
+   <i class="bi-eye-fill"></i>
+  <span style="margin-left: 0.5em;">View</span>
+
+</a>
+          </div>
+          <div class="download-item">
+            <span class="download-name">Entrance Exam 2021</span>
+            <span class="download-size">PDF • 800 KB</span>
+              <a href="https://www.civilservicecoaching.com/answers/2021_a.xlsx" 
+   target="_blank" 
+   rel="noopener noreferrer" 
+   class="download-btn" 
+   aria-label="View Entrance Exam 2021 Answer Key">
+
+   <i class="bi-eye-fill"></i>
+  <span style="margin-left: 0.5em;">View</span>
+
+</a>
+          </div>
+                    <div class="download-item">
+            <span class="download-name">Entrance Exam 2019</span>
+            <span class="download-size">PDF • 850 KB</span>
+              <a href="https://www.civilservicecoaching.com/answers/2019_a.pdf" 
+   target="_blank" 
+   rel="noopener noreferrer" 
+   class="download-btn" 
+   aria-label="View Entrance Exam 2021 Answer Key">
+  
+   <i class="bi-eye-fill"></i>
+  <span style="margin-left: 0.5em;">View</span>
+
+</a>
+          </div>
+                    <div class="download-item">
+            <span class="download-name">Entrance Exam 2018</span>
+            <span class="download-size">PDF • 850 KB</span>
+              <a href="https://www.civilservicecoaching.com/answers/2018_a.pdf" 
+   target="_blank" 
+   rel="noopener noreferrer" 
+   class="download-btn" 
+   aria-label="View Entrance Exam 2018 Answer Key">
+
+   <i class="bi-eye-fill"></i>
+  <span style="margin-left: 0.5em;">View</span>
+
+</a>
+          </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- Footer -->
+  <footer class="footer">
         <div class="container">
             <div class="row g-4">
                 <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
@@ -564,7 +554,7 @@ h1, h2, h3, h4, h5, h6 {
         </div>
     </footer>
 
-    <!-- Bootstrap JS -->
+   <!-- Bootstrap JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 
     <!-- AOS Animation -->
@@ -717,7 +707,5 @@ h1, h2, h3, h4, h5, h6 {
             link.href = url;
             document.head.appendChild(link);
         });
-    </script>
-</body>
-
+    </script></body>
 </html>

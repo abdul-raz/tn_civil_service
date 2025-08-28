@@ -1,0 +1,706 @@
+    <!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>All India Civil Services Coaching Centre - 60 Years of Excellence</title>
+            <!-- Bootstrap 5 CSS -->
+            <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+            <!-- Google Fonts -->
+            <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+            <!-- Font Awesome -->
+            <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+            <!-- AOS Animation Library -->
+            <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+            <!--CSS-->
+            <link rel="stylesheet" href="styles.css">
+        </head>
+        <style>
+        
+
+        
+        .downloads-alt {
+    padding: 5rem 0;
+    background: var(--white);
+    }
+
+    .downloads-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    }
+
+    .download-category {
+    background: var(--primary-bg);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: var(--card-shadow);
+    transition: box-shadow 0.3s ease;
+    }
+
+    .download-category:hover {
+    box-shadow: var(--card-shadow-hover);
+    }
+
+    .download-category h3 {
+    color: var(--primary-text);
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+    }
+
+    .download-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    }
+
+    .download-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--white);
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgb(0 0 0 / 0.05);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    }
+
+    .download-item:hover {
+    transform: translateX(5px);
+    box-shadow: var(--card-shadow-hover);
+    }
+
+    .download-name {
+    font-weight: 600;
+    color: var(--primary-text);
+    }
+
+    .download-size {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    margin-right: 1rem;
+    white-space: nowrap;
+    }
+
+    /* .download-btn {
+        background: var(--accent-blue);
+        color: var(--white);
+        border: none;
+        border-radius: 8px;
+        padding: 0.2rem 0.4rem;
+        cursor: pointer;
+        font-size: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        }
+
+        .download-btn:hover {
+        background: var(--accent-light);
+        color: var(--primary-text);
+        transform: scale(1.1);
+        box-shadow: var(--card-shadow-hover);
+        } */
+        .download-btn {
+    /* background: var(--accent-blue, #3B82F6); */
+    color:rgb(48, 74,107);
+
+    border: none;
+    border-radius: 6px;
+    padding: 0.3rem 0.8rem;
+    font-size: 0.95rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: 500;
+    /* box-shadow: 0 1px 4px rgba(0,0,0,0.05); */
+    transition: all 0.2s ease;
+    text-decoration: none;
+    }
+
+    .download-btn i {
+    font-size: 1em;
+    transition: color 0.2s ease;
+    }
+
+    .download-btn:hover, .download-btn:focus {
+    background: var(); /* softer yellow */
+    color: var(--accent-gold, #f59e0b);
+    transform: scale(1.03); /* less aggressive zoom */
+    box-shadow: 0 2px 8px rgba(245,158,11,0.1);
+    text-decoration: none;
+    }
+
+    .download-btn:hover i, .download-btn:focus i {
+    color: var(--accent-gold, #f59e0b);
+    }
+    .section-title {
+                text-align: center;
+                font-size: 2rem;
+                margin-bottom: 1rem;
+                color: var(--primary-dark);
+                position: relative;
+                font-weight: 700;
+            }
+
+            .section-title::after {
+                content: '';
+                position: absolute;
+                bottom: -15px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 80px;
+                height: 4px;
+                background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-light) 100%);
+                border-radius: 2px;
+            }
+
+            .section-subtitle {
+                text-align: center;
+                font-size: 1.2rem;
+                color: var(--text-light);
+                margin-bottom: 50px;
+                max-width: 600px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        
+        
+
+        /* @media (max-width: 768px) {
+        .hero-overlay h1 {
+            font-size: rem;
+        }
+        .hero-overlay p {
+            font-size: 1rem;
+        } */
+        /* } */
+        .hero-overlay h1 {
+            color: whitesmoke;
+            font-weight: 400;
+                        margin-bottom: 1.5rem;
+                        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+                        line-height: 1.2;
+        }
+
+        @media (max-width: 480px) {
+        .hero-section {
+            /* height: 100px; */
+        }
+        /* .hero-overlay h1 {
+            font-size: 1.6rem;
+        } */
+        /* .hero-overlay p {
+            font-size: 0.9rem;
+        } */
+        }
+        </style>
+        <body>
+                          <!-- Navigation -->
+        <nav class="navbar navbar-expand-xl navbar-custom fixed-top" data-aos="fade-down">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#home">
+                    <img src="https://www.civilservicecoaching.com/images/logo.png" alt="AICSCC Logo" class="me-0">
+                    <div class="brand-text">
+                        <h5>All India Civil Services Coaching Centre</h5>
+                        <small>A Unit of Anna Institute of Management</small>
+                    </div>
+                </a>
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index 2 1.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="aboutus_new.html">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="programs.html">Coaching Programs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="eligibility.html">Eligibility</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a
+                                class="btn nav-link"
+                                role="button"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
+                                style="color: #fff; border-style: none;"
+                            >Question Bank</a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" href="AICSCC.html">AICSCC Question Bank</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="UPSC.html">UPSC Question Bank</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="test_series.html">Test Series</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="exam_result.html">Exam Results</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="facilities.html">Facilities</a>
+                        </li>
+                        <!-- <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Contact</a>
+                        </li> -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="gallery.html">Gallery</a>
+                        </li>
+                         <li class="nav-item">
+                            <a href="faq.html">
+                                <img src="letter-i.png" style="height: 22px; width: 22px; margin-top: 9px; margin-left: 2px;">
+                            </a>
+                        </li>
+                        <li class="nav-item active" aria-current="page">
+                            <a href="Admission_notification.html">
+                                <img src="notification.png" style="height: 20px; width: 20px; margin-top: 10px; margin-left: 10px;">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="container section-padding" style="margin-top: 120px;">
+            <h3 class="section-title">COACHING AND EXAMINATION</h3>
+            <p class="section-subtitle">Comprehensive preparation for UPSC Civil Services Examination.</p>
+            <div class="d-flex justify-content-center mt-4">
+                <div class="exam-tabs-wrapper">
+                    <ul class="nav nav-pills justify-content-center" id="examTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button
+                                class="nav-link active"
+                                id="prelims-tab"
+                                data-bs-toggle="tab"
+                                data-bs-target="#prelims"
+                                type="button"
+                                role="tab"
+                                aria-controls="prelims"
+                                aria-selected="true"
+                            >
+                                Admission Information
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button
+                                class="nav-link"
+                                id="mains-tab"
+                                data-bs-toggle="tab"
+                                data-bs-target="#mains"
+                                type="button"
+                                role="tab"
+                                aria-controls="mains"
+                                aria-selected="false"
+                            >
+                                Scholarship Information
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button
+                                class="nav-link"
+                                id="personality-tab"
+                                data-bs-toggle="tab"
+                                data-bs-target="#personality"
+                                type="button"
+                                role="tab"
+                                aria-controls="personality"
+                                aria-selected="false"
+                            >
+                                Tenders
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Tab Content -->
+            <div class="tab-content mt-4" id="examTabContent" style="min-height: 500px;">
+                
+                <!-- Admission Information Tab -->
+                <div class="tab-pane fade show active" id="prelims" role="tabpanel" aria-labelledby="prelims-tab" tabindex="0">
+                    <div class="col-xl-12 col-lg-12 download-category" data-aos="fade-right" data-aos-delay="100">
+                        <h3>Notifications</h3>
+                        <div class="download-list">
+                            <div class="download-item">
+                                <span class="download-name">UPSC Mains 2025 Admission Info</span>
+                                <a
+                                    href="https://www.civilservicecoaching.com/posts/13-06-2025-1749796007.pdf"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="download-btn"
+                                    aria-label="View Entrance Exam 2023 Question Paper"
+                                >
+                                    <i class="bi-eye-fill"></i>
+                                    <span style="margin-left: 0.5em;">View</span>
+                                </a>
+                            </div>
+                            <div class="download-item">
+                                <span class="download-name">ENROLMENT LINK FOR PART TIME UPSC CSE MAINS 2025 TRAINING</span>
+                                <a
+                                    href="https://admission.civilservicecoaching.com/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="download-btn"
+                                    aria-label="View Entrance Exam 2023 Question Paper"
+                                >
+                                    <i class="bi-eye-fill"></i>
+                                    <span style="margin-left: 0.5em;">View</span>
+                                </a>
+                            </div>
+                            <div class="download-item">
+                                <span class="download-name">MPT 2024NOTIFICATION</span>
+                                <a
+                                    href="https://www.civilservicecoaching.com/posts/16-12-2024-1734364028.doc"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="download-btn"
+                                    aria-label="View Entrance Exam 2023 Question Paper"
+                                >
+                                    <i class="bi-eye-fill"></i>
+                                    <span style="margin-left: 0.5em;">View</span>
+                                </a>
+                            </div>
+                            <div class="download-item">
+                                <span class="download-name">Checklist for Mains Admission after Announcement of Preliminary Result 2025.</span>
+                                <a
+                                    href="https://www.civilservicecoaching.com/posts/05-06-2025-1749136511.pdf"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="download-btn"
+                                    aria-label="View Entrance Exam 2023 Question Paper"
+                                >
+                                    <i class="bi-eye-fill"></i>
+                                    <span style="margin-left: 0.5em;">View</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scholarship Information Tab -->
+                <div class="tab-pane fade" id="mains" role="tabpanel" aria-labelledby="mains-tab" tabindex="0">
+                    <div class="col-xl-12 col-lg-12 download-category" data-aos="fade-right" data-aos-delay="100">
+                        <h3>Scholarship Notifications</h3>
+                        <div class="download-list">
+                            <div class="download-item">
+                                <span class="download-name">Merit Scholarship Application 2025</span>
+                                <a
+                                    href="https://www.civilservicecoaching.com/posts/13-06-2025-1749796007.pdf"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="download-btn"
+                                    aria-label="View Merit Scholarship Application"
+                                >
+                                    <i class="bi-eye-fill"></i>
+                                    <span style="margin-left: 0.5em;">View</span>
+                                </a>
+                            </div>
+                            <div class="download-item">
+                                <span class="download-name">Financial Aid Guidelines 2025</span>
+                                <a
+                                    href="https://admission.civilservicecoaching.com/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="download-btn"
+                                    aria-label="View Financial Aid Guidelines"
+                                >
+                                    <i class="bi-eye-fill"></i>
+                                    <span style="margin-left: 0.5em;">View</span>
+                                </a>
+                            </div>
+                            <div class="download-item">
+                                <span class="download-name">SC/ST Scholarship Information</span>
+                                <a
+                                    href="https://www.civilservicecoaching.com/posts/16-12-2024-1734364028.doc"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="download-btn"
+                                    aria-label="View SC/ST Scholarship Information"
+                                >
+                                    <i class="bi-eye-fill"></i>
+                                    <span style="margin-left: 0.5em;">View</span>
+                                </a>
+                            </div>
+                            <div class="download-item">
+                                <span class="download-name">Scholarship Renewal Process 2025</span>
+                                <a
+                                    href="https://www.civilservicecoaching.com/posts/05-06-2025-1749136511.pdf"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="download-btn"
+                                    aria-label="View Scholarship Renewal Process"
+                                >
+                                    <i class="bi-eye-fill"></i>
+                                    <span style="margin-left: 0.5em;">View</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tenders Tab -->
+                <div class="tab-pane fade" id="personality" role="tabpanel" aria-labelledby="personality-tab" tabindex="0">
+                    <div class="col-xl-12 col-lg-12 download-category" data-aos="fade-right" data-aos-delay="100">
+                        <h3>Tender Notifications</h3>
+                        <div class="download-list">
+                            <div class="download-item">
+                                <span class="download-name">Infrastructure Development Tender 2025</span>
+                                <a
+                                    href="https://www.civilservicecoaching.com/posts/13-06-2025-1749796007.pdf"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="download-btn"
+                                    aria-label="View Infrastructure Development Tender"
+                                >
+                                    <i class="bi-eye-fill"></i>
+                                    <span style="margin-left: 0.5em;">View</span>
+                                </a>
+                            </div>
+                            <div class="download-item">
+                                <span class="download-name">IT Equipment Procurement Tender</span>
+                                <a
+                                    href="https://admission.civilservicecoaching.com/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="download-btn"
+                                    aria-label="View IT Equipment Procurement Tender"
+                                >
+                                    <i class="bi-eye-fill"></i>
+                                    <span style="margin-left: 0.5em;">View</span>
+                                </a>
+                            </div>
+                            <div class="download-item">
+                                <span class="download-name">Maintenance Services Tender 2025</span>
+                                <a
+                                    href="https://www.civilservicecoaching.com/posts/16-12-2024-1734364028.doc"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="download-btn"
+                                    aria-label="View Maintenance Services Tender"
+                                >
+                                    <i class="bi-eye-fill"></i>
+                                    <span style="margin-left: 0.5em;">View</span>
+                                </a>
+                            </div>
+                            <div class="download-item">
+                                <span class="download-name">Library Books Purchase Tender</span>
+                                <a
+                                    href="https://www.civilservicecoaching.com/posts/05-06-2025-1749136511.pdf"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="download-btn"
+                                    aria-label="View Library Books Purchase Tender"
+                                >
+                                    <i class="bi-eye-fill"></i>
+                                    <span style="margin-left: 0.5em;">View</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Footer -->
+               <footer class="footer">
+            <div class="container">
+                <div class="row g-4">
+                    <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                        <div class="d-flex align-items-center mb-3">
+                            <img
+                                src="https://www.civilservicecoaching.com/images/logo.png"
+                                alt="AICSCC Logo"
+                            style="height: 50px;"
+                                class="me-3"
+                            >
+                            <div class="footer-heading">
+                                <h5 style="color: white;">AICSCC</h5>
+                                <small>Anna Institute of Management</small>
+                            </div>
+                        </div>
+                        <p>
+                            Empowering civil service aspirants for over 60 years with world-class coaching and mentorship
+                            under the Government of Tamil Nadu.
+                        </p>
+                        <div class="youtube">
+                            <!-- <a href="#" data-aos="zoom-in" data-aos-delay="200"> -->
+                                <!-- <i class="fab fa-facebook-f"></i> -->
+                            <!-- </a> -->
+                            <!-- <a href="#" data-aos="zoom-in" data-aos-delay="300"> -->
+                                <!-- <i class="fab fa-twitter"></i> -->
+                            <!-- </a> -->
+                            <a href="https://youtube.com/@aicscctn" data-aos="zoom-in" data-aos-delay="400">
+                                <img src="video.png" alt="YouTube" style="height: 40px; width: 40px;">
+                                <span style="font-size: 15px; color: #fff;" >YouTube</span></a>
+                                <!-- <img src="youtube.png" alt="YouTube" style="height: 60px; width: 60px;">    -->
+                            </a>
+                            <!-- <a href="#" data-aos="zoom-in" data-aos-delay="500"> -->
+                                <!-- <i class="fab fa-linkedin-in"></i> -->
+                            <!-- </a> -->
+                        </div>
+                    </div>
+                    <div class="col-lg" data-aos="fade-up" data-aos-delay="200">
+                        <h5>Quick Links</h5>
+                        <ul class="list-unstyled" style="line-height: 2;">
+                            <li>
+                                <a href="#home" onclick="showPage('home')">Home</a>
+                            </li>
+                            <li>
+                                <a href="#about" onclick="showPage('about')">About Us</a>
+                            </li>
+                            <li>
+                                <a href="#gallery" onclick="showPage('gallery')">Gallery</a>
+                            </li>
+                            <li>
+                                <a href="#programs" onclick="showPage('programs')">Coaching Programs</a>
+                            </li>
+                            <li>
+                                <a href="#facilities" onclick="showPage('facilities')">Facilities</a>
+                            </li>
+                            <li>
+                                <a href="#eligibility" onclick="showPage('eligibility')">Eligibility</a>
+                            </li>
+                            <li>
+                                <a href="#contact" onclick="showPage('contact')">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg" data-aos="fade-up" data-aos-delay="300">
+                        <h5>Programs</h5>
+                    <ul class="list-unstyled" style="line-height: 2;">
+                            <li>
+                                <a href="#">UPSC Prelims</a>
+                            </li>
+                            <li>
+                                <a href="#">UPSC Mains</a>
+                            </li>
+                            <li>
+                                <a href="#">Interview Guidance</a>
+                            </li>
+                            <li>
+                                <a href="#">Mock Tests</a>
+                            </li>
+                            <li>
+                                <a href="#">Study Materials</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg" data-aos="fade-up" data-aos-delay="400">
+                        <h5>Contact Info</h5>
+                        <p>
+                            <i class="fas fa-map-marker-alt me-2"></i>
+                            R.A.Puram, Chennai - 600028
+                        </p>
+                        <p>
+                            <i class="fas fa-phone me-2"></i>
+                            044-24621475
+                        </p>
+                        <p>
+                            <i class="fas fa-envelope me-2"></i>
+                            aicscc.gov@gmail.com
+                        </p>
+                        <a href="contact.html" class="footer-quote">Reach out to us </a>
+                    </div>
+                </div>
+                <hr class="my-4" style="border-color: #444;">
+                <!-- Copyright Section -->
+                <div class="row align-items-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="col-12 text-center mb-3 d-none">
+                        <div class="bg-warning text-dark rounded p-3 mb-3">
+                            <h6 class="mb-2">
+                                <i class="fas fa-copyright me-2"></i>
+                                Copyright Notice
+                            </h6>
+                            <p class="mb-0 small">
+                                All content, images, logos, and materials on this website are protected by
+                                copyright laws.
+                                Unauthorized reproduction, distribution, or use of any content without written permission is
+                                strictly prohibited.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <p class="mb-0">
+                            &copy; 2025 All India Civil Services Coaching Centre, Anna Institute of Management.
+                            All Rights Reserved.
+                        </p>
+                        <!-- <small class="text-muted">No part of this website may be reproduced without permission.</small> -->
+                    </div>
+                <div class="col-md-6 text-md-end">
+                            <p>Government of Tamil Nadu | Official Website</p>
+                        <br>
+                        <!-- <small class="text-muted">Established under Tamil Nadu Government | Since 1963</small> -->
+                    </div>
+                </div>
+                <!-- Additional Legal Information -->
+                <!-- <div class="row mt-3" data-aos="fade-up" data-aos-delay="600">
+                    <div class="col-12 text-center">
+                        <div class="border-top pt-3" style="border-color: #444 !important;">
+                            <small class="text-muted">
+                                <a href="#" class="text-muted me-3">Privacy Policy</a> |
+                                <a href="#" class="text-muted mx-3">Terms of Service</a> |
+                                <a href="#" class="text-muted mx-3">Disclaimer</a> |
+                                <a href="#" class="text-muted ms-3">Website Policies</a>
+                            </small>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </footer>
+
+        <!-- Bootstrap JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+        <!-- AOS Animation -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+        <script>
+            // Initialize AOS
+            AOS.init({
+                duration: 1000,
+                offset: 100,
+                once: true,
+                easing: 'ease-in-out'
+            });
+
+            // Navbar scroll effect
+            window.addEventListener('scroll', function () {
+                const navbar = document.querySelector('.navbar-custom');
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+
+            // Performance optimization
+            let resizeTimer;
+            window.addEventListener('resize', function () {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(function () {
+                    AOS.refresh();
+                }, 250);
+            });
+        </script>
+    </body>
+</html>

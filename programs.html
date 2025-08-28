@@ -1,28 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All India Civil Services Coaching Centre - 60 Years of Excellence</title>
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-
-    <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-
-    <!-- AOS Animation Library -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
-     
-    <!--CSS-->
-    <link rel="stylesheet" href="styles.css">
-<style>/* Parent container of tabs and content gets the gradient background - removed duplicate .nav-tabs styles */
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>All India Civil Services Coaching Centre - 60 Years of Excellence</title>
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/favicon-32x32.png"
+        >
+        <!-- Bootstrap 5 CSS -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+        <!-- Font Awesome -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+        <!-- AOS Animation Library -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+        <!--CSS-->
+        <link rel="stylesheet" href="styles.css">
+ <style>
+/* Parent container of tabs and content gets the gradient background - removed duplicate .nav-tabs styles */
 
 .tab-pane > .card {
   border-radius: 1rem;
@@ -37,33 +37,76 @@
 }
 
 .test-table {
-  margin-bottom: 0;
+  border-collapse: separate !important;
+  border-spacing: 0;
+  border-radius: 1rem;
+  overflow: hidden;
+  border: 1px solid var(--slate-grey);
 }
+
 .test-table thead {
   margin-bottom: 0;
   background: linear-gradient(135deg, var(--primary-text) 0%, var(--slate-grey) 100%);
 }
-.eligibility-header {
-    background: linear-gradient(135deg, var(--primary-text) 0%, var(--slate-grey) 100%);
-    color: white;
-    padding: 1.5rem;
-    border-radius: 15px 15px 0px 0px;
-    margin: -2.5rem -2.5rem 2rem -2.5rem;
-    text-align: center;
+
+.test-table thead th {
+  border: none;
 }
-.test-table th {
+
+/* Add vertical borders between columns */
+/* .test-table td:not(:last-child) {
+  border-right: 1px solid var(--slate-grey);
+} */
+
+/* Add horizontal borders between rows */
+/* .test-table tbody tr:not(:last-child) td {
+  border-bottom: 1px solid var(--slate-grey);
+} */
+
+/* IMPORTANT: Remove bottom border from last row to prevent double thickness */
+/* .test-table tbody tr:last-child td {
+  border-bottom: none !important;
+} */
+
+/* Remove border-radius on all cells */
+.test-table th,
+.test-table td {
+  border-radius: 0 !important;
+  padding: 1.5rem;
   background: none;
-    color: white;
-    padding: 1.5rem;
-  border:none;
-    margin: -2.5rem -2.5rem 2rem -2.5rem;
-    text-align: center;
 }
+
+.test-table th {
+  color: white;
+  padding: 1.5rem;
+  border: none;
+  margin: -2.5rem -2.5rem 2rem -2.5rem;
+  text-align: center;
+}
+
 .test-table td {
   vertical-align: middle;
   text-align: center;
   font-size: 1rem;
 }
+
+/* Round only outer corners of the table */
+/* .test-table tr:first-child th:first-child,
+.test-table tr:first-child td:first-child {
+  border-top-left-radius: 1rem;
+}
+.test-table tr:first-child th:last-child,
+.test-table tr:first-child td:last-child {
+  border-top-right-radius: 1rem;
+} */
+/* .test-table tr:last-child th:first-child,
+.test-table tr:last-child td:first-child {
+  border-bottom-left-radius: 1rem;
+} */
+/* .test-table tr:last-child th:last-child,
+.test-table tr:last-child td:last-child {
+  border-bottom-right-radius: 1rem;
+} */
 
 /* Nav pills styling - FORCE 25px border radius everywhere */
 .nav-pills .nav-link {
@@ -156,7 +199,7 @@ h1, h2, h3, h4, h5, h6 {
   
   .nav-pills .nav-link {
     padding: 0.4rem 0.2rem;
-    font-size: 0.75rem;
+    font-size: 0.7rem;      /* reduced from 0.75rem */
     font-weight: 500;
     text-align: center;
     border-radius: 25px !important;
@@ -164,22 +207,44 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 1rem; /* keep rounded corners */
+}
 /* Very small phones */
 @media (max-width: 480px) {
   .exam-tabs-wrapper {
-    margin-left: -0.5rem;
-    margin-right: -0.5rem;
+    margin-left: 0; /* remove negative margin */
+    margin-right: 0; /* remove negative margin */
     border-radius: 15px;
+    padding-left: 0.5rem; /* add some padding if needed */
+    padding-right: 0.5rem;
+  }
+  
+  .exam-tabs-wrapper ul.nav-pills {
+    justify-content: center; /* center pills */
+    flex-wrap: wrap; /* allow wrapping */
+    gap: 0.5rem; /* spacing between pills */
   }
   
   .nav-pills .nav-link {
     font-size: 0.85rem;
     padding: 0.4rem 0.8rem;
-    max-width: 260px;
+    max-width: 100%; /* allow pills to fill container width */
     border-radius: 25px !important;
+    flex: 1 1 auto; /* allow flexible sizing */
+    text-align: center; /* center text inside pills */
   }
 }
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 1rem; /* keep rounded corners */
+}
+
 
 /* Small tablets - keep in one line */
 @media (min-width: 577px) and (max-width: 768px) {
@@ -211,6 +276,7 @@ h1, h2, h3, h4, h5, h6 {
   .exam-tabs-wrapper ul.nav-pills {
     flex-direction: row;
     gap: 0.75rem;
+    flex-wrap: wrap !important;
   }
   
   .nav-pills .nav-link {
@@ -219,6 +285,20 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 600;
     border-radius: 25px !important;
   }
+.test-table th,
+  .test-table td {
+    padding: 0.8rem !important;
+    font-size: 0.85rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .test-table th,
+  .test-table td {
+    padding: 0.5rem !important;
+    font-size: 0.75rem !important;
+  }
+
 }
 
 /* Large screens and above */
@@ -231,6 +311,7 @@ h1, h2, h3, h4, h5, h6 {
   .exam-tabs-wrapper ul.nav-pills {
     flex-direction: row;
     gap: 1rem;
+    
   }
   
   .nav-pills .nav-link {
@@ -240,15 +321,13 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 25px !important;
   }
 }
-
-
 </style>
 
 
     </head>
     <body>
-            <!-- Navigation -->
-        <nav class="navbar navbar-expand-xl navbar-custom fixed-top" data-aos="fade-down">
+        <!-- Navigation -->
+         <nav class="navbar navbar-expand-xl navbar-custom fixed-top" data-aos="fade-down">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#home">
                     <img src="https://www.civilservicecoaching.com/images/logo.png" alt="AICSCC Logo" class="me-0">
@@ -274,23 +353,22 @@ h1, h2, h3, h4, h5, h6 {
                             <a class="nav-link" href="aboutus_new.html">About Us</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="gallery_new.html">Gallery</a>
+                            <a class="nav-link active" aria-current="page" href="programs.html">Coaching Programs</a>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a
-                                class="btn dropdown-toggle nav-link"
-                                href="contact.html"
-                                role="button"
-                                data-bs-toggle="dropdown"
-                                aria-expanded="false"
-                                style="color: #fff; border-style: none;"
-                            >Question Bank</a>
-                            <ul class="dropdown-menu">
+                        <li class="nav-item">
+                            <a class="nav-link" href="eligibility.html">Eligibility</a>
+                        </li>
+                        <li class="nav-item dropdown-hover">
+                            <a class="dropdown-toggle-custom" href="#">
+                                Question Bank
+                                <i class="chevron-icon fas fa-chevron-down"></i>
+                            </a>
+                            <ul class="dropdown-menu-custom">
                                 <li>
                                     <a class="dropdown-item" href="AICSCC.html">AICSCC Question Bank</a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="AICSCC.html">UPSC Question Bank</a>
+                                    <a class="dropdown-item" href="UPSC.html">UPSC Question Bank</a>
                                 </li>
                                 <li>
                                     <a class="dropdown-item" href="test_series.html">Test Series</a>
@@ -301,95 +379,137 @@ h1, h2, h3, h4, h5, h6 {
                             <a class="nav-link" href="exam_result.html">Exam Results</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active"  aria-current="page" href="programs.html">Coaching Programs</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" href="facilities.html">Facilities</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="eligibility.html">Eligibility</a>
-                        </li>
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a class="nav-link" href="contact.html">Contact</a>
+                        </li> -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="gallery.html">Gallery</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="faq.html">FAQ</a>
+                            <a href="faq.html">
+                                <img src="letter-i.png" style="height: 22px; width: 22px; margin-top: 9px; margin-left: 2px;">
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="Admission_notification.html">
+                                <img src="notification.png" style="height: 20px; width: 20px; margin-top: 10px; margin-left: 10px;">
+                            </a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
-     <section class="hero-section">
+        <section class="hero-section">
             <div class="hero-content">
-                <div class="breadcrumb">
-                    <a href="#">Home</a>
-                    <span>/</span>
-                    <span>COACHING</span>
-                </div>
+              
                 <h1 class="breadcrumb-tab">COACHING</h1>
             </div>
         </section>
-<div class="container section-padding " style="margin-top: 40px;">
-  <h3 class="section-title">Coaching And Examination</h3>
-Comprehensive preparation for UPSC Civil Services Examination.</p>
-
-<div class="d-flex justify-content-center mt-4">
-  <div class="exam-tabs-wrapper">
-    <ul class="nav nav-pills justify-content-center" id="examTab" role="tablist">
-      <li class="nav-item" role="presentation">
-        <button class="nav-link active" id="prelims-tab" data-bs-toggle="tab" data-bs-target="#prelims" type="button" role="tab" aria-controls="prelims" aria-selected="true">
-          Preliminary Examination
-        </button>
-      </li>
-      <li class="nav-item" role="presentation">
-        <button class="nav-link" id="mains-tab" data-bs-toggle="tab" data-bs-target="#mains" type="button" role="tab" aria-controls="mains" aria-selected="false">
-          Main Examination
-        </button>
-      </li>
-      <li class="nav-item" role="presentation">
-        <button class="nav-link" id="personality-tab" data-bs-toggle="tab" data-bs-target="#personality" type="button" role="tab" aria-controls="personality" aria-selected="false">
-          Personality Test
-        </button>
-      </li>
-    </ul>
-  </div>
-</div>
-
-<br>
-<!-- Tab Content with no top margin -->
-  <div class="tab-content mt-4;" id="examTabContent" style="min-height: 500px; ">  
-    <!-- Preliminary Examination -->
-    <div class="tab-pane fade show active" id="prelims" role="tabpanel" aria-labelledby="prelims-tab" tabindex="0">
-      <div class="card shadow p-4" style="border-top:none; margin-top: 0;">
-        <h3>Preliminary Examination</h3>
-        <p>
-          Based on merit (through a competitive entrance Examination conducted throughout Tamil Nadu) and Community Reservation system, 225 aspirants are admitted in Residential coaching (Full-time) and 100 aspirants in Non-Residential (Part-time) coaching. From the year 2011-2018 onwards, ICR applications are issued to the aspirants through District Collectorate. The entrance examination is conducted in seventeen (17) centres in Tamil Nadu.
+        <div class="container section-padding " style="margin-top: 40px;">
+            <div class="section-title" data-aos="fade-right">
+                <h3>Coaching And Examination
+                    </h3>
+                </div>
+           <p class="section-subtitle"> Comprehensive preparation for UPSC Civil Services Examination.</p>
         </p>
-        <p>
-          Now the entrance examination is conducted directly by All India Civil Services Centre, Chennai-28. When the entrance examination is conducted for preliminary coaching, notifications will be released on the website and newspaper advertisement also published. Except admission, other processing (application, hall ticket downloading, selection list, admit card) will be held online only.
-        </p>
-        <h5>Preliminary Examination Pattern:</h5>
-        <table class="table table-bordered w-75 mx-auto mb-3 test-table">
-          <thead class="text-center">
-            <tr>
-              <th >Paper I (Maximum Marks 200)</th>
-              <th >Paper II (Maximum Marks 200)</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="text-center">
-              <td>General Studies</td>
-              <td>CSAT (qualifying nature, 33% pass percentage not included for ranking)</td>
-            </tr>
-          </tbody>
-        </table>
-        <p>The Institute guides aspirants for nearly 6 months (December to June) to take up the Preliminary examination.</p>
-      </div>
-    </div>
-
-
-    <div class="tab-pane fade" id="mains" role="tabpanel" aria-labelledby="mains-tab" tabindex="0">
-  <div class="card shadow p-4" style="
+        <div class="d-flex justify-content-center mt-4">
+            <div class="exam-tabs-wrapper">
+                <ul class="nav nav-pills justify-content-center" id="examTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button
+                            class="nav-link active"
+                            id="prelims-tab"
+                            data-bs-toggle="tab"
+                            data-bs-target="#prelims"
+                            type="button"
+                            role="tab"
+                            aria-controls="prelims"
+                            aria-selected="true"
+                        >
+                            Preliminary Examination
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button
+                            class="nav-link"
+                            id="mains-tab"
+                            data-bs-toggle="tab"
+                            data-bs-target="#mains"
+                            type="button"
+                            role="tab"
+                            aria-controls="mains"
+                            aria-selected="false"
+                        >
+                            Main Examination
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button
+                            class="nav-link"
+                            id="personality-tab"
+                            data-bs-toggle="tab"
+                            data-bs-target="#personality"
+                            type="button"
+                            role="tab"
+                            aria-controls="personality"
+                            aria-selected="false"
+                        >
+                            Personality Test
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <br>
+        <!-- Tab Content with no top margin -->
+        <div class="tab-content mt-4;" id="examTabContent" style="min-height: 500px; ">
+            <!-- Preliminary Examination -->
+            <div
+                class="tab-pane fade show active"
+                id="prelims"
+                role="tabpanel"
+                aria-labelledby="prelims-tab"
+                tabindex="0"
+            >
+                <div class="card shadow p-4" style="border-top:none; margin-top: 0;">
+                    <h3>Preliminary Examination</h3>
+                    <p>
+                        Based on merit (through a competitive entrance Examination conducted throughout Tamil Nadu) and Community Reservation system, 225 aspirants are admitted in Residential coaching (Full-time) and 100 aspirants in Non-Residential (Part-time) coaching. From the year 2011-2018 onwards, ICR applications are issued to the aspirants through District Collectorate. The entrance examination is conducted in seventeen (17) centres in Tamil Nadu.
+                    </p>
+                    <p>
+                        Now the entrance examination is conducted directly by All India Civil Services Centre, Chennai-28. When the entrance examination is conducted for preliminary coaching, notifications will be released on the website and newspaper advertisement also published. Except admission, other processing (application, hall ticket downloading, selection list, admit card) will be held online only.
+                    </p>
+                    <h5>Preliminary Examination Pattern:</h5>
+                    <div class="table-responsive">
+                    <table class="table table-bordered mb-3 test-table">
+                        <thead class="text-center">
+                            <tr>
+                                <th>Paper I (Maximum Marks 200)</th>
+                                <th>Paper II (Maximum Marks 200)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="text-center">
+                                <td>General Studies</td>
+                                <td>CSAT (qualifying nature, 33% pass percentage not included for ranking)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    </div>
+               
+                    <p>The Institute guides aspirants for nearly 6 months (December to June) to take up the Preliminary examination.</p>
+                </div>
+            </div>
+            <div
+                class="tab-pane fade"
+                id="mains"
+                role="tabpanel"
+                aria-labelledby="mains-tab"
+                tabindex="0"
+            >
+                <div class="card shadow p-4" style="
     border-left: 3px solid var(--accent-gold);
     border-right: 3px solid var(--accent-gold);
     border-top: none;
@@ -399,157 +519,209 @@ Comprehensive preparation for UPSC Civil Services Examination.</p>
     background: var(--white);
     box-shadow: 0 6px 12px rgba(0,0,0,0.1);
   ">
-    <h3>Main Examination</h3>
-    <p>
-      The aspirants who have cleared the UPSC Preliminary examination are admitted for Main Examination Coaching (225 aspirants). Intensive coaching for nearly two to four months is given to the aspirants. A monthly stipend of Rs. 3000/- is given to each candidate admitted for Main coaching, irrespective of the income ceiling to meet expenditure for accessing reading materials.
-    </p>
-    <h5>Main Examination Pattern</h5>
-    <table class="table table-bordered test-table w-75 mx-auto mb-3">
-      <thead>
+                    <h3>Main Examination</h3>
+                    <p>
+                        The aspirants who have cleared the UPSC Preliminary examination are admitted for Main Examination Coaching (225 aspirants). Intensive coaching for nearly two to four months is given to the aspirants. A monthly stipend of Rs. 3000/- is given to each candidate admitted for Main coaching, irrespective of the income ceiling to meet expenditure for accessing reading materials.
+                    </p>
+                    <h5>Main Examination Pattern</h5>
+                    
+                   <table class="table table-bordered test-table w-75 mx-auto mb-3">
+    <thead>
         <tr class="text-center">
-          <th>Paper</th>
-          <th>Marks</th>
-          <th>Total Marks</th>
+            <th>Papers</th>
+            <th>Marks</th>
+            <th>Total Marks</th>
         </tr>
-      </thead>
-      <tbody>
+    </thead>
+    <tbody>
         <tr class="text-center">
-          <td>Language - English</td>
-          <td>---</td>
-          <td>(qualifying)</td>
-        </tr>
-        <tr class="text-center">
-          <td>Essay</td>
-          <td>250</td>
-          <td>(Compulsory)</td>
+            <td>Language</td>
+            <td>---</td>
+            <td>(qualifying)</td>
         </tr>
         <tr class="text-center">
-          <td>General Studies – Paper I, II, III &amp; IV</td>
-          <td>250 x 4</td>
-          <td>(Compulsory) 1000</td>
+            <td>English</td>
+            <td>---</td>
+            <td>(qualifying)</td>
         </tr>
         <tr class="text-center">
-          <td>Optional I &amp; II (Only one optional)</td>
-          <td>250 x 2</td>
-          <td>(Compulsory) 500</td>
+            <td>Essay</td>
+            <td>250</td>
+            <td>(Compulsory) 250</td>
         </tr>
         <tr class="text-center">
-          <td>Personality Test</td>
-          <td>275</td>
-          <td></td>
+            <td>General Studies – Paper I, II, III & IV</td>
+            <td>250 x 4</td>
+            <td>(Compulsory) 1000</td>
         </tr>
         <tr class="text-center">
-          <td><strong>Total</strong></td>
-          <td></td>
-          <td><strong>2025</strong></td>
+            <td>Optional I & II (Only one optional)</td>
+            <td>250 x 2</td>
+            <td>(Compulsory) 500</td>
         </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
+        <tr class="text-center">
+            <td>Personality Test</td>
+            <td></td>
+            <td>275</td>
+        </tr>
+        <tr class="text-center">
+            <td>
+                <strong>Total</strong>
+            </td>
+            <td></td>
+            <td>
+                <strong>2025</strong>
+            </td>
+        </tr>
+    </tbody>
+</table>
 
-    <!-- Personality Test -->
-    <div class="tab-pane fade" id="personality" role="tabpanel" aria-labelledby="personality-tab" tabindex="0">
-      <div class="card shadow p-4" style="border-top:none; margin-top: 0;">
-        <h3>Personality Test</h3>
-        <p>
-          The Institute conducts Model Personality Tests for candidates who have cleared their Main Examination. Sessions are conducted by senior officers and subject experts. Topics are discussed with experts. Accommodation is available in Tamilnadu House, New Delhi, with Rs. 2000/- travel allowance provided for attendance.
-        </p>
-      </div>
+                    
+                </div>
+            </div>
+            <!-- Personality Test -->
+            <div
+                class="tab-pane fade"
+                id="personality"
+                role="tabpanel"
+                aria-labelledby="personality-tab"
+                tabindex="0"
+            >
+                <div class="card shadow p-4" style="border-top:none; margin-top: 0;">
+                    <h3>Personality Test</h3>
+                    <p>
+                        The Institute conducts Model Personality Tests for candidates who have cleared their Main Examination. Sessions are conducted by senior officers and subject experts. Topics are discussed with experts. Accommodation is available in Tamilnadu House, New Delhi, with Rs. 2000/- travel allowance provided for attendance.
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
-
-
-    
-  </div>
-</div>
-
-
-
-
-
-        <!-- Footer -->
-
-
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="row g-4">
                 <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
                     <div class="d-flex align-items-center mb-3">
-                        <img src="https://www.civilservicecoaching.com/images/logo.png" alt="AICSCC Logo" height="40"
-                            class="me-3">
+                        <img
+                            src="https://www.civilservicecoaching.com/images/logo.png"
+                            alt="AICSCC Logo"
+                            height="40"
+                            class="me-3"
+                        >
                         <div>
                             <h5 style="color: white;">AICSCC</h5>
                             <small>Anna Institute of Management</small>
                         </div>
                     </div>
-                    <p>Empowering civil service aspirants for over 60 years with world-class coaching and mentorship
-                        under the Government of Tamil Nadu.</p>
-                    <div class="social-icons">
-                        <a href="#" data-aos="zoom-in" data-aos-delay="200"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" data-aos="zoom-in" data-aos-delay="300"><i class="fab fa-twitter"></i></a>
-                        <a href="#" data-aos="zoom-in" data-aos-delay="400"><i class="fab fa-youtube"></i></a>
-                        <a href="#" data-aos="zoom-in" data-aos-delay="500"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-
-                <div class="col-lg-2" data-aos="fade-up" data-aos-delay="200">
-                    <h5>Quick Links</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#home" onclick="showPage('home')">Home</a></li>
-                        <li><a href="#about" onclick="showPage('about')">About Us</a></li>
-                        <li><a href="#gallery" onclick="showPage('gallery')">Gallery</a></li>
-                        <li><a href="#programs" onclick="showPage('programs')">Coaching Programs</a></li>
-                        <li><a href="#facilities" onclick="showPage('facilities')">Facilities</a></li>
-                        <li><a href="#eligibility" onclick="showPage('eligibility')">Eligibility</a></li>
-                        <li><a href="#contact" onclick="showPage('contact')">Contact</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-lg-3" data-aos="fade-up" data-aos-delay="300">
-                    <h5>Programs</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#">UPSC Prelims</a></li>
-                        <li><a href="#">UPSC Mains</a></li>
-                        <li><a href="#">Interview Guidance</a></li>
-                        <li><a href="#">Mock Tests</a></li>
-                        <li><a href="#">Study Materials</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-lg-3" data-aos="fade-up" data-aos-delay="400">
-                    <h5>Contact Info</h5>
-                    <p><i class="fas fa-map-marker-alt me-2"></i>R.A.Puram, Chennai - 600028</p>
-                    <p><i class="fas fa-phone me-2"></i>044-24621475</p>
-                    <p><i class="fas fa-envelope me-2"></i>aicscc.gov@gmail.com</p>
+                    <p>
+                        Empowering civil service aspirants for over 60 years with world-class coaching and mentorship
+                        under the Government of Tamil Nadu.
+                    </p>
+                    <div class="youtube">
+                        <a href="https://youtube.com/@aicscctn" data-aos="zoom-in" data-aos-delay="400">
+                            <img src="video.png" alt="YouTube" style="height: 40px; width: 40px;">
+                            <span style="font-size: 15px; color: #fff;">YouTube</span>
+                        </a>
+                    </a>
                 </div>
             </div>
-
-            <hr class="my-4" style="border-color: #444;">
-
-            <!-- Copyright Section -->
-            <div class="row align-items-center" data-aos="fade-up" data-aos-delay="500">
-                <div class="col-12 text-center mb-3 d-none">
-                    <div class="bg-warning text-dark rounded p-3 mb-3">
-                        <h6 class="mb-2"><i class="fas fa-copyright me-2"></i>Copyright Notice</h6>
-                        <p class="mb-0 small">All content, images, logos, and materials on this website are protected by
+            <div class="col-lg-2" data-aos="fade-up" data-aos-delay="200">
+                <h5>Quick Links</h5>
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="#home" onclick="showPage('home')">Home</a>
+                    </li>
+                    <li>
+                        <a href="#about" onclick="showPage('about')">About Us</a>
+                    </li>
+                    <li>
+                        <a href="#gallery" onclick="showPage('gallery')">Gallery</a>
+                    </li>
+                    <li>
+                        <a href="#programs" onclick="showPage('programs')">Coaching Programs</a>
+                    </li>
+                    <li>
+                        <a href="#facilities" onclick="showPage('facilities')">Facilities</a>
+                    </li>
+                    <li>
+                        <a href="#eligibility" onclick="showPage('eligibility')">Eligibility</a>
+                    </li>
+                    <li>
+                        <a href="#contact" onclick="showPage('contact')">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-lg-3" data-aos="fade-up" data-aos-delay="300">
+                <h5>Programs</h5>
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="#">UPSC Prelims</a>
+                    </li>
+                    <li>
+                        <a href="#">UPSC Mains</a>
+                    </li>
+                    <li>
+                        <a href="#">Interview Guidance</a>
+                    </li>
+                    <li>
+                        <a href="#">Mock Tests</a>
+                    </li>
+                    <li>
+                        <a href="#">Study Materials</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-lg-3" data-aos="fade-up" data-aos-delay="400">
+                <h5>Contact Info</h5>
+                <p>
+                    <i class="fas fa-map-marker-alt me-2"></i>
+                    R.A.Puram, Chennai - 600028
+                </p>
+                <p>
+                    <i class="fas fa-phone me-2"></i>
+                    044-24621475
+                </p>
+                <p>
+                    <i class="fas fa-envelope me-2"></i>
+                    aicscc.gov@gmail.com
+                </p>
+                <a href="contact.html" class="footer-quote">Reach out to us</a>
+            </div>
+        </div>
+        <hr class="my-4" style="border-color: #444;">
+        <!-- Copyright Section -->
+        <div class="row align-items-center" data-aos="fade-up" data-aos-delay="100">
+            <div class="col-12 text-center mb-3 d-none">
+                <div class="bg-warning text-dark rounded p-3 mb-3">
+                    <h6 class="mb-2">
+                        <i class="fas fa-copyright me-2"></i>
+                        Copyright Notice
+                    </h6>
+                    <p class="mb-0 small">
+                        All content, images, logos, and materials on this website are protected by
                             copyright laws.
                             Unauthorized reproduction, distribution, or use of any content without written permission is
-                            strictly prohibited.</p>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <p class="mb-0">&copy; 2025 All India Civil Services Coaching Centre, Anna Institute of Management.
-                        All Rights Reserved.</p>
-                    <!-- <small class="text-muted">No part of this website may be reproduced without permission.</small> -->
-                </div>
-                <div class="col-md-6 text-md-end">
-                    <small><strong>Government of Tamil Nadu | Official Website</strong></small><br>
-                    <!-- <small class="text-muted">Established under Tamil Nadu Government | Since 1963</small> -->
+                            strictly prohibited.
+                    </p>
                 </div>
             </div>
-
-            <!-- Additional Legal Information -->
-            <!-- <div class="row mt-3" data-aos="fade-up" data-aos-delay="600">
+            <div class="col-md-6">
+                <p class="mb-0">
+                    &copy; 2025 All India Civil Services Coaching Centre, Anna Institute of Management.
+                        All Rights Reserved.
+                </p>
+                <!-- <small class="text-muted">No part of this website may be reproduced without permission.</small> -->
+            </div>
+            <div class="col-md-6 text-md-end">
+                <small>
+                    <strong>Government of Tamil Nadu | Official Website</strong>
+                </small>
+                <br>
+                <!-- <small class="text-muted">Established under Tamil Nadu Government | Since 1963</small> -->
+            </div>
+        </div>
+        <!-- Additional Legal Information -->
+        <!-- <div class="row mt-3" data-aos="fade-up" data-aos-delay="600">
                 <div class="col-12 text-center">
                     <div class="border-top pt-3" style="border-color: #444 !important;">
                         <small class="text-muted">
@@ -561,16 +733,13 @@ Comprehensive preparation for UPSC Civil Services Examination.</p>
                     </div>
                 </div>
             </div> -->
-        </div>
-    </footer>
-
-    <!-- Bootstrap JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-
-    <!-- AOS Animation -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-
-    <script>
+    </div>
+</footer>
+<!-- Bootstrap JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+<!-- AOS Animation -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
         // Initialize AOS
         AOS.init({
             duration: 1000,
@@ -717,7 +886,6 @@ Comprehensive preparation for UPSC Civil Services Examination.</p>
             link.href = url;
             document.head.appendChild(link);
         });
-    </script>
+</script>
 </body>
-
 </html>

@@ -1,28 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All India Civil Services Coaching Centre - 60 Years of Excellence</title>
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-
-    <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-
-    <!-- AOS Animation Library -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
-     
-    <!--CSS-->
-    <!-- <link rel="stylesheet" href="styles.css"> -->
-    <style>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>All India Civil Services Coaching Centre - 60 Years of Excellence</title>
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/favicon-32x32.png"
+        >
+        <!-- Bootstrap 5 CSS -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+        <!-- Font Awesome -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+        <!-- AOS Animation Library -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+        <!--CSS-->
+        <!-- <link rel="stylesheet" href="styles.css"> -->
+        <style>
         :root {
             --primary-color: #002147;
             --accent-color: #228B22;
@@ -124,24 +123,11 @@
             padding: 0.5rem 1rem;
         }
 
-   .navbar-nav .nav-link.active::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    bottom: -5px;
-    left: 50%;
-    background: var(--accent-blue);
-    transform: translateX(-50%);
-    transition: all 0.3s ease;
-}
-
-
         .navbar-nav .nav-link:hover {
-            color: var(--accent-blue) !important;
+            color: var(--warm-orange) !important;
         }
 
-        .navbar-nav .nav-link::after {
+        /* .navbar-nav .nav-link::after {
             content: '';
             position: absolute;
             width: 0;
@@ -151,7 +137,7 @@
             background: var(--accent-blue);
             transition: all 0.3s ease;
             transform: translateX(-50%);
-        }
+        } */
 
         .navbar-nav .nav-link:hover::after {
             width: 100%;
@@ -238,25 +224,28 @@
     font-size: 13px;
 }
 
-.navbar-nav .nav-link:hover {
-    color: var(--accent-blue) !important;
-}
 
-.navbar-nav .nav-link::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: -5px;
-    left: 50%;
-    background: var(--accent-blue);
-    transition: all 0.3s ease;
-    transform: translateX(-50%);
-}
+
+    /* .navbar-nav .nav-link::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -5px;
+        left: 50%;
+        background: var(--accent-blue);
+        transition: all 0.3s ease;
+        transform: translateX(-50%);
+    } */
 
 .navbar-nav .nav-link:hover::after {
     width: 100%;
 }
+
+/* .navbar-nav .nav-link:active
+ {
+    color: var(--warm-orange) !important;
+} */
 
 .navbar-toggler {
     border: none;
@@ -1060,7 +1049,7 @@
         }
 
         .footer a:hover {
-            color:#fff;
+           color: var(--warm-orange);
             transform: translateX(5px);
         }
 
@@ -1085,6 +1074,17 @@
             background: var(--warm-orange);
             transform: translateY(-3px);
             box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3);
+        }
+
+        .footer-quote{
+            color: var(--warm-orange) !important;
+            font-weight: 500;
+            font-style: italic;
+        }
+
+        .footer-quote:hover{
+            text-decoration:underline
+            
         }
 
         /* Page Content */
@@ -1354,6 +1354,17 @@
             box-shadow: var(--card-shadow-hover);
             border-color: var(--accent-gold);
         }
+           .navbar-nav .nav-link.active::after {
+   content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    bottom: -5px;
+    left: 50%;
+    background:linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-light) 100%);
+    transform: translateX(-50%);
+    transition: all 0.3s ease;
+}
 
         .feature-card::before {
             content: '';
@@ -1370,6 +1381,167 @@
         .feature-card:hover::before {
             transform: scaleX(1);
         }
+        /* Dropdown menu (.dropdown-menu) styles */
+.dropdown-menu {
+    background: rgba(26, 26, 46, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 10px 0;
+    margin-top: 10px;
+    display: block;
+    opacity: 0;
+    transform: translateY(-10px);
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+/* Dropdown items */
+.dropdown-item {
+    color: white !important;
+    padding: 8px 20px;
+    transition: all 0.3s ease;
+}
+
+.dropdown-item:hover {
+    background: rgba(245, 158, 11, 0.2);
+    color: var(--accent-gold) !important;
+}
+
+/* Show dropdown on parent hover */
+.nav-item.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+}
+
+
+/* Question Bank Dropdown Styles */
+
+/* Dropdown container */
+.dropdown-hover {
+    position: relative;
+}
+
+/* Main link with chevron */
+.dropdown-toggle-custom {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #fff !important;
+    font-weight: 500;
+    margin: 0 2px;
+    transition: all 0.3s ease;
+    padding: 0.5rem 1rem;
+    white-space: nowrap;
+    font-size: 15px;
+    text-decoration: none;
+}
+
+/* Chevron Icon */
+.chevron-icon {
+    font-size: 10px;
+    transition: transform 0.3s ease;
+    color: #fff;
+}
+
+/* Rotate chevron on hover */
+.dropdown-hover:hover .chevron-icon {
+    transform: rotate(180deg);
+}
+
+/* Dropdown Menu */
+.dropdown-menu-custom {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: rgba(15, 23, 42, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    min-width: 200px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+}
+
+/* Show dropdown on hover */
+.dropdown-hover:hover .dropdown-menu-custom {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Dropdown items */
+.dropdown-menu-custom .dropdown-item {
+    display: block;
+    width: 100%;
+    padding: 12px 20px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    border: none;
+    background: none;
+}
+
+.dropdown-menu-custom .dropdown-item:hover {
+    background-color: rgba(59, 130, 246, 0.2);
+    color: #3b82f6;
+    padding-left: 24px;
+}
+
+.dropdown-menu-custom .dropdown-item:first-child {
+    border-radius: 8px 8px 0 0;
+}
+
+.dropdown-menu-custom .dropdown-item:last-child {
+    border-radius: 0 0 8px 8px;
+}
+
+/* Hover effect for main link */
+.dropdown-toggle-custom:hover {
+    color:var(--warm-orange) !important;
+}
+
+.dropdown-toggle-custom:hover .chevron-icon {
+    color: var(--warm-orange)
+}
+
+/* Mobile view adjustments */
+@media (max-width: 992px) {
+    .dropdown-hover {
+        position: static;
+    }
+    .dropdown-menu-custom {
+        width: 100%;
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        display: none;
+        background-color: rgba(15, 23, 42, 0.8);
+        margin-top: 0;
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+    }
+    .dropdown-hover:hover .dropdown-menu-custom {
+        display: block;
+    }
+    .dropdown-toggle-custom {
+        padding: 0.5rem 1rem;
+        width: 100%;
+    }
+}
         </style>
     </head>
     <body>
@@ -1400,23 +1572,22 @@
                             <a class="nav-link" href="aboutus_new.html">About Us</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="gallery_new.html">Gallery</a>
+                            <a class="nav-link" href="programs.html">Coaching Programs</a>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a
-                                class="btn dropdown-toggle nav-link"
-                                href="contact.html"
-                                role="button"
-                                data-bs-toggle="dropdown"
-                                aria-expanded="false"
-                                style="color: #fff; border-style: none;"
-                            >Question Bank</a>
-                            <ul class="dropdown-menu">
+                        <li class="nav-item">
+                            <a class="nav-link" href="eligibility.html">Eligibility</a>
+                        </li>
+                       <li class="nav-item dropdown-hover">
+                            <a class="dropdown-toggle-custom" href="#">
+                                Question Bank
+                                <i class="chevron-icon fas fa-chevron-down"></i>
+                            </a>
+                            <ul class="dropdown-menu-custom">
                                 <li>
                                     <a class="dropdown-item" href="AICSCC.html">AICSCC Question Bank</a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="AICSCC.html">UPSC Question Bank</a>
+                                    <a class="dropdown-item" href="UPSC.html">UPSC Question Bank</a>
                                 </li>
                                 <li>
                                     <a class="dropdown-item" href="test_series.html">Test Series</a>
@@ -1427,19 +1598,23 @@
                             <a class="nav-link" href="exam_result.html">Exam Results</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="programs.html">Coaching Programs</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" href="facilities.html">Facilities</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="eligibility.html">Eligibility</a>
-                        </li>
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a class="nav-link" href="contact.html">Contact</a>
+                        </li> -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="gallery_new.html">Gallery</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="faq.html">FAQ</a>
+                            <a href="faq.html">
+                                <img src="letter-i.png" style="height: 22px; width: 22px; margin-top: 9px; margin-left: 2px;">
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="Admission_notification.html">
+                                <img src="notification.png" style="height: 20px; width: 20px; margin-top: 10px; margin-left: 10px;">
+                            </a>
                         </li>
                     </ul>
                 </div>
@@ -2502,8 +2677,8 @@
                         <img
                             src="https://www.civilservicecoaching.com/images/logo.png"
                             alt="AICSCC Logo"
-                            class="me-3"
                             style="height: 50px;"
+                            class="me-3"
                         >
                         <div class="footer-heading">
                             <h5 style="color: white;">AICSCC</h5>
@@ -2512,135 +2687,129 @@
                     </div>
                     <p>
                         Empowering civil service aspirants for over 60 years with world-class coaching and mentorship
-                        under the Government of Tamil Nadu.
+                            under the Government of Tamil Nadu.
                     </p>
-                    <div class="social-icons">
-                        <a href="#" data-aos="zoom-in" data-aos-delay="200">
-                            <i class="fab fa-facebook-f"></i>
+                    <div class="youtube">
+                        <a href="https://youtube.com/@aicscctn" data-aos="zoom-in" data-aos-delay="400">
+                            <img src="video.png" alt="YouTube" style="height: 40px; width: 40px;">
+                            <span style="font-size: 15px; color: #fff;">YouTube</span>
                         </a>
-                        <a href="#" data-aos="zoom-in" data-aos-delay="300">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" data-aos="zoom-in" data-aos-delay="400">
-                            <i class="fab fa-youtube"></i>
-                        </a>
-                        <a href="#" data-aos="zoom-in" data-aos-delay="500">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg" data-aos="fade-up" data-aos-delay="200">
-                    <h5>Quick Links</h5>
-                    <ul class="list-unstyled" style="line-height: 2;">
-                        <li>
-                            <a href="#home" onclick="showPage('home')">Home</a>
-                        </li>
-                        <li>
-                            <a href="#about" onclick="showPage('about')">About Us</a>
-                        </li>
-                        <li>
-                            <a href="#gallery" onclick="showPage('gallery')">Gallery</a>
-                        </li>
-                        <li>
-                            <a href="#programs" onclick="showPage('programs')">Coaching Programs</a>
-                        </li>
-                        <li>
-                            <a href="#facilities" onclick="showPage('facilities')">Facilities</a>
-                        </li>
-                        <li>
-                            <a href="#eligibility" onclick="showPage('eligibility')">Eligibility</a>
-                        </li>
-                        <li>
-                            <a href="#contact" onclick="showPage('contact')">Contact</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-lg" data-aos="fade-up" data-aos-delay="300">
-                    <h5>Programs</h5>
-                    <ul class="list-unstyled" style="line-height: 2;">
-                        <li>
-                            <a href="#">UPSC Prelims</a>
-                        </li>
-                        <li>
-                            <a href="#">UPSC Mains</a>
-                        </li>
-                        <li>
-                            <a href="#">Interview Guidance</a>
-                        </li>
-                        <li>
-                            <a href="#">Mock Tests</a>
-                        </li>
-                        <li>
-                            <a href="#">Study Materials</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-lg" data-aos="fade-up" data-aos-delay="400">
-                    <h5>Contact Info</h5>
-                    <p>
-                        <i class="fas fa-map-marker-alt me-2"></i>
-                        R.A.Puram, Chennai - 600028
-                    </p>
-                    <p>
-                        <i class="fas fa-phone me-2"></i>
-                        044-24621475
-                    </p>
-                    <p>
-                        <i class="fas fa-envelope me-2"></i>
-                        aicscc.gov@gmail.com
-                    </p>
+                    </a>
                 </div>
             </div>
-            <hr class="my-4" style="border-color: #444;">
-            <!-- Copyright Section -->
-            <div class="row align-items-center" data-aos="fade-up" data-aos-delay="500">
-                <div class="col-12 text-center mb-3 d-none">
-                    <div class="bg-warning text-dark rounded p-3 mb-3">
-                        <h6 class="mb-2">
-                            <i class="fas fa-copyright me-2"></i>
-                            Copyright Notice
-                        </h6>
-                        <p class="mb-0 small">
-                            All content, images, logos, and materials on this website are protected by
-                            copyright laws.
-                            Unauthorized reproduction, distribution, or use of any content without written permission is
-                            strictly prohibited.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <p class="mb-0">
-                        &copy; 2025 All India Civil Services Coaching Centre, Anna Institute of Management.
-                        All Rights Reserved.
-                    </p>
-                    <!-- <small class="text-muted">No part of this website may be reproduced without permission.</small> -->
-                </div>
-                <div class="col-md-6 text-md-end">
-                    <p>Government of Tamil Nadu | Official Website</p>
-                    <br>
-                    <!-- <small class="text-muted">Established under Tamil Nadu Government | Since 1963</small> -->
-                </div>
+            <div class="col-lg" data-aos="fade-up" data-aos-delay="200">
+                <h5>Quick Links</h5>
+                <ul class="list-unstyled" style="line-height: 2;">
+                    <li>
+                        <a href="#home" onclick="showPage('home')">Home</a>
+                    </li>
+                    <li>
+                        <a href="#about" onclick="showPage('about')">About Us</a>
+                    </li>
+                    <li>
+                        <a href="#gallery" onclick="showPage('gallery')">Gallery</a>
+                    </li>
+                    <li>
+                        <a href="#programs" onclick="showPage('programs')">Coaching Programs</a>
+                    </li>
+                    <li>
+                        <a href="#facilities" onclick="showPage('facilities')">Facilities</a>
+                    </li>
+                    <li>
+                        <a href="#eligibility" onclick="showPage('eligibility')">Eligibility</a>
+                    </li>
+                    <li>
+                        <a href="#contact" onclick="showPage('contact')">Contact</a>
+                    </li>
+                </ul>
             </div>
-            <!-- Additional Legal Information -->
-            <!-- <div class="row mt-3" data-aos="fade-up" data-aos-delay="600">
-                <div class="col-12 text-center">
-                    <div class="border-top pt-3" style="border-color: #444 !important;">
-                        <small class="text-muted">
-                            <a href="#" class="text-muted me-3">Privacy Policy</a> |
-                            <a href="#" class="text-muted mx-3">Terms of Service</a> |
-                            <a href="#" class="text-muted mx-3">Disclaimer</a> |
-                            <a href="#" class="text-muted ms-3">Website Policies</a>
-                        </small>
-                    </div>
-                </div>
-            </div> -->
+            <div class="col-lg" data-aos="fade-up" data-aos-delay="300">
+                <h5>Programs</h5>
+                <ul class="list-unstyled" style="line-height: 2;">
+                    <li>
+                        <a href="#">UPSC Prelims</a>
+                    </li>
+                    <li>
+                        <a href="#">UPSC Mains</a>
+                    </li>
+                    <li>
+                        <a href="#">Interview Guidance</a>
+                    </li>
+                    <li>
+                        <a href="#">Mock Tests</a>
+                    </li>
+                    <li>
+                        <a href="#">Study Materials</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-lg" data-aos="fade-up" data-aos-delay="400">
+                <h5>Contact Info</h5>
+                <p>
+                    <i class="fas fa-map-marker-alt me-2"></i>
+                    R.A.Puram, Chennai - 600028
+                </p>
+                <p>
+                    <i class="fas fa-phone me-2"></i>
+                    044-24621475
+                </p>
+                <p>
+                    <i class="fas fa-envelope me-2"></i>
+                    aicscc.gov@gmail.com
+                </p>
+                <a href="contact.html" class="footer-quote">Reach out to us</a>
+            </div>
         </div>
-    </footer>
-    <!-- Bootstrap JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-    <!-- AOS Animation -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script>
+        <hr class="my-4" style="border-color: #444;">
+        <!-- Copyright Section -->
+        <div class="row align-items-center" data-aos="fade-up" data-aos-delay="500">
+            <div class="col-12 text-center mb-3 d-none">
+                <div class="bg-warning text-dark rounded p-3 mb-3">
+                    <h6 class="mb-2">
+                        <i class="fas fa-copyright me-2"></i>
+                        Copyright Notice
+                    </h6>
+                    <p class="mb-0 small">
+                        All content, images, logos, and materials on this website are protected by
+                                copyright laws.
+                                Unauthorized reproduction, distribution, or use of any content without written permission is
+                                strictly prohibited.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <p class="mb-0">
+                    &copy; 2025 All India Civil Services Coaching Centre, Anna Institute of Management.
+                            All Rights Reserved.
+                </p>
+                <!-- <small class="text-muted">No part of this website may be reproduced without permission.</small> -->
+            </div>
+            <div class="col-md-6 text-md-end">
+                <p>Government of Tamil Nadu | Official Website</p>
+                <br>
+                <!-- <small class="text-muted">Established under Tamil Nadu Government | Since 1963</small> -->
+            </div>
+        </div>
+        <!-- Additional Legal Information -->
+        <!-- <div class="row mt-3" data-aos="fade-up" data-aos-delay="600">
+                    <div class="col-12 text-center">
+                        <div class="border-top pt-3" style="border-color: #444 !important;">
+                            <small class="text-muted">
+                                <a href="#" class="text-muted me-3">Privacy Policy</a> |
+                                <a href="#" class="text-muted mx-3">Terms of Service</a> |
+                                <a href="#" class="text-muted mx-3">Disclaimer</a> |
+                                <a href="#" class="text-muted ms-3">Website Policies</a>
+                            </small>
+                        </div>
+                    </div>
+                </div> -->
+    </div>
+</footer>
+<!-- Bootstrap JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+<!-- AOS Animation -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
         // Initialize AOS
         AOS.init({
             duration: 1000,
@@ -2787,6 +2956,6 @@
             link.href = url;
             document.head.appendChild(link);
         });
-    </script>
+</script>
 </body>
 </html>

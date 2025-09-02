@@ -26,7 +26,6 @@
   <style>
 
 
-    
 :root {
   /* Color Variables */
   --primary-color: #2c5aa0;
@@ -42,8 +41,75 @@
   /* Shadow Variables */
   --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
   --shadow-hover: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-}
-  /* ========== BASE STYLES (UNCHANGED) ========== */
+}.card {
+    background-color: #f7f7f7;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border: none;
+  }
+
+  .card-header {
+    background: transparent;
+    border-bottom: none;
+    padding-bottom: 0.5rem;
+  }
+
+  .chart-t {
+    color: #003f5c; /* darkest blue */
+    font-weight: 700;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  .metric-box {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: background 0.3s ease;
+  }
+
+  .metric-box:hover {
+    background: #f0e6f7; /* light purple */
+  }
+
+  /* Metric numbers with palette colors */
+  #avgAppearance {
+    color: #003f5c; /* darkest blue */
+    font-weight: 700;
+    font-size: 2rem;
+    margin-bottom: 0.25rem;
+    font-family: 'Calibri', sans-serif;
+  }
+
+  #avgCleared {
+    color: #bc5090; /* pink-purple */
+    font-weight: 700;
+    font-size: 2rem;
+    margin-bottom: 0.25rem;
+    font-family: 'Calibri', sans-serif;
+  }
+
+  #successRate {
+    color: #ffa600; /* amber/yellow */
+    font-weight: 700;
+    font-size: 2rem;
+    margin-bottom: 0.25rem;
+    font-family: 'Calibri', sans-serif;
+  }
+
+  .metric-box p {
+    margin: 0;
+    font-weight: 600;
+    color: #58508d; /* medium purple */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  .chart-container {
+    border-radius: 12px;
+    background: white;
+    padding: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  }  /* ========== BASE STYLES (UNCHANGED) ========== */
   .tab-pane section h6 {
     font-size: 1.25rem;
     font-weight: 600;
@@ -502,9 +568,99 @@
     justify-content: center;
   }
 }
+.dashboard-controls {
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.metric-box {
+  transition: all 0.3s ease;
+  background-color: #ffffff; /* replaced var(--white) */
+  color: #003f5c; /* replaced var(--primary-text) */
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); /* replaced var(--card-shadow) */
+  border-radius: 10px;
+}
+
+.metric-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); /* replaced var(--card-shadow-hover) */
+  color: #bc5090; /* replaced var(--accent-color) */
+}
+
+.chart-container {
+  position: relative;
+  background-color: #ffffff; /* replaced var(--white) */
+  border-radius: 10px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); /* replaced var(--card-shadow) */
+  padding: 20px;
+}
+
+.card {
+  border: none;
+  border-radius: 10px;
+  background-color: #ffffff; /* replaced var(--white) */
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); /* replaced var(--card-shadow) */
+  color: #003f5c; /* replaced var(--primary-text) */
+}
+
+.card-header {
+  border-radius: 10px 10px 0 0 !important;
+    background: linear-gradient(135deg, #f09819 0%,#edde5d 100%);
+
+  color: #ffffff; /* replaced var(--white) */
+  font-weight: 600;
+
+}
+
+.bar-rect[data-type="total"] {
+  background-color: #003f5c !important; /* dark blue */
+}
+
+.bar-rect[data-type="appeared"] {
+  background-color: #bc5090 !important; /* pink-purple */
+}
+
+.bar-rect[data-type="cleared"] {
+  background-color: #ff6361 !important; /* coral red */
+}
+
+.bar-rect {
+  border-radius: 5px 5px 0 0;
+  cursor: pointer;
+  transition: background-color 0.3s ease, height 0.7s ease;
+}
+
+.bar:hover .bar-rect {
+  filter: brightness(0.85);
+}
 
 
-  
+.form-check-label{
+  color:white;
+
+}
+.chart-t{
+  color:white;
+ 
+}
+.btn-custom {
+    background-color: transparent;
+    border: 2px solid white;
+    color: white;
+    transition: all 0.3s ease;
+  }
+
+  .btn-custom:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+  }
+
+  .btn-custom.active {
+    background-color: white;
+    color: #333; /* dark text on white background for active */
+    border-color: white;
+  }
+
 </style>
 
 
@@ -513,7 +669,7 @@
 
             <!-- Navigation -->
        <nav class="navbar navbar-expand-xl navbar-custom fixed-top" data-aos="fade-down">
-            <div class="container-fluid">
+            <div class="container mybox">
                 <a class="navbar-brand" href="#home">
                     <img src="https://www.civilservicecoaching.com/images/logo.png" alt="AICSCC Logo" class="me-0">
                     <div class="brand-text">
@@ -587,7 +743,7 @@
         </nav>
 
 
- <div class="container" > 
+ <div class="container"> 
 
 <div class="section-title mt-4" data-aos="fade-right">
 <h3>Result</h3>
@@ -897,7 +1053,7 @@
 </div>
 <br>
   <!-- Section 4: Aspirants Statistics Table -->
-  <div >
+  <!-- <div >
     <div class="section-title" data-aos="fade-right">
         <h3 class=" mt-4">AICSCC Aspirants Statistics</h3>
         </div>
@@ -940,7 +1096,122 @@
         </tbody>
       </table>
     </div>
+  </div> -->
+
+<!-- Section 4: Aspirants Statistics Dashboard -->
+<div>
+  <div class="section-title" data-aos="fade-right">
+    <h3 class="mt-4">AICSCC Aspirants Statistics Dashboard</h3>
   </div>
+  <br>
+
+  <div class="badge fs-6 p-3 w-100 text-center bg-soft text-wrap" style="border: 2px dotted var(--primary-color);">
+    From the year 2000 to 2020, 747 candidates of this Institute have entered into the Civil Services all over India.
+  </div>
+
+  <!-- Dashboard Controls -->
+ 
+   
+
+  <!-- Dashboard Charts -->
+  <div class="row mt-4">
+    <div class="col-lg-12">
+      <div class="card shadow-sm mb-4">
+       <div class="card-header d-flex justify-content-between align-items-center">
+  <h5 class="mb-0 chart-t">Yearly Comparison</h5>
+<div class="btn-group" role="group">
+  <button type="button" class="btn btn-custom active" data-chart-type="bar">Bar View</button>
+  <button type="button" class="btn btn-custom" data-chart-type="line">Line View</button>
+</div>
+</div>
+
+        <div class="card-body">
+          <div class="chart-container" style="height: 400px;">
+            <canvas id="comparisonChart"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="card shadow-sm mb-4">
+        <div class="card-header">
+          <h5 class="mb-0 chart-t">Success Rate Analysis</h5>
+        </div>
+        <div class="card-body">
+          <div class="chart-container" style="height: 300px;">
+            <canvas id="successRateChart"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="card shadow-sm mb-4">
+  <div class="card-header">
+    <h5 class="mb-0 chart-t">Performance Metrics</h5>
+  </div>
+  <div class="card-body">
+    <div class="row text-center">
+      <div class="col-4">
+        <div class="metric-box">
+          <h3 id="avgAppearance">144</h3>
+          <p>Avg. Appeared</p>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="metric-box">
+          <h3 id="avgCleared">38.6</h3>
+          <p>Avg. Cleared</p>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="metric-box">
+          <h3 id="successRate">26.8%</h3>
+          <p>Success Rate</p>
+        </div>
+      </div>
+    </div>
+    <div class="chart-container mt-3" style="height: 160px;">
+      <canvas id="metricsChart"></canvas>
+    </div>
+  </div>
+</div>
+    </div>
+  </div>
+
+
+
+
+
+  <!-- Data Table (Collapsible) -->
+  <div class="card shadow-sm mt-4">
+    <div class="collapse show" id="dataTable">
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-bordered test-table">
+            <thead>
+              <tr>
+                <th>S No</th>
+                <th>YEAR</th>
+                <th>Total Vacancies</th>
+                <th>AICSCC Appeared</th>
+                <th>AICSCC Cleared</th>
+                <th>Success Rate</th>
+              </tr>
+            </thead>
+            <tbody id="statsTableBody">
+              <!-- Data will be populated by JavaScript -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 
 </div>
 </div>
@@ -1094,6 +1365,212 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 
+  <!-- Add Chart.js library -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<!-- Add Chart.js library -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+// Data arrays
+const years = [2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020];
+const totalVacancies = [457, 533, 734, 881, 989, 1043, 1001, 1091, 1228, 1364, 1164, 1209, 1058, 812, 896, 761];
+const appeared = [71, 83, 80, 94, 118, 144, 129, 136, 141, 176, 113, 147, 92, 72, 41, 38];
+const cleared = [24, 13, 22, 46, 49, 48, 47, 49, 57, 73, 45, 44, 34, 21, 41, 16];
+
+// Calculate success rates
+const successRates = cleared.map((val, idx) => (val / appeared[idx] * 100).toFixed(1));
+
+// Calculate averages
+const avgAppeared = (appeared.reduce((a, b) => a + b, 0) / appeared.length).toFixed(1);
+const avgCleared = (cleared.reduce((a, b) => a + b, 0) / cleared.length).toFixed(1);
+const avgSuccessRate = (successRates.reduce((a, b) => parseFloat(a) + parseFloat(b), 0) / successRates.length).toFixed(1);
+
+// Update metric boxes
+document.getElementById('avgAppearance').textContent = avgAppeared;
+document.getElementById('avgCleared').textContent = avgCleared;
+document.getElementById('successRate').textContent = `${avgSuccessRate}%`;
+
+// Populate table
+const tableBody = document.getElementById('statsTableBody');
+years.forEach((year, index) => {
+  const row = document.createElement('tr');
+  row.innerHTML = `
+    <td>${index + 1}</td>
+    <td>${year}</td>
+    <td>${totalVacancies[index]}</td>
+    <td>${appeared[index]}</td>
+    <td>${cleared[index]}</td>
+    <td>${successRates[index]}%</td>
+  `;
+  tableBody.appendChild(row);
+});
+
+// Initialize charts
+let comparisonChart, successRateChart, metricsChart;
+
+function initCharts() {
+  // Comparison Chart
+  const comparisonCtx = document.getElementById('comparisonChart').getContext('2d');
+  comparisonChart = new Chart(comparisonCtx, {
+    type: 'bar',
+    data: {
+      labels: years,
+      datasets: [
+        {
+          label: 'Total Vacancies',
+          data: totalVacancies,
+          backgroundColor: 'rgba(54, 162, 235, 0.7)',
+          borderColor: 'rgba(54, 162, 235, 1)',
+          borderWidth: 1,
+          yAxisID: 'y'
+        },
+        {
+          label: 'AICSCC Appeared',
+          data: appeared,
+          backgroundColor: 'rgba(255, 206, 86, 0.7)',
+          borderColor: 'rgba(255, 206, 86, 1)',
+          borderWidth: 1,
+          yAxisID: 'y'
+        },
+        {
+          label: 'AICSCC Cleared',
+          data: cleared,
+          backgroundColor: 'rgba(75, 192, 192, 0.7)',
+          borderColor: 'rgba(75, 192, 192, 1)',
+          borderWidth: 1,
+          yAxisID: 'y'
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      scales: {
+        y: {
+          beginAtZero: true,
+          title: {
+            display: true,
+            text: 'Number of Candidates'
+          }
+        },
+        x: {
+          title: {
+            display: true,
+            text: 'Year'
+          }
+        }
+      },
+      plugins: {
+        tooltip: {
+          mode: 'index',
+          intersect: false
+        },
+        legend: {
+          position: 'top'
+        }
+      }
+    }
+  });
+
+  // Success Rate Chart
+  const successRateCtx = document.getElementById('successRateChart').getContext('2d');
+  successRateChart = new Chart(successRateCtx, {
+    type: 'line',
+    data: {
+      labels: years,
+      datasets: [{
+        label: 'Success Rate (%)',
+        data: successRates,
+        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+        borderColor: 'rgba(75, 192, 192, 1)',
+        borderWidth: 2,
+        fill: true,
+        tension: 0.4
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      scales: {
+        y: {
+          beginAtZero: true,
+          title: {
+            display: true,
+            text: 'Success Rate (%)'
+          }
+        },
+        x: {
+          title: {
+            display: true,
+            text: 'Year'
+          }
+        }
+      }
+    }
+  });
+
+  // Metrics Chart
+  const metricsCtx = document.getElementById('metricsChart').getContext('2d');
+  metricsChart = new Chart(metricsCtx, {
+    type: 'doughnut',
+    data: {
+      labels: ['Appeared', 'Cleared'],
+      datasets: [{
+        data: [appeared.reduce((a, b) => a + b, 0), cleared.reduce((a, b) => a + b, 0)],
+        backgroundColor: [
+          'rgba(255, 206, 86, 0.7)',
+          'rgba(75, 192, 192, 0.7)'
+        ],
+        borderColor: [
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)'
+        ],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: {
+          position: 'bottom'
+        }
+      }
+    }
+  });
+}
+
+// Initialize charts when document is ready
+document.addEventListener('DOMContentLoaded', function() {
+  initCharts();
+  
+  // Add event listeners for dashboard controls
+
+  
+ 
+  
+  // Chart type toggle
+  document.querySelectorAll('[data-chart-type]').forEach(button => {
+    button.addEventListener('click', function() {
+      const chartType = this.getAttribute('data-chart-type');
+      
+      // Toggle active class
+      document.querySelectorAll('[data-chart-type]').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      this.classList.add('active');
+      
+      // Change chart type
+      if (chartType === 'line') {
+        comparisonChart.config.type = 'line';
+        comparisonChart.update();
+      } else {
+        comparisonChart.config.type = 'bar';
+        comparisonChart.update();
+      }
+    });
+  });
+});
+</script>
       </body>
 
    

@@ -22,7 +22,42 @@
         <!--CSS-->
         <link rel="stylesheet" href="styles.css">
     </head>
-    <style></style>
+    <style>
+        .center-inline {
+    display: inline;
+}
+
+.center-container {
+    text-align: center;
+}
+
+/* For tablets and smaller devices */
+@media (max-width: 1024px) {
+    .center-inline {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* For mobile devices */
+@media (max-width: 600px) {
+    .center-inline {
+        display: block;
+        width: 100%;
+        text-align: center;
+        font-size: 1.5rem; /* optional smaller font for mobile */
+    }
+}
+
+/* For very small devices */
+@media (max-width: 400px) {
+    .center-inline {
+        font-size: 1.2rem; /* further smaller font */
+    }
+}
+
+    </style>
     <body>
         <!-- Navigation -->
         <nav class="navbar navbar-expand-xl navbar-custom fixed-top" data-aos="fade-down">

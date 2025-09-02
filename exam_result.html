@@ -95,7 +95,7 @@
 }
 
 #successRate {
-  color: #ffa600;
+  color: #008000;
   /* amber/yellow */
   font-weight: 700;
   font-size: 2rem;
@@ -709,7 +709,7 @@ footer a:hover {
 }
 
 .bar-rect[data-type="cleared"] {
-  background-color: #ff6361 !important;
+  background-color: #008000 !important;
   /* coral red */
 }
 
@@ -1527,7 +1527,10 @@ const colors = [
   '#d45087',  // Pinkish
   '#f95d6a',  // Coral Red
   '#ff7c43',  // Orange
-  '#ffa600'   // Amber Yellow
+  '#ffa600',   // Amber Yell0w
+    '#008000',
+    '#5CE65C'
+
 ];
 
 // Data arrays
@@ -1594,8 +1597,8 @@ function initCharts() {
         {
           label: 'AICSCC Cleared',
           data: cleared,
-          backgroundColor: colors[5],
-          borderColor: colors[5],
+          backgroundColor: colors[9],
+          borderColor: colors[9],
           borderWidth: 1,
           yAxisID: 'y'
         }
@@ -1647,63 +1650,65 @@ function initCharts() {
 
   // Success Rate Chart
   const successRateCtx = document.getElementById('successRateChart').getContext('2d');
-  successRateChart = new Chart(successRateCtx, {
-    type: 'line',
-    data: {
-      labels: years,
-      datasets: [{
-        label: 'Success Rate (%)',
-        data: successRates,
-        backgroundColor: colors[7] + '33', // amber transparent
-        borderColor: colors[4], // pinkish color
-        borderWidth: 2,
-        fill: true,
-        tension: 0.4,
-        pointRadius: 4,
-        pointBackgroundColor: colors[4],
-        pointBorderColor: colors[0],
-      }]
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      scales: {
-        y: {
-          beginAtZero: true,
-        
-          title: {
-            display: true,
-            text: 'Success Rate (%)',
-            color: colors[0]
-          },
-          grid: {
-            color: colors[7] + '33',
-          },
-          ticks: {
-            color: colors[0],
-            callback: value => value + '%'
-          }
+// Replace success rate line colors with green:
+successRateChart = new Chart(successRateCtx, {
+  type: 'line',
+  data: {
+    labels: years,
+    datasets: [{
+      label: 'Success Rate (%)',
+      data: successRates,
+      backgroundColor: colors[8] + '33', // green translucent fill under line
+      borderColor: colors[8],             // green line color
+      borderWidth: 2,
+      fill: true,
+      tension: 0.4,
+      pointRadius: 4,
+      pointBackgroundColor: colors[8],   // green points
+      pointBorderColor: colors[0],       // keep point border dark/primary color
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      y: {
+        beginAtZero: true,
+        title: {
+          display: true,
+          text: 'Success Rate (%)',
+          color: colors[0]             // original axis title color (e.g. dark blue)
         },
-        x: {
-          title: {
-            display: true,
-            text: 'Year',
-            color: colors[0]
-          },
-          ticks: {
-            color: colors[0]
-          }
+        grid: {
+          color: colors[7] + '33',      // original grid color
+        },
+        ticks: {
+          color: colors[0],             // original tick color
+          callback: value => value + '%'
         }
       },
-      plugins: {
-        legend: {
-          labels: {
-            color: colors[0]
-          }
+      x: {
+        title: {
+          display: true,
+          text: 'Year',
+          color: colors[0]             // original x-axis title color
+        },
+        ticks: {
+          color: colors[0]             // original x-axis tick color
+        }
+      }
+    },
+    plugins: {
+      legend: {
+        labels: {
+          color: colors[0]             // original legend label color
         }
       }
     }
-  });
+  }
+});
+
+
 
   // Metrics Chart (Doughnut)
   const metricsCtx = document.getElementById('metricsChart').getContext('2d');
@@ -1714,12 +1719,12 @@ function initCharts() {
       datasets: [{
         data: [appeared.reduce((a, b) => a + b, 0), cleared.reduce((a, b) => a + b, 0)],
         backgroundColor: [
-          colors[6],
-          colors[5]
+          colors[1],
+          colors[8]
         ],
         borderColor: [
-          colors[6],
-          colors[5]
+          colors[1],
+          colors[8]
         ],
         borderWidth: 1
       }]

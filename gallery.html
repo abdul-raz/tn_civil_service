@@ -1,37 +1,125 @@
-    <!DOCTYPE html>
-    <html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>All India Civil Services Coaching Centre - 60 Years of Excellence</title>
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <!-- Bootstrap 5 CSS -->
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All India Civil Services Coaching Centre - 60 Years of Excellence</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
 
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
-        <!-- Google Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
-            rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
 
-        <!-- Font Awesome -->
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 
-        <!-- AOS Animation Library -->
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
-        
-        <!--CSS-->
-        <link rel="stylesheet" href="styles.css">
-        </head>
-        <body>
-            <style>
-                .nav-pills{
+    <!-- AOS Animation Library -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    
+    <!--CSS-->
+    <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <style>
+            .nav-pills{
     border-bottom: none;
     gap: 0;
     margin-top: 50px;
 }
-            </style>
-        <!-- Navigation -->
+
+.load-more-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1.5rem 0; /* vertical spacing */
+  }
+
+  #loadMoreBtn {
+    background-color: transparent;
+    border: 1.5px solid black;
+    color: black;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+  #loadMoreBtn:hover {
+    background-color: black;
+    color: white;
+    border-color: black;
+  }
+
+  #loadMoreBtn i {
+    font-weight: 100;
+  }
+
+  .tabs-filter-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap; /* prevent wrapping */
+  gap: 1rem;
+  width: 100%;
+  overflow-x: auto;
+}
+
+.tabs-filter-container .nav-pills {
+  margin-bottom: 0;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  white-space: nowrap;
+  flex-grow: 1;
+}
+
+.tabs-filter-container .nav-pills .nav-item {
+  flex: 0 0 auto;
+}
+
+ #sortBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1.5px solid black;
+    background: transparent;
+    color: black;
+    font-weight: 500;
+    font-size: 1rem;
+    padding: 0.375rem 0.75rem;
+    margin-left: 10px;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  }
+
+  #sortBtn:hover {
+    background-color: black;
+    color: white;
+    border-color: black;
+  }
+
+  #sortBtn.active {
+    background-color: black;
+    color: white;
+    border-color: black;
+  }
+
+  #sortBtn i {
+    font-weight: 900;
+    font-size: 1.2rem;
+    margin-right: 5px;
+  }
+        </style>
+    <!-- Navigation -->
       <nav class="navbar navbar-expand-xl navbar-custom fixed-top" data-aos="fade-down">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#home">
@@ -63,7 +151,7 @@
                         <li class="nav-item">
                             <a class="nav-link" href="eligibility.html">Eligibility</a>
                         </li>
- <li class="nav-item dropdown-hover">
+<li class="nav-item dropdown-hover">
                             <a class="dropdown-toggle-custom" href="#">
                                 Question Bank
                                 <i class="chevron-icon fas fa-chevron-down"></i>
@@ -104,88 +192,42 @@
                             </a>
                         </li>
                     </ul>
+
+               
                 </div>
+
             </div>
         </nav>
-        <!-- <div class="category-tabs">
-                <ul class="nav nav-pills" id="categoryTabs">
-                    <li class="nav-item">
-                        <button class="nav-link active" data-category="all" type="button">All</button>
-                    </li>
-                    <li class="nav-item">
-                        <button class="nav-link" data-category="category1" type="button">Category 1</button>
-                    </li>
-                    <li class="nav-item">
-                        <button class="nav-link" data-category="category2" type="button">Category 2</button>
-                    </li>
-                    <li class="nav-item">
-                        <button class="nav-link" data-category="category3" type="button">Category 3</button>
-                    </li>
-                </ul>
-            </div> -->
 
-            <!-- <div class="gallery-controls">
-                    <div class="items-info">
-                        Showing <span id="itemsShown">1</span> to <span id="itemsTo">6</span> of <span id="totalItems">24</span> entries
-                    </div>
-                    <div class="items-per-page">
-                        <label for="itemsPerPage">Items per page:</label>
-                        <select id="itemsPerPage">
-                            <option value="6" selected>6</option>
-                            <option value="9">9</option>    
-                            <option value="12">12</option>
-                            <option value="24">24</option>
-                        </select>
-                    </div>
-                </div> -->
-
-                    <!-- Gallery Grid -->
-            <div class="gallery-grid" id="galleryGrid">
-                <!-- Gallery items will be dynamically inserted here -->
-            </div>
-
-            <!-- Loading State -->
-            <div class="loading d-none" id="loading">
-                <i class="fas fa-spinner"></i>
-                <p>Loading gallery...</p>
-            </div>
-
-            <!-- Empty State -->
-            <div class="empty-state d-none" id="emptyState">
-                <i class="fas fa-images"></i>
-                <h4>No images found</h4>
-                <p>There are no images in this category yet.</p>
-            </div>
-        </div>
-    </div>
-         
-    <section class="section-padding" style="margin-top: 100px;">
+        <section class="section-padding" style="margin-top: 100px;">
                 <div class="container">
-                    <!-- <div class="section-title" data-aos="fade-up">
-                        <h2>Our Coaching Excellence</h2>
-                    </div>
-                    <p class="text-center section-subtitle" data-aos="fade-up" data-aos-delay="100">
-                        Glimpses of our world-class facilities and training programs
-                    </p> -->
                     <div class="header-section">
         <div class="container">
             <!-- Category Tabs -->
-            <div class="category-tabs">
-                <ul class="nav nav-pills" id="categoryTabs">
-                    <li class="nav-item">
-                        <button class="nav-link active" data-category="all" type="button">All</button>
-                    </li>
-                    <li class="nav-item">
-                        <button class="nav-link" data-category="category1" type="button">Category 1</button>
-                    </li>
-                    <li class="nav-item">
-                        <button class="nav-link" data-category="category2" type="button">Category 2</button>
-                    </li>
-                    <li class="nav-item">
-                        <button class="nav-link" data-category="category3" type="button">Category 3</button>
-                    </li>
-                </ul>
-            </div>
+<div class="tabs-filter-container">
+ <ul class="nav nav-pills mb-0" id="categoryTabs" role="tablist" style="white-space: nowrap;">
+  <li class="nav-item" role="presentation">
+    <button class="nav-link active" data-category="all" type="button" role="tab">All</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" data-category="category1" type="button" role="tab">Category 1</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" data-category="category2" type="button" role="tab">Category 2</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" data-category="category3" type="button" role="tab">Category 3</button>
+  </li>
+  <!-- Sort button as a tab item -->
+  <li class="nav-item" role="presentation">
+  <button id="sortBtn" type="button" title="Sort" class="nav-link" style="padding: 0.375rem 0.75rem;">
+  <i class="fas fa-sort" style="font-size: 1.2rem;"></i>
+</button>
+
+  </li>
+</ul>
+
+</div>
 
             <!-- Gallery Controls -->
             <div class="gallery-controls">
@@ -292,6 +334,13 @@
                         </div>
                     </div>
                 </div>
+
+      <div class="load-more-wrapper">
+        <button id="loadMoreBtn" aria-label="Load More" type="button">
+            <i class="fas fa-plus" aria-hidden="true"></i>
+        </button>
+      </div>
+
             </section>  
     <!-- Footer -->
         <footer class="footer">
@@ -315,20 +364,10 @@
                             under the Government of Tamil Nadu.
                         </p>
                         <div class="youtube">
-                            <!-- <a href="#" data-aos="zoom-in" data-aos-delay="200"> -->
-                                <!-- <i class="fab fa-facebook-f"></i> -->
-                            <!-- </a> -->
-                            <!-- <a href="#" data-aos="zoom-in" data-aos-delay="300"> -->
-                                <!-- <i class="fab fa-twitter"></i> -->
-                            <!-- </a> -->
                             <a href="https://youtube.com/@aicscctn" data-aos="zoom-in" data-aos-delay="400">
                                 <img src="video.png" alt="YouTube" style="height: 40px; width: 40px;">
                                 <span style="font-size: 15px; color: #fff;" >YouTube</span></a>
-                                <!-- <img src="youtube.png" alt="YouTube" style="height: 60px; width: 60px;">    -->
                             </a>
-                            <!-- <a href="#" data-aos="zoom-in" data-aos-delay="500"> -->
-                                <!-- <i class="fab fa-linkedin-in"></i> -->
-                            <!-- </a> -->
                         </div>
                     </div>
                     <div class="col-lg" data-aos="fade-up" data-aos-delay="200">
@@ -397,46 +436,17 @@
                 <hr class="my-4" style="border-color: #444;">
                 <!-- Copyright Section -->
                 <div class="row align-items-center" data-aos="fade-up" data-aos-delay="100">
-                    <div class="col-12 text-center mb-3 d-none">
-                        <div class="bg-warning text-dark rounded p-3 mb-3">
-                            <h6 class="mb-2">
-                                <i class="fas fa-copyright me-2"></i>
-                                Copyright Notice
-                            </h6>
-                            <p class="mb-0 small">
-                                All content, images, logos, and materials on this website are protected by
-                                copyright laws.
-                                Unauthorized reproduction, distribution, or use of any content without written permission is
-                                strictly prohibited.
-                            </p>
-                        </div>
-                    </div>
                     <div class="col-md-6">
                         <p class="mb-0">
                             &copy; 2025 All India Civil Services Coaching Centre, Anna Institute of Management.
                             All Rights Reserved.
                         </p>
-                        <!-- <small class="text-muted">No part of this website may be reproduced without permission.</small> -->
                     </div>
                 <div class="col-md-6 text-md-end">
                             <p>Government of Tamil Nadu | Official Website</p>
                         <br>
-                        <!-- <small class="text-muted">Established under Tamil Nadu Government | Since 1963</small> -->
                     </div>
                 </div>
-                <!-- Additional Legal Information -->
-                <!-- <div class="row mt-3" data-aos="fade-up" data-aos-delay="600">
-                    <div class="col-12 text-center">
-                        <div class="border-top pt-3" style="border-color: #444 !important;">
-                            <small class="text-muted">
-                                <a href="#" class="text-muted me-3">Privacy Policy</a> |
-                                <a href="#" class="text-muted mx-3">Terms of Service</a> |
-                                <a href="#" class="text-muted mx-3">Disclaimer</a> |
-                                <a href="#" class="text-muted ms-3">Website Policies</a>
-                            </small>
-                        </div>
-                    </div>
-                </div> -->
             </div>
         </footer>
         <!-- Bootstrap JS -->
@@ -444,6 +454,36 @@
         
         <!-- AOS Animation -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+        <script>
+  // Sort functionality
+  let sortOrder = 'asc'; // Default sort order
+
+  const sortBtn = document.getElementById('sortBtn');
+
+  sortBtn.addEventListener('click', () => {
+    // Toggle between ascending and descending
+    sortOrder = sortOrder === 'asc' ? 'desc' : 'asc';
+    
+    // Update button text and icon
+   const sortIcon = sortOrder === 'asc' ? 'fa-sort-alpha-down' : 'fa-sort-alpha-up';
+sortBtn.innerHTML = `<i class="fas ${sortIcon}" style="font-size: 1.2rem;"></i>`;
+
+    // Add active style
+    sortBtn.classList.add('active');
+    
+    // Sort the gallery
+    sortGallery(sortOrder);
+  });
+
+  function sortGallery(order) {
+    // Placeholder sorting function — replace with your gallery sorting logic
+    console.log('Sorting gallery in', order, 'order');
+    
+    // Implement your actual gallery sorting logic here
+    // This would typically sort by title, date, or some other criteria
+  }
+</script>
 
         <script>
             // Initialize AOS
@@ -596,4 +636,4 @@
         </script>
     </body>
 
-    </html>
+</html>

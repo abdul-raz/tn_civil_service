@@ -1,0 +1,1310 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      All India Civil Services Coaching Centre - 60 Years of Excellence
+    </title>
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <!-- Bootstrap 5 CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <!-- AOS Animation Library -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+      rel="stylesheet"
+    />
+    <!--CSS-->
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      /* CSS Variables */
+      :root {
+        --primary-color: #304a6b;
+        --accent-gold: #d4a574;
+        --accent-light: #f5e6d3;
+        --white: #ffffff;
+        --slate-grey: #6c757d;
+        --primary-text: #2c3e50;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        margin: 0;
+        padding: 0;
+      }
+
+      /* Navigation */
+      .navbar-custom {
+        background: rgba(48, 74, 107, 0.95);
+        backdrop-filter: blur(10px);
+        padding: 1rem 0;
+        transition: all 0.3s ease;
+      }
+
+      .navbar-custom.scrolled {
+        background: rgba(48, 74, 107, 1);
+        padding: 0.5rem 0;
+      }
+
+      .navbar-brand {
+        display: flex;
+        align-items: center;
+        color: white !important;
+        text-decoration: none;
+      }
+
+      .navbar-brand img {
+        height: 40px;
+        margin-right: 15px;
+      }
+
+      .brand-text h5 {
+        margin: 0;
+        color: white;
+        font-weight: 600;
+      }
+
+      .brand-text small {
+        color: #d4a574;
+        font-size: 0.8rem;
+      }
+
+      .navbar-nav .nav-link {
+        color: white !important;
+        font-weight: 500;
+        margin: 0 10px;
+        transition: color 0.3s ease;
+      }
+
+      .navbar-nav .nav-link:hover,
+      .navbar-nav .nav-link.active {
+        color: #d4a574 !important;
+      }
+
+      /* Hero Section */
+      .hero-section {
+        background: linear-gradient(
+          135deg,
+          var(--primary-color) 0%,
+          var(--accent-gold) 100%
+        );
+        padding: 150px 0 80px;
+        text-align: center;
+        color: white;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="1" fill="white" opacity="0.1"/><circle cx="10" cy="60" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+      }
+
+      .breadcrumb-tab {
+        font-size: 3rem;
+        font-weight: 800;
+        margin: 0;
+        letter-spacing: 2px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        position: relative;
+        z-index: 1;
+      }
+
+      /* Section Styling */
+      .section-padding {
+        padding: 80px 0;
+      }
+
+      .section-title h3 {
+        font-weight: 600;
+        letter-spacing: 1px;
+        font-size: 2.5rem;
+        text-align: center;
+        margin-bottom: 1rem;
+        color: var(--primary-color);
+        position: relative;
+      }
+
+      .section-title h3::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: -10px;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background: var(--accent-gold);
+        border-radius: 2px;
+      }
+
+      .section-subtitle {
+        text-align: center;
+        font-size: 1.2rem;
+        color: var(--slate-grey);
+        margin-bottom: 3rem;
+      }
+
+      /* Coaching Cards */
+      .zigzag-container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .coaching-card {
+        display: flex;
+        margin-bottom: 4rem;
+        background: white;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        border: 3px solid transparent;
+      }
+
+      .coaching-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        border-color: var(--accent-gold);
+      }
+
+      .coaching-card.left .card-content {
+        order: 1;
+      }
+
+      .coaching-card.left .card-image {
+        order: 2;
+      }
+
+      .coaching-card.right .card-content {
+        order: 2;
+      }
+
+      .coaching-card.right .card-image {
+        order: 1;
+      }
+
+      .card-content {
+        flex: 1;
+        padding: 3rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .card-image {
+        flex: 1;
+        background-size: cover;
+        background-position: center;
+        min-height: 400px;
+        position: relative;
+      }
+
+      .card-image::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          45deg,
+          var(--primary-color) aa,
+          var(--accent-gold) aa
+        );
+      }
+
+      .card-title {
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--primary-color);
+        margin-bottom: 1.5rem;
+        position: relative;
+      }
+
+      .card-title::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -10px;
+        width: 60px;
+        height: 4px;
+        background: var(--accent-gold);
+        border-radius: 2px;
+      }
+
+      .card-text {
+        color: var(--slate-grey);
+        font-size: 1.1rem;
+        line-height: 1.7;
+        margin-bottom: 1.5rem;
+      }
+
+      .read-more-btn {
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--accent-gold)
+        );
+        border: none;
+        color: white;
+        padding: 12px 30px;
+        border-radius: 50px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        align-self: flex-start;
+      }
+
+      .read-more-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(212, 165, 116, 0.4);
+      }
+
+      /* Modal Styling */
+      .modal-content {
+        border-radius: 20px;
+        border: none;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      }
+
+      .modal-header {
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--accent-gold)
+        );
+        color: white;
+        border-radius: 20px 20px 0 0;
+        border-bottom: none;
+        padding: 2rem;
+      }
+
+      .modal-title {
+        font-weight: 700;
+        font-size: 1.8rem;
+      }
+
+      .modal-body {
+        padding: 2rem;
+        font-size: 1.1rem;
+        line-height: 1.7;
+        color: var(--slate-grey);
+      }
+
+      .modal-body h5 {
+        color: var(--primary-color);
+        font-weight: 600;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+      }
+
+      .modal-body ul li {
+        margin-bottom: 0.5rem;
+      }
+
+      .btn-close {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 1.5rem;
+        opacity: 0.8;
+      }
+
+      .btn-close:hover {
+        opacity: 1;
+      }
+
+      /* Table Styling */
+      .test-table {
+        border-collapse: separate !important;
+        border-spacing: 0;
+        border-radius: 1rem;
+        overflow: hidden;
+        border: 1px solid var(--slate-grey);
+      }
+
+      .test-table thead {
+        margin-bottom: 0;
+        background: linear-gradient(
+          135deg,
+          var(--primary-text) 0%,
+          var(--slate-grey) 100%
+        );
+      }
+
+      .test-table thead th {
+        border: none;
+        color: white;
+        padding: 1.5rem;
+        text-align: center;
+      }
+
+      .test-table td {
+        vertical-align: middle;
+        text-align: center;
+        font-size: 1rem;
+        padding: 1.5rem;
+        background: none;
+        border-radius: 0 !important;
+      }
+
+      .table-responsive {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        border-radius: 1rem;
+      }
+
+      /* Footer */
+      .footer {
+        background: var(--primary-color);
+        color: white;
+        padding: 4rem 0 2rem;
+        margin-top: 4rem;
+      }
+
+      .footer h5 {
+        color: var(--accent-gold);
+        margin-bottom: 1.5rem;
+        font-weight: 600;
+      }
+
+      .footer ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .footer ul li {
+        margin-bottom: 0.5rem;
+      }
+
+      .footer ul li a {
+        color: #ccc;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .footer ul li a:hover {
+        color: var(--accent-gold);
+      }
+
+      .footer-quote {
+        background: var(--accent-gold);
+        color: white;
+        padding: 10px 20px;
+        border-radius: 25px;
+        text-decoration: none;
+        font-weight: 600;
+        display: inline-block;
+        transition: all 0.3s ease;
+      }
+
+      .footer-quote:hover {
+        background: #c9956a;
+        color: white;
+        transform: translateY(-2px);
+      }
+
+      .youtube a {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .youtube a:hover {
+        color: var(--accent-gold);
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .coaching-card {
+          flex-direction: column !important;
+          margin-bottom: 2rem;
+        }
+
+        .coaching-card.left .card-content,
+        .coaching-card.right .card-content {
+          order: 2;
+        }
+
+        .coaching-card.left .card-image,
+        .coaching-card.right .card-image {
+          order: 1;
+          min-height: 250px;
+        }
+
+        .card-content {
+          padding: 2rem;
+        }
+
+        .card-title {
+          font-size: 1.5rem;
+        }
+
+        .breadcrumb-tab {
+          font-size: 2rem;
+        }
+
+        .modal-body {
+          padding: 1.5rem;
+          font-size: 1rem;
+        }
+
+        .test-table th,
+        .test-table td {
+          padding: 0.8rem !important;
+          font-size: 0.85rem !important;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .test-table th,
+        .test-table td {
+          padding: 0.5rem !important;
+          font-size: 0.75rem !important;
+        }
+
+        .modal-header {
+          padding: 1.5rem;
+        }
+
+        .modal-title {
+          font-size: 1.5rem;
+        }
+      }
+
+      /* Dropdown Navigation */
+      .dropdown-hover {
+        position: relative;
+      }
+
+      .dropdown-toggle-custom {
+        color: white !important;
+        text-decoration: none;
+        font-weight: 500;
+        margin: 0 10px;
+        transition: color 0.3s ease;
+        cursor: pointer;
+      }
+
+      .dropdown-toggle-custom:hover {
+        color: #d4a574 !important;
+      }
+
+      .chevron-icon {
+        margin-left: 5px;
+        font-size: 0.8rem;
+        transition: transform 0.3s ease;
+      }
+
+      .dropdown-hover:hover .chevron-icon {
+        transform: rotate(180deg);
+      }
+
+      .dropdown-menu-custom {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        min-width: 200px;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: all 0.3s ease;
+        z-index: 1000;
+      }
+
+      .dropdown-hover:hover .dropdown-menu-custom {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+
+      .dropdown-item {
+        display: block;
+        width: 100%;
+        padding: 12px 20px;
+        color: var(--primary-color);
+        text-decoration: none;
+        transition: all 0.3s ease;
+        font-weight: 500;
+      }
+
+      .dropdown-item:hover {
+        background: var(--accent-light);
+        color: var(--primary-color);
+      }
+
+      .dropdown-item:first-child {
+        border-radius: 10px 10px 0 0;
+      }
+
+      .dropdown-item:last-child {
+        border-radius: 0 0 10px 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav
+      class="navbar navbar-expand-xl navbar-custom fixed-top"
+      data-aos="fade-down"
+    >
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#home">
+          <img src="logo.png" alt="AICSCC Logo" class="me-0" />
+          <div class="brand-text">
+            <h5>All India Civil Services Coaching Centre</h5>
+            <small>A Unit of Anna Institute of Management</small>
+          </div>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index 2 1.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="aboutus_new.html">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                aria-current="page"
+                href="programs.html"
+                >Coaching Programs</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="eligibility.html">Eligibility</a>
+            </li>
+            <li class="nav-item dropdown-hover">
+              <a class="dropdown-toggle-custom" href="#">
+                Question Bank
+                <i class="chevron-icon fas fa-chevron-down"></i>
+              </a>
+              <ul class="dropdown-menu-custom">
+                <li>
+                  <a class="dropdown-item" href="AICSCC.html"
+                    >AICSCC Question Bank</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="UPSC.html"
+                    >UPSC Question Bank</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="test_series.html"
+                    >Test Series</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="exam_result.html">Exam Results</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="facilities.html">Facilities</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="gallery.html">Gallery</a>
+            </li>
+            <li class="nav-item">
+              <a href="faq.html">
+                <img
+                  src="letter-i.png"
+                  style="
+                    height: 22px;
+                    width: 22px;
+                    margin-top: 9px;
+                    margin-left: 2px;
+                  "
+                />
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="Admission_notification.html">
+                <img
+                  src="notification.png"
+                  style="
+                    height: 20px;
+                    width: 20px;
+                    margin-top: 10px;
+                    margin-left: 10px;
+                  "
+                />
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <section class="hero-section">
+      <div class="hero-content">
+        <h1 class="breadcrumb-tab">COACHING</h1>
+      </div>
+    </section>
+
+    <div class="container section-padding" style="margin-top: 40px">
+      <div class="section-title" data-aos="fade-right">
+        <h3>Coaching And Examination</h3>
+      </div>
+      <p class="section-subtitle">
+        Comprehensive preparation for UPSC Civil Services Examination.
+      </p>
+      <div class="zigzag-container">
+        <!-- Card 1 - Preliminary Examination (Left aligned) -->
+        <div
+          class="coaching-card left"
+          data-aos="fade-right"
+          data-aos-delay="100"
+        >
+          <div class="card-content">
+            <h2 class="card-title">Preliminary Examination</h2>
+            <p class="card-text">
+              Based on merit through a competitive entrance examination
+              conducted throughout Tamil Nadu and Community Reservation system,
+              225 aspirants are admitted in Residential coaching and 100
+              aspirants in Non-Residential coaching.
+            </p>
+            <button
+              class="read-more-btn"
+              data-bs-toggle="modal"
+              data-bs-target="#prelimsModal"
+            >
+              View Details
+              <i class="fas fa-external-link-alt ms-2"></i>
+            </button>
+          </div>
+          <div
+            class="card-image"
+            style="
+              background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
+            "
+          ></div>
+        </div>
+
+        <!-- Card 2 - Main Examination (Right aligned) -->
+        <div
+          class="coaching-card right"
+          data-aos="fade-left"
+          data-aos-delay="200"
+        >
+          <div class="card-content">
+            <h2 class="card-title">Main Examination</h2>
+            <p class="card-text">
+              The aspirants who have cleared the UPSC Preliminary examination
+              are admitted for Main Examination Coaching (225 aspirants).
+              Intensive coaching for nearly two to four months is given to the
+              aspirants.
+            </p>
+            <button
+              class="read-more-btn"
+              data-bs-toggle="modal"
+              data-bs-target="#mainsModal"
+            >
+              View Details
+              <i class="fas fa-external-link-alt ms-2"></i>
+            </button>
+          </div>
+          <div
+            class="card-image"
+            style="
+              background-image: url('https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
+            "
+          ></div>
+        </div>
+
+        <!-- Card 3 - Personality Test (Left aligned) -->
+        <div
+          class="coaching-card left"
+          data-aos="fade-right"
+          data-aos-delay="300"
+        >
+          <div class="card-content">
+            <h2 class="card-title">Personality Test</h2>
+            <p class="card-text">
+              The Institute conducts Model Personality Tests for candidates who
+              have cleared their Main Examination. Sessions are conducted by
+              senior officers and subject experts.
+            </p>
+            <button
+              class="read-more-btn"
+              data-bs-toggle="modal"
+              data-bs-target="#personalityModal"
+            >
+              View Details
+              <i class="fas fa-external-link-alt ms-2"></i>
+            </button>
+          </div>
+          <div
+            class="card-image"
+            style="
+              background-image: url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
+            "
+          ></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Preliminary Examination Modal -->
+    <div
+      class="modal fade"
+      id="prelimsModal"
+      tabindex="-1"
+      aria-labelledby="prelimsModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title" id="prelimsModalLabel">
+              Preliminary Examination
+            </h2>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <p>
+              Every year an entrance examination is conducted by All India Civil
+              Services Coaching Centre for the selection of 325 eligible
+              candidates (225 Residential and 100 Non-residential) for admission
+              to Preliminary Examination Coaching. Every year during the month
+              of August/September advertisement for entrance exam is being given
+              in the newspapers and also in official website
+              <a target="_blank" href="https://www.civilservicecoaching.com/"
+                >www.civilservicecoaching.com</a
+              >
+              entrance exam will be conducted during the month of
+              September/October.
+            </p>
+
+            <p>
+              The selection is made based on the marks secured by the candidates
+              in Entrance Examination. The Institute guides the candidates for
+              nearly Nine months, (September to May) to take up the Preliminary
+              examination. The aspirants appearing in Entrance Examination, this
+              year 2024-2025 Applications are accepted through the online portal
+              on our official website. In association with Nan Muthalvan scheme,
+              All India Civil Services Coaching Centre conducted Entrance Test
+              or Preliminary Examination coaching 26,587 applications were
+              received, 18,405 students wrote entrance examination.
+            </p>
+
+            <p>
+              (220(Full Time) + (part time)) students have been selected based
+              on the entrance test. Additionally, (95 Madurai+95 Coimbatore)
+              individuals are undergoing training for the Preliminary
+              Examinations at the Anna Centenary Civil Services Coaching Centers
+              in both Madurai and Coimbatore.
+            </p>
+
+            <h5>Preliminary Examination Pattern:</h5>
+            <div class="table-responsive">
+              <table class="table table-bordered mb-3 test-table">
+                <thead class="text-center">
+                  <tr>
+                    <th>Paper I (Maximum Marks 200)</th>
+                    <th>Paper II (Maximum Marks 200)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="text-center">
+                    <td>General Studies</td>
+                    <td>
+                      CSAT (qualifying nature, 33% pass percentage not included
+                      for ranking)
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <p>
+              <strong>Duration:</strong> The Institute guides aspirants for
+              nearly 6 months (December to June) to take up the Preliminary
+              examination.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Examination Modal -->
+    <div
+      class="modal fade"
+      id="mainsModal"
+      tabindex="-1"
+      aria-labelledby="mainsModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title" id="mainsModalLabel">Main Examination</h2>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <p>
+              The candidates who clear the Preliminary examination are given
+              intensive coaching for nearly three months (from July to
+              September) to face the Main examination. The candidates not only
+              from this institute but also other candidates belonging to
+              Tamilnad who clears the Preliminary examination are admitted for
+              main examination coaching in this institute.
+            </p>
+
+            <p>
+              Every year, 225 candidates were given coaching for the Main
+              examination. A monthly stipend of Rs.3000/- per month for three
+              months is given to all the 225 candidates admitted for Main
+              coaching, irrespective of the income ceiling to meet the
+              expenditure for accessing reading materials.
+            </p>
+
+            <p>
+              In co-ordination with the Nan Muthalvan Scheme, 216 aspirants
+              received coaching for the UPSC main examination 2024. Each of
+              these 216 aspirants was provided a stipend of Rs 25,000 as part of
+              the initiative. 203 mains aspirants received Rs.9000 for three
+              months. 48 aspirants have cleared the UPSC main exam in 2024.
+            </p>
+
+            <h5>Main Examination Pattern:</h5>
+            <table class="table table-bordered test-table w-75 mx-auto mb-3">
+              <thead>
+                <tr class="text-center">
+                  <th>Papers</th>
+                  <th>Marks</th>
+                  <th>Total Marks</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="text-center">
+                  <td>Language</td>
+                  <td>---</td>
+                  <td>(qualifying)</td>
+                </tr>
+                <tr class="text-center">
+                  <td>English</td>
+                  <td>---</td>
+                  <td>(qualifying)</td>
+                </tr>
+                <tr class="text-center">
+                  <td>Essay</td>
+                  <td>250</td>
+                  <td>(Compulsory) 250</td>
+                </tr>
+                <tr class="text-center">
+                  <td>General Studies – Paper I, II, III & IV</td>
+                  <td>250 x 4</td>
+                  <td>(Compulsory) 1000</td>
+                </tr>
+                <tr class="text-center">
+                  <td>Optional I & II (Only one optional)</td>
+                  <td>250 x 2</td>
+                  <td>(Compulsory) 500</td>
+                </tr>
+                <tr class="text-center">
+                  <td>Personality Test</td>
+                  <td></td>
+                  <td>275</td>
+                </tr>
+                <tr class="text-center">
+                  <td><strong>Total</strong></td>
+                  <td></td>
+                  <td><strong>2025</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Personality Test Modal -->
+    <div
+      class="modal fade"
+      id="personalityModal"
+      tabindex="-1"
+      aria-labelledby="personalityModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title" id="personalityModalLabel">
+              Personality Test
+            </h2>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <p>
+              The Institute conducts Model Personality Test for the candidates
+              who come out successfully in the Main Examination. The above test
+              is being conducted well in advance before the actual date of
+              Personality Test held at New Delhi. As per Human resources
+              Management (Training-1) Dept, G.O(Ms) No.68, Dt: 08.07.2022 the
+              incidental expenses has been increased from Rs.2000/ to Rs.5000/-.
+            </p>
+
+            <p>
+              The training center facilitated Model personality test, 69
+              aspirants participated on December 18-20, 2024, providing each
+              with Rs. 5,000 for Delhi travel expenses to attend the subsequent
+              official personality test. Following this, 17 individuals
+              participated to the second phase of the personality test held on
+              February 27, 2025, resulting in a total of 86 participants
+              benefiting from the program.
+            </p>
+
+            <h5>Key Features:</h5>
+            <ul>
+              <li>Mock interviews with senior officers</li>
+              <li>Individual counseling sessions</li>
+              <li>Group discussions and presentations</li>
+              <li>Current affairs and subject-specific discussions</li>
+              <li>Communication skills enhancement</li>
+            </ul>
+
+            <p>
+              <strong>Support Provided:</strong> Accommodation is available in
+              Tamilnadu House, New Delhi, with Rs. 5,000/- travel allowance
+              provided for attendance.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="d-flex align-items-center mb-3">
+              <img src="logo.png" alt="AICSCC Logo" height="40" class="me-3" />
+              <div>
+                <h5 style="color: white">AICSCC</h5>
+                <small>Anna Institute of Management</small>
+              </div>
+            </div>
+            <p>
+              Empowering civil service aspirants for over 60 years with
+              world-class coaching and mentorship under the Government of Tamil
+              Nadu.
+            </p>
+            <div class="youtube">
+              <a
+                href="https://youtube.com/@aicscctn"
+                data-aos="zoom-in"
+                data-aos-delay="400"
+              >
+                <img
+                  src="video.png"
+                  alt="YouTube"
+                  style="height: 40px; width: 40px"
+                />
+                <span style="font-size: 15px; color: #fff">YouTube</span>
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-2" data-aos="fade-up" data-aos-delay="200">
+            <h5>Quick Links</h5>
+            <ul class="list-unstyled">
+              <li><a href="#home" onclick="showPage('home')">Home</a></li>
+              <li><a href="#about" onclick="showPage('about')">About Us</a></li>
+              <li>
+                <a href="#gallery" onclick="showPage('gallery')">Gallery</a>
+              </li>
+              <li>
+                <a href="#programs" onclick="showPage('programs')"
+                  >Coaching Programs</a
+                >
+              </li>
+              <li>
+                <a href="#facilities" onclick="showPage('facilities')"
+                  >Facilities</a
+                >
+              </li>
+              <li>
+                <a href="#eligibility" onclick="showPage('eligibility')"
+                  >Eligibility</a
+                >
+              </li>
+              <li>
+                <a href="#contact" onclick="showPage('contact')">Contact</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-3" data-aos="fade-up" data-aos-delay="300">
+            <h5>Programs</h5>
+            <ul class="list-unstyled">
+              <li><a href="#">UPSC Prelims</a></li>
+              <li><a href="#">UPSC Mains</a></li>
+              <li><a href="#">Interview Guidance</a></li>
+              <li><a href="#">Mock Tests</a></li>
+              <li><a href="#">Study Materials</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-3" data-aos="fade-up" data-aos-delay="400">
+            <h5>Contact Info</h5>
+            <p>
+              <i class="fas fa-map-marker-alt me-2"></i>R.A.Puram, Chennai -
+              600028
+            </p>
+            <p><i class="fas fa-phone me-2"></i>044-24621475</p>
+            <p><i class="fas fa-envelope me-2"></i>aicscc.gov@gmail.com</p>
+            <a href="contact.html" class="footer-quote">Reach out to us</a>
+          </div>
+        </div>
+        <hr class="my-4" style="border-color: #444" />
+        <!-- Copyright Section -->
+        <div
+          class="row align-items-center"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
+          <div class="col-md-6">
+            <p class="mb-0">
+              &copy; 2025 All India Civil Services Coaching Centre, Anna
+              Institute of Management. All Rights Reserved.
+            </p>
+          </div>
+          <div class="col-md-6 text-md-end">
+            <small
+              ><strong
+                >Government of Tamil Nadu | Official Website</strong
+              ></small
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS Animation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+      // Initialize AOS
+      AOS.init({
+        duration: 1000,
+        offset: 100,
+        once: true,
+        easing: "ease-in-out",
+      });
+
+      // Navbar scroll effect
+      window.addEventListener("scroll", function () {
+        const navbar = document.querySelector(".navbar-custom");
+        if (window.scrollY > 50) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
+
+      // Page navigation
+      function showPage(pageId) {
+        // Hide all pages
+        const pages = [
+          "home",
+          "about",
+          "gallery",
+          "programs",
+          "facilities",
+          "eligibility",
+          "contact",
+        ];
+        pages.forEach((page) => {
+          const pageElement = document.getElementById(page + "-page");
+          if (pageElement) {
+            pageElement.classList.add("hidden");
+          }
+        });
+
+        // Show selected page
+        const targetPage = document.getElementById(pageId + "-page");
+        if (targetPage) {
+          targetPage.classList.remove("hidden");
+        }
+
+        // Update active nav link
+        const navLinks = document.querySelectorAll(".navbar-nav .nav-link");
+        navLinks.forEach((link) => {
+          link.classList.remove("active");
+        });
+
+        const activeLink = document.querySelector(`[href="#${pageId}"]`);
+        if (activeLink) {
+          activeLink.classList.add("active");
+        }
+
+        // Scroll to top
+        window.scrollTo({ top: 0, behavior: "smooth" });
+
+        // Collapse navbar on mobile
+        const navbarCollapse = document.querySelector(".navbar-collapse");
+        if (navbarCollapse.classList.contains("show")) {
+          const bsCollapse = new bootstrap.Collapse(navbarCollapse);
+          bsCollapse.hide();
+        }
+
+        // Re-initialize AOS for new content
+        setTimeout(() => {
+          AOS.refresh();
+        }, 100);
+      }
+
+      // Form submission
+      document.addEventListener("DOMContentLoaded", function () {
+        const forms = document.querySelectorAll("form");
+        forms.forEach((form) => {
+          form.addEventListener("submit", function (e) {
+            e.preventDefault();
+            alert("Thank you for your message! We will get back to you soon.");
+            this.reset();
+          });
+        });
+      });
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target && !this.getAttribute("onclick")) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+
+      // Counter animation for stats
+      function animateCounter(element, target, duration = 2000) {
+        const start = 0;
+        const increment = target / (duration / 16);
+        let current = start;
+
+        const timer = setInterval(() => {
+          current += increment;
+          if (current >= target) {
+            current = target;
+            clearInterval(timer);
+          }
+          const suffix = element.textContent.includes("+")
+            ? "+"
+            : element.textContent.includes("%")
+            ? "%"
+            : "";
+          element.textContent = Math.floor(current) + suffix;
+        }, 16);
+      }
+
+      // Intersection Observer for counter animation
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const counter = entry.target;
+              const target = parseInt(
+                counter.textContent.replace(/[^\d]/g, "")
+              );
+              animateCounter(counter, target);
+              observer.unobserve(counter);
+            }
+          });
+        },
+        { threshold: 0.5 }
+      );
+
+      // Observe stat numbers
+      document.querySelectorAll(".stat-number").forEach((counter) => {
+        observer.observe(counter);
+      });
+
+      // Performance optimization
+      let resizeTimer;
+      window.addEventListener("resize", function () {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function () {
+          AOS.refresh();
+        }, 250);
+      });
+
+      // Preload images for better performance
+      const imageUrls = [
+        "https://img.freepik.com/free-photo/room-interior-design_23-2148899444.jpg",
+        "https://img.freepik.com/free-photo/happy-male-candidate-greeting-member-human-resource-team-job-interview-office_637285-6567.jpg",
+        "https://media.licdn.com/dms/image/v2/C4D12AQGIP0kYaR5EOA/article-inline_image-shrink_1000_1488/article-inline_image-shrink_1000_1488/0/1650267975134",
+      ];
+
+      imageUrls.forEach((url) => {
+        const link = document.createElement("link");
+        link.rel = "preload";
+        link.as = "image";
+        link.href = url;
+        document.head.appendChild(link);
+      });
+    </script>
+  </body>
+</html>

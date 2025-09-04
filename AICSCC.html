@@ -51,6 +51,7 @@
   font-size: 1.3rem;
 }
 
+
 .download-list {
   display: flex;
   flex-direction: column;
@@ -202,6 +203,155 @@
         font-size: 0.9rem;
       } */
     }
+    /* Filter Container Styles */
+.filter-container {
+    max-width: 1200px;
+    margin: 0 auto 3rem auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+}
+
+.filter-dropdown {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.filter-label {
+    font-weight: 600;
+    color: var(--primary-color, #304a6b);
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+.year-filter-select {
+    background: white;
+    border: 2px solid var(--accent-gold, #d4a574);
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--primary-color, #304a6b);
+    min-width: 150px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.year-filter-select:hover {
+    border-color: var(--primary-color, #304a6b);
+    box-shadow: 0 2px 8px rgba(48, 74, 107, 0.1);
+}
+
+.year-filter-select:focus {
+    border-color: var(--primary-color, #304a6b);
+    box-shadow: 0 0 0 3px rgba(212, 165, 116, 0.3);
+}
+
+.year-filter-select option {
+    padding: 10px;
+    background: white;
+    color: var(--primary-color, #304a6b);
+}
+
+.results-count {
+    color: var(--slate-grey, #6c757d);
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.results-count span {
+    background: rgba(212, 165, 116, 0.1);
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 1px solid rgba(212, 165, 116, 0.3);
+}
+
+/* Download Item Animation */
+.download-item {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.3s ease;
+    margin-bottom: 1rem;
+}
+
+.download-item.fade-out {
+    opacity: 0;
+    transform: translateY(-10px);
+    margin-bottom: 0;
+    height: 0;
+    overflow: hidden;
+    padding: 0;
+}
+
+.download-item.fade-in {
+    animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: 3rem 2rem;
+    color: var(--slate-grey, #6c757d);
+    font-style: italic;
+}
+
+.empty-state i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .filter-container {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+    }
+    
+    .filter-dropdown {
+        justify-content: center;
+    }
+    
+    .results-count {
+        text-align: center;
+    }
+    
+    .year-filter-select {
+        min-width: 120px;
+    }
+}
+
+@media (max-width: 480px) {
+    .filter-dropdown {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .filter-label {
+        font-size: 1rem;
+    }
+    
+    .year-filter-select {
+        width: 100%;
+        min-width: auto;
+    }
+}
         </style>
     </head>
     <body>
@@ -209,7 +359,7 @@
       <nav class="navbar navbar-expand-xl navbar-custom fixed-top" data-aos="fade-down">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#home">
-                    <img src="https://www.civilservicecoaching.com/images/logo.png" alt="AICSCC Logo" class="me-0">
+                    <img src="logo.png" alt="AICSCC Logo" class="me-0">
                     <div class="brand-text">
                         <h5>All India Civil Services Coaching Centre</h5>
                         <small>A Unit of Anna Institute of Management</small>
@@ -290,179 +440,154 @@
             </div>
         </section>
         <!-- Main Content -->
-        <section class="downloads-alt">
-            <div class="container">
-                <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">
-                    AICSCC Entrance Exam Question Papers & Answer Keys
-                </h2>
-                <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200">
-                    Previous year question papers and answer keys for Entrance Exams
-                </p>
+      <section class="downloads-alt">
+    <div class="container">
+        <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">
+            AICSCC Entrance Exam Question Papers & Answer Keys
+        </h2>
+        <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200">
+            Previous year question papers and answer keys for Entrance Exams
+        </p>
+        
+        <!-- Year Filter Dropdown -->
+        <div class="filter-container" data-aos="fade-up" data-aos-delay="300">
+            <div class="filter-dropdown">
+                <label for="yearFilter" class="filter-label">Filter by Year:</label>
+                <select id="yearFilter" class="year-filter-select" onchange="filterPapers()">
+                    <option value="all">All Years</option>
+                    <option value="2023">2023</option>
+                    <option value="2022">2022</option>
+                    <option value="2021">2021</option>
+                    <option value="2020">2020</option>
+                    <option value="2019">2019</option>
+                    <option value="2018">2018</option>
+                </select>
             </div>
-            <div class="downloads-grid">
-                <div class="download-category" data-aos="fade-right" data-aos-delay="100">
-                    <h3>Question Papers</h3>
-                    <div class="download-list">
-                        <div class="download-item">
-                            <span class="download-name">Entrance Exam 2023</span>
-                            <span class="download-size">PDF • 1.2 MB</span>
-                            <a
-                                href="https://www.civilservicecoaching.com/questions/2023_q.pdf"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="download-btn"
-                                aria-label="View Entrance Exam 2023 Question Paper"
-                            >
-                                <i class="bi-eye-fill"></i>
-                                <span style="margin-left: 0.5em;">View</span>
-                            </a>
-                        </div>
-                        <div class="download-item">
-                            <span class="download-name">Entrance Exam 2022</span>
-                            <span class="download-size">PDF • 1.1 MB</span>
-                            <a
-                                href="https://www.civilservicecoaching.com/questions/2023_q.pdf"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="download-btn"
-                                aria-label="View Entrance Exam 2023 Question Paper"
-                            >
-                                <i class="bi-eye-fill"></i>
-                                <span style="margin-left: 0.5em;">View</span>
-                            </a>
-                        </div>
-                        <div class="download-item">
-                            <span class="download-name">Entrance Exam 2021</span>
-                            <span class="download-size">PDF • 1.0 MB</span>
-                            <a
-                                href="https://www.civilservicecoaching.com/questions/2023_q.pdf"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="download-btn"
-                                aria-label="View Entrance Exam 2023 Question Paper"
-                            >
-                                <i class="bi-eye-fill"></i>
-                                <span style="margin-left: 0.5em;">View</span>
-                            </a>
-                        </div>
-                        <div class="download-item">
-                            <span class="download-name">Entrance Exam 2019</span>
-                            <span class="download-size">PDF • 1.1 MB</span>
-                            <!-- <a href="questions2022.pdf" download class="download-btn" aria-label="Download Entrance Exam 2022 Question Paper">
-              <i class="fas fa-download"></i>
-            </a> -->
-                            <a
-                                href="https://www.civilservicecoaching.com/questions/2023_q.pdf"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="download-btn"
-                                aria-label="View Entrance Exam 2023 Question Paper"
-                            >
-                                <i class="bi-eye-fill"></i>
-                                <span style="margin-left: 0.5em;">View</span>
-                            </a>
-                        </div>
-                        <div class="download-item">
-                            <span class="download-name">Entrance Exam 2018</span>
-                            <span class="download-size">PDF • 1.1 MB</span>
-                            <a
-                                href="https://www.civilservicecoaching.com/questions/2023_q.pdf"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="download-btn"
-                                aria-label="View Entrance Exam 2023 Question Paper"
-                            >
-                                <i class="bi-eye-fill"></i>
-                                <span style="margin-left: 0.5em;">View</span>
-                            </a>
-                        </div>
-                    </div>
+            <div class="results-count">
+                <span id="resultCount">Showing all papers</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="downloads-grid">
+        <div class="download-category" data-aos="fade-right" data-aos-delay="100">
+            <h3>Question Papers</h3>
+            <div class="download-list" id="questionPapers">
+                <div class="download-item" data-year="2023">
+                    <span class="download-name">Entrance Exam 2023</span>
+                    <span class="download-size">PDF • 1.2 MB</span>
+                    <a href="https://www.civilservicecoaching.com/questions/2023_q.pdf" target="_blank" rel="noopener noreferrer" class="download-btn" aria-label="View Entrance Exam 2023 Question Paper">
+                        <i class="bi-eye-fill"></i>
+                        <span style="margin-left: 0.5em;">View</span>
+                    </a>
                 </div>
-                <div class="download-category" data-aos="fade-right" data-aos-delay="200">
-                    <h3>Answer Keys</h3>
-                    <div class="download-list">
-                        <div class="download-item">
-                            <span class="download-name">Entrance Exam 2023</span>
-                            <span class="download-size">PDF • 900 KB</span>
-                            <a
-                                href="https://www.civilservicecoaching.com/questions/2023_q.pdf"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="download-btn"
-                                aria-label="View Entrance Exam 2023 Question Paper"
-                            >
-                                <i class="bi-eye-fill"></i>
-                                <span style="margin-left: 0.5em;">View</span>
-                            </a>
-                        </div>
-                        <div class="download-item">
-                            <span class="download-name">Entrance Exam 2022</span>
-                            <span class="download-size">PDF • 850 KB</span>
-                            <a
-                                href="https://www.civilservicecoaching.com/questions/2023_q.pdf"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="download-btn"
-                                aria-label="View Entrance Exam 2023 Question Paper"
-                            >
-                                <i class="bi-eye-fill"></i>
-                                <span style="margin-left: 0.5em;">View</span>
-                            </a>
-                        </div>
-                        <div class="download-item">
-                            <span class="download-name">Entrance Exam 2021</span>
-                            <span class="download-size">PDF • 800 KB</span>
-                            <a
-                                href="https://www.civilservicecoaching.com/questions/2023_q.pdf"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="download-btn"
-                                aria-label="View Entrance Exam 2023 Question Paper"
-                            >
-                                <i class="bi-eye-fill"></i>
-                                <span style="margin-left: 0.5em;">View</span>
-                            </a>
-                        </div>
-                        <div class="download-item">
-                            <span class="download-name">Entrance Exam 2019</span>
-                            <span class="download-size">PDF • 850 KB</span>
-                            <a
-                                href="https://www.civilservicecoaching.com/questions/2023_q.pdf"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="download-btn"
-                                aria-label="View Entrance Exam 2023 Question Paper"
-                            >
-                                <i class="bi-eye-fill"></i>
-                                <span style="margin-left: 0.5em;">View</span>
-                            </a>
-                        </div>
-                        <div class="download-item">
-                            <span class="download-name">Entrance Exam 2018</span>
-                            <span class="download-size">PDF • 850 KB</span>
-                            <a
-                                href="https://www.civilservicecoaching.com/questions/2023_q.pdf"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="download-btn"
-                                aria-label="View Entrance Exam 2023 Question Paper"
-                            >
-                                <i class="bi-eye-fill"></i>
-                                <span style="margin-left: 0.5em;">View</span>
-                            </a>
-                        </div>
-                    </div>
+                
+                
+                <div class="download-item" data-year="2022">
+                    <span class="download-name">Entrance Exam 2022</span>
+                    <span class="download-size">PDF • 1.1 MB</span>
+                    <a href="https://www.civilservicecoaching.com/questions/2022_q.pdf" target="_blank" rel="noopener noreferrer" class="download-btn" aria-label="View Entrance Exam 2022 Question Paper">
+                        <i class="bi-eye-fill"></i>
+                        <span style="margin-left: 0.5em;">View</span>
+                    </a>
+                </div>
+                <div class="download-item" data-year="2021">
+                    <span class="download-name">Entrance Exam 2021</span>
+                    <span class="download-size">PDF • 1.0 MB</span>
+                    <a href="https://www.civilservicecoaching.com/questions/2021_q.pdf" target="_blank" rel="noopener noreferrer" class="download-btn" aria-label="View Entrance Exam 2021 Question Paper">
+                        <i class="bi-eye-fill"></i>
+                        <span style="margin-left: 0.5em;">View</span>
+                    </a>
+                </div>
+                <div class="download-item" data-year="2020">
+                    <span class="download-name">Entrance Exam 2020</span>
+                    <span class="download-size">PDF • 1.3 MB</span>
+                    <a href="https://www.civilservicecoaching.com/questions/2020_q.pdf" target="_blank" rel="noopener noreferrer" class="download-btn" aria-label="View Entrance Exam 2020 Question Paper">
+                        <i class="bi-eye-fill"></i>
+                        <span style="margin-left: 0.5em;">View</span>
+                    </a>
+                </div>
+                <div class="download-item" data-year="2019">
+                    <span class="download-name">Entrance Exam 2019</span>
+                    <span class="download-size">PDF • 1.1 MB</span>
+                    <a href="https://www.civilservicecoaching.com/questions/2019_q.pdf" target="_blank" rel="noopener noreferrer" class="download-btn" aria-label="View Entrance Exam 2019 Question Paper">
+                        <i class="bi-eye-fill"></i>
+                        <span style="margin-left: 0.5em;">View</span>
+                    </a>
+                </div>
+                <div class="download-item" data-year="2018">
+                    <span class="download-name">Entrance Exam 2018</span>
+                    <span class="download-size">PDF • 1.1 MB</span>
+                    <a href="https://www.civilservicecoaching.com/questions/2018_q.pdf" target="_blank" rel="noopener noreferrer" class="download-btn" aria-label="View Entrance Exam 2018 Question Paper">
+                        <i class="bi-eye-fill"></i>
+                        <span style="margin-left: 0.5em;">View</span>
+                    </a>
                 </div>
             </div>
         </div>
-    </section>  
+        
+        <div class="download-category" data-aos="fade-right" data-aos-delay="200">
+            <h3>Answer Keys</h3>
+            <div class="download-list" id="answerKeys">
+                <div class="download-item" data-year="2023">
+                    <span class="download-name">Entrance Exam 2023</span>
+                    <span class="download-size">PDF • 900 KB</span>
+                    <a href="https://www.civilservicecoaching.com/answers/2023_a.pdf" target="_blank" rel="noopener noreferrer" class="download-btn" aria-label="View Entrance Exam 2023 Answer Key">
+                        <i class="bi-eye-fill"></i>
+                        <span style="margin-left: 0.5em;">View</span>
+                    </a>
+                </div>
+                <div class="download-item" data-year="2022">
+                    <span class="download-name">Entrance Exam 2022</span>
+                    <span class="download-size">PDF • 850 KB</span>
+                    <a href="https://www.civilservicecoaching.com/answers/2022_a.pdf" target="_blank" rel="noopener noreferrer" class="download-btn" aria-label="View Entrance Exam 2022 Answer Key">
+                        <i class="bi-eye-fill"></i>
+                        <span style="margin-left: 0.5em;">View</span>
+                    </a>
+                </div>
+                <div class="download-item" data-year="2021">
+                    <span class="download-name">Entrance Exam 2021</span>
+                    <span class="download-size">PDF • 800 KB</span>
+                    <a href="https://www.civilservicecoaching.com/answers/2021_a.pdf" target="_blank" rel="noopener noreferrer" class="download-btn" aria-label="View Entrance Exam 2021 Answer Key">
+                        <i class="bi-eye-fill"></i>
+                        <span style="margin-left: 0.5em;">View</span>
+                    </a>
+                </div>
+                <div class="download-item" data-year="2020">
+                    <span class="download-name">Entrance Exam 2020</span>
+                    <span class="download-size">PDF • 880 KB</span>
+                    <a href="https://www.civilservicecoaching.com/answers/2020_a.pdf" target="_blank" rel="noopener noreferrer" class="download-btn" aria-label="View Entrance Exam 2020 Answer Key">
+                        <i class="bi-eye-fill"></i>
+                        <span style="margin-left: 0.5em;">View</span>
+                    </a>
+                </div>
+                <div class="download-item" data-year="2019">
+                    <span class="download-name">Entrance Exam 2019</span>
+                    <span class="download-size">PDF • 850 KB</span>
+                    <a href="https://www.civilservicecoaching.com/answers/2019_a.pdf" target="_blank" rel="noopener noreferrer" class="download-btn" aria-label="View Entrance Exam 2019 Answer Key">
+                        <i class="bi-eye-fill"></i>
+                        <span style="margin-left: 0.5em;">View</span>
+                    </a>
+                </div>
+                <div class="download-item" data-year="2018">
+                    <span class="download-name">Entrance Exam 2018</span>
+                    <span class="download-size">PDF • 850 KB</span>
+                    <a href="https://www.civilservicecoaching.com/answers/2018_a.pdf" target="_blank" rel="noopener noreferrer" class="download-btn" aria-label="View Entrance Exam 2018 Answer Key">
+                        <i class="bi-eye-fill"></i>
+                        <span style="margin-left: 0.5em;">View</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
     <footer class="footer">
         <div class="container">
             <div class="row g-4">
                 <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
                     <div class="d-flex align-items-center mb-3">
                         <img
-                            src="https://www.civilservicecoaching.com/images/logo.png"
+                            src="logo.png"
                             alt="AICSCC Logo"
                             style="height: 50px;"
                             class="me-3"
@@ -607,6 +732,84 @@
 <!-- AOS Animation -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 <script>
+    function filterPapers() {
+    const selectedYear = document.getElementById('yearFilter').value;
+    const questionPapers = document.querySelectorAll('#questionPapers .download-item');
+    const answerKeys = document.querySelectorAll('#answerKeys .download-item');
+    const resultCount = document.getElementById('resultCount');
+    
+    let visibleCount = 0;
+    
+    // Filter Question Papers
+    questionPapers.forEach(item => {
+        const itemYear = item.getAttribute('data-year');
+        if (selectedYear === 'all' || itemYear === selectedYear) {
+            item.classList.remove('fade-out');
+            item.classList.add('fade-in');
+            item.style.display = 'flex';
+            visibleCount++;
+        } else {
+            item.classList.add('fade-out');
+            item.classList.remove('fade-in');
+            setTimeout(() => {
+                item.style.display = 'none';
+            }, 300);
+        }
+    });
+    
+    // Filter Answer Keys
+    answerKeys.forEach(item => {
+        const itemYear = item.getAttribute('data-year');
+        if (selectedYear === 'all' || itemYear === selectedYear) {
+            item.classList.remove('fade-out');
+            item.classList.add('fade-in');
+            item.style.display = 'flex';
+            visibleCount++;
+        } else {
+            item.classList.add('fade-out');
+            item.classList.remove('fade-in');
+            setTimeout(() => {
+                item.style.display = 'none';
+            }, 300);
+        }
+    });
+    
+    // Update result count
+    if (selectedYear === 'all') {
+        resultCount.textContent = 'Showing all papers';
+    } else {
+        const paperCount = visibleCount / 2; // Divide by 2 because we have both question papers and answer keys
+        resultCount.textContent = `Showing ${paperCount} paper${paperCount !== 1 ? 's' : ''} for ${selectedYear}`;
+    }
+    
+    // Add empty state if no results
+    const categories = document.querySelectorAll('.download-category');
+    categories.forEach(category => {
+        const items = category.querySelectorAll('.download-item:not([style*="display: none"])');
+        const list = category.querySelector('.download-list');
+        
+        // Remove existing empty state
+        const existingEmpty = category.querySelector('.empty-state');
+        if (existingEmpty) {
+            existingEmpty.remove();
+        }
+        
+        if (items.length === 0) {
+            const emptyState = document.createElement('div');
+            emptyState.className = 'empty-state';
+            emptyState.innerHTML = `
+                <i class="bi-search"></i>
+                <p>No papers found for ${selectedYear}</p>
+            `;
+            list.appendChild(emptyState);
+        }
+    });
+}
+
+// Initialize filter on page load
+document.addEventListener('DOMContentLoaded', function() {
+    filterPapers();
+});
         // Initialize AOS
         AOS.init({
             duration: 1000,

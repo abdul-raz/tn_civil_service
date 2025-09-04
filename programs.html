@@ -321,20 +321,314 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 25px !important;
   }
 }
+.zigzag-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.coaching-card {
+    display: flex;
+    margin-bottom: 4rem;
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 3px solid transparent;
+}
+.coaching-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    border-color: var(--accent-gold);
+        border-width: 1px; /* reduced border thickness */
 
-  .section-subtitle {
-                    text-align: center;
-                    font-size: 15px;
-                    color: var(--text-light);
-                    
-                    margin-bottom: 45px; 
-                    max-width: 100%;
-                    margin-left: auto;
-                    margin-right: auto;
-                }
+}
+.coaching-card.left .card-content {
+    order: 1;
+}
+.coaching-card.left .card-image {
+    order: 2;
+}
+.coaching-card.right .card-content {
+    order: 2;
+}
+.coaching-card.right .card-image {
+    order: 1;
+}
+.card-content {
+    flex: 1;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.card-image {
+    flex: 1;
+    background-size: cover;
+    background-position: center;
+    min-height: 400px;
+    position: relative;
+}
+.card-image::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(45deg, var(--primary-color)aa, var(--accent-gold)aa);
+}
+.card-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.card-text {
+    color: var(--slate-grey);
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+.read-more-btn {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-gold));
+    border: none;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    align-self: flex-start;
+}
+.read-more-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(212, 165, 116, 0.4);
+}
+.expanded-content {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 2px solid var(--accent-light);
+    display: none;
+    overflow: hidden;
+}
+.expanded-content.show {
+    display: block;
+    animation: fadeInDown 0.5s ease;
+}
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .coaching-card {
+        flex-direction: column !important;
+        margin-bottom: 2rem;
+    }
+    .coaching-card.left .card-content,
+    .coaching-card.right .card-content {
+        order: 2;
+    }
+    .coaching-card.left .card-image,
+    .coaching-card.right .card-image {
+        order: 1;
+        min-height: 250px;
+    }
+    .card-content {
+        padding: 2rem;
+    }
+    .card-title {
+        font-size: 1.5rem;
+    }
+}
+/* Coaching Cards */
+.zigzag-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.coaching-card {
+    display: flex;
+    margin-bottom: 4rem;
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 3px solid transparent;
+}
+
+.coaching-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    border-color: var(--accent-gold);
+        border-width: 1px; /* reduced border thickness */
+
+}
+
+.coaching-card.left .card-content {
+    order: 1;
+}
+
+.coaching-card.left .card-image {
+    order: 2;
+}
+
+.coaching-card.right .card-content {
+    order: 2;
+}
+
+.coaching-card.right .card-image {
+    order: 1;
+}
+
+.card-content {
+    flex: 1;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.card-image {
+    flex: 1;
+    background-size: cover;
+    background-position: center;
+    min-height: 400px;
+    position: relative;
+}
+
+.card-image::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(45deg, var(--primary-color)aa, var(--accent-gold)aa);
+}
+
+.card-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    position: relative;
+     /* optional, for inline content centering */
+}
 
 
 
+
+.card-text {
+    color: var(--slate-grey);
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+.read-more-btn {
+    background: linear-gradient(135deg, var(--accent-gold), var(--accent-light));
+    border: none;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    align-self: flex-start;
+}
+
+.read-more-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(212, 165, 116, 0.4);
+}
+
+/* Modal Styling */
+.modal-content {
+    border-radius: 20px;
+    border: none;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.modal-header {
+    background: linear-gradient(135deg, var(--primary-color),#002147c4);
+    color: white;
+    border-radius: 20px 20px 0 0;
+    border-bottom: none;
+    padding: 2rem;
+}
+
+.modal-title {
+    font-weight: 700;
+    font-size: 1.8rem;
+        color: white;
+
+}
+
+.modal-body {
+    padding: 2rem;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--slate-grey);
+}
+
+.modal-body h5 {
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.modal-body ul li {
+    margin-bottom: 0.5rem;
+}
+
+.btn-close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    opacity: 0.8;
+}
+
+.btn-close:hover {
+    opacity: 1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .coaching-card {
+        flex-direction: column !important;
+        margin-bottom: 2rem;
+    }
+    
+    .coaching-card.left .card-content,
+    .coaching-card.right .card-content {
+        order: 2;
+    }
+    
+    .coaching-card.left .card-image,
+    .coaching-card.right .card-image {
+        order: 1;
+        min-height: 250px;
+    }
+    
+    .card-content {
+        padding: 2rem;
+    }
+    
+    .card-title {
+        font-size: 1.5rem;
+    }
+}
 
 </style>
 
@@ -345,7 +639,7 @@ h1, h2, h3, h4, h5, h6 {
          <nav class="navbar navbar-expand-xl navbar-custom fixed-top" data-aos="fade-down">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#home">
-                    <img src="https://www.civilservicecoaching.com/images/logo.png" alt="AICSCC Logo" class="me-0">
+                    <img src="logo.png" alt="AICSCC Logo" class="me-0">
                     <div class="brand-text">
                         <h5>All India Civil Services Coaching Centre</h5>
                         <small>A Unit of Anna Institute of Management</small>
@@ -422,98 +716,77 @@ h1, h2, h3, h4, h5, h6 {
                 <h1 class="breadcrumb-tab">COACHING</h1>
             </div>
         </section>
+<div class="container section-padding" style="margin-top: 40px;">
+    <div class="section-title" data-aos="fade-right">
+        <h3>Coaching And Examination</h3>
+    </div>
+    <p class="section-subtitle">Comprehensive preparation for UPSC Civil Services Examination.</p>
+    <div class="zigzag-container">
 
-
-
-        
-        <div class="container section-padding " style="margin-top: 40px;">
-            <div class="section-title" data-aos="fade-right">
-                <h3>Civil Service Examination
-                    </h3>
-                </div>
-           <p class="section-subtitle" style="text-align: justify; width: 100%; display: block;"> In the year 1966 Pre-Examination Training Centre was established to train SC / ST
-candidates to take up Civil Services Examination. Similarly in 1971, a Special Training Institute was established to guide Backward Class and Most Backward Class candidates.
-Both the
-Institutes were merged and renamed as "ALL INDIA CIVIL SERVICES COACHING CENTRE" and is headed by the Principal and functions under the control of Director, Anna Administrative Staff College and Director General of Training from February, 2000 onwards.</p>
-        </p>
-
-
-
-   
-
-
-
-        <div class="d-flex justify-content-center mt-4">
-            <div class="exam-tabs-wrapper">
-                <ul class="nav nav-pills justify-content-center" id="examTab" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button
-                            class="nav-link active"
-                            id="prelims-tab"
-                            data-bs-toggle="tab"
-                            data-bs-target="#prelims"
-                            type="button"
-                            role="tab"
-                            aria-controls="prelims"
-                            aria-selected="true"
-                        >
-                            Preliminary Examination
-                        </button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button
-                            class="nav-link"
-                            id="mains-tab"
-                            data-bs-toggle="tab"
-                            data-bs-target="#mains"
-                            type="button"
-                            role="tab"
-                            aria-controls="mains"
-                            aria-selected="false"
-                        >
-                            Main Examination
-                        </button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button
-                            class="nav-link"
-                            id="personality-tab"
-                            data-bs-toggle="tab"
-                            data-bs-target="#personality"
-                            type="button"
-                            role="tab"
-                            aria-controls="personality"
-                            aria-selected="false"
-                        >
-                            Personality Test
-                        </button>
-                    </li>
-                </ul>
+        <!-- Card 1 - Preliminary Examination (Left aligned) -->
+        <div class="coaching-card left" data-aos="fade-right" data-aos-delay="100" id="prelims-card">
+            <div class="card-content">
+                <h2 class="card-title">Preliminary Examination</h2>
+                <p class="card-text preview-text">
+                    Based on merit through a competitive entrance examination conducted throughout Tamil Nadu and Community Reservation system, 225 aspirants are admitted in Residential coaching and 100 aspirants in Non-Residential coaching.
+                </p>
+                <button class="read-more-btn" data-bs-toggle="modal" data-bs-target="#prelimsModal">
+                    View Details
+                    <i class="fas fa-external-link-alt ms-2"></i>
+                </button>
+            </div>
+            <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
             </div>
         </div>
-        <br>
 
-        <!-- Tab Content with no top margin -->
-        <div class="tab-content mt-4;" id="examTabContent" style="min-height: 500px; ">
-            <!-- Preliminary Examination -->
-            <div
-                class="tab-pane fade show active"
-                id="prelims"
-                role="tabpanel"
-                aria-labelledby="prelims-tab"
-                tabindex="0"
-            >
-                <div class="card shadow p-4" style="border-top:none; margin-top: 0;">
-                    <h3>Preliminary Examination</h3>
-                    <p>
-Every year an entrance examination is conducted by All India Civil Services
-Coaching Centre for the selection of 325 eligible candidates (225 Residential and 100 Non-residential) for admission to Preliminary Examination Coaching. Every year during the month of August/September advertisement for entrance exam is being given in the newspapers and also in official website <a target="_blank" href="https://www.civilservicecoaching.com/">www.civilservicecoaching.com  </a>  entrance exam will be conducted during the month of September/October                    </p>
-                    <p>
-The selection is made based on the marks secured by the candidates in Entrance Examination. The Institute guides the candidates for nearly Nine months, (trong September to May) to take up the Preliminary examination. The aspirants appearing in Entrance Examination, this year 2024-2025 Applications are accepted through the online portal on our official website. In association with Nan Muthalvan scheme, All India Civil Services Coaching Centre conducted Entrance Test or Preliminary Examination coaching 26,587
-applications were received, 18,405 students wrote entrance examination.                     </p>
-<p> ( 220(Full Time) + (part time)) students have been selected based on the entrance test. Additionally, (95 Madurai+95 Coimbatore ) individuals are undergoing training for the Preliminary Examinations at the Anna Centenary Civil Services Coaching Centers in both Madurai and Coimbatore.</p>
-                    <h5>Preliminary Examination Pattern:</h5>
-                    <div class="table-responsive">
+        <!-- Card 2 - Main Examination (Right aligned) -->
+        <div class="coaching-card right" data-aos="fade-left" data-aos-delay="200" id="mains-card">
+            <div class="card-content">
+                <h2 class="card-title">Main Examination</h2>
+                <p class="card-text preview-text">
+                    The aspirants who have cleared the UPSC Preliminary examination are admitted for Main Examination Coaching (225 aspirants). Intensive coaching for nearly two to four months is given to the aspirants.
+                </p>
+                <button class="read-more-btn" data-bs-toggle="modal" data-bs-target="#mainsModal">
+                    View Details
+                    <i class="fas fa-external-link-alt ms-2"></i>
+                </button>
+            </div>
+            <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+            </div>
+        </div>
+
+        <!-- Card 3 - Personality Test (Left aligned) -->
+        <div class="coaching-card left" data-aos="fade-right" data-aos-delay="300" id="personality-card">
+            <div class="card-content">
+                <h2 class="card-title">Personality Test</h2>
+                <p class="card-text preview-text">
+                    The Institute conducts Model Personality Tests for candidates who have cleared their Main Examination. Sessions are conducted by senior officers and subject experts.
+                </p>
+                <button class="read-more-btn" data-bs-toggle="modal" data-bs-target="#personalityModal">
+                    View Details
+                    <i class="fas fa-external-link-alt ms-2"></i>
+                </button>
+            </div>
+            <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Preliminary Examination Modal -->
+<div class="modal fade" id="prelimsModal" tabindex="-1" aria-labelledby="prelimsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="prelimsModalLabel">Preliminary Examination</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From the year 2011-2018 onwards, ICR applications are issued to the aspirants through District Collectorate. The entrance examination is conducted in seventeen (17) centres in Tamil Nadu.</p>
+                <p>Now the entrance examination is conducted directly by All India Civil Services Centre, Chennai-28. When the entrance examination is conducted for preliminary coaching, notifications will be released on the website and newspaper advertisement also published. Except admission, other processing (application, hall ticket downloading, selection list, admit card) will be held online only.</p>
+                
+                <h5>Preliminary Examination Pattern:</h5>
+                <div class="table-responsive">
                     <table class="table table-bordered mb-3 test-table">
                         <thead class="text-center">
                             <tr>
@@ -528,113 +801,102 @@ applications were received, 18,405 students wrote entrance examination.         
                             </tr>
                         </tbody>
                     </table>
-                    </div>
-               
-                    <p>The Institute guides aspirants for nearly 6 months (December to June) to take up the Preliminary examination.</p>
                 </div>
-            </div>
-            <div
-                class="tab-pane fade"
-                id="mains"
-                role="tabpanel"
-                aria-labelledby="mains-tab"
-                tabindex="0"
-            >
-                <div class="card shadow p-4" style="
-    border-left: 3px solid var(--accent-gold);
-    border-right: 3px solid var(--accent-gold);
-    border-top: none;
-    border-bottom: none;
-    border-radius: 1rem;
-   margin-top: 0;
-    background: var(--white);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-  ">
-                    <h3>Main Examination</h3>
-                    <p>
-The candidates who clear the Preliminary examination are given intensive coaching for
-nearly three months (from July to September) to face the Main examination. The candidates not only from this institute but also other candidates belonging to Tamilnad who clears the Preliminary examination are admitted for main examination coaching in this institute.                    </p>
-<p>
-    Every year, 225 candidates were given coaching for the Main examination. A monthly stipend of Rs.3000/- per month for three months is given to all the 225 candidates admitted for Main coaching, irrespective of the income ceiling to meet the expenditure for accessing reading
-materials.
-
-    In co-ordination with the Nan Muthalvan Scheme, 216 aspirants received coaching for the UPSC main examination 2024. Each of these 216 aspirants was provided a stipend of Rs 25,000 as part of the initiative. 203 mains aspirants received Rs.9000 for three months. 48 aspirants have cleared the UPSC main exam in 2024.
-</p>
-                    <h5>Main Examination Pattern</h5>
-                    
-                   <table class="table table-bordered test-table w-75 mx-auto mb-3">
-    <thead>
-        <tr class="text-center">
-            <th>Papers</th>
-            <th>Marks</th>
-            <th>Total Marks</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr class="text-center">
-            <td>Language</td>
-            <td>---</td>
-            <td>(qualifying)</td>
-        </tr>
-        <tr class="text-center">
-            <td>English</td>
-            <td>---</td>
-            <td>(qualifying)</td>
-        </tr>
-        <tr class="text-center">
-            <td>Essay</td>
-            <td>250</td>
-            <td>(Compulsory) 250</td>
-        </tr>
-        <tr class="text-center">
-            <td>General Studies – Paper I, II, III & IV</td>
-            <td>250 x 4</td>
-            <td>(Compulsory) 1000</td>
-        </tr>
-        <tr class="text-center">
-            <td>Optional I & II (Only one optional)</td>
-            <td>250 x 2</td>
-            <td>(Compulsory) 500</td>
-        </tr>
-        <tr class="text-center">
-            <td>Personality Test</td>
-            <td></td>
-            <td>275</td>
-        </tr>
-        <tr class="text-center">
-            <td>
-                <strong>Total</strong>
-            </td>
-            <td></td>
-            <td>
-                <strong>2025</strong>
-            </td>
-        </tr>
-    </tbody>
-</table>
-
-                    
-                </div>
-            </div>
-            <!-- Personality Test -->
-            <div
-                class="tab-pane fade"
-                id="personality"
-                role="tabpanel"
-                aria-labelledby="personality-tab"
-                tabindex="0"
-            >
-                <div class="card shadow p-4" style="border-top:none; margin-top: 0;">
-                    <h3>Personality Test</h3>
-                    <p>
-The Institute conducts Model Personality Test for the candidates who come out
-successfully in the Main Examination. The above test is being conducted well in advance before the actual date of Personality Test held at New Delhi. As per Human resources Management (Trining-1) Dept, G.O(Ms) No.68, Dt: 08.07.2022 the incidental expenses has been increased from Rs.2000/ to Rs.5000/-. 
-</p><p>The training center facilitated Model personality test, 69 aspirants participated on December 18-20, 2024, providing each with Rs, 5.000 for Delhi travel expenses to attend the subsequent official personality test. Following this, 17 individuals participated to the second phase of the personality test held on February 27, 2025, resulting in a total of 86
-participants benefiting from the program."                    </p>
-                </div>
+                
+                <p><strong>Duration:</strong> The Institute guides aspirants for nearly 6 months (December to June) to take up the Preliminary examination.</p>
             </div>
         </div>
     </div>
+</div>
+
+<!-- Main Examination Modal -->
+<div class="modal fade" id="mainsModal" tabindex="-1" aria-labelledby="mainsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="mainsModalLabel">Main Examination</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>A monthly stipend of Rs. 3000/- is given to each candidate admitted for Main coaching, irrespective of the income ceiling to meet expenditure for accessing reading materials.</p>
+                
+                <h5>Main Examination Pattern:</h5>
+                <table class="table table-bordered test-table w-75 mx-auto mb-3">
+                    <thead>
+                        <tr class="text-center">
+                            <th>Papers</th>
+                            <th>Marks</th>
+                            <th>Total Marks</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="text-center">
+                            <td>Language</td>
+                            <td>---</td>
+                            <td>(qualifying)</td>
+                        </tr>
+                        <tr class="text-center">
+                            <td>English</td>
+                            <td>---</td>
+                            <td>(qualifying)</td>
+                        </tr>
+                        <tr class="text-center">
+                            <td>Essay</td>
+                            <td>250</td>
+                            <td>(Compulsory) 250</td>
+                        </tr>
+                        <tr class="text-center">
+                            <td>General Studies – Paper I, II, III & IV</td>
+                            <td>250 x 4</td>
+                            <td>(Compulsory) 1000</td>
+                        </tr>
+                        <tr class="text-center">
+                            <td>Optional I & II (Only one optional)</td>
+                            <td>250 x 2</td>
+                            <td>(Compulsory) 500</td>
+                        </tr>
+                        <tr class="text-center">
+                            <td>Personality Test</td>
+                            <td></td>
+                            <td>275</td>
+                        </tr>
+                        <tr class="text-center">
+                            <td><strong>Total</strong></td>
+                            <td></td>
+                            <td><strong>2025</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Personality Test Modal -->
+<div class="modal fade" id="personalityModal" tabindex="-1" aria-labelledby="personalityModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="personalityModalLabel">Personality Test</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Topics are discussed with experts to prepare candidates for the interview process. The personality test is crucial for final selection in the civil services.</p>
+                
+                <p><strong>Key Features:</strong></p>
+                <ul>
+                    <li>Mock interviews with senior officers</li>
+                    <li>Individual counseling sessions</li>
+                    <li>Group discussions and presentations</li>
+                    <li>Current affairs and subject-specific discussions</li>
+                    <li>Communication skills enhancement</li>
+                </ul>
+                
+                <p><strong>Support Provided:</strong> Accommodation is available in Tamilnadu House, New Delhi, with Rs. 2000/- travel allowance provided for attendance.</p>
+            </div>
+        </div>
+    </div>
+</div>
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
@@ -642,7 +904,7 @@ participants benefiting from the program."                    </p>
                 <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
                     <div class="d-flex align-items-center mb-3">
                         <img
-                            src="https://www.civilservicecoaching.com/images/logo.png"
+                            src="logo.png"
                             alt="AICSCC Logo"
                             height="40"
                             class="me-3"
@@ -779,6 +1041,29 @@ participants benefiting from the program."                    </p>
 <!-- AOS Animation -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 <script>
+function toggleCard(cardId) {
+  const expandedContent = document.getElementById(cardId + '-expanded');
+  const btnText = document.getElementById(cardId + '-btn-text');
+  const btnIcon = document.getElementById(cardId + '-btn-icon');
+  
+  if (!expandedContent || !btnText || !btnIcon) {
+    console.error('ToggleCard: Elements not found for', cardId);
+    return;
+  }
+  
+  if (expandedContent.classList.contains('show')) {
+    expandedContent.classList.remove('show');
+    setTimeout(() => { expandedContent.style.display = 'none'; }, 300);
+    btnText.textContent = 'Read More';
+    btnIcon.className = 'fas fa-arrow-right ms-2';
+  } else {
+    expandedContent.style.display = 'block';
+    setTimeout(() => { expandedContent.classList.add('show'); }, 10);
+    btnText.textContent = 'Read Less';
+    btnIcon.className = 'fas fa-arrow-up ms-2';
+  }
+}
+
         // Initialize AOS
         AOS.init({
             duration: 1000,

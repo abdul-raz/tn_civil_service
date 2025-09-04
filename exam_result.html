@@ -25,6 +25,87 @@
 
 
   <style>
+    /* Add this CSS in your styles.css or inside <style> */
+.performance-metrics .row {
+  display: flex;          /* Flex layout for side-by-side columns */
+  align-items: stretch;   /* Stretch children to equal height */
+  height: 100%;           /* Full height of container */
+  gap: 1rem;              /* Spacing */
+}
+
+.performance-metrics .col-md-3,
+.performance-metrics .col-md-9 {
+  height: 100%;           /* Equal heights for both columns */
+}
+
+.performance-metrics .metric-box {
+  height: 100%;           /* Fill full height in column */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Vertical center content */
+  margin-bottom: 1rem;    /* Spacing between metrics */
+}
+
+.performance-metrics .chart-container {
+  flex-grow: 1;           /* Chart container fills column height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Responsive for small devices */
+@media (max-width: 767px) {
+  .performance-metrics .row {
+    flex-direction: column;
+  }
+
+  .performance-metrics .col-md-3,
+  .performance-metrics .col-md-9 {
+    height: auto !important;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.performance-metrics .metric-box {
+  height: 100%; /* Make the metric boxes fill their column height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Vertically center the content */
+  margin-bottom: 1rem;  /* Uniform spacing between metric boxes */
+}
+
+.performance-metrics .row {
+  display: flex;          /* Use flex to align columns side by side */
+  align-items: stretch;   /* Make children (columns) stretch full height */
+  height: 100%;           /* Ensure full height of container */
+  gap: 1rem;              /* Uniform horizontal gap between columns */
+}
+
+.performance-metrics .col-md-3,
+.performance-metrics .col-md-9 {
+  height: 100%;           /* Make both columns equal height */
+}
+
+/* Ensure the chart area fills the height and centers content */
+.performance-metrics .chart-container {
+  flex-grow: 1;           /* Grow to fill parent's height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Responsive fix: stack vertically on small screens */
+@media (max-width: 767px) {
+  .performance-metrics .row {
+    flex-direction: column;
+  }
+  .performance-metrics .col-md-3,
+  .performance-metrics .col-md-9 {
+    height: auto !important;
+    margin-bottom: 1.5rem;
+  }
+}
+
     :root {
   /* Color Variables */
   --primary-color: #2c5aa0;
@@ -561,7 +642,7 @@ footer a:hover {
     flex-direction: row;
     justify-content: center;
     height: 100%; /* Make metric-box fill full height */
-  } */
+ 
 }
 
 @media (max-width: 576px) {
@@ -1263,54 +1344,56 @@ footer a:hover {
         </div>
       </div>
 
-      <div class="row">
-        <div class="col-lg-6">
-          <div class="card shadow-sm mb-4">
-            <div class="card-header">
-              <h5 class="mb-0 chart-t">Success Rate Analysis</h5>
-            </div>
-            <div class="card-body">
-              <div class="chart-container" style="height: 300px;">
-                <canvas id="successRateChart"></canvas>
-              </div>
-            </div>
-          </div>
+      <!-- Success Rate Analysis Row -->
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card shadow-sm mb-4">
+      <div class="card-header">
+        <h5 class="mb-0 chart-t">Success Rate Analysis</h5>
+      </div>
+      <div class="card-body">
+        <div class="chart-container" style="height: 300px;">
+          <canvas id="successRateChart"></canvas>
         </div>
-    <div class="col-lg-6">
-  <div class="card shadow-sm mb-4">
-    <div class="card-header">
-      <h5 class="mb-0 chart-t">Performance Metrics</h5>
+      </div>
     </div>
-    <div class="card-body">
-      <div class="row">
-        <!-- Left column for metrics - 3 columns out of 12 (1/4) -->
-        <div class="col-12 col-md-3">
-          <div class="row text-center g-3">
-            <div class="col-12 d-flex flex-column h-100">
-              <div class="metric-box flex-grow-1 d-flex flex-column justify-content-center">
+  </div>
+</div>
+
+<!-- Performance Metrics Row -->
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card shadow-sm mb-4">
+      <div class="card-header">
+        <h5 class="mb-0 chart-t">Performance Metrics</h5>
+      </div>
+      <div class="card-body">
+        <div class="row align-items-center" style="min-height: 300px;">
+          <!-- Left column for metrics -->
+          <div class="col-12 col-md-4">
+            <div class="d-flex flex-column gap-3">
+              <div class="metric-box text-center p-3">
                 <h3 id="avgAppearance">144</h3>
-                <p>Avg. Appeared</p>
+                <p class="mb-0">Avg. Appeared</p>
               </div>
-            </div>
-            <div class="col-12 d-flex flex-column h-100">
-              <div class="metric-box flex-grow-1 d-flex flex-column justify-content-center">
+              <div class="metric-box text-center p-3">
                 <h3 id="avgCleared">38.6</h3>
-                <p>Avg. Cleared</p>
+                <p class="mb-0">Avg. Cleared</p>
               </div>
-            </div>
-            <div class="col-12 d-flex flex-column h-100">
-              <div class="metric-box flex-grow-1 d-flex flex-column justify-content-center">
+              <div class="metric-box text-center p-3">
                 <h3 id="successRate">26.8%</h3>
-                <p>Success Rate</p>
+                <p class="mb-0">Success Rate</p>
               </div>
             </div>
           </div>
-        </div>
 
-        <!-- Right column for pie chart - 9 columns out of 12 (3/4) -->
-        <div class="col-12 col-md-9">
-          <div class="chart-container h-100" style="min-height: 160px;">
-            <canvas id="metricsChart" style="height:100% !important; width:100% !important;"></canvas>
+          <!-- Right column for pie chart -->
+          <div class="col-12 col-md-8">
+            <div class="d-flex justify-content-center align-items-center" style="height: 300px;">
+              <div style="position: relative; width: 300px; height: 300px;">
+                <canvas id="metricsChart"></canvas>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -1318,8 +1401,6 @@ footer a:hover {
   </div>
 </div>
 
-
-      </div>
       <!-- Data Table (Collapsible) -->
       <div class="card shadow-sm mt-4">
         <div class="collapse show" id="dataTable">
@@ -1509,20 +1590,18 @@ footer a:hover {
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <!-- Add Chart.js library -->
   <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
-  <script>
-// Color palette
+<script>
+// Color palette you provided
 const colors = [
-  '#003f5c',  // Dark Blue
-  '#2f4b7c',  // Medium Blue
-  '#665191',  // Lavender Blue
-  '#a05195',  // Purple
-  '#d45087',  // Pinkish
-  '#f95d6a',  // Coral Red
-  '#ff7c43',  // Orange
-  '#ffa600',   // Amber Yell0w
-    '#008000',
-    '#5CE65C'
-
+  "#e27c7c",  // Soft Red - totalVacancies
+  "#a86464",  // Muted Brick Red - appeared
+  "#6d4b4b",  // Brownish Red (optional)
+  "#503f3f",  // Dark Brown (optional)
+  "#333333",  // Charcoal Gray (optional)
+  "#3c4e4b",  // Dark Teal (optional)
+  "#466964",  // Slate Green - cleared bars
+  "#599e94",  // Soft Green - success rate line
+  "#6cd4c5"   // Light Aqua Green - translucent fills, highlights
 ];
 
 // Data arrays
@@ -1573,7 +1652,7 @@ function initCharts() {
         {
           label: 'Total Vacancies',
           data: totalVacancies,
-          backgroundColor: colors[0],
+          backgroundColor: colors[0],  // Soft Red
           borderColor: colors[0],
           borderWidth: 1,
           yAxisID: 'y'
@@ -1581,16 +1660,16 @@ function initCharts() {
         {
           label: 'AICSCC Appeared',
           data: appeared,
-          backgroundColor: colors[6],
-          borderColor: colors[6],
+          backgroundColor: colors[1],  // Muted Brick Red
+          borderColor: colors[1],
           borderWidth: 1,
           yAxisID: 'y'
         },
         {
           label: 'AICSCC Cleared',
           data: cleared,
-          backgroundColor: colors[9],
-          borderColor: colors[9],
+          backgroundColor: colors[6],  // Slate Green
+          borderColor: colors[6],
           borderWidth: 1,
           yAxisID: 'y'
         }
@@ -1604,24 +1683,24 @@ function initCharts() {
           beginAtZero: true,
           title: {
             display: true,
-            color: colors[0],
+            color: colors[8],  // Light Aqua Green
             text: 'Number of Candidates'
           },
           grid: {
-            color: colors[7] + '33', // lighter amber with transparency
+            color: colors[8] + '33', // Light Aqua translucent grid
           },
           ticks: {
-            color: colors[0]
+            color: colors[8]
           }
         },
         x: {
           title: {
             display: true,
             text: 'Year',
-            color: colors[0],
+            color: colors[8],
           },
           ticks: {
-            color: colors[0]
+            color: colors[8]
           }
         }
       },
@@ -1633,7 +1712,7 @@ function initCharts() {
         legend: {
           position: 'top',
           labels: {
-            color: colors[0],
+            color: colors[8],
           }
         }
       }
@@ -1642,65 +1721,62 @@ function initCharts() {
 
   // Success Rate Chart
   const successRateCtx = document.getElementById('successRateChart').getContext('2d');
-// Replace success rate line colors with green:
-successRateChart = new Chart(successRateCtx, {
-  type: 'line',
-  data: {
-    labels: years,
-    datasets: [{
-      label: 'Success Rate (%)',
-      data: successRates,
-      backgroundColor: colors[8] + '33', // green translucent fill under line
-      borderColor: colors[8],             // green line color
-      borderWidth: 2,
-      fill: true,
-      tension: 0.4,
-      pointRadius: 4,
-      pointBackgroundColor: colors[8],   // green points
-      pointBorderColor: colors[0],       // keep point border dark/primary color
-    }]
-  },
-  options: {
-    responsive: true,
-    maintainAspectRatio: false,
-    scales: {
-      y: {
-        beginAtZero: true,
-        title: {
-          display: true,
-          text: 'Success Rate (%)',
-          color: colors[0]             // original axis title color (e.g. dark blue)
+  successRateChart = new Chart(successRateCtx, {
+    type: 'line',
+    data: {
+      labels: years,
+      datasets: [{
+        label: 'Success Rate (%)',
+        data: successRates,
+        backgroundColor: colors[7] + '33', // Soft Green translucent fill
+        borderColor: colors[7],            // Soft Green line color
+        borderWidth: 2,
+        fill: true,
+        tension: 0.4,
+        pointRadius: 4,
+        pointBackgroundColor: colors[6],  // Slate Green points
+        pointBorderColor: colors[0],      // Soft Red border on points
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      scales: {
+        y: {
+          beginAtZero: true,
+          title: {
+            display: true,
+            text: 'Success Rate (%)',
+            color: colors[8]
+          },
+          grid: {
+            color: colors[8] + '33',
+          },
+          ticks: {
+            color: colors[8],
+            callback: value => value + '%'
+          }
         },
-        grid: {
-          color: colors[7] + '33',      // original grid color
-        },
-        ticks: {
-          color: colors[0],             // original tick color
-          callback: value => value + '%'
+        x: {
+          title: {
+            display: true,
+            text: 'Year',
+            color: colors[8]
+          },
+          ticks: {
+            color: colors[8]
+          }
         }
       },
-      x: {
-        title: {
-          display: true,
-          text: 'Year',
-          color: colors[0]             // original x-axis title color
-        },
-        ticks: {
-          color: colors[0]             // original x-axis tick color
-        }
-      }
-    },
-    plugins: {
-      legend: {
-        labels: {
-          color: colors[0]             // original legend label color
+      plugins: {
+        legend: {
+          labels: {
+            color: colors[8]
+          }
         }
       }
     }
-  }
-});
-
-
+  });
 
   // Metrics Chart (Doughnut)
   const metricsCtx = document.getElementById('metricsChart').getContext('2d');
@@ -1711,12 +1787,12 @@ successRateChart = new Chart(successRateCtx, {
       datasets: [{
         data: [appeared.reduce((a, b) => a + b, 0), cleared.reduce((a, b) => a + b, 0)],
         backgroundColor: [
-          colors[1],
-          colors[8]
+          colors[1],  // Muted Brick Red appeared
+          colors[6]   // Slate Green cleared
         ],
         borderColor: [
           colors[1],
-          colors[8]
+          colors[6]
         ],
         borderWidth: 1
       }]
@@ -1728,7 +1804,7 @@ successRateChart = new Chart(successRateCtx, {
         legend: {
           position: 'bottom',
           labels: {
-            color: colors[0]
+            color: colors[8]
           }
         }
       }
@@ -1760,8 +1836,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+</script>
 
-  </script>
 </body>
 
 

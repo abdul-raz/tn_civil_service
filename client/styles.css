@@ -565,7 +565,7 @@ border-left: 0.3em solid transparent;
                     line-height: 1.2;
                     margin-top: 100px;   
                 }
-
+               
 
 
                 @keyframes pulse {
@@ -842,6 +842,7 @@ border-left: 0.3em solid transparent;
                     color: var(--slate-grey);
                     line-height: 1.6;
                 }
+                
 
                 @media (max-width: 375px) {
     .hero-section {
@@ -1253,10 +1254,11 @@ border-left: 0.3em solid transparent;
             }
 
             /* Eligibility Cards */
+            /* Eligibility Cards */
             .eligibility-card {
                 background: white;
                 border-radius: 20px;
-                padding: 2.5rem;
+                /* padding: 2.5rem; */
                 box-shadow: var(--card-shadow);
                 margin-bottom: 2rem;
                 /* border-top: 4px solid var(--accent-blue); */
@@ -1264,6 +1266,7 @@ border-left: 0.3em solid transparent;
                 transition: all 0.3s ease;
                 height: 94%;
                 line-height: 1.5;
+                box-sizing: border-box;
             }
 
             .eligibility-card:hover {
@@ -1276,8 +1279,10 @@ border-left: 0.3em solid transparent;
                 color: white;
                 padding: 1.5rem;
                 border-radius: 15px 15px 0px 0px;
-                margin: -2.5rem -2.5rem 2rem -2.5rem;
+                /* margin: -2.5rem -2.5rem 2rem -2.5rem; */
                 text-align: center;
+                width: 100%;
+                box-sizing: border-box;
             }
 
             .check-item {
@@ -1288,6 +1293,10 @@ border-left: 0.3em solid transparent;
                 border-radius: 10px;
                 transition: all 0.3s ease;
                 /* margin-bottom: 0.5rem;     */
+            }
+            
+            .eligibility-content {
+                padding: 40px 40px 40px 40px;
             }
 
             /* .check-item:hover {
@@ -4726,3 +4735,595 @@ h1, h2, h3, h4, h5, h6 {
 .breadcrumb-tab {
     color: #f59e0b !important;
 }
+.features-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Spread cards across full width */
+  align-items: stretch;
+  gap: 1.5rem;
+  width: 100%;       /* Fill the full width */
+  padding: 0 1rem;   /* Optional small page padding */
+  margin: 0;         /* Remove left margin */
+  box-sizing: border-box;
+}
+
+.flip-card {
+  background: transparent;
+  flex: 1 1 calc(25% - 1.5rem); /* Four cards per row minus gaps */
+  height: 180px;
+  perspective: 1000px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.7s cubic-bezier(.4,2.3,.5,1);
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner,
+.flip-card:focus-within .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+  background: #fff;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+  box-sizing: border-box;
+}
+
+.flip-card-front h4 {
+  font-size: 1.25rem;    /* Increased text size */
+  font-weight: 700;
+  color: #222;
+  margin: 0 0 0.75rem 0;
+}
+
+.flip-card-back p {
+  font-size: 1.1rem;     /* Increased text size */
+  color: #333;
+  margin: 0;
+}
+
+.accent {
+  width: 70%;
+  height: 4px;
+  background:var(--accent-gold);
+  border-radius: 2px;
+  box-shadow: none;
+  margin-top: 0.5rem;
+  transition: box-shadow 0.3s;
+}
+
+.flip-card:hover .accent,
+.flip-card:focus-within .accent {
+  box-shadow: 0 0 10px 3px #e4bb12;
+}
+
+.flip-card-back {
+  background: #fffbe6;
+  color: #222;
+  transform: rotateY(180deg);
+}
+
+@media (max-width: 1024px) {
+  .flip-card {
+    flex: 1 1 calc(50% - 1.5rem); /* Two cards per row */
+    height: 160px;
+  }
+  .flip-card-front h4 {
+    font-size: 1.1rem;
+  }
+  .flip-card-back p {
+    font-size: 1rem;
+  }
+  .accent {
+    width: 60%;
+    height: 3px;
+  }
+}
+
+@media (max-width: 600px) {
+  .features-row {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .flip-card {
+    flex: 1 1 100%;
+    height: 140px;
+  }
+  .flip-card-front h4 {
+    font-size: 1rem;
+  }
+  .flip-card-back p {
+    font-size: 0.95rem;
+  }
+  .accent {
+    width: 50%;
+  }
+}
+.features-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 1.5rem;
+  width: 100%;
+  padding: 0 1rem;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.flip-card {
+  background: transparent;
+  flex: 1 1 calc(25% - 1.5rem);
+  height: 180px;
+  perspective: 1000px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.7s cubic-bezier(.4,2.3,.5,1);
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner,
+.flip-card:focus-within .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+  background: #fff;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+  box-sizing: border-box;
+}
+
+.flip-card-front h4 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #222;
+  margin: 0 0 0.75rem 0;
+}
+
+.flip-card-back p {
+  font-size: 1.1rem;
+  color: #333;
+  margin: 0;
+}
+
+.accent {
+  width: 70%;
+  height: 4px;
+  background: var(--accent-gold);
+  border-radius: 2px;
+  box-shadow: none;
+  margin-top: 0.5rem;
+  transition: box-shadow 0.3s;
+}
+
+.flip-card:hover .accent,
+.flip-card:focus-within .accent {
+  box-shadow: 0 0 10px 3px #e4bb12;
+}
+
+.flip-card-back {
+  background: #fffbe6;
+  color: #222;
+  transform: rotateY(180deg);
+}
+
+/* Medium/Large Tablet screens */
+@media (max-width: 1024px) {
+  .flip-card {
+    flex: 1 1 calc(50% - 1.5rem);
+    height: 160px;
+  }
+  .flip-card-front h4 {
+    font-size: 1.1rem;
+  }
+  .flip-card-back p {
+    font-size: 1rem;
+  }
+  .accent {
+    width: 60%;
+    height: 3px;
+  }
+}
+
+/* Small screens - Strict vertical stack, no collision */
+@media (max-width: 600px) {
+  .features-row {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .flip-card {
+    flex: none !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    height: 140px;
+    box-sizing: border-box;
+  }
+  .flip-card-front h4 {
+    font-size: 1rem;
+  }
+  .flip-card-back p {
+    font-size: 0.95rem;
+  }
+  .accent {
+    width: 50%;
+  }
+}
+.flip-cards-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.flip-cards-row .flip-card {
+  flex: 1 1 calc(50% - 1.5rem);
+  min-width: 250px;
+  height: 180px;
+  background: transparent;
+  perspective: 1000px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.7s cubic-bezier(.4,2.3,.5,1);
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner,
+.flip-card:focus-within .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+  background: #fff;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+  box-sizing: border-box;
+}
+
+.flip-card-front h4 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #222;
+  margin: 0 0 0.75rem 0;
+}
+
+.flip-card-back p {
+  font-size: 1.1rem;
+  color: #333;
+  margin: 0;
+}
+
+.accent {
+  width: 70%;
+  height: 4px;
+  background: var(--accent-gold);
+  border-radius: 2px;
+  box-shadow: none;
+  margin-top: 0.5rem;
+  transition: box-shadow 0.3s;
+}
+
+.flip-card:hover .accent,
+.flip-card:focus-within .accent {
+  box-shadow: 0 0 10px 3px #e4bb12;
+}
+
+.flip-card-back {
+  background: #fffbe6;
+  color: #222;
+  transform: rotateY(180deg);
+}
+
+/* Responsive */
+
+@media (max-width: 992px) {
+  .flip-cards-row .flip-card {
+    flex: 1 1 100% !important;
+    max-width: 100%;
+    height: 160px;
+  }
+}
+
+@media (max-width: 600px) {
+  .flip-cards-row {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .flip-cards-row .flip-card {
+    width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    height: 140px;
+  }
+}
+
+
+/* Global fix to prevent horizontal overflow */
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+/* Hero section styles */
+.hero-section-infrastructure {
+    width: 100vw; /* force full viewport width */
+    box-sizing: border-box; /* include padding in width */
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://www.jainuniversity.ac.in/jain/theme/assets/images/about/best-university-in-india/jgi-university-strategy2.jpg) no-repeat center center/cover;
+    height: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    position: relative;
+    overflow: hidden; /* prevent overflow causing white space */
+    padding: 0; /* remove default padding */
+}
+
+.hero-content-infrastructure {
+    width: 100%; /* ensure content container doesn't exceed hero width */
+    box-sizing: border-box;
+    padding: 0 10px; /* small horizontal padding for content */
+}
+
+.hero-content-infrastructure h1 {
+    font-size: 40px !important;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    line-height: 1.2;
+    margin-top: 100px;
+    margin-left: 0;
+    margin-right: 0;
+    word-wrap: break-word; /* prevent overflow on heading */
+}
+
+/* Media query for screens less than or equal to 500px */
+@media (max-width: 500px) {
+    .hero-section-infrastructure {
+        height: 220px; /* slightly smaller height on small screens */
+        background-size: cover; /* ensure background covers area fully */
+        background-position: center center;
+        padding: 0 10px; /* prevent horizontal overflow */
+    }
+
+    .hero-content-infrastructure h1 {
+        font-size: 28px !important;
+        margin-top: 60px;
+    }
+}
+
+/* Media query for screens less than or equal to 410px */
+@media (max-width: 410px) {
+    .hero-section-infrastructure {
+        height: 190px;
+        padding: 0 8px; /* reduce padding to fit small screens */
+        background-size: cover;
+        background-position: center center;
+        overflow: hidden;
+    }
+
+    .hero-content-infrastructure h1 {
+        font-size: 26px !important;
+        margin-top: 55px;
+    }
+}
+
+/* Media query for screens less than or equal to 400px */
+@media (max-width: 400px) {
+    .hero-section-infrastructure {
+        height: 180px;
+        padding: 0 8px;
+    }
+
+    .hero-content-infrastructure h1 {
+        font-size: 24px !important;
+        margin-top: 50px;
+    }
+}
+
+/* Media query for screens less than or equal to 350px */
+@media (max-width: 350px) {
+    .hero-section-infrastructure {
+        height: 150px;
+        padding: 0 6px;
+        background-size: cover;
+        background-position: center center;
+    }
+
+    .hero-content-infrastructure h1 {
+        font-size: 20px !important;
+        margin-top: 40px;
+    }
+}
+
+/* Center the main section title and subtitle */
+  .section-title,
+  .section-subtitle {
+    text-align: center;
+  }
+
+  /* Flip cards container for left and right columns */
+  .flip-cards-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+  .flip-cards-row .flip-card {
+    flex: 1 1 calc(50% - 1.5rem);
+    min-width: 250px;
+    height: 180px;
+    background: transparent;
+    perspective: 1000px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+
+  /* Flip card inner, front, back styles (keeping your original style conventions) */
+  .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.7s cubic-bezier(.4,2.3,.5,1);
+    transform-style: preserve-3d;
+  }
+
+  .flip-card:hover .flip-card-inner,
+  .flip-card:focus-within .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+
+  .flip-card-front,
+  .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+    background: #fff;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+    box-sizing: border-box;
+  }
+
+  .flip-card-front h4 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #222;
+    margin: 0 0 0.75rem 0;
+  }
+
+  .flip-card-back p {
+    font-size: 1.1rem;
+    color: #333;
+    margin: 0;
+  }
+
+  .accent {
+    width: 70%;
+    height: 4px;
+    background: var(--accent-gold);
+    border-radius: 2px;
+    box-shadow: none;
+    margin-top: 0.5rem;
+    transition: box-shadow 0.3s;
+  }
+
+  .flip-card:hover .accent,
+  .flip-card:focus-within .accent {
+    box-shadow: 0 0 10px 3px #e4bb12;
+  }
+
+  .flip-card-back {
+    background: #fffbe6;
+    color: #222;
+    transform: rotateY(180deg);
+  }
+
+  /* Responsive adjustments for flip cards */
+  @media (max-width: 992px) {
+    .flip-cards-row .flip-card {
+      flex: 1 1 100% !important;
+      max-width: 100%;
+      height: 160px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .flip-cards-row {
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .flip-cards-row .flip-card {
+      width: 100% !important;
+      min-width: 0 !important;
+      margin: 0 !important;
+      height: 140px;
+    }
+  }
+
+  /* Ensure equal height containers for main left/right columns */
+  .equal-height {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  /* Stretch chart container */
+  .chart-container {
+    flex-grow: 1;
+    min-height: 300px;
+  }
+
+  /* Card body flex for stretching */
+  .card-body.d-flex {
+    display: flex !important;
+    flex-direction: column !important;
+  }

@@ -25,6 +25,17 @@
 
 
   <style>
+       .navbar-nav .nav-link.active::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    bottom: -5px;
+    left: 50%;
+    background:linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-light) 100%);
+    transform: translateX(-50%);
+    transition: all 0.3s ease;
+}
     /* Add this CSS in your styles.css or inside <style> */
 .performance-metrics .row {
   display: flex;          /* Flex layout for side-by-side columns */
@@ -832,7 +843,16 @@ footer a:hover {
   border-color: white;
 }
 
-
+@media (max-width: 574px) {
+  #metricsChart {
+    margin-top: 10px; /* adjust value as needed */
+  }
+}
+@media (min-width: 575px) and (max-width: 768px) {
+  #metricsChart {
+    margin-top: 20px; /* adjust value as needed */
+  }
+}
 
   </style>
 
@@ -842,7 +862,7 @@ footer a:hover {
 <body>
 
             <!-- Navigation -->
-  <nav class="navbar navbar-expand-xl navbar-custom fixed-top" data-aos="fade-down">
+   <nav class="navbar navbar-expand-xl navbar-custom fixed-top" data-aos="fade-down">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#home">
                     <img src="logo.png" alt="AICSCC Logo" class="me-0">
@@ -859,61 +879,78 @@ footer a:hover {
                 >
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="index 2 1.html">Home</a>
+                            <a class="nav-link " aria-current="page" href="index 2 1.html">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="aboutus_new.html">About Us</a>
+                <li class="nav-item dropdown-hover">
+                    <a class="dropdown-toggle-custom" href="#">
+                        About Us
+                        <i class="chevron-icon fas fa-chevron-down"></i>
+                    </a>
+                    <ul class="dropdown-menu-custom">
+                        <li>
+                            <a class="dropdown-item" href="aboutus_new.html">Our Institution</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="programs.html">Coaching Programs</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="eligibility.html">Eligibility</a>
-                        </li>
-                        <li class="nav-item dropdown-hover">
-                            <a class="dropdown-toggle-custom" href="#">
-                                Question Bank
-                                <i class="chevron-icon fas fa-chevron-down"></i>
-                            </a>
-                            <ul class="dropdown-menu-custom">
-                                <li>
-                                    <a class="dropdown-item" href="AICSCC.html">AICSCC Question Bank</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="UPSC.html">UPSC Question Bank</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="test_series.html">Test Series</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="exam_result.html">Exam Results</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="facilities.html">Facilities</a>
-                        </li>
-                        <!-- <li class="nav-item">
-                            <a class="nav-link" href="contact.html">Contact</a>
-                        </li> -->
-                        <li class="nav-item">
-                            <a class="nav-link" href="gallery.html">Gallery</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="faq.html">
-                                <img src="letter-i.png" style="height: 22px; width: 22px; margin-top: 9px; margin-left: 2px;">
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="Admission_notification.html">
-                                <img src="notification.png" style="height: 20px; width: 20px; margin-top: 10px; margin-left: 10px;">
-                            </a>
+                        <li>
+                            <a class="dropdown-item" href="facilities.html">Facilities</a>
                         </li>
                     </ul>
-                </div>
+                </li>
+                <li class="nav-item dropdown-hover">
+                    <a class="dropdown-toggle-custom" href="#">
+                        Programs
+                        <i class="chevron-icon fas fa-chevron-down"></i>
+                    </a>
+                    <ul class="dropdown-menu-custom">
+                        <li>
+                            <a class="dropdown-item" href="programs.html">Coaching Programs</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="eligibility.html">Eligibility</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown-hover">
+                    <a class="dropdown-toggle-custom " href="#">
+                        Question Bank
+                        <i class="chevron-icon fas fa-chevron-down"></i>
+                    </a>
+                    <ul class="dropdown-menu-custom">
+                        <li>
+                            <a class="dropdown-item" href="AICSCC.html">AICSCC Question Bank</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="UPSC.html">UPSC Question Bank</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="test_series.html">Test Series</a>
+                        </li>
+                    </ul>
+                </li>
+            <li class="nav-item">
+  <a class="nav-link active" aria-current="page" href="exam_result.html">Exam Results</a>
+</li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="gallery.html">Gallery</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Admission_notification.html">Notifications</a>
+                </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="video.html">Video</a>
+                </li>
+                 <li class="nav-item">
+                    <a href="faq.html">
+                        <img src="letter-i.png" style="height: 22px; width: 22px; margin-top: 9px; margin-left: 2px;">
+                    </a>
+                </li>
+                </ul>
+               
+              
+            </div>
             </div>
         </nav>
 
@@ -1267,53 +1304,7 @@ footer a:hover {
       </div>
     </div>
     <br>
-    <!-- Section 4: Aspirants Statistics Table -->
-    <!-- <div >
-    <div class="section-title" data-aos="fade-right">
-        <h3 class=" mt-4">AICSCC Aspirants Statistics</h3>
-        </div>
-        <br>
-
-<div class="badge fs-6 p-3 w-100 text-center bg-soft text-wrap" style="border: 2px dotted var(--primary-color);">
-  From the year 2000 to 2020, 747 candidates of this Institute have entered
-  into the Civil Services all over India.
-</div>
-
-
-    <div class="table-responsive mt-3">
-      <table class="table table-bordered test-table">
-        <thead>
-          <tr>
-            <th>S No</th>
-            <th>YEAR</th>
-            <th>Total No. of vacancy /  of Aspirants Selected (All India)</th>
-            <th>No.of AICSCC Aspirants Appeared in UPSC</th>
-            <th>No.of AICSCC Aspirants Cleared in UPSC</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>1</td><td>2005</td><td>457</td><td>71</td><td>24</td></tr>
-          <tr><td>2</td><td>2006</td><td>533</td><td>83</td><td>13</td></tr>
-          <tr><td>3</td><td>2007</td><td>734</td><td>80</td><td>22</td></tr>
-          <tr><td>4</td><td>2008</td><td>881</td><td>94</td><td>46</td></tr>
-          <tr><td>5</td><td>2009</td><td>989</td><td>118</td><td>49</td></tr>
-          <tr><td>6</td><td>2010</td><td>1043</td><td>144</td><td>48</td></tr>
-          <tr><td>7</td><td>2011</td><td>1001</td><td>129</td><td>47</td></tr>
-          <tr><td>8</td><td>2012</td><td>1091</td><td>136</td><td>49</td></tr>
-          <tr><td>9</td><td>2013</td><td>1228</td><td>141</td><td>57</td></tr>
-          <tr><td>10</td><td>2014</td><td>1364</td><td>176</td><td>73</td></tr>
-          <tr><td>11</td><td>2015</td><td>1164</td><td>113</td><td>45</td></tr>
-          <tr><td>12</td><td>2016</td><td>1209</td><td>147</td><td>44</td></tr>
-          <tr><td>13</td><td>2017</td><td>1058</td><td>92</td><td>34</td></tr>
-          <tr><td>14</td><td>2018</td><td>812</td><td>72</td><td>21</td></tr>
-          <tr><td>15</td><td>2019</td><td>896</td><td>41</td><td>41</td></tr>
-          <tr><td>16</td><td>2020</td><td>761</td><td>38</td><td>16</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div> -->
-
-    <!-- Section 4: Aspirants Statistics Dashboard -->
+ 
     <div>
       <div class="section-title" data-aos="fade-right">
         <h3 class="mt-4">AICSCC Aspirants Statistics Dashboard</h3>
@@ -1337,7 +1328,6 @@ footer a:hover {
               <h5 class="mb-0 chart-t">Yearly Comparison</h5>
               <div class="btn-group" role="group">
                 <button type="button" class="btn btn-custom active" data-chart-type="bar">Bar View</button>
-                <button type="button" class="btn btn-custom" data-chart-type="line">Line View</button>
               </div>
             </div>
 
@@ -1410,8 +1400,8 @@ footer a:hover {
       <!-- Data Table (Collapsible) -->
       <div class="card shadow-sm mt-4">
         <div class="collapse show" id="dataTable">
-          <div class="card-body">
-            <div class="table-responsive">
+          <div class="card-body" style="display: none;">
+          <div class="table-responsive" style="display:none;">
               <table class="table table-bordered test-table">
                 <thead>
                   <tr>
@@ -1427,7 +1417,7 @@ footer a:hover {
                 
                 </tbody>
               </table>
-            </div>
+            </div> 
           </div>
         </div>
       </div>
@@ -1654,139 +1644,158 @@ let comparisonChart, successRateChart, metricsChart;
 function initCharts() {
   // Comparison Chart
   const comparisonCtx = document.getElementById('comparisonChart').getContext('2d');
-  comparisonChart = new Chart(comparisonCtx, {
-    type: 'bar',
-    data: {
-      labels: years,
-      datasets: [
-        {
-          label: 'Total Vacancies',
-          data: totalVacancies,
-          backgroundColor: colors[0],  // Soft Red
-          borderColor: colors[0],
-          borderWidth: 1,
-          yAxisID: 'y'
+comparisonChart = new Chart(comparisonCtx, {
+  type: 'bar',
+  data: {
+    labels: years,
+    datasets: [
+      {
+        label: 'Total Vacancies',
+        data: totalVacancies,
+        backgroundColor: colors[0],  // Soft Red
+        borderColor: colors[0],
+        borderWidth: 1,
+        yAxisID: 'y'
+      },
+      {
+        label: 'AICSCC Appeared',
+        data: appeared,
+        backgroundColor: colors[1],  // Muted Brick Red
+        borderColor: colors[1],
+        borderWidth: 1,
+        yAxisID: 'y'
+      },
+      {
+        label: 'AICSCC Cleared',
+        data: cleared,
+        backgroundColor: colors[6],  // Slate Green
+        borderColor: colors[6],
+        borderWidth: 1,
+        yAxisID: 'y'
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      y: {
+        beginAtZero: true,
+        title: {
+          display: true,
+          color: colors[8],  // Light Aqua Green
+          text: 'Number of Candidates'
         },
-        {
-          label: 'AICSCC Appeared',
-          data: appeared,
-          backgroundColor: colors[1],  // Muted Brick Red
-          borderColor: colors[1],
-          borderWidth: 1,
-          yAxisID: 'y'
+        grid: {
+          color: colors[8] + '33' // Light Aqua translucent grid
         },
-        {
-          label: 'AICSCC Cleared',
-          data: cleared,
-          backgroundColor: colors[6],  // Slate Green
-          borderColor: colors[6],
-          borderWidth: 1,
-          yAxisID: 'y'
-        }
-      ]
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      scales: {
-        y: {
-          beginAtZero: true,
-          title: {
-            display: true,
-            color: colors[8],  // Light Aqua Green
-            text: 'Number of Candidates'
-          },
-          grid: {
-            color: colors[8] + '33', // Light Aqua translucent grid
-          },
-          ticks: {
-            color: colors[8]
-          }
-        },
-        x: {
-          title: {
-            display: true,
-            text: 'Year',
-            color: colors[8],
-          },
-          ticks: {
-            color: colors[8]
-          }
+        ticks: {
+          color: colors[8]
         }
       },
-      plugins: {
-        tooltip: {
-          mode: 'index',
-          intersect: false
+      x: {
+        title: {
+          display: true,
+          text: 'Year',
+          color: colors[8]
         },
-        legend: {
-          position: 'top',
-          labels: {
-            color: colors[8],
-          }
+        ticks: {
+          color: colors[8]
+        }
+      }
+    },
+    plugins: {
+      tooltip: {
+        mode: 'index',
+        intersect: false
+      },
+      legend: {
+        position: 'top',
+        labels: {
+          color: colors[8]
         }
       }
     }
-  });
+  }
+});
 
   // Success Rate Chart
-  const successRateCtx = document.getElementById('successRateChart').getContext('2d');
-  successRateChart = new Chart(successRateCtx, {
-    type: 'line',
-    data: {
-      labels: years,
-      datasets: [{
-        label: 'Success Rate (%)',
-        data: successRates,
-        backgroundColor: colors[7] + '33', // Soft Green translucent fill
-        borderColor: colors[7],            // Soft Green line color
+// Success Rate Chart showing counts of appeared and cleared per year
+// Line chart showing number of appeared vs cleared candidates per year
+const successRateCtx = document.getElementById('successRateChart').getContext('2d');
+successRateChart = new Chart(successRateCtx, {
+  type: 'line',
+  data: {
+    labels: years,
+    datasets: [
+      {
+        label: 'Appeared',
+        data: appeared,
+        borderColor: colors[1],        // Muted Brick Red
+        backgroundColor: 'transparent',
         borderWidth: 2,
-        fill: true,
         tension: 0.4,
         pointRadius: 4,
-        pointBackgroundColor: colors[6],  // Slate Green points
-        pointBorderColor: colors[0],      // Soft Red border on points
-      }]
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      scales: {
-        y: {
-          beginAtZero: true,
-          title: {
-            display: true,
-            text: 'Success Rate (%)',
-            color: colors[8]
-          },
-          grid: {
-            color: colors[8] + '33',
-          },
-          ticks: {
-            color: colors[8],
-            callback: value => value + '%'
-          }
+        pointBackgroundColor: colors[1],
+      },
+      {
+        label: 'Cleared',
+        data: cleared,
+        borderColor: colors[6],        // Slate Green
+        backgroundColor: 'transparent',
+        borderWidth: 2,
+        tension: 0.4,
+        pointRadius: 4,
+        pointBackgroundColor: colors[6],
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      y: {
+        beginAtZero: true,
+        title: {
+          display: true,
+          text: 'Number of Candidates',
+          color: colors[8]
         },
-        x: {
-          title: {
-            display: true,
-            text: 'Year',
-            color: colors[8]
-          },
-          ticks: {
-            color: colors[8]
-          }
+        grid: {
+          color: colors[8] + '33'
+        },
+        ticks: {
+          color: colors[8]
         }
       },
-      plugins: {
-        legend: {
-          labels: {
-            color: colors[8]
-          }
+      x: {
+        title: {
+          display: true,
+          text: 'Year',
+          color: colors[8]
+        },
+        ticks: {
+          color: colors[8]
+        }
+      }
+    },
+    plugins: {
+      legend: {
+        position: 'top',
+        labels: {
+          color: colors[8]
+        }
+      },
+      tooltip: {
+        mode: 'index',
+        intersect: false,
+        callbacks: {
+          label: ctx => `${ctx.dataset.label}: ${ctx.formattedValue}`
         }
       }
     }
-  });
+  }
+});
 
   // Metrics Chart (Doughnut)
   const metricsCtx = document.getElementById('metricsChart').getContext('2d');

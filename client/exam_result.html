@@ -25,6 +25,98 @@
 
 
   <style>
+       .navbar-nav .nav-link.active::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    bottom: -5px;
+    left: 50%;
+    background:linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-light) 100%);
+    transform: translateX(-50%);
+    transition: all 0.3s ease;
+}
+    /* Add this CSS in your styles.css or inside <style> */
+.performance-metrics .row {
+  display: flex;          /* Flex layout for side-by-side columns */
+  align-items: stretch;   /* Stretch children to equal height */
+  height: 100%;           /* Full height of container */
+  gap: 1rem;              /* Spacing */
+}
+
+.performance-metrics .col-md-3,
+.performance-metrics .col-md-9 {
+  height: 100%;           /* Equal heights for both columns */
+}
+
+.performance-metrics .metric-box {
+  height: 100%;           /* Fill full height in column */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Vertical center content */
+  margin-bottom: 1rem;    /* Spacing between metrics */
+}
+
+.performance-metrics .chart-container {
+  flex-grow: 1;           /* Chart container fills column height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Responsive for small devices */
+@media (max-width: 767px) {
+  .performance-metrics .row {
+    flex-direction: column;
+  }
+
+  .performance-metrics .col-md-3,
+  .performance-metrics .col-md-9 {
+    height: auto !important;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.performance-metrics .metric-box {
+  height: 100%; /* Make the metric boxes fill their column height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Vertically center the content */
+  margin-bottom: 1rem;  /* Uniform spacing between metric boxes */
+}
+
+.performance-metrics .row {
+  display: flex;          /* Use flex to align columns side by side */
+  align-items: stretch;   /* Make children (columns) stretch full height */
+  height: 100%;           /* Ensure full height of container */
+  gap: 1rem;              /* Uniform horizontal gap between columns */
+}
+
+.performance-metrics .col-md-3,
+.performance-metrics .col-md-9 {
+  height: 100%;           /* Make both columns equal height */
+}
+
+/* Ensure the chart area fills the height and centers content */
+.performance-metrics .chart-container {
+  flex-grow: 1;           /* Grow to fill parent's height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Responsive fix: stack vertically on small screens */
+@media (max-width: 767px) {
+  .performance-metrics .row {
+    flex-direction: column;
+  }
+  .performance-metrics .col-md-3,
+  .performance-metrics .col-md-9 {
+    height: auto !important;
+    margin-bottom: 1.5rem;
+  }
+}
+
     :root {
   /* Color Variables */
   --primary-color: #2c5aa0;
@@ -561,7 +653,8 @@ footer a:hover {
     flex-direction: row;
     justify-content: center;
     height: 100%; /* Make metric-box fill full height */
-  } 
+ 
+}
 
 @media (max-width: 576px) {
   .highlight-box {
@@ -750,7 +843,16 @@ footer a:hover {
   border-color: white;
 }
 
-
+@media (max-width: 574px) {
+  #metricsChart {
+    margin-top: 10px; /* adjust value as needed */
+  }
+}
+@media (min-width: 575px) and (max-width: 768px) {
+  #metricsChart {
+    margin-top: 20px; /* adjust value as needed */
+  }
+}
 
   </style>
 
@@ -760,7 +862,7 @@ footer a:hover {
 <body>
 
             <!-- Navigation -->
-  <nav class="navbar navbar-expand-xl navbar-custom fixed-top" data-aos="fade-down">
+   <nav class="navbar navbar-expand-xl navbar-custom fixed-top" data-aos="fade-down">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#home">
                     <img src="logo.png" alt="AICSCC Logo" class="me-0">
@@ -777,61 +879,78 @@ footer a:hover {
                 >
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="index 2 1.html">Home</a>
+                            <a class="nav-link " aria-current="page" href="index 2 1.html">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="aboutus_new.html">About Us</a>
+                <li class="nav-item dropdown-hover">
+                    <a class="dropdown-toggle-custom" href="#">
+                        About Us
+                        <i class="chevron-icon fas fa-chevron-down"></i>
+                    </a>
+                    <ul class="dropdown-menu-custom">
+                        <li>
+                            <a class="dropdown-item" href="aboutus_new.html">Our Institution</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="programs.html">Coaching Programs</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="eligibility.html">Eligibility</a>
-                        </li>
-                        <li class="nav-item dropdown-hover">
-                            <a class="dropdown-toggle-custom" href="#">
-                                Question Bank
-                                <i class="chevron-icon fas fa-chevron-down"></i>
-                            </a>
-                            <ul class="dropdown-menu-custom">
-                                <li>
-                                    <a class="dropdown-item" href="AICSCC.html">AICSCC Question Bank</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="UPSC.html">UPSC Question Bank</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="test_series.html">Test Series</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="exam_result.html">Exam Results</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="facilities.html">Facilities</a>
-                        </li>
-                        <!-- <li class="nav-item">
-                            <a class="nav-link" href="contact.html">Contact</a>
-                        </li> -->
-                        <li class="nav-item">
-                            <a class="nav-link" href="gallery.html">Gallery</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="faq.html">
-                                <img src="letter-i.png" style="height: 22px; width: 22px; margin-top: 9px; margin-left: 2px;">
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="Admission_notification.html">
-                                <img src="notification.png" style="height: 20px; width: 20px; margin-top: 10px; margin-left: 10px;">
-                            </a>
+                        <li>
+                            <a class="dropdown-item" href="facilities.html">Facilities</a>
                         </li>
                     </ul>
-                </div>
+                </li>
+                <li class="nav-item dropdown-hover">
+                    <a class="dropdown-toggle-custom" href="#">
+                        Programs
+                        <i class="chevron-icon fas fa-chevron-down"></i>
+                    </a>
+                    <ul class="dropdown-menu-custom">
+                        <li>
+                            <a class="dropdown-item" href="programs.html">Coaching Programs</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="eligibility.html">Eligibility</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown-hover">
+                    <a class="dropdown-toggle-custom " href="#">
+                        Question Bank
+                        <i class="chevron-icon fas fa-chevron-down"></i>
+                    </a>
+                    <ul class="dropdown-menu-custom">
+                        <li>
+                            <a class="dropdown-item" href="AICSCC.html">AICSCC Question Bank</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="UPSC.html">UPSC Question Bank</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="test_series.html">Test Series</a>
+                        </li>
+                    </ul>
+                </li>
+            <li class="nav-item">
+  <a class="nav-link active" aria-current="page" href="exam_result.html">Exam Results</a>
+</li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="gallery.html">Gallery</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Admission_notification.html">Notifications</a>
+                </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="video.html">Video</a>
+                </li>
+                 <li class="nav-item">
+                    <a href="faq.html">
+                        <img src="letter-i.png" style="height: 22px; width: 22px; margin-top: 9px; margin-left: 2px;">
+                    </a>
+                </li>
+                </ul>
+               
+              
+            </div>
             </div>
         </nav>
 
@@ -1185,53 +1304,7 @@ footer a:hover {
       </div>
     </div>
     <br>
-    <!-- Section 4: Aspirants Statistics Table -->
-    <!-- <div >
-    <div class="section-title" data-aos="fade-right">
-        <h3 class=" mt-4">AICSCC Aspirants Statistics</h3>
-        </div>
-        <br>
-
-<div class="badge fs-6 p-3 w-100 text-center bg-soft text-wrap" style="border: 2px dotted var(--primary-color);">
-  From the year 2000 to 2020, 747 candidates of this Institute have entered
-  into the Civil Services all over India.
-</div>
-
-
-    <div class="table-responsive mt-3">
-      <table class="table table-bordered test-table">
-        <thead>
-          <tr>
-            <th>S No</th>
-            <th>YEAR</th>
-            <th>Total No. of vacancy /  of Aspirants Selected (All India)</th>
-            <th>No.of AICSCC Aspirants Appeared in UPSC</th>
-            <th>No.of AICSCC Aspirants Cleared in UPSC</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>1</td><td>2005</td><td>457</td><td>71</td><td>24</td></tr>
-          <tr><td>2</td><td>2006</td><td>533</td><td>83</td><td>13</td></tr>
-          <tr><td>3</td><td>2007</td><td>734</td><td>80</td><td>22</td></tr>
-          <tr><td>4</td><td>2008</td><td>881</td><td>94</td><td>46</td></tr>
-          <tr><td>5</td><td>2009</td><td>989</td><td>118</td><td>49</td></tr>
-          <tr><td>6</td><td>2010</td><td>1043</td><td>144</td><td>48</td></tr>
-          <tr><td>7</td><td>2011</td><td>1001</td><td>129</td><td>47</td></tr>
-          <tr><td>8</td><td>2012</td><td>1091</td><td>136</td><td>49</td></tr>
-          <tr><td>9</td><td>2013</td><td>1228</td><td>141</td><td>57</td></tr>
-          <tr><td>10</td><td>2014</td><td>1364</td><td>176</td><td>73</td></tr>
-          <tr><td>11</td><td>2015</td><td>1164</td><td>113</td><td>45</td></tr>
-          <tr><td>12</td><td>2016</td><td>1209</td><td>147</td><td>44</td></tr>
-          <tr><td>13</td><td>2017</td><td>1058</td><td>92</td><td>34</td></tr>
-          <tr><td>14</td><td>2018</td><td>812</td><td>72</td><td>21</td></tr>
-          <tr><td>15</td><td>2019</td><td>896</td><td>41</td><td>41</td></tr>
-          <tr><td>16</td><td>2020</td><td>761</td><td>38</td><td>16</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div> -->
-
-    <!-- Section 4: Aspirants Statistics Dashboard -->
+ 
     <div>
       <div class="section-title" data-aos="fade-right">
         <h3 class="mt-4">AICSCC Aspirants Statistics Dashboard</h3>
@@ -1255,7 +1328,6 @@ footer a:hover {
               <h5 class="mb-0 chart-t">Yearly Comparison</h5>
               <div class="btn-group" role="group">
                 <button type="button" class="btn btn-custom active" data-chart-type="bar">Bar View</button>
-                <button type="button" class="btn btn-custom" data-chart-type="line">Line View</button>
               </div>
             </div>
 
@@ -1268,54 +1340,56 @@ footer a:hover {
         </div>
       </div>
 
-      <div class="row">
-        <div class="col-lg-6">
-          <div class="card shadow-sm mb-4">
-            <div class="card-header">
-              <h5 class="mb-0 chart-t">Success Rate Analysis</h5>
-            </div>
-            <div class="card-body">
-              <div class="chart-container" style="height: 300px;">
-                <canvas id="successRateChart"></canvas>
-              </div>
-            </div>
-          </div>
+      <!-- Success Rate Analysis Row -->
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card shadow-sm mb-4">
+      <div class="card-header">
+        <h5 class="mb-0 chart-t">Success Rate Analysis</h5>
+      </div>
+      <div class="card-body">
+        <div class="chart-container" style="height: 300px;">
+          <canvas id="successRateChart"></canvas>
         </div>
-    <div class="col-lg-6">
-  <div class="card shadow-sm mb-4">
-    <div class="card-header">
-      <h5 class="mb-0 chart-t">Performance Metrics</h5>
+      </div>
     </div>
-    <div class="card-body">
-      <div class="row">
-        <!-- Left column for metrics - 3 columns out of 12 (1/4) -->
-        <div class="col-12 col-md-3">
-          <div class="row text-center g-3">
-            <div class="col-12 d-flex flex-column h-100">
-              <div class="metric-box flex-grow-1 d-flex flex-column justify-content-center">
+  </div>
+</div>
+
+<!-- Performance Metrics Row -->
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card shadow-sm mb-4">
+      <div class="card-header">
+        <h5 class="mb-0 chart-t">Performance Metrics</h5>
+      </div>
+      <div class="card-body">
+        <div class="row align-items-center" style="min-height: 300px;">
+          <!-- Left column for metrics -->
+          <div class="col-12 col-md-4">
+            <div class="d-flex flex-column gap-3">
+              <div class="metric-box text-center p-3">
                 <h3 id="avgAppearance">144</h3>
-                <p>Avg. Appeared</p>
+                <p class="mb-0">Avg. Appeared</p>
               </div>
-            </div>
-            <div class="col-12 d-flex flex-column h-100">
-              <div class="metric-box flex-grow-1 d-flex flex-column justify-content-center">
+              <div class="metric-box text-center p-3">
                 <h3 id="avgCleared">38.6</h3>
-                <p>Avg. Cleared</p>
+                <p class="mb-0">Avg. Cleared</p>
               </div>
-            </div>
-            <div class="col-12 d-flex flex-column h-100">
-              <div class="metric-box flex-grow-1 d-flex flex-column justify-content-center">
+              <div class="metric-box text-center p-3">
                 <h3 id="successRate">26.8%</h3>
-                <p>Success Rate</p>
+                <p class="mb-0">Success Rate</p>
               </div>
             </div>
           </div>
-        </div>
 
-        <!-- Right column for pie chart - 9 columns out of 12 (3/4) -->
-        <div class="col-12 col-md-9">
-          <div class="chart-container h-100" style="min-height: 160px;">
-            <canvas id="metricsChart" style="height:100% !important; width:100% !important;"></canvas>
+          <!-- Right column for pie chart -->
+          <div class="col-12 col-md-8">
+            <div class="d-flex justify-content-center align-items-center" style="height: 300px;">
+              <div style="position: relative; width: 300px; height: 300px;">
+                <canvas id="metricsChart"></canvas>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -1323,13 +1397,11 @@ footer a:hover {
   </div>
 </div>
 
-
-      </div>
       <!-- Data Table (Collapsible) -->
       <div class="card shadow-sm mt-4">
         <div class="collapse show" id="dataTable">
-          <div class="card-body">
-            <div class="table-responsive">
+          <div class="card-body" style="display: none;">
+          <div class="table-responsive" style="display:none;">
               <table class="table table-bordered test-table">
                 <thead>
                   <tr>
@@ -1345,7 +1417,7 @@ footer a:hover {
                 
                 </tbody>
               </table>
-            </div>
+            </div> 
           </div>
         </div>
       </div>
@@ -1518,20 +1590,18 @@ footer a:hover {
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <!-- Add Chart.js library -->
   <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
-  <script>
-// Color palette
+<script>
+// Color palette you provided
 const colors = [
-  '#003f5c',  // Dark Blue
-  '#2f4b7c',  // Medium Blue
-  '#665191',  // Lavender Blue
-  '#a05195',  // Purple
-  '#d45087',  // Pinkish
-  '#f95d6a',  // Coral Red
-  '#ff7c43',  // Orange
-  '#ffa600',   // Amber Yell0w
-    '#008000',
-    '#5CE65C'
-
+  "#e27c7c",  // Soft Red - totalVacancies
+  "#a86464",  // Muted Brick Red - appeared
+  "#6d4b4b",  // Brownish Red (optional)
+  "#503f3f",  // Dark Brown (optional)
+  "#333333",  // Charcoal Gray (optional)
+  "#3c4e4b",  // Dark Teal (optional)
+  "#466964",  // Slate Green - cleared bars
+  "#599e94",  // Soft Green - success rate line
+  "#6cd4c5"   // Light Aqua Green - translucent fills, highlights
 ];
 
 // Data arrays
@@ -1574,100 +1644,36 @@ let comparisonChart, successRateChart, metricsChart;
 function initCharts() {
   // Comparison Chart
   const comparisonCtx = document.getElementById('comparisonChart').getContext('2d');
-  comparisonChart = new Chart(comparisonCtx, {
-    type: 'bar',
-    data: {
-      labels: years,
-      datasets: [
-        {
-          label: 'Total Vacancies',
-          data: totalVacancies,
-          backgroundColor: colors[0],
-          borderColor: colors[0],
-          borderWidth: 1,
-          yAxisID: 'y'
-        },
-        {
-          label: 'AICSCC Appeared',
-          data: appeared,
-          backgroundColor: colors[6],
-          borderColor: colors[6],
-          borderWidth: 1,
-          yAxisID: 'y'
-        },
-        {
-          label: 'AICSCC Cleared',
-          data: cleared,
-          backgroundColor: colors[9],
-          borderColor: colors[9],
-          borderWidth: 1,
-          yAxisID: 'y'
-        }
-      ]
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      scales: {
-        y: {
-          beginAtZero: true,
-          title: {
-            display: true,
-            color: colors[0],
-            text: 'Number of Candidates'
-          },
-          grid: {
-            color: colors[7] + '33', // lighter amber with transparency
-          },
-          ticks: {
-            color: colors[0]
-          }
-        },
-        x: {
-          title: {
-            display: true,
-            text: 'Year',
-            color: colors[0],
-          },
-          ticks: {
-            color: colors[0]
-          }
-        }
-      },
-      plugins: {
-        tooltip: {
-          mode: 'index',
-          intersect: false
-        },
-        legend: {
-          position: 'top',
-          labels: {
-            color: colors[0],
-          }
-        }
-      }
-    }
-  });
-
-  // Success Rate Chart
-  const successRateCtx = document.getElementById('successRateChart').getContext('2d');
-// Replace success rate line colors with green:
-successRateChart = new Chart(successRateCtx, {
-  type: 'line',
+comparisonChart = new Chart(comparisonCtx, {
+  type: 'bar',
   data: {
     labels: years,
-    datasets: [{
-      label: 'Success Rate (%)',
-      data: successRates,
-      backgroundColor: colors[8] + '33', // green translucent fill under line
-      borderColor: colors[8],             // green line color
-      borderWidth: 2,
-      fill: true,
-      tension: 0.4,
-      pointRadius: 4,
-      pointBackgroundColor: colors[8],   // green points
-      pointBorderColor: colors[0],       // keep point border dark/primary color
-    }]
+    datasets: [
+      {
+        label: 'Total Vacancies',
+        data: totalVacancies,
+        backgroundColor: colors[0],  // Soft Red
+        borderColor: colors[0],
+        borderWidth: 1,
+        yAxisID: 'y'
+      },
+      {
+        label: 'AICSCC Appeared',
+        data: appeared,
+        backgroundColor: colors[1],  // Muted Brick Red
+        borderColor: colors[1],
+        borderWidth: 1,
+        yAxisID: 'y'
+      },
+      {
+        label: 'AICSCC Cleared',
+        data: cleared,
+        backgroundColor: colors[6],  // Slate Green
+        borderColor: colors[6],
+        borderWidth: 1,
+        yAxisID: 'y'
+      }
+    ]
   },
   options: {
     responsive: true,
@@ -1677,39 +1683,119 @@ successRateChart = new Chart(successRateCtx, {
         beginAtZero: true,
         title: {
           display: true,
-          text: 'Success Rate (%)',
-          color: colors[0]             // original axis title color (e.g. dark blue)
+          color: colors[8],  // Light Aqua Green
+          text: 'Number of Candidates'
         },
         grid: {
-          color: colors[7] + '33',      // original grid color
+          color: colors[8] + '33' // Light Aqua translucent grid
         },
         ticks: {
-          color: colors[0],             // original tick color
-          callback: value => value + '%'
+          color: colors[8]
         }
       },
       x: {
         title: {
           display: true,
           text: 'Year',
-          color: colors[0]             // original x-axis title color
+          color: colors[8]
         },
         ticks: {
-          color: colors[0]             // original x-axis tick color
+          color: colors[8]
         }
       }
     },
     plugins: {
+      tooltip: {
+        mode: 'index',
+        intersect: false
+      },
       legend: {
+        position: 'top',
         labels: {
-          color: colors[0]             // original legend label color
+          color: colors[8]
         }
       }
     }
   }
 });
 
-
+  // Success Rate Chart
+// Success Rate Chart showing counts of appeared and cleared per year
+// Line chart showing number of appeared vs cleared candidates per year
+const successRateCtx = document.getElementById('successRateChart').getContext('2d');
+successRateChart = new Chart(successRateCtx, {
+  type: 'line',
+  data: {
+    labels: years,
+    datasets: [
+      {
+        label: 'Appeared',
+        data: appeared,
+        borderColor: colors[1],        // Muted Brick Red
+        backgroundColor: 'transparent',
+        borderWidth: 2,
+        tension: 0.4,
+        pointRadius: 4,
+        pointBackgroundColor: colors[1],
+      },
+      {
+        label: 'Cleared',
+        data: cleared,
+        borderColor: colors[6],        // Slate Green
+        backgroundColor: 'transparent',
+        borderWidth: 2,
+        tension: 0.4,
+        pointRadius: 4,
+        pointBackgroundColor: colors[6],
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      y: {
+        beginAtZero: true,
+        title: {
+          display: true,
+          text: 'Number of Candidates',
+          color: colors[8]
+        },
+        grid: {
+          color: colors[8] + '33'
+        },
+        ticks: {
+          color: colors[8]
+        }
+      },
+      x: {
+        title: {
+          display: true,
+          text: 'Year',
+          color: colors[8]
+        },
+        ticks: {
+          color: colors[8]
+        }
+      }
+    },
+    plugins: {
+      legend: {
+        position: 'top',
+        labels: {
+          color: colors[8]
+        }
+      },
+      tooltip: {
+        mode: 'index',
+        intersect: false,
+        callbacks: {
+          label: ctx => `${ctx.dataset.label}: ${ctx.formattedValue}`
+        }
+      }
+    }
+  }
+});
 
   // Metrics Chart (Doughnut)
   const metricsCtx = document.getElementById('metricsChart').getContext('2d');
@@ -1720,12 +1806,12 @@ successRateChart = new Chart(successRateCtx, {
       datasets: [{
         data: [appeared.reduce((a, b) => a + b, 0), cleared.reduce((a, b) => a + b, 0)],
         backgroundColor: [
-          colors[1],
-          colors[8]
+          colors[1],  // Muted Brick Red appeared
+          colors[6]   // Slate Green cleared
         ],
         borderColor: [
           colors[1],
-          colors[8]
+          colors[6]
         ],
         borderWidth: 1
       }]
@@ -1737,7 +1823,7 @@ successRateChart = new Chart(successRateCtx, {
         legend: {
           position: 'bottom',
           labels: {
-            color: colors[0]
+            color: colors[8]
           }
         }
       }
@@ -1769,8 +1855,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+</script>
 
-  </script>
 </body>
 
 

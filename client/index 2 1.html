@@ -21,7 +21,7 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
         <!--CSS-->
         <!-- <link rel="stylesheet" href="styles.css"> -->
-        <style>
+         <style>
         :root {
             --primary-color: #002147;
             --accent-color: #228B22;
@@ -70,6 +70,17 @@
             font-weight: 600;
             color: #002147;
         }
+     .metallic-text {
+  
+  font-size: 36px;
+  font-weight: bold;
+  color: #b08900;
+background: linear-gradient(45deg, #fff95c, #d4b700, #fff95c);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 1px 1px 5px rgba(181, 134, 0, 0.7);
+}
 
         /* Custom Navbar */
         .navbar-custom {
@@ -300,6 +311,7 @@
     
     .navbar-nav {
         padding-top: 1rem;
+        align-items:center;
     }
     
     .navbar-nav .nav-link {
@@ -333,6 +345,9 @@
         padding: 0.6rem 1rem;
         margin: 0;
     }
+    .navbar-nav{
+        align-items: center;
+    }
 }
 
 /* Medium Devices (768px - 991px) */
@@ -349,10 +364,14 @@
         font-size: 0.75rem;
     }
     
+    
     .navbar-nav .nav-link {
         margin: 0 3px;
         padding: 0.5rem 0.8rem;
         font-size: 0.9rem;
+    }
+    .navbar-nav{
+        align-items: center;
     }
 }
 
@@ -370,6 +389,9 @@
         margin: 0 8px;
         padding: 0.5rem 0.9rem;
         text-align: center;
+    }
+    .navbar-nav{
+        align-items: center;
     }
 }
 
@@ -1435,7 +1457,7 @@
     transition: all 0.3s ease;
     padding: 0.5rem 1rem;
     white-space: nowrap;
-    font-size: 15px;
+    font-size: 13px;
     text-decoration: none;
 }
 
@@ -1520,6 +1542,7 @@
 @media (max-width: 992px) {
     .dropdown-hover {
         position: static;
+        text-align: center;
     }
     .dropdown-menu-custom {
         width: 100%;
@@ -1543,10 +1566,11 @@
     }
 }
         </style>
+
     </head>
     <body>
         <!-- Navigation -->
-        <nav class="navbar navbar-expand-xl navbar-custom fixed-top" data-aos="fade-down">
+       <nav class="navbar navbar-expand-xl navbar-custom fixed-top" data-aos="fade-down">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#home">
                     <img src="logo.png" alt="AICSCC Logo" class="me-0">
@@ -1563,61 +1587,77 @@
                 >
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="index 2 1.html">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="aboutus_new.html">About Us</a>
+                <li class="nav-item dropdown-hover">
+                    <a class="dropdown-toggle-custom" href="#">
+                        About Us
+                        <i class="chevron-icon fas fa-chevron-down"></i>
+                    </a>
+                    <ul class="dropdown-menu-custom">
+                        <li>
+                            <a class="dropdown-item" href="aboutus_new.html">Our Institution</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="programs.html">Coaching Programs</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="eligibility.html">Eligibility</a>
-                        </li>
-                       <li class="nav-item dropdown-hover">
-                            <a class="dropdown-toggle-custom" href="#">
-                                Question Bank
-                                <i class="chevron-icon fas fa-chevron-down"></i>
-                            </a>
-                            <ul class="dropdown-menu-custom">
-                                <li>
-                                    <a class="dropdown-item" href="AICSCC.html">AICSCC Question Bank</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="UPSC.html">UPSC Question Bank</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="test_series.html">Test Series</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="exam_result.html">Exam Results</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="facilities.html">Facilities</a>
-                        </li>
-                        <!-- <li class="nav-item">
-                            <a class="nav-link" href="contact.html">Contact</a>
-                        </li> -->
-                        <li class="nav-item">
-                            <a class="nav-link" href="gallery_new.html">Gallery</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="faq.html">
-                                <img src="letter-i.png" style="height: 22px; width: 22px; margin-top: 9px; margin-left: 2px;">
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="Admission_notification.html">
-                                <img src="notification.png" style="height: 20px; width: 20px; margin-top: 10px; margin-left: 10px;">
-                            </a>
+                        <li>
+                            <a class="dropdown-item" href="facilities.html">Facilities</a>
                         </li>
                     </ul>
-                </div>
+                </li>
+                <li class="nav-item dropdown-hover">
+                    <a class="dropdown-toggle-custom" href="#">
+                        Programs
+                        <i class="chevron-icon fas fa-chevron-down"></i>
+                    </a>
+                    <ul class="dropdown-menu-custom">
+                        <li>
+                            <a class="dropdown-item" href="programs.html">Coaching Programs</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="eligibility.html">Eligibility</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown-hover">
+                    <a class="dropdown-toggle-custom" href="#">
+                        Question Bank
+                        <i class="chevron-icon fas fa-chevron-down"></i>
+                    </a>
+                    <ul class="dropdown-menu-custom">
+                        <li>
+                            <a class="dropdown-item" href="AICSCC.html">AICSCC Question Bank</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="UPSC.html">UPSC Question Bank</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="test_series.html">Test Series</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="exam_result.html">Exam Results</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="gallery.html">Gallery</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Admission_notification.html">Notifications</a>
+                </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="video.html">Video</a>
+                </li>
+                 <li class="nav-item">
+                    <a href="faq.html">
+                        <img src="letter-i.png" style="height: 22px; width: 22px; margin-top: 9px; margin-left: 2px;">
+                    </a>
+                </li>
+                </ul>
+               
+              
+            </div>
             </div>
         </nav>
         <!-- Home Page -->
@@ -1626,9 +1666,11 @@
             <section class="hero-section">
                 <div class="container">
                     <div class="hero-content">
-                        <div class="anniversary-badge" data-aos="zoom-in" data-aos-delay="200">
-                            🏆 Celebrating 60 Years of Excellence
-                        </div>
+                        
+                       <div class="metallic-text">
+  <span class="highlight">60</span> Years of Excellence
+</div>
+
                         <h1 data-aos="fade-up" data-aos-delay="400">
                             Empowering Aspirants.
                             <br>
@@ -1657,13 +1699,13 @@
                         </div>
                         <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
                             <div class="stat-item">
-                                <span class="stat-number">5000+</span>
+                                <span class="stat-number">5436+</span>
                                 <div class="stat-label">Successful Officers</div>
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
                             <div class="stat-item">
-                                <span class="stat-number">150+</span>
+                                <span class="stat-number">159+</span>
                                 <div class="stat-label">2024 Selections</div>
                             </div>
                         </div>

@@ -1,30 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All India Civil Services Coaching Centre - 60 Years of Excellence</title>
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All India Civil Services Coaching Centre - 60 Years of Excellence</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <!-- AOS Animation Library -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
 
-    <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <!--CSS-->
+  <link rel="stylesheet" href="styles.css">
 
-    <!-- AOS Animation Library -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
-    
-    <!--CSS-->
-    <link rel="stylesheet" href="styles.css">
-    </head>
-    <body>
-        <style>
+
+ <style>
+            
             .nav-pills{
     border-bottom: none;
     gap: 0;
@@ -119,8 +123,15 @@
     margin-right: 5px;
   }
         </style>
+
+
+</head>
+
+
+    <body>
+       
     <!-- Navigation -->
-      <nav class="navbar navbar-expand-xl navbar-custom fixed-top" data-aos="fade-down">
+     <nav class="navbar navbar-expand-xl navbar-custom fixed-top" data-aos="fade-down">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#home">
                     <img src="logo.png" alt="AICSCC Logo" class="me-0">
@@ -137,65 +148,77 @@
                 >
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
                             <a class="nav-link" href="index 2 1.html">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="aboutus_new.html">About Us</a>
+                <li class="nav-item dropdown-hover">
+                    <a class="dropdown-toggle-custom" href="#">
+                        About Us
+                        <i class="chevron-icon fas fa-chevron-down"></i>
+                    </a>
+                    <ul class="dropdown-menu-custom">
+                        <li>
+                            <a class="dropdown-item" href="aboutus_new.html">Our Institution</a>
                         </li>
-                         <li class="nav-item">
-                            <a class="nav-link" href="programs.html">Coaching Programs</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="eligibility.html">Eligibility</a>
-                        </li>
-<li class="nav-item dropdown-hover">
-                            <a class="dropdown-toggle-custom" href="#">
-                                Question Bank
-                                <i class="chevron-icon fas fa-chevron-down"></i>
-                            </a>
-                            <ul class="dropdown-menu-custom">
-                                <li>
-                                    <a class="dropdown-item" href="AICSCC.html">AICSCC Question Bank</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="UPSC.html">UPSC Question Bank</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="test_series.html">Test Series</a>
-                                </li>
-                            </ul>
-                        </li>
-
-                         <li class="nav-item">
-                            <a class="nav-link" href="exam_result.html">Exam Results</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="facilities.html">Facilities</a>
-                        </li>
-                        <!-- <li class="nav-item">
-                            <a class="nav-link" href="contact.html">Contact</a>
-                        </li> -->
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="gallery.html">Gallery</a>
-                        </li>
-                         <li class="nav-item">
-                            <a href="faq.html">
-                                <img src="letter-i.png" style="height: 22px; width: 22px; margin-top: 9px; margin-left: 2px;">
-                            </a>
-                        </li>  
-                        <li class="nav-item">
-                            <a href="Admission_notification.html">
-                                <img src="notification.png" style="height: 20px; width: 20px; margin-top: 10px; margin-left: 10px;"      />       
-                            </a>
+                        <li>
+                            <a class="dropdown-item" href="facilities.html">Facilities</a>
                         </li>
                     </ul>
-
+                </li>
+                <li class="nav-item dropdown-hover">
+                    <a class="dropdown-toggle-custom" href="#">
+                        Programs
+                        <i class="chevron-icon fas fa-chevron-down"></i>
+                    </a>
+                    <ul class="dropdown-menu-custom">
+                        <li>
+                            <a class="dropdown-item" href="programs.html">Coaching Programs</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="eligibility.html">Eligibility</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown-hover">
+                    <a class="dropdown-toggle-custom" href="#">
+                        Question Bank
+                        <i class="chevron-icon fas fa-chevron-down"></i>
+                    </a>
+                    <ul class="dropdown-menu-custom">
+                        <li>
+                            <a class="dropdown-item" href="AICSCC.html">AICSCC Question Bank</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="UPSC.html">UPSC Question Bank</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="test_series.html">Test Series</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="exam_result.html">Exam Results</a>
+                </li>
+            <li class="nav-item">
+  <a class="nav-link active" href="gallery.html">Gallery</a>  <!-- Add active here -->
+</li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Admission_notification.html">Notifications</a>
+                </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="video.html">Video</a>
+                </li>
+                 <li class="nav-item">
+                    <a href="faq.html">
+                        <img src="letter-i.png" style="height: 22px; width: 22px; margin-top: 9px; margin-left: 2px;">
+                    </a>
+                </li>
+                </ul>
                
-                </div>
-
+              
+            </div>
             </div>
         </nav>
 
@@ -219,12 +242,18 @@
     <button class="nav-link" data-category="category3" type="button" role="tab">Category 3</button>
   </li>
   <!-- Sort button as a tab item -->
-  <li class="nav-item" role="presentation">
-  <button id="sortBtn" type="button" title="Sort" class="nav-link" style="padding: 0.375rem 0.75rem;">
-  <i class="fas fa-sort" style="font-size: 1.2rem;"></i>
-</button>
+<li class="filter nav"role="presentation">
+  <button
+    id="sortBtn"
+    type="button"
+    title="Sort"
+    class="nav-link d-flex align-items-center justify-content-center"
+    style="padding: 0.375rem 0.75rem;"
+  >
+    <i class="fas fa-sort" style="font-size: 1.2rem;"></i>
+  </button>
+</li>
 
-  </li>
 </ul>
 
 </div>

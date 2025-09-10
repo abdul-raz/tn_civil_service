@@ -1609,9 +1609,6 @@ border-left: 0.3em solid transparent;
                 border-radius: 15px 15px 0px 0px;
                 /* margin: -2.5rem -2.5rem 2rem -2.5rem; */
                 text-align: center;
-                width: 100%;
-                height:90px;
-                box-sizing: border-box;
             }
 
             .check-item {
@@ -1622,10 +1619,6 @@ border-left: 0.3em solid transparent;
                 border-radius: 10px;
                 transition: all 0.3s ease;
                 /* margin-bottom: 0.5rem;     */
-            }
-            
-            .eligibility-content {
-                padding: 40px 40px 40px 40px;
             }
 
             /* .check-item:hover {
@@ -2944,8 +2937,7 @@ border-left: 0.3em solid transparent;
     .feature-card,
     .facilities-card,
     .success-card,
-    .contact-card,
-     {
+    .contact-card{
         padding: 2rem;
         margin-bottom: 2rem;
     }
@@ -3525,7 +3517,7 @@ border-left: 0.3em solid transparent;
     }
     
     .facilities-card,
-    .success-card,
+    .success-card
      {
         padding: 2rem 1.5rem;
         margin-bottom: 1.8rem;
@@ -3715,7 +3707,7 @@ border-left: 0.3em solid transparent;
     }
     
     .facilities-card,
-    .success-card,
+    .success-card
      {
         padding: 1.8rem 1.3rem;
         margin-bottom: 1.5rem;
@@ -3930,7 +3922,7 @@ border-left: 0.3em solid transparent;
     }
     
     .facilities-card,
-    .success-card,
+    .success-card
      {
         padding: 1.5rem 1rem;
         margin-bottom: 1.3rem;
@@ -4158,7 +4150,7 @@ border-left: 0.3em solid transparent;
     }
     
     .facilities-card,
-    .success-card,
+    .success-card
     {
         padding: 1.2rem 0.8rem;
         margin-bottom: 1rem;
@@ -4711,7 +4703,7 @@ border-left: 0.3em solid transparent;
         padding: 0.5rem 1.2rem;
         font-size: 15px;
     }
-}
+
 /* Nav pills styling - FORCE 25px border radius everywhere */
 .nav-pills .nav-link {
   background-color: rgba(181, 176, 176, 1);

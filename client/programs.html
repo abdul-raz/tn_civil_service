@@ -268,10 +268,13 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Medium screens - keep in one line */
 @media (min-width: 769px) and (max-width: 992px) {
-  .exam-tabs-wrapper {
-    display: inline-block;
-    width: auto;
-  }
+     .exam-tabs-wrapper {
+  display: inline-block;
+  border-radius: 50px;
+  padding: 0.5rem;
+  box-shadow: -4px 0 8px rgba(0, 0, 0, 0.1), 4px 0 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
+}
   
   .exam-tabs-wrapper ul.nav-pills {
     flex-direction: row;
@@ -291,6 +294,99 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 0.85rem !important;
   }
 }
+@media (max-width: 768px) {
+  .schedule-table {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.5rem !important;
+  }
+
+  /* .conatiner {
+    flex-wrap: wrap;
+  } */
+   .highlight-box {
+    flex-wrap: nowrap;
+  }
+
+  /* Responsive exam tabs and pills styling for tablets and small desktops */
+  .exam-tabs-wrapper .nav-pills .nav-link {
+    font-size: 0.95rem; /* Slightly smaller than default, larger than mobile */
+    padding: 0.4rem 0.8rem; /* Adjusted padding for medium screens */
+    margin-right: 0.25rem; /* Reduced margin */
+  }
+
+  .exam-tabs-wrapper .nav-pills {
+    gap: 0.5rem; /* Reduce gap between pills */
+    flex-wrap: nowrap; /* Keep on single line if space permits */
+    display: flex;
+    justify-content: center;
+  }
+
+  .exam-tabs-wrapper {
+    display: inline-block;
+    border-radius: 50px;
+    padding: 0.5rem;
+    box-shadow: -4px 0 8px rgba(0, 0, 0, 0.1), 4px 0 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+  }
+
+
+    /* .row.text-center {
+    display: flex;
+    flex-direction: column;
+  }
+  .row.text-center > .col-4 {
+    display: flex;
+    flex-direction: column;
+  }
+  .row.text-center > .col-4 .metric-box {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 100%; /* Make metric-box fill full height */
+ 
+}
+
+@media (max-width: 576px) {
+  .highlight-box {
+    flex-wrap: wrap;
+    /* enable wrapping on small screens */
+  }
+ 
+  /* Reduce font size and padding for pills */
+  .exam-tabs-wrapper .nav-pills .nav-link {
+    font-size: 0.8rem;
+    /* smaller font */
+    padding: 0.25rem 0.4rem;
+    /* tighter padding */
+    margin-right: 0;
+    /* remove right margin */
+  }
+
+  /* Remove gap and allow wrapping of pills */
+  .exam-tabs-wrapper .nav-pills {
+    gap: 0;
+    /* remove gap between pills */
+    flex-wrap: wrap;
+    display: inline-flex;
+    /* container sized to content */
+    justify-content: center;
+    ;
+  }
+
+  /* Center the container */
+  .exam-tabs-wrapper {
+    display: flex;
+    justify-content: center;
+    border-radius: 50px;
+    padding: 0.5rem;
+    box-shadow: -4px 0 8px rgba(0, 0, 0, 0.1), 4px 0 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+
+  }
+}
+
 
 @media (max-width: 480px) {
   .test-table th,
@@ -656,7 +752,7 @@ h1, h2, h3, h4, h5, h6 {
             <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="index 2 1.html">Home</a>
+                            <a class="nav-link" href="index.html">Home</a>
                         </li>
                 <li class="nav-item dropdown-hover">
                     <a class="dropdown-toggle-custom" href="#">

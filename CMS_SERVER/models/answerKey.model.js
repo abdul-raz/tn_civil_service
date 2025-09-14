@@ -1,41 +1,44 @@
-module.exports = (sequelize, DataTypes) => {
-  return sequelize.define(
-    "AnswerKey",
-    {
-      id: {
-        type: DataTypes.INTEGER,
-        autoIncrement: true,
-        primaryKey: true,
-      },
-      questionBankId: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        references: {
-          model: "QuestionBanks", // table name, verify with your setup
-          key: "id",
-        },
-        unique: true,
-      },
-      answerKeyType: {
-        type: DataTypes.ENUM("0", "1"), // '0' = only answer key, '1' = answer key with explanation
-        allowNull: false,
-        defaultValue: "0",
-      },
-      name: {
-        type: DataTypes.TEXT,
-        allowNull: false,
-      },
-      path: {
-        type: DataTypes.TEXT,
-        allowNull: false,
-      },
-      size: {
-        type: DataTypes.TEXT,
-        allowNull: true,
-      },
+module.exports = (sequelize, Sequelize) => {
+  const AnswerKey = sequelize.define("AnswerKey", {
+    id: {
+      type: Sequelize.INTEGER,
+      autoIncrement: true,
+      primaryKey: true,
     },
-    {
-      timestamps: true,
-    }
-  );
+    questionBankId: {
+      type: Sequelize.INTEGER,
+      allowNull: false,
+      references: {
+        model: "QuestionBanks",
+        key: "id",
+      },
+      unique: true, // one answer key set per question bank (if you want one-to-one)
+    },
+    // type to indicate if this answer key is regular or explanation
+    answerKeyType: {
+      type: Sequelize.ENUM("REGULAR", "WITH_EXPLANATION"),
+      allowNull: false,
+    },
+    name: {
+      type: Sequelize.TEXT,
+      allowNull: false,
+    },
+    path: {
+      type: Sequelize.TEXT,
+      allowNull: false,
+    },
+    size: {
+      type: Sequelize.TEXT,
+      allowNull: true,
+    },
+  });
+
+  AnswerKey.associate = (models) => {
+    AnswerKey.belongsTo(models.QuestionBank, {
+      foreignKey: "questionBankId",
+      as: "questionBank",
+    });
+  };
+
+  return AnswerKey;
 };

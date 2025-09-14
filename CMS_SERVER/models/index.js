@@ -1,5 +1,6 @@
 const dbConfig = require("../config/db.config.js");
 const Sequelize = require("sequelize");
+
 const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
   host: dbConfig.HOST,
   dialect: dbConfig.dialect,
@@ -15,10 +16,11 @@ db.QuestionBank = require("./questionBank.model")(sequelize, Sequelize);
 db.Gallery = require("./gallery.model")(sequelize, Sequelize);
 db.Result = require("./result.model")(sequelize, Sequelize);
 db.AnswerKey = require("./answerKey.model")(sequelize, Sequelize);
+db.User = require("./user.model")(sequelize, Sequelize); // Add User model
 
 // Setup associations if defined
 Object.keys(db).forEach((modelName) => {
-  if (db[modelName].associate) {
+  if (db[modelName] && db[modelName].associate) {
     db[modelName].associate(db);
   }
 });

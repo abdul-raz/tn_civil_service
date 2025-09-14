@@ -1096,15 +1096,16 @@ h6 {
     height: 2px;
   }
 }
-.section-subtitle {
-  text-align: center;
-  font-size: 15px;
-  color: var(--text-light);
-  margin-bottom: 45px;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-}
+  .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 50px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+          margin-top: 30px;
+        }
 
 /* Feature Cards */
 .feature-card {
@@ -1560,8 +1561,8 @@ h6 {
 }
 
 /* Facilities Cards */
-.facilities-card {
-  background: white;
+/* .facilities-card {
+  background: red;
   border-radius: 20px;
   padding: 35px 23px;
   text-align: center;
@@ -1572,7 +1573,20 @@ h6 {
   width: 400px;
   font-size: 14px;
   gap: 2px;
+} */
+.facilities-card {
+  background: white;           /* For test, change to your actual color */
+  border-radius: 20px;
+  padding: 35px 23px;
+  text-align: center;
+  box-shadow: var(--card-shadow);
+  transition: all 0.4s ease;
+  font-size: 14px;
+  margin-bottom: 24px;       /* Add spacing between rows if needed */
+  width: 100%;               /* Make the card take full column width */
+height:400px
 }
+
 
 .facilities-card h4 {
   font-size: 20px;
@@ -1634,7 +1648,7 @@ h6 {
   height: 90px;
 }
 .eligibility-content {
-  padding: 1.5rem 2.5rem 2.5rem 2.5rem;
+  padding: 1rem 1rem 1rem 1.5rem;
 }
 
 .check-item {
@@ -2447,6 +2461,7 @@ h6 {
     margin-bottom: 30px;
     padding: 0 10px;
     line-height: 1.5;
+   
   }
 
   .feature-card {
@@ -4190,6 +4205,9 @@ nav-link {
     margin-bottom: 0.8rem;
   }
 
+  .facilities-card{
+    height:auto;
+  }
   .facilities-card,
   .success-card {
     padding: 1.2rem 0.8rem;
@@ -4783,8 +4801,7 @@ nav-link {
 
 /* Exam tabs wrapper - BASE STYLES */
 .exam-tabs-wrapper {
-  display: block;
-  width: 100%;
+ 
   border-radius: 50px;
   padding: 0.5rem;
   box-shadow: -4px 0 8px rgba(0, 0, 0, 0.1), 4px 0 8px rgba(0, 0, 0, 0.1);
@@ -4831,6 +4848,7 @@ h6 {
 /* Mobile - compact 3-column grid */
 @media (max-width: 576px) {
   .exam-tabs-wrapper {
+
     width: 100%;
     padding: 0.25rem;
     border-radius: 25px;
@@ -4855,9 +4873,17 @@ h6 {
 /* Very small phones */
 @media (max-width: 480px) {
   .exam-tabs-wrapper {
+    display:inline-block;
+    width:auto;
     margin-left: -0.5rem;
     margin-right: -0.5rem;
-    border-radius: 15px;
+    border-radius: 50px;
+  }
+
+  .nav-pills {
+    display: flex;
+    flex-wrap: wrap; /* Enable wrapping */
+    justify-content: center; /* Center the pills */
   }
 
   .nav-pills .nav-link {
@@ -4865,13 +4891,18 @@ h6 {
     padding: 0.4rem 0.8rem;
     max-width: 260px;
     border-radius: 25px !important;
+    flex: 1 0 55%; /* Each pill takes up about 45% width for 2 in a row */
+    margin: 5px; /* Spacing between pills */
+    white-space: normal; /* Allow multi-line text if needed */
   }
 }
+
 
 /* Small tablets - keep in one line */
 @media (min-width: 577px) and (max-width: 768px) {
   .exam-tabs-wrapper {
-    width: 100%;
+    display: inline-block;
+    width: auto;
     padding: 0.4rem;
   }
 
@@ -5190,7 +5221,7 @@ h6 {
 
 .flip-card:hover .accent,
 .flip-card:focus-within .accent {
-  box-shadow: 0 0 10px 3px #e4bb12;
+  /* box-shadow: 0 0 10px 3px #e4bb12; */
 }
 
 .flip-card-back {
@@ -5309,12 +5340,12 @@ h6 {
   border-radius: 2px;
   box-shadow: none;
   margin-top: 0.5rem;
-  transition: box-shadow 0.3s;
+  /* transition: box-shadow 0.3s; */
 }
 
 .flip-card:hover .accent,
 .flip-card:focus-within .accent {
-  box-shadow: 0 0 10px 3px #e4bb12;
+  /* box-shadow: 0 0 10px 3px #e4bb12; */
 }
 
 .flip-card-back {
@@ -5435,12 +5466,12 @@ h6 {
   border-radius: 2px;
   box-shadow: none;
   margin-top: 0.5rem;
-  transition: box-shadow 0.3s;
+  /* transition: box-shadow 0.3s; */
 }
 
 .flip-card:hover .accent,
 .flip-card:focus-within .accent {
-  box-shadow: 0 0 10px 3px #e4bb12;
+  /* box-shadow: 0 0 10px 3px #e4bb12; */
 }
 
 .flip-card-back {
@@ -5654,13 +5685,13 @@ html {
   border-radius: 2px;
   box-shadow: none;
   margin-top: 0.5rem;
-  transition: box-shadow 0.3s;
+  /* transition: box-shadow 0.3s; */
 }
 
-.flip-card:hover .accent,
+/* .flip-card:hover .accent,
 .flip-card:focus-within .accent {
-  box-shadow: 0 0 10px 3px #e4bb12;
-}
+  box-shadow: 0 0 10px 3px #0c0c0cff;
+} */
 
 .flip-card-back {
   background: #fffbe6;

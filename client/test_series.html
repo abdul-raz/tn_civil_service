@@ -239,22 +239,32 @@
         margin-bottom: 10px;
         
       } */
-      .exam-tabs-wrapper {
-  display: inline-block;
+  /* .exam-tabs-wrapper {
+  display: inline-flex;          /* or 'block' */
+  flex-wrap: wrap;               /* allow wrapping */
   border-radius: 50px;
   padding: 0.5rem;
   box-shadow: -4px 0 8px rgba(0, 0, 0, 0.1), 4px 0 8px rgba(0, 0, 0, 0.1);
   margin-bottom: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  /* Optional: limit max-width so it can wrap early */
+  max-width: 100%;               /* or a fixed value like 400px */
+  gap: 0.5rem;                  /* spacing between wrapped lines */
+} */
+
+
+ .exam-tabs-wrapper ul.nav-pills {
+  display: flex;
+  flex-wrap: wrap;       /* Enable wrap */
+  justify-content: center; /* Center tabs in each line */
+  gap: 1rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
 }
 
 
-      .exam-tabs-wrapper ul.nav-pills {
-        display: flex; /* keep pills in a row */
-        gap: 1rem; /* spacing between pills */
-        margin: 0;
-        padding: 0;
-        list-style: none; /* remove list bullet */
-      }
 
       .test-table {
   border-collapse: separate !important;
@@ -619,7 +629,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                            <a class="nav-link" aria-current="page" href="index.html">Home</a>
                         </li>
                 <li class="nav-item dropdown-hover">
                     <a class="dropdown-toggle-custom" href="#">
@@ -677,13 +687,13 @@
                 </li>
                   <li class="nav-item">
                     <a class="nav-link" href="video.html">Video</a>
-                </ul>
+                </li>
                 <li class="nav-item">
                     <a href="faq.html">
                         <img src="letter-i.png" style="height: 22px; width: 22px; margin-top: 9px; margin-left: 2px;">
                     </a>
                 </li>
-              
+              </ul>
             </div>
             </div>
         </nav> 
@@ -700,7 +710,7 @@
         Comprehensive Test Series – Access question papers, answer keys, and
         detailed solutions by year.
       </p>
-      <div class="d-flex justify-content-center mt-4">
+      <div class="d-flex justify-content-center flex-wrap mt-4">
         <div class="exam-tabs-wrapper">
           <ul class="nav nav-pills" id="testSeriesTab" role="tablist">
             <li class="nav-item" role="presentation">

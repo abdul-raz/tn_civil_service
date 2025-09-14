@@ -29,6 +29,30 @@
 
  <style>
             
+ #sortBtn {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border: 1.5px solid black;
+  background-color: transparent;
+  color: black;
+}
+
+#sortBtn:hover,
+#sortBtn.active {
+  background-color: var(--accent-gold, #f59e0b);
+  color: white;
+  border-color: var(--accent-gold, #f59e0b);
+}
+
+
             .nav-pills{
     border-bottom: none;
     gap: 0;
@@ -121,6 +145,53 @@
     font-weight: 900;
     font-size: 1.2rem;
     margin-right: 5px;
+  }
+
+  .gallery-item {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    margin-bottom: 0px;
+  }
+
+  .gallery-item img {
+    display: block;
+    width: 100%;
+    transition: transform 0.3s ease;
+  }
+
+  .gallery-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    text-align: center;
+    transition: opacity 0.3s ease;
+  }
+
+  .gallery-item:hover .gallery-overlay {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .gallery-item:hover img {
+    transform: scale(1.05);
+  }
+
+  .gallery-overlay h5,
+  .gallery-overlay p {
+    margin: 0 0 0.5rem 0;
+    color: var(--accent-gold);
   }
         </style>
 
@@ -228,38 +299,32 @@
         <div class="container">
             <!-- Category Tabs -->
 <div class="tabs-filter-container">
- <ul class="nav nav-pills mb-0" id="categoryTabs" role="tablist" style="white-space: nowrap;">
-  <li class="nav-item" role="presentation">
-    <button class="nav-link active" data-category="all" type="button" role="tab">All</button>
-  </li>
-  <li class="nav-item" role="presentation">
-    <button class="nav-link" data-category="category1" type="button" role="tab">Category 1</button>
-  </li>
-  <li class="nav-item" role="presentation">
-    <button class="nav-link" data-category="category2" type="button" role="tab">Category 2</button>
-  </li>
-  <li class="nav-item" role="presentation">
-    <button class="nav-link" data-category="category3" type="button" role="tab">Category 3</button>
-  </li>
-  <!-- Sort button as a tab item -->
-<li class="filter nav"role="presentation">
-  <button
-    id="sortBtn"
-    type="button"
-    title="Sort"
-    class="nav-link d-flex align-items-center justify-content-center"
-    style="padding: 0.375rem 0.75rem;"
-  >
-    <i class="fas fa-sort" style="font-size: 1.2rem;"></i>
-  </button>
-</li>
-
-</ul>
+  <ul class="nav nav-pills mb-0" id="categoryTabs" role="tablist" style="white-space: nowrap;">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" data-category="all" type="button" role="tab">All</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" data-category="category1" type="button" role="tab">Category 1</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" data-category="category2" type="button" role="tab">Category 2</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" data-category="category3" type="button" role="tab">Category 3</button>
+    </li>
+  </ul>
+  <!-- Add Filter Button here -->
+<button id="sortBtn" type="button" class="btn btn-outline-primary ms-3" aria-label="Sort">
+  <i class="fas fa-sort-alpha-down" aria-hidden="true"></i>
+</button>
 
 </div>
 
+
+
+
             <!-- Gallery Controls -->
-            <div class="gallery-controls">
+            <!-- <div class="gallery-controls">
                 <div class="items-info">
                     Showing <span id="itemsShown">1</span> to <span id="itemsTo">6</span> of <span id="totalItems">24</span> entries
                 </div>
@@ -272,7 +337,7 @@
                         <option value="24">24</option>
                     </select>
                 </div>
-            </div>
+            </div> -->
 
             <!-- Gallery Grid -->
             <div class="gallery-grid" id="galleryGrid">
@@ -294,74 +359,74 @@
         </div>
     </div>
 
-                    <div class="row">
-                        <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
-                            <div class="gallery-item">
-                                <img src="https://www.civilservicecoaching.com/galleries/853194-..png"
-                                    alt="Modern Classroom">
-                                <div class="gallery-overlay">
-                                    <h5>State-of-the-Art Classrooms</h5>
-                                    <p>Modern learning environment with advanced teaching aids and technology integration
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
+         <div class="row">
+  <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+    <div class="gallery-item card h-100 shadow-sm border-0 rounded-3 overflow-hidden position-relative">
+      <img src="https://www.civilservicecoaching.com/galleries/853194-..png" alt="Modern Classroom"
+        class="card-img-top" style="height: 220px; object-fit: cover;">
+      <div class="gallery-overlay">
+        <h5 class="fw-bold">State-of-the-Art Classrooms</h5>
+        <p class="text-white">Modern learning environment with advanced teaching aids and technology integration</p>
+      </div>
+    </div>
+  </div>
 
-                        <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
-                            <div class="gallery-item">
-                                <img src="https://www.civilservicecoaching.com/galleries/302140-..png"
-                                    alt="Examination Hall">
-                                <div class="gallery-overlay">
-                                    <h5>Mock Test Sessions</h5>
-                                    <p>Regular practice tests conducted in real examination conditions</p>
-                                </div>
-                            </div>
-                        </div>
+  <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+    <div class="gallery-item card h-100 shadow-sm border-0 rounded-3 overflow-hidden position-relative">
+      <img src="https://www.civilservicecoaching.com/galleries/302140-..png" alt="Examination Hall" class="card-img-top"
+        style="height: 220px; object-fit: cover;">
+      <div class="gallery-overlay">
+        <h5 class="fw-bold">Mock Test Sessions</h5>
+        <p class="text-white">Regular practice tests conducted in real examination conditions</p>
+      </div>
+    </div>
+  </div>
 
-                        <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
-                            <div class="gallery-item">
-                                <img src="https://www.civilservicecoaching.com/galleries/178551-..png"
-                                    alt="Interview Preparation">
-                                <div class="gallery-overlay">
-                                    <h5>Interview Training</h5>
-                                    <p>Comprehensive personality development and mock interview sessions</p>
-                                </div>
-                            </div>
-                        </div>
+  <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+    <div class="gallery-item card h-100 shadow-sm border-0 rounded-3 overflow-hidden position-relative">
+      <img src="https://www.civilservicecoaching.com/galleries/178551-..png" alt="Interview Preparation"
+        class="card-img-top" style="height: 220px; object-fit: cover;">
+      <div class="gallery-overlay">
+        <h5 class="fw-bold">Interview Training</h5>
+        <p class="text-white">Comprehensive personality development and mock interview sessions</p>
+      </div>
+    </div>
+  </div>
 
-                        <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="400">
-                            <div class="gallery-item">
-                                <img src="https://www.civilservicecoaching.com/galleries/750815-..png"
-                                    alt="Digital Library">
-                                <div class="gallery-overlay">
-                                    <h5>Digital Library</h5>
-                                    <p>Extensive collection of books, journals, and e-resources</p>
-                                </div>
-                            </div>
-                        </div>
+  <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="400">
+    <div class="gallery-item card h-100 shadow-sm border-0 rounded-3 overflow-hidden position-relative">
+      <img src="https://www.civilservicecoaching.com/galleries/750815-..png" alt="Digital Library" class="card-img-top"
+        style="height: 220px; object-fit: cover;">
+      <div class="gallery-overlay">
+        <h5 class="fw-bold">Digital Library</h5>
+        <p class="text-white">Extensive collection of books, journals, and e-resources</p>
+      </div>
+    </div>
+  </div>
 
-                        <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="500">
-                            <div class="gallery-item">
-                                <img src="https://www.civilservicecoaching.com/galleries/264152-..png"
-                                    alt="Group Discussion">
-                                <div class="gallery-overlay">
-                                    <h5>Group Discussions</h5>
-                                    <p>Interactive sessions for current affairs and topic discussions</p>
-                                </div>
-                            </div>
-                        </div>
+  <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="500">
+    <div class="gallery-item card h-100 shadow-sm border-0 rounded-3 overflow-hidden position-relative">
+      <img src="https://www.civilservicecoaching.com/galleries/264152-..png" alt="Group Discussion" class="card-img-top"
+        style="height: 220px; object-fit: cover;">
+      <div class="gallery-overlay">
+        <h5 class="fw-bold">Group Discussions</h5>
+        <p class="text-white">Interactive sessions for current affairs and topic discussions</p>
+      </div>
+    </div>
+  </div>
 
-                        <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="600">
-                            <div class="gallery-item">
-                                <img src="https://www.civilservicecoaching.com/galleries/651729-...png"
-                                    alt="Success Celebration">
-                                <div class="gallery-overlay">
-                                    <h5>Success Stories</h5>
-                                    <p>Celebrating our achievers and their remarkable journeys</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+  <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="600">
+    <div class="gallery-item card h-100 shadow-sm border-0 rounded-3 overflow-hidden position-relative">
+      <img src="https://www.civilservicecoaching.com/galleries/651729-...png" alt="Success Celebration"
+        class="card-img-top" style="height: 220px; object-fit: cover;">
+      <div class="gallery-overlay">
+        <h5 class="fw-bold">Success Stories</h5>
+        <p class="text-white">Celebrating our achievers and their remarkable journeys</p>
+      </div>
+    </div>
+  </div>
+</div>
+
                 </div>
 
       <div class="load-more-wrapper">

@@ -70,8 +70,18 @@
             font-weight: 600;
             color: #002147;
         }
+          .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 50px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 30px;
+        }
      .metallic-text {
-  
+     margin-top: 30px;
   font-size: 36px;
   font-weight: bold;
   color: #b08900;
@@ -485,6 +495,7 @@ background: linear-gradient(45deg, #fff95c, #d4b700, #fff95c);
     }
 }
 
+
         /* Hero Section */
         .hero-section {
             /* height: 100vh; */
@@ -537,8 +548,8 @@ background: linear-gradient(45deg, #fff95c, #d4b700, #fff95c);
 
         .hero-content span{
             font-size:34px;
-            
         }
+       
 
         @keyframes pulse {
             0% {
@@ -567,12 +578,12 @@ background: linear-gradient(45deg, #fff95c, #d4b700, #fff95c);
         }
 
         .btn-primary-hero {
-            background: var(--success-green);
+            background: var(--accent-gold);
             color: white;
         }
 
         .btn-primary-hero:hover {
-            background: #059669;
+            background: var(--accent-light);
             transform: translateY(-2px);
             box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3);
             color: white;
@@ -602,6 +613,7 @@ background: linear-gradient(45deg, #fff95c, #d4b700, #fff95c);
             color: var(--primary-dark);
             position: relative;
             font-weight: 700;
+            
         }
 
         .section-title::after {
@@ -616,7 +628,7 @@ background: linear-gradient(45deg, #fff95c, #d4b700, #fff95c);
             border-radius: 2px;
         }
 
-        .section-subtitle {
+        /*.section-subtitle {
             text-align: center;
             font-size: 1.2rem;
             color: var(--text-light);
@@ -624,7 +636,7 @@ background: linear-gradient(45deg, #fff95c, #d4b700, #fff95c);
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
-        }
+        }*/
 
         /* Feature Cards */
         .feature-card {
@@ -695,6 +707,7 @@ background: linear-gradient(45deg, #fff95c, #d4b700, #fff95c);
             color: white;
             position: relative;
             overflow: hidden;
+            
         }
 
         .stats-section::before {
@@ -1362,10 +1375,10 @@ background: linear-gradient(45deg, #fff95c, #d4b700, #fff95c);
             background: #f1f1f1;
         }
 
-        ::-webkit-scrollbar-thumb {
+        /* ::-webkit-scrollbar-thumb {
             background: var(--accent-blue);
             border-radius: 4px;
-        }
+       }  */
 
         ::-webkit-scrollbar-thumb:hover {
             background: var(--primary-text);
@@ -1665,7 +1678,7 @@ background: linear-gradient(45deg, #fff95c, #d4b700, #fff95c);
             <!-- Hero Section -->
             <section class="hero-section">
                 <div class="container">
-                    <div class="hero-content">
+                    <div class="hero-content" style="margin-top: 20px;">
                         
                        <div class="metallic-text">
   <span class="highlight">60</span> Years of Excellence
@@ -1688,7 +1701,7 @@ background: linear-gradient(45deg, #fff95c, #d4b700, #fff95c);
                 </div>
             </section>
             <!-- Stats Section -->
-            <section class="stats-section section-padding py-2">
+            <section class="stats-section">
                 <div class="container">
                     <div class="row text-center">
                         <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
@@ -1809,876 +1822,7 @@ background: linear-gradient(45deg, #fff95c, #d4b700, #fff95c);
                     </div>
                 </div>
             </section>
-            <!-- About Section -->
-            <!-- <section class="section-padding" style="background: white;">
-            <div class="container">
-                <div class="section-title" data-aos="fade-up">
-                    <h2>About AICSCC</h2>
-                </div>
-                <p class="text-center section-subtitle" data-aos="fade-up" data-aos-delay="100">
-                    Six decades of excellence in civil services preparation
-                </p>
-
-                <div class="row g-5 align-items-center">
-                    <div class="col-lg-6" data-aos="fade-right" data-aos-delay="200">
-                        <h3>Our Legacy</h3>
-                        <p>Established in 1963, the All India Civil Services Coaching Centre stands as a beacon of
-                            excellence in civil services preparation. As a premier unit under the Anna Institute of
-                            Management, Government of Tamil Nadu, we have been instrumental in shaping the
-                            administrative landscape of India.</p>
-
-                        <h4 class="mt-4">Our Vision</h4>
-                        <p class="text-muted">To continue being the premier institution for civil services
-                            preparation, fostering ethical leadership and administrative excellence.</p>
-
-                        <h4 class="mt-3">Our Mission</h4>
-                        <p class="text-muted">To provide comprehensive, accessible, and world-class coaching that
-                            transforms aspirants into competent administrators committed to serving society.</p>
-                    </div>
-
-                    <div class="col-lg-6" data-aos="fade-left" data-aos-delay="300">
-                        <h4>Core Values</h4>
-                        <div class="d-flex align-items-start mb-3" data-aos="fade-up" data-aos-delay="400">
-                            <i class="fas fa-check-circle text-success me-3 mt-1"></i>
-                            <div>
-                                <h6>Excellence</h6>
-                                <p class="mb-0 text-muted">Maintaining highest standards in education and training</p>
-                            </div>
-                        </div>
-
-                        <div class="d-flex align-items-start mb-3" data-aos="fade-up" data-aos-delay="500">
-                            <i class="fas fa-check-circle text-success me-3 mt-1"></i>
-                            <div>
-                                <h6>Integrity</h6>
-                                <p class="mb-0 text-muted">Fostering ethical values and moral leadership</p>
-                            </div>
-                        </div>
-
-                        <div class="d-flex align-items-start mb-3" data-aos="fade-up" data-aos-delay="600">
-                            <i class="fas fa-check-circle text-success me-3 mt-1"></i>
-                            <div>
-                                <h6>Accessibility</h6>
-                                <p class="mb-0 text-muted">Ensuring equal opportunities for all deserving candidates</p>
-                            </div>
-                        </div>
-
-                        <div class="d-flex align-items-start" data-aos="fade-up" data-aos-delay="700">
-                            <i class="fas fa-check-circle text-success me-3 mt-1"></i>
-                            <div>
-                                <h6>Innovation</h6>
-                                <p class="mb-0 text-muted">Continuously evolving our teaching methodologies</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section> -->
-            <!-- Our Facilities Section -->
-            <!-- <section class="section-padding">
-            <div class="container">
-                <div class="section-title" data-aos="fade-up">
-                    <h2>Our Facilities</h2>
-                </div>
-                <p class="text-center section-subtitle" data-aos="fade-up" data-aos-delay="100">
-                    World-class infrastructure for comprehensive civil services preparation
-                </p>
-
-                <div class="row">
-                    <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
-                        <div class="facilities-card">
-                            <img src="https://bharathlaw.ac.in/assets/images/facilities/hostel-facilities.jpg"
-                                alt="Hostel Facility" class="facilities-image">
-                            <h4>Residential Hostel</h4>
-                            <p class="mb-0">Comfortable accommodation with study facilities, mess, and 24/7
-                                security for focused preparation.</p>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
-                        <div class="facilities-card">
-                            <img src="https://lh5.googleusercontent.com/proxy/vusz86fjsVsl4DW4VvuOeHA3d8iM3EkdZ071S7mj7cfD4STHP1sQeBXG4l2BxYsKWcYWiE6evZ46a0zld3ys"
-                                alt="Computer Lab" class="facilities-image">
-                            <h4>Computer Lab</h4>
-                            <p class="mb-0">State-of-the-art computer lab with high-speed internet for online
-                                tests and research.</p>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
-                        <div class="facilities-card">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRY8llEy3tCHR_SF0Jh130ACHxe5I-1zc4t_g&s"
-                                alt="Library" class="facilities-image">
-                            <h4>Reference Library</h4>
-                            <p class="mb-0">Extensive collection of reference books, journals, newspapers, and
-                                magazines.</p>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="400">
-                        <div class="facilities-card">
-                            <img src="https://populous.com/uploads/2024/10/Recreation_Populous_cropped_1920x1080.jpg"
-                                alt="Recreation" class="facilities-image">
-                            <h4>Recreation Facilities</h4>
-                            <p class="mb-0">Indoor games, gymnasium, and outdoor sports facilities for physical
-                                and mental wellness.</p>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="500">
-                        <div class="facilities-card">
-                            <img src="https://annaimadhapoly.com/images/medical.jpg" alt="Medical Facility"
-                                class="facilities-image">
-                            <h4>Medical Care</h4>
-                            <p class="mb-0">On-campus medical facility with qualified doctors and nursing staff
-                                for health care.</p>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="600">
-                        <div class="facilities-card">
-                            <img src="https://www.jainuniversity.ac.in/jain/theme/assets/images/about/best-university-in-india/jgi-university-strategy2.jpg"
-                                alt="Counseling" class="facilities-image">
-                            <h4>Counseling Center</h4>
-                            <p class="mb-0">Professional counseling services for academic guidance and stress
-                                management.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section> -->
-            <!-- Eligibility Criteria Section -->
-            <!-- <section class="section-padding" style="background: white;">
-            <div class="container">
-                <div class="section-title" data-aos="fade-up">
-                    <h2>Eligibility Criteria</h2>
-                </div>
-                <p class="text-center section-subtitle" data-aos="fade-up" data-aos-delay="100">
-                    Check if you qualify for our free coaching program
-                </p>
-
-                <div class="row">
-                    <div class="col-lg-6 mb-4" data-aos="fade-right" data-aos-delay="200">
-                        <div class="eligibility-card">
-                            <div class="eligibility-header">
-                                <h4 class="mb-0">
-                                    <i class="bi bi-person-check me-2"></i>
-                                    Basic Eligibility Requirements
-                                </h4>
-                            </div>
-
-                            <div class="check-item px-0">
-                                <i class="bi bi-check-circle check-icon"></i>
-                                <div>
-                                    <strong>Native of Tamil Nadu:</strong> Must be a permanent resident of Tamil Nadu
-                                    with
-                                    valid domicile certificate
-                                </div>
-                            </div>
-
-                            <div class="check-item px-0">
-                                <i class="bi bi-check-circle check-icon"></i>
-                                <div>
-                                    <strong>Educational Qualification:</strong> Bachelor's degree from a recognized
-                                    university with minimum required percentage
-                                </div>
-                            </div>
-
-                            <div class="check-item px-0">
-                                <i class="bi bi-check-circle check-icon"></i>
-                                <div>
-                                    <strong>Age Criteria:</strong> As per UPSC norms with applicable relaxations for
-                                    reserved categories (21-32 years for general category)
-                                </div>
-                            </div>
-
-                            <div class="check-item px-0">
-                                <i class="bi bi-check-circle check-icon"></i>
-                                <div>
-                                    <strong>Category Benefits:</strong> SC/ST/OBC candidates receive age and fee
-                                    relaxations
-                                    as per government guidelines
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 mb-4" data-aos="fade-left" data-aos-delay="300">
-                        <div class="eligibility-card">
-                            <div class="eligibility-header">
-                                <h4 class="mb-0">
-                                    <i class="bi bi-clipboard-check me-2"></i>
-                                    Selection Process
-                                </h4>
-                            </div>
-
-                            <div class="check-item px-0">
-                                <div class="badge bg-warning text-dark rounded-pill me-3 flex-shrink-0">Step 1</div>
-                                <div>
-                                    <strong>Application Submission:</strong> Submit online application with required
-                                    documents and certificates
-                                </div>
-                            </div>
-
-                            <div class="check-item px-0">
-                                <div class="badge bg-warning text-dark rounded-pill me-3 flex-shrink-0">Step 2</div>
-                                <div>
-                                    <strong>Entrance Examination:</strong> Qualify the entrance test covering general
-                                    studies and aptitude
-                                </div>
-                            </div>
-
-                            <div class="check-item px-0">
-                                <div class="badge bg-warning text-dark rounded-pill me-3 flex-shrink-0">Step 3</div>
-                                <div>
-                                    <strong>Document Verification:</strong> Physical verification of educational and
-                                    identity certificates
-                                </div>
-                            </div>
-
-                            <div class="check-item px-0">
-                                <div class="badge bg-warning text-dark rounded-pill me-3 flex-shrink-0">Step 4</div>
-                                <div>
-                                    <strong>Final Selection:</strong> Merit-based selection following Tamil Nadu
-                                    government
-                                    reservation policy
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row mt-4">
-                    <div class="col-12">
-                        <div class="alert alert-info border-0 rounded-4 mb-0" role="alert" data-aos="fade-up"
-                            data-aos-delay="400">
-                            <div class="d-flex align-items-center">
-                                <i class="bi bi-info-circle-fill me-3 fs-4"></i>
-                                <div>
-                                    <h6 class="alert-heading mb-1">Important Information</h6>
-                                    <p class="mb-0">All selections are made strictly on merit basis following the
-                                        reservation policy of the Government of Tamil Nadu. For detailed eligibility
-                                        criteria, application deadlines, and latest updates, please contact our office
-                                        or
-                                        visit our official announcements.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section> -->
-            <!-- Contact Us Section -->
-            <!-- <section class="section-padding">
-            <div class="container">
-                <div class="section-title" data-aos="fade-up">
-                    <h2>Contact Us</h2>
-                </div>
-                <p class="text-center section-subtitle" data-aos="fade-up" data-aos-delay="100">
-                    Get in touch with us for any queries or assistance
-                </p>
-
-                <div class="row">
-                    <div class="col-lg-8 mb-4" data-aos="fade-right" data-aos-delay="200">
-                        <div class="contact-form">
-                            <h4 class="mb-4">Send us a Message</h4>
-                            <form>
-                                <div class="row">
-                                    <div class="col-md-6 mb-3">
-                                        <input type="text" class="form-control" placeholder="Your Name" required>
-                                    </div>
-                                    <div class="col-md-6 mb-3">
-                                        <input type="email" class="form-control" placeholder="Your Email" required>
-                                    </div>
-                                </div>
-                                <div class="mb-3">
-                                    <input type="text" class="form-control" placeholder="Subject" required>
-                                </div>
-                                <div class="mb-3">
-                                    <textarea class="form-control" rows="5" placeholder="Your Message"
-                                        required></textarea>
-                                </div>
-                                <button type="submit" class="btn btn-custom btn-primary-custom">Send Message</button>
-                            </form>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4" data-aos="fade-left" data-aos-delay="300">
-                        <div class="contact-card mb-3" data-aos="zoom-in" data-aos-delay="400">
-                            <i class="fas fa-map-marker-alt contact-icon"></i>
-                            <h5>Address</h5>
-                            <p>163/1, Kanchi, P.S.Kumarasamy Raja Salai,<br>R.A.Puram (Greenways Road),<br>Chennai -
-                                600028</p>
-                        </div>
-
-                        <div class="contact-card mb-3" data-aos="zoom-in" data-aos-delay="500">
-                            <i class="fas fa-phone contact-icon"></i>
-                            <h5>Phone</h5>
-                            <p>044-24621475</p>
-                        </div> -->
-            <!-- <div class="contact-card" data-aos="zoom-in" data-aos-delay="600">
-                            <i class="fas fa-envelope contact-icon"></i>
-                            <h5>Email</h5>
-                            <p>aicscc.gov@gmail.com</p>
-                        </div> -->
-            <!-- </div>
-                </div>
-            </div>
-        </section> -->
-            <!-- Find Us Section -->
-            <!-- <section class="section-padding" style="background: white;">
-            <div class="container">
-                <div class="section-title" data-aos="fade-up">
-                    <h2>Find Us</h2>
-                </div>
-                <p class="text-center section-subtitle" data-aos="fade-up" data-aos-delay="100">
-                    Locate our campus and plan your visit
-                </p>
-
-                <div class="row" data-aos="fade-up" data-aos-delay="200">
-                    <div class="col-12">
-                        <div class="contact-card">
-                            <h4 class="text-center mb-4"><i class="fas fa-map-marker-alt me-2"></i>Our Location</h4>
-                            <div style="height: 450px; border-radius: 15px; overflow: hidden; margin-bottom: 2rem;">
-                                <iframe
-                                    src="https://maps.google.com/maps?q=All%20India%20Civil%20Services%20Coaching%20Centre%20163%2F1%2C%20Kanchi%2C%20P.S.Kumarasamy%20Raja%20Salai%2C%20Greenways%20Rd%2C%20Raja%20Annamalai%20Puram%2C%20Chennai%2C%20Tamil%20Nadu%20600028&z=15&output=embed"
-                                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
-                                    referrerpolicy="no-referrer-when-downgrade">
-                            </iframe> -->
-            <!-- <iframe src="https://www.google.com/maps?q= https://maps.app.goo.gl/AueiZnCtUHcTeZft7&z=[ZOOM_LEVEL]&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe> -->
-            <!-- </div>
-
-                            <div class="row text-center d-none">
-                                <div class="col-md-4 mb-3" data-aos="fade-up" data-aos-delay="300">
-                                    <div class="p-3 bg-light rounded">
-                                        <i class="fas fa-map-marker-alt text-primary mb-2" style="font-size: 2rem;"></i>
-                                        <h6>Address</h6>
-                                        <p class="mb-0 small">163/1, Kanchi, P.S.Kumarasamy Raja Salai, R.A.Puram
-                                            (Greenways Road), Chennai - 600028</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 mb-3" data-aos="fade-up" data-aos-delay="400">
-                                    <div class="p-3 bg-light rounded">
-                                        <i class="fas fa-bus text-primary mb-2" style="font-size: 2rem;"></i>
-                                        <h6>Public Transport</h6>
-                                        <p class="mb-0 small">Well connected by bus routes. Nearest metro station:
-                                            Greenways Road</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 mb-3" data-aos="fade-up" data-aos-delay="500">
-                                    <div class="p-3 bg-light rounded">
-                                        <i class="fas fa-clock text-primary mb-2" style="font-size: 2rem;"></i>
-                                        <h6>Office Hours</h6>
-                                        <p class="mb-0 small">Monday - Friday: 9:00 AM - 5:00 PM<br>Saturday: 9:00 AM -
-                                            1:00 PM</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div> -->
-            <!-- About Page -->
-            <!-- <div id="about-page" class="page-content hidden"> -->
-            <!-- <section class="section-padding" style="margin-top: 100px;">
-            <div class="container">
-                <div class="section-title" data-aos="fade-up">
-                    <h2>About Our Institution</h2>
-                </div>
-                <p class="text-center section-subtitle" data-aos="fade-up" data-aos-delay="100">
-                    Six decades of excellence in shaping India's administrative future
-                </p>
-
-                <div class="row align-items-center">
-                    <div class="col-lg-6" data-aos="fade-right" data-aos-delay="200">
-                        <h3>Our Institution</h3>
-                        <p>The All India Civil Services Coaching Centre, a prestigious unit of Anna Institute of
-                            Management, Government of Tamil Nadu, stands as a beacon of excellence in civil services
-                            preparation. Established with the noble mission of empowering aspirants from Tamil Nadu,
-                            we have been instrumental in shaping future administrators who serve the nation with
-                            dedication and integrity.</p>
-
-                        <p>Our institute combines traditional values with modern teaching methodologies to provide
-                            comprehensive preparation for UPSC examinations. We take pride in our systematic
-                            approach, experienced faculty, and proven track record of success.</p>
-
-                        <div class="mt-4">
-                            <h5 class="text-primary mb-3"><i class="fas fa-medal me-2"></i>60 Years of Excellence</h5>
-                            <p>Since our establishment, we have maintained the highest standards of education and
-                                have successfully guided thousands of aspirants towards their dream of serving the
-                                nation through civil services.</p>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6" data-aos="fade-left" data-aos-delay="300">
-                        <div class="feature-card mb-4" data-aos="zoom-in" data-aos-delay="400">
-                            <h4><i class="fas fa-bullseye me-2"></i>Our Mission</h4>
-                            <p>To provide world-class coaching and guidance to civil services aspirants from Tamil
-                                Nadu, ensuring they achieve their dreams of serving the nation.</p>
-                        </div>
-
-                        <div class="feature-card" data-aos="zoom-in" data-aos-delay="500">
-                            <h4><i class="fas fa-eye me-2"></i>Our Vision</h4>
-                            <p>To be the premier institution for civil services preparation, fostering excellence
-                                and integrity in future administrators.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section> -->
-            <!-- </div> -->
-            <!-- Gallery Page -->
-            <!-- <div id="gallery-page" class="page-content hidden"> -->
-            <!-- <section class="section-padding" style="margin-top: 100px;">
-            <div class="container">
-                <div class="section-title" data-aos="fade-up">
-                    <h2>Our Coaching Excellence</h2>
-                </div>
-                <p class="text-center section-subtitle" data-aos="fade-up" data-aos-delay="100">
-                    Glimpses of our world-class facilities and training programs
-                </p>
-
-                <div class="row">
-                    <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
-                        <div class="gallery-item">
-                            <img src="https://img.freepik.com/free-photo/room-interior-design_23-2148899444.jpg?t=st=1753857017~exp=1753860617~hmac=2bb35d1add7f3335b6eb81a8a98cde967c2b656f63787b3e58e09acae9224506&w=1380"
-                                alt="Modern Classroom">
-                            <div class="gallery-overlay">
-                                <h5>State-of-the-Art Classrooms</h5>
-                                <p>Modern learning environment with advanced teaching aids and technology integration
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
-                        <div class="gallery-item">
-                            <img src="https://img.freepik.com/free-photo/group-four-south-asian-men-s-posed-business-meeting-cafe-indians-together-sign-important-documents-contract-study-work_627829-5252.jpg?t=st=1753858001~exp=1753861601~hmac=814dd3e60951c5a400e9733874973396f589d20fee290e3edddad68f2f235649&w=1380"
-                                alt="Examination Hall">
-                            <div class="gallery-overlay">
-                                <h5>Mock Test Sessions</h5>
-                                <p>Regular practice tests conducted in real examination conditions</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
-                        <div class="gallery-item">
-                            <img src="https://img.freepik.com/free-photo/happy-male-candidate-greeting-member-human-resource-team-job-interview-office_637285-6567.jpg?t=st=1753858262~exp=1753861862~hmac=ecd0e0b9a3f7c7870926fc9601197ac761612bdd1a2281a8e0b52ebb931da4f9&w=1380"
-                                alt="Interview Preparation">
-                            <div class="gallery-overlay">
-                                <h5>Interview Training</h5>
-                                <p>Comprehensive personality development and mock interview sessions</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="400">
-                        <div class="gallery-item">
-                            <img src="https://img.freepik.com/free-photo/row-bookcases_23-2147679267.jpg?t=st=1753858344~exp=1753861944~hmac=65e4ea84d5052fd22d0e6d81be9456108d922279a5707ca2409218b871588440&w=1380"
-                                alt="Digital Library">
-                            <div class="gallery-overlay">
-                                <h5>Digital Library</h5>
-                                <p>Extensive collection of books, journals, and e-resources</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="500">
-                        <div class="gallery-item">
-                            <img src="https://media.licdn.com/dms/image/v2/C4D12AQGIP0kYaR5EOA/article-inline_image-shrink_1000_1488/article-inline_image-shrink_1000_1488/0/1650267975134?e=1758758400&v=beta&t=arisg-FHFBXds2DJrtMW1Y29LTTBLpjuNl0wd2l83A0"
-                                alt="Group Discussion">
-                            <div class="gallery-overlay">
-                                <h5>Group Discussions</h5>
-                                <p>Interactive sessions for current affairs and topic discussions</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="600">
-                        <div class="gallery-item">
-                            <img src="https://img.freepik.com/free-photo/businessman-drawing-keys-success_1134-645.jpg?t=st=1753858551~exp=1753862151~hmac=11aae5f33bf93644b7e580d6da6acd80d415a387322d7eca56a80a3ed0abbcc5&w=1380"
-                                alt="Success Celebration">
-                            <div class="gallery-overlay">
-                                <h5>Success Stories</h5>
-                                <p>Celebrating our achievers and their remarkable journeys</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section> -->
-            <!-- </div> -->
-            <!-- Programs Page -->
-            <div id="programs-page" class="page-content hidden">
-                <!-- <section class="section-padding" style="margin-top: 100px;">
-            <div class="container">
-                <div class="section-title" data-aos="fade-up">
-                    <h2>Coaching Programs</h2>
-                </div>
-                <p class="text-center section-subtitle" data-aos="fade-up" data-aos-delay="100">
-                    Comprehensive preparation for UPSC Civil Services Examination
-                </p>
-
-                <div class="row">
-                    <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100">
-                        <img src="https://www.metisias.com/uploads/sliders/1721646573018.png" alt="Prelims Coaching"
-                            class="program-image">
-                        <div class="program-card">
-                            <h4><i class="fas fa-book-reader me-2 text-primary"></i>Prelims Coaching</h4>
-                            <p style="font-weight: 500;">Comprehensive preparation for UPSC Preliminary
-                                examination covering:</p>
-                            <ul class="list-unstyled">
-                                <li style="font-weight: 500;font-size: 14px;margin-bottom: 10px;"><i
-                                        class="fas fa-check text-success me-2"></i>General Studies Paper I</li>
-                                <li style="font-weight: 500;font-size: 14px;margin-bottom: 10px;"><i
-                                        class="fas fa-check text-success me-2"></i>General Studies Paper II (CSAT)</li>
-                                <li style="font-weight: 500;font-size: 14px;margin-bottom: 10px;"><i
-                                        class="fas fa-check text-success me-2"></i>Current Affairs & Static GK</li>
-                                <li style="font-weight: 500;font-size: 14px;margin-bottom: 10px;"><i
-                                        class="fas fa-check text-success me-2"></i>Regular Mock Tests</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200">
-                        <img src="https://franchiseindia.s3.ap-south-1.amazonaws.com/uploads/content/edu/art/5a0a824fc28c7.jpg"
-                            alt="Mains Coaching" class="program-image">
-                        <div class="program-card">
-                            <h4><i class="fas fa-pen-fancy me-2 text-primary"></i>Mains Coaching</h4>
-                            <p style="font-weight: 500;">In-depth preparation for UPSC Mains examination including:</p>
-                            <ul class="list-unstyled">
-                                <li style="font-weight: 500;font-size: 14px;margin-bottom: 10px;"><i
-                                        class="fas fa-check text-success me-2"></i>Essay Writing</li>
-                                <li style="font-weight: 500;font-size: 14px;margin-bottom: 10px;"><i
-                                        class="fas fa-check text-success me-2"></i>General Studies Papers I-IV</li>
-                                <li style="font-weight: 500;font-size: 14px;margin-bottom: 10px;"><i
-                                        class="fas fa-check text-success me-2"></i>Optional Subject Guidance</li>
-                                <li style="font-weight: 500;font-size: 14px;margin-bottom: 10px;"><i
-                                        class="fas fa-check text-success me-2"></i>Answer Writing Practice</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="300">
-                        <img src="https://babafaridgroup.edu.in/assets/img/bfgi/free-career-guidance.jpg"
-                            alt="Interview Guidance" class="program-image">
-                        <div class="program-card">
-                            <h4><i class="fas fa-users me-2 text-primary"></i>Interview Guidance</h4>
-                            <p style="font-weight: 500;">Personality test preparation with:</p>
-                            <ul class="list-unstyled">
-                                <li style="font-weight: 500;font-size: 14px;margin-bottom: 10px;"><i
-                                        class="fas fa-check text-success me-2"></i>Mock Interview Sessions</li>
-                                <li style="font-weight: 500;font-size: 14px;margin-bottom: 10px;"><i
-                                        class="fas fa-check text-success me-2"></i>Personality Development</li>
-                                <li style="font-weight: 500;font-size: 14px;margin-bottom: 10px;"><i
-                                        class="fas fa-check text-success me-2"></i>Current Affairs Discussion</li>
-                                <li style="font-weight: 500;font-size: 14px;margin-bottom: 10px;"><i
-                                        class="fas fa-check text-success me-2"></i>Individual Counseling</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="notice-board" data-aos="fade-up" data-aos-delay="400">
-                    <h4 class="mb-3"><i class="fas fa-bullhorn me-2"></i>Latest Announcements</h4>
-                    <div class="notice-item" data-aos="fade-right" data-aos-delay="500">
-                        <strong>New Batch Starting:</strong> Foundation Course for 2026 batch begins from August
-                        15th, 2025. Limited seats available.
-                    </div>
-                    <div class="notice-item" data-aos="fade-right" data-aos-delay="600">
-                        <strong>Mock Test Series:</strong> Prelims test series 2025 registration now open. Early
-                        bird discount available till August 10th.
-                    </div>
-                    <div class="notice-item" data-aos="fade-right" data-aos-delay="700">
-                        <strong>Result Announcement:</strong> Congratulations to all our students who cleared
-                        UPSC 2024 - 150+ selections achieved!
-                    </div>
-                </div>
-            </div>
-        </section>  
-    </div> -->
-                <!-- Facilities Page -->
-                <!-- <div id="facilities-page" class="page-content hidden">
-        <section class="section-padding" style="margin-top: 100px;">
-            <div class="container">
-                <div class="section-title" data-aos="fade-up">
-                    <h2>Our Facilities</h2>
-                </div>
-                <p class="text-center section-subtitle" data-aos="fade-up" data-aos-delay="100">
-                    World-class infrastructure for comprehensive civil services preparation
-                </p>
-
-                <div class="row">
-                    <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
-                        <div class="facilities-card">
-                            <img src="https://bharathlaw.ac.in/assets/images/facilities/hostel-facilities.jpg"
-                                alt="Hostel Facility" class="facilities-image">
-                            <h4><i class="fas fa-home me-2 text-primary"></i>Residential Hostel</h4>
-                            <p class="mb-0">Comfortable accommodation with study facilities, mess, and 24/7
-                                security for focused preparation.</p>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
-                        <div class="facilities-card">
-                            <img src="https://lh5.googleusercontent.com/proxy/vusz86fjsVsl4DW4VvuOeHA3d8iM3EkdZ071S7mj7cfD4STHP1sQeBXG4l2BxYsKWcYWiE6evZ46a0zld3ys"
-                                alt="Computer Lab" class="facilities-image">
-                            <h4><i class="fas fa-desktop me-2 text-primary"></i>Computer Lab</h4>
-                            <p class="mb-0">State-of-the-art computer lab with high-speed internet for online
-                                tests and research.</p>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
-                        <div class="facilities-card">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRY8llEy3tCHR_SF0Jh130ACHxe5I-1zc4t_g&s"
-                                alt="Library" class="facilities-image">
-                            <h4><i class="fas fa-book me-2 text-primary"></i>Reference Library</h4>
-                            <p class="mb-0">Extensive collection of reference books, journals, newspapers, and
-                                magazines.</p>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="400">
-                        <div class="facilities-card">
-                            <img src="https://populous.com/uploads/2024/10/Recreation_Populous_cropped_1920x1080.jpg"
-                                alt="Recreation" class="facilities-image">
-                            <h4><i class="fas fa-dumbbell me-2 text-primary"></i>Recreation Facilities</h4>
-                            <p class="mb-0">Indoor games, gymnasium, and outdoor sports facilities for physical
-                                and mental wellness.</p>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="500">
-                        <div class="facilities-card">
-                            <img src="https://annaimadhapoly.com/images/medical.jpg" alt="Medical Facility"
-                                class="facilities-image">
-                            <h4><i class="fas fa-first-aid me-2 text-primary"></i>Medical Care</h4>
-                            <p class="mb-0">On-campus medical facility with qualified doctors and nursing staff
-                                for health care.</p>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="600">
-                        <div class="facilities-card">
-                            <img src="https://www.jainuniversity.ac.in/jain/theme/assets/images/about/best-university-in-india/jgi-university-strategy2.jpg"
-                                alt="Counseling" class="facilities-image">
-                            <h4><i class="fas fa-user-friends me-2 text-primary"></i>Counseling Center</h4>
-                            <p class="mb-0">Professional counseling services for academic guidance and stress
-                                management.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div> -->
-                <!-- Eligibility Page -->
-                <!-- <div id="eligibility-page" class="page-content hidden"> -->
-                <!-- <section class="section-padding" style="margin-top: 100px;">
-            <div class="container">
-                <div class="section-title" data-aos="fade-up">
-                    <h2>Eligibility Criteria</h2>
-                </div>
-                <p class="text-center section-subtitle" data-aos="fade-up" data-aos-delay="100">
-                    Check if you qualify for our free coaching program
-                </p>
-
-                <div class="row">
-                    <div class="col-lg-6 mb-4" data-aos="fade-right" data-aos-delay="200">
-                        <div class="eligibility-card">
-                            <div class="eligibility-header">
-                                <h4 class="mb-0">
-                                    <i class="bi bi-person-check me-2"></i>
-                                    Basic Eligibility Requirements
-                                </h4>
-                            </div>
-
-                            <div class="check-item px-0">
-                                <i class="bi bi-check-circle check-icon"></i>
-                                <div>
-                                    <strong>Native of Tamil Nadu:</strong> Must be a permanent resident of Tamil Nadu
-                                    with
-                                    valid domicile certificate
-                                </div>
-                            </div>
-
-                            <div class="check-item px-0">
-                                <i class="bi bi-check-circle check-icon"></i>
-                                <div>
-                                    <strong>Educational Qualification:</strong> Bachelor's degree from a recognized
-                                    university with minimum required percentage
-                                </div>
-                            </div>
-
-                            <div class="check-item px-0">
-                                <i class="bi bi-check-circle check-icon"></i>
-                                <div>
-                                    <strong>Age Criteria:</strong> As per UPSC norms with applicable relaxations for
-                                    reserved categories (21-32 years for general category)
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 mb-4" data-aos="fade-left" data-aos-delay="300">
-                        <div class="eligibility-card">
-                            <div class="eligibility-header">
-                                <h4 class="mb-0">
-                                    <i class="bi bi-clipboard-check me-2"></i>
-                                    Selection Process
-                                </h4>
-                            </div>
-
-                            <div class="check-item px-0">
-                                <div class="badge bg-warning text-dark rounded-pill me-3 flex-shrink-0">Step 1</div>
-                                <div>
-                                    <strong>Application Submission:</strong> Submit online application with required
-                                    documents and certificates
-                                </div>
-                            </div>
-
-                            <div class="check-item px-0">
-                                <div class="badge bg-warning text-dark rounded-pill me-3 flex-shrink-0">Step 2</div>
-                                <div>
-                                    <strong>Entrance Examination:</strong> Qualify the entrance test covering general
-                                    studies and aptitude
-                                </div>
-                            </div>
-
-                            <div class="check-item px-0">
-                                <div class="badge bg-warning text-dark rounded-pill me-3 flex-shrink-0">Step 3</div>
-                                <div>
-                                    <strong>Document Verification:</strong> Physical verification of educational and
-                                    identity certificates
-                                </div>
-                            </div>
-
-                            <div class="check-item px-0">
-                                <div class="badge bg-warning text-dark rounded-pill me-3 flex-shrink-0">Step 4</div>
-                                <div>
-                                    <strong>Final Selection:</strong> Merit-based selection following Tamil Nadu
-                                    government
-                                    reservation policy
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="text-center" data-aos="fade-up" data-aos-delay="400">
-                    <h4 class="mb-4">Selection Process Overview</h4>
-                    <div class="row">
-                        <div class="col-md-4 mb-3" data-aos="zoom-in" data-aos-delay="500">
-                            <div class="feature-card">
-                                <div class="icon">
-                                    <i class="fas fa-edit"></i>
-                                </div>
-                                <h5>Entrance Exam</h5>
-                                <p>Written test covering general aptitude and current affairs</p>
-                            </div>
-                        </div>
-                        <div class="col-md-4 mb-3" data-aos="zoom-in" data-aos-delay="600">
-                            <div class="feature-card">
-                                <div class="icon">
-                                    <i class="fas fa-comments"></i>
-                                </div>
-                                <h5>Interview</h5>
-                                <p>Personal interview to assess motivation and communication skills</p>
-                            </div>
-                        </div>
-                        <div class="col-md-4 mb-3" data-aos="zoom-in" data-aos-delay="700">
-                            <div class="feature-card">
-                                <div class="icon">
-                                    <i class="fas fa-user-check"></i>
-                                </div>
-                                <h5>Counseling</h5>
-                                <p>Final selection based on merit and counseling process</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row mt-5">
-                    <div class="col-12">
-                        <div class="alert alert-warning border-0 rounded-4 mb-0" role="alert" data-aos="fade-up"
-                            data-aos-delay="800">
-                            <div class="d-flex align-items-center">
-                                <i class="bi bi-info-circle-fill me-3 fs-4"></i>
-                                <div>
-                                    <h6 class="alert-heading mb-1">Important Information</h6>
-                                    <p class="mb-0">All selections are made strictly on merit basis following the
-                                        reservation policy of the Government of Tamil Nadu. For detailed eligibility
-                                        criteria, application deadlines, and latest updates, please contact our office
-                                        or
-                                        visit our official announcements.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div> -->
-                <!-- Contact Page -->
-                <!-- <div id="contact-page" class="page-content hidden">
-        <section class="section-padding" style="margin-top: 100px;">
-            <div class="container">
-                <div class="section-title" data-aos="fade-up">
-                    <h2>Contact Us</h2>
-                </div>
-                <p class="text-center section-subtitle" data-aos="fade-up" data-aos-delay="100">
-                    Get in touch with us for any queries or assistance
-                </p>
-
-                <div class="row">
-                    <div class="col-lg-8 mb-4" data-aos="fade-right" data-aos-delay="200">
-                        <div class="contact-form">
-                            <h4 class="mb-4">Send us a Message</h4>
-                            <form>
-                                <div class="row">
-                                    <div class="col-md-6 mb-3">
-                                        <input type="text" class="form-control" placeholder="Your Name" required>
-                                    </div>
-                                    <div class="col-md-6 mb-3">
-                                        <input type="email" class="form-control" placeholder="Your Email" required>
-                                    </div>
-                                </div>
-                                <div class="mb-3">
-                                    <input type="text" class="form-control" placeholder="Subject" required>
-                                </div>
-                                <div class="mb-3">
-                                    <textarea class="form-control" rows="5" placeholder="Your Message"
-                                        required></textarea>
-                                </div>
-                                <button type="submit" class="btn btn-custom btn-primary-custom">Send Message</button>
-                            </form>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4" data-aos="fade-left" data-aos-delay="300">
-                        <div class="contact-card mb-3" data-aos="zoom-in" data-aos-delay="400">
-                            <i class="fas fa-map-marker-alt contact-icon"></i>
-                            <h5>Address</h5>
-                            <p>163/1, Kanchi, P.S.Kumarasamy Raja Salai,<br>R.A.Puram (Greenways Road),<br>Chennai -
-                                600028</p>
-                        </div>
-
-                        <div class="contact-card mb-3" data-aos="zoom-in" data-aos-delay="500">
-                            <i class="fas fa-phone contact-icon"></i>
-                            <h5>Phone</h5>
-                            <p>044-24621475</p>
-                        </div>
-
-                        <div class="contact-card" data-aos="zoom-in" data-aos-delay="600">
-                            <i class="fas fa-envelope contact-icon"></i>
-                            <h5>Email</h5>
-                            <p>aicscc.gov@gmail.com</p>
-                        </div>
-                    </div>
-                </div> -->
-                <!-- Google Map -->
+            
                 <div class="row mt-5" data-aos="fade-up" data-aos-delay="700">
                     <div class="col-12">
                         <div class="contact-card">

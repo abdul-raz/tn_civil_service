@@ -1,0 +1,21 @@
+'use strict';
+
+module.exports = (sequelize, DataTypes) => {
+  const NotificationType = sequelize.define('NotificationType', {
+    id: {
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      primaryKey: true,
+    },
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+    },
+  }, {
+    tableName: 'NotificationTypes',
+    timestamps: false,
+  });
+
+  return NotificationType;
+};

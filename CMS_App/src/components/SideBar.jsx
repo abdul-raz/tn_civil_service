@@ -1,0 +1,108 @@
+import React, { useState } from "react";
+import { FaHome, FaChevronDown, FaChevronUp } from "react-icons/fa";
+import { BiSolidBookContent } from "react-icons/bi";
+import { Link } from "react-router-dom";
+
+const MenuItem = ({ icon, label, onClick, isDropdown, isOpen, path }) => (
+  <Link to={path}
+    className={`flex items-center gap-3 p-3 hover:bg-gray-300 hover:border-l-2 border-[#002147] cursor-pointer ${isDropdown ? "justify-between" : ""
+      }`}
+    onClick={onClick}
+  >
+    {icon && <span className="text-[#002147] text-xl">{icon}</span>}
+    <div className="text-[#002147] font-medium">
+      {label}
+    </div>
+    {isDropdown &&
+      (isOpen ? (
+        <FaChevronUp className="ml-auto" />
+      ) : (
+        <FaChevronDown className="ml-auto" />
+      ))}
+  </Link>
+);
+
+const SideBar = ({ isSideBarOpen, setIsSideBarOpen }) => {
+  const [openDropdowns, setOpenDropdowns] = useState({});
+
+  const toggleDropdown = (label) => {
+    setOpenDropdowns((prev) => ({
+      ...prev,
+      [label]: !prev[label],
+    }));
+  };
+
+  const menuItems = [
+    { label: "Dashboard", icon: <FaHome />, path: "/" },
+    {
+      label: "CMS Managements",
+      icon: <BiSolidBookContent />,
+      submenu: [
+        { label: "Question Paper", path: "/questionbank" },
+        { label: "Answer Key", path: "/answerkey" },
+        { label: "Key Explanation", path: "/withexplanation" },
+        { label: "Gallery", path: "/gallery" },
+        { label: "Notification", path: "/notification" },
+      ],
+    }
+  ];
+
+  return (
+    <>
+      {/* Overlay for mobile */}
+      {isSideBarOpen && (
+        <div
+          className="fixed inset-0 bg-black/20 bg-opacity-50 z-20 md:hidden"
+          onClick={() => setIsSideBarOpen(false)}
+        />
+      )}
+
+<aside
+  className={`bg-white scrollbar-hide shadow-md h-screen z-30 transition-transform duration-300 ease-in-out w-[80%] md:w-[18%] fixed top-0 left-0 bottom-0 mx-0 overflow-y-auto ${isSideBarOpen ? "translate-x-0" : "-translate-x-full"} md:translate-x-0`}
+>
+
+  <div className="flex w-full py-4 items-center justify-center gap-2 mb-4 sticky top-0 bg-white z-10">
+    <img src="TN_logo.png" alt="TN_logo" className="w-12 h-12" />
+    <small className="text-[#002147] text-xl font-extrabold">AICSCC</small>
+  </div>
+
+  <nav>
+    {menuItems.map((item) => {
+      const hasSubmenu = !!item.submenu;
+      const isOpen = openDropdowns[item.label];
+
+      return (
+        <div key={item.label}>
+          <MenuItem
+            icon={item.icon}
+            label={item.label}
+            path={item.path}
+            isDropdown={hasSubmenu}
+            isOpen={isOpen}
+            onClick={() =>
+              hasSubmenu ? toggleDropdown(item.label) : null
+            }
+          />
+          {hasSubmenu && isOpen && (
+            <div className="pl-10">
+              {item.submenu.map((subItem) => (
+                <MenuItem
+                  key={subItem.label}
+                  label={subItem.label}
+                  path={subItem.path}
+                  onClick={() => setIsSideBarOpen(false)}
+                />
+              ))}
+            </div>
+          )}
+        </div>
+      );
+    })}
+  </nav>
+</aside>
+
+    </>
+  );
+};
+
+export default SideBar;

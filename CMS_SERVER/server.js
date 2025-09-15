@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 3000;
 // Middleware
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL || "http://localhost:3000", // Allow frontend origin
+    origin: process.env.FRONTEND_URL || "http://localhost:5173", // Allow frontend origin
     credentials: true, // Allow cookies to be sent
   })
 );
@@ -54,6 +54,7 @@ app.get("/", (req, res) => {
       auth: "/api/auth",
       questionBank: "/api/questionBank",
       answerKey: "/api/answerKey",
+      gallery: "/api/gallery",
     },
   });
 });
@@ -78,6 +79,7 @@ app.use((req, res) => {
       "/api/auth/me",
       "/api/questionBank",
       "/api/answerKey",
+      "api/masterData",
     ],
   });
 });
@@ -107,39 +109,19 @@ db.sequelize
   .authenticate()
   .then(() => {
     console.log("Database connection established successfully.");
-    return db.sequelize.sync();
+    return db.sequelize.sync({ alter: false }); // <-- add alter:true here
   })
   .then(() => {
     console.log("Database synced successfully.");
-
     app.listen(PORT, () => {
-      console.log(`
-╔════════════════════════════════════════════════════════════╗
-║               AICSCC CMS Backend Server                    ║
-║                                                            ║
-║  🚀 Server running on: http://localhost:${PORT}             ║
-║  📊 Environment: ${
-        process.env.NODE_ENV || "development"
-      }                               ║
-║  🔐 Authentication: Enabled                                ║
-║  📁 File uploads: Enabled                                  ║
-║                                                            ║
-║  Available endpoints:                                      ║
-║  • POST /api/auth/register (Create admin)                 ║
-║  • POST /api/auth/login (Admin login)                     ║
-║  • POST /api/auth/logout (Admin logout)                   ║
-║  • GET  /api/auth/me (Check session)                      ║
-║  • All /api/questionBank endpoints                        ║
-║  • All /api/answerKey endpoints                           ║
-║                                                            ║
-╚════════════════════════════════════════════════════════════╝
-      `);
+      console.log(`Server running on http://localhost:${PORT}`);
     });
   })
   .catch((err) => {
     console.error("Failed to start server:", err);
     process.exit(1);
   });
+
 
 // Graceful shutdown
 process.on("SIGTERM", () => {

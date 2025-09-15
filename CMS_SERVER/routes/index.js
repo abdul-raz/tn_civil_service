@@ -10,6 +10,8 @@ router.use("/questionBank", require("./questionBank.routes"));
 // Answer Key routes
 router.use("/answerKey", require("./answerKey.routes"));
 
+router.use("/gallery", require("./gallery.routes"));
+router.use("/masterData", require("./masterData.routes"));
 // Gallery routes (uncomment when implemented)
 // router.use("/gallery", require("./gallery.routes"));
 

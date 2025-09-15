@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { IoMdAdd } from "react-icons/io";
 import { FiEye, FiEdit2 } from "react-icons/fi";
 import { RiDeleteBin6Line } from "react-icons/ri";
@@ -7,54 +7,37 @@ import QuestionBankUpdateModal from '../components/modals/questionBank/QuestionB
 import WarnModal from '../components/modals/WarnModal';
 
 const QuestionBank = () => {
+  const [questionBankData, setQuestionBankData] = useState([]);
   const [isAddNewModalOpen, setIsAddNewModalOpen] = useState(false);
   const [isWarnModalOpen, setIsWarnModalOpen] = useState(false);
-
   const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false);
   const [editDocument, setEditDocument] = useState({});
-  const [searchQuery, setSearchQuery] = useState(''); // State for search query
+  const [searchQuery, setSearchQuery] = useState('');
 
-  const questionBankData = [
-    { id: 1, title: 'Entrance Exam', type: 'AICSCC', year: '2023', status: 'Active', pathUrl: 'https://tnma.devops-in22labs.com/uploads/pdf/1744347042_87069e7d586ddf68bdbf.pdf' },
-    { id: 2, title: 'Mock Test', type: 'UPSC', year: '2023', status: 'Inactive', pathUrl: 'https://tnma.devops-in22labs.com/uploads/pdf/1744347042_87069e7d586ddf68bdbf.pdf' },
-    { id: 3, title: 'Series Test', type: 'Test Series', year: '2025', status: 'Active', pathUrl: 'https://tnma.devops-in22labs.com/uploads/pdf/1744347042_87069e7d586ddf68bdbf.pdf' }
-  ];
+  // Fetch all Question Bank entries on component mount
+  useEffect(() => {
+    fetchQuestionBanks();
+  }, []);
 
-//   [
-//   {
-//     id: 1,
-//     title: "Entrance Exam",
-//     type: "AICSCC",
-//     year: "2023",
-//     status: "Active",
-//     questionPaperUrl: "https://tnma.devops-in22labs.com/uploads/pdf/1744347042_87069e7d586ddf68bdbf.pdf",
-//     answerKeyUrl: "https://tnma.devops-in22labs.com/uploads/pdf/1744347042_87069e7d586ddf68bdbf.pdf"
-//   },
-//   {
-//     id: 2,
-//     title: "Mock Test",
-//     type: "UPSC",
-//     year: "2023",
-//     status: "Inactive",
-//     questionPaperUrl: "https://tnma.devops-in22labs.com/uploads/pdf/1744347042_87069e7d586ddf68bdbf.pdf",
-//     answerKeyUrl: "https://tnma.devops-in22labs.com/uploads/pdf/1744347042_87069e7d586ddf68bdbf.pdf"
-//   },
-//   {
-//     id: 3,
-//     title: "Series Test",
-//     type: "Test Series",
-//     year: "2025",
-//     status: "Active",
-//     questionPaperUrl: "https://tnma.devops-in22labs.com/uploads/pdf/1744347042_87069e7d586ddf68bdbf.pdf",
-//     answerKeyUrl: "https://tnma.devops-in22labs.com/uploads/pdf/1744347042_87069e7d586ddf68bdbf.pdf",
-//     keyExplanationUrl: "https://tnma.devops-in22labs.com/uploads/pdf/1744347042_87069e7d586ddf68bdbf.pdf"
-//   }
-// ]
+  const fetchQuestionBanks = async () => {
+    try {
+      const response = await fetch('http://localhost:3000/api/questionBank', {
+        credentials: 'include',
+      });
+      const data = await response.json();
+      if (response.ok) {
+        setQuestionBankData(data);
+      } else {
+        alert(data.message || 'Failed to fetch question bank data.');
+      }
+    } catch (error) {
+      alert('Network error while fetching question bank data.');
+    }
+  };
 
-
-  // Function to filter the data based on title and type
+  // Filter data by name or type
   const filteredData = questionBankData.filter(item =>
-    item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
     item.type.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
@@ -75,7 +58,7 @@ const QuestionBank = () => {
   };
 
   return (
-    <section className='bg-white  md:p-5 px-3 py-5 rounded-md shadow-md relative'>
+    <section className='bg-white md:p-5 px-3 py-5 rounded-md shadow-md relative'>
       {/* Header */}
       <div className='flex justify-between md:mb-5'>
         <div className="space-y-4">
@@ -93,10 +76,10 @@ const QuestionBank = () => {
             Search:
             <input
               type="text"
-              className='border  border-gray-300 rounded-md  px-4 py-2 ml-2 outline-none text-sm'
+              className='border border-gray-300 rounded-md px-4 py-2 ml-2 outline-none text-sm'
               placeholder='Search by Title or Type...'
               value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)} // Update the search query on input change
+              onChange={e => setSearchQuery(e.target.value)}
             />
           </div>
         </div>
@@ -109,11 +92,12 @@ const QuestionBank = () => {
             className="border border-gray-300 rounded-md flex-1 px-4 py-2 outline-none text-sm"
             placeholder="Search by Title or Type..."
             value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
+            onChange={e => setSearchQuery(e.target.value)}
           />
         </div>
       </div>
 
+      {/* Question Bank table */}
       <div className="overflow-x-auto scrollbar-hide">
         <table className="w-full border border-gray-300 rounded-md overflow-hidden text-sm md:text-base">
           <thead>
@@ -142,14 +126,14 @@ const QuestionBank = () => {
                 return (
                   <tr key={item.id} className={rowBg}>
                     <td className="p-3 text-center">{index + 1}</td>
-                    <td className="p-3 text-center">{item.title}</td>
+                    <td className="p-3 text-center">{item.name}</td>
                     <td className="p-3 text-center">{item.type}</td>
-                    <td className="p-3 text-center">{item.year}</td>
+                    <td className="p-3 text-center">{item.year || "-"}</td>
                     <td className="p-3 text-center">
                       <span
                         className={`rounded-sm px-2 py-0.5 border border-dashed ${statusStyles.text} ${statusStyles.bg} ${statusStyles.border}`}
                       >
-                        {item.status}
+                        {item.status || "-"}
                       </span>
                     </td>
                     <td className="p-3 text-center">
@@ -165,8 +149,8 @@ const QuestionBank = () => {
                           }}
                         />
                         <RiDeleteBin6Line
-                          onClick={() => setIsWarnModalOpen(true)}
                           className="cursor-pointer hover:text-red-600"
+                          onClick={() => setIsWarnModalOpen(true)}
                         />
                       </div>
                     </td>
@@ -178,11 +162,32 @@ const QuestionBank = () => {
         </table>
       </div>
 
-
       {/* Modals */}
-      {isAddNewModalOpen && <QuestionBankUploadModal setIsAddNewModalOpen={setIsAddNewModalOpen} />}
-      {isUpdateModalOpen && <QuestionBankUpdateModal isUpdateModalOpen={isUpdateModalOpen} editDocument={editDocument} setIsUpdateModalOpen={setIsUpdateModalOpen} documentName={"questionbank"} />}
-      {isWarnModalOpen && <WarnModal isWarnModalOpen={isWarnModalOpen} setIsWarnModalOpen={setIsWarnModalOpen} />}
+      {isAddNewModalOpen && (
+        <QuestionBankUploadModal
+          setIsAddNewModalOpen={setIsAddNewModalOpen}
+          onSuccess={fetchQuestionBanks}
+        />
+      )}
+      {isUpdateModalOpen && (
+        <QuestionBankUpdateModal
+          isUpdateModalOpen={isUpdateModalOpen}
+          editDocument={editDocument}
+          setIsUpdateModalOpen={setIsUpdateModalOpen}
+          documentName={"questionbank"}
+          onSuccess={fetchQuestionBanks}
+        />
+      )}
+      {isWarnModalOpen && (
+        <WarnModal
+          isWarnModalOpen={isWarnModalOpen}
+          setIsWarnModalOpen={setIsWarnModalOpen}
+          onConfirm={() => {
+            // Implement your delete logic here if needed
+            setIsWarnModalOpen(false);
+          }}
+        />
+      )}
     </section>
   );
 };

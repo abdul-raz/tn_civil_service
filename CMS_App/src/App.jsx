@@ -9,12 +9,30 @@ import AnswerKey from './pages/AnswerKey';
 import WithExplanation from './pages/WithExplanation';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Notification from './pages/Notification';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Footer from './components/Footer';
+import axios from "axios";
 
 function App() {
   const [log, setLog] = useState(false);
   const [isSideBarOpen, setIsSideBarOpen] = useState(false);
+
+  axios.defaults.withCredentials = true;
+
+  useEffect(() => {
+    const checkAuth = async () => {
+      try {
+        const res = await axios.get("http://localhost:3000/api/auth/me");
+        if (res.data) {
+          setLog(true); // user is authenticated
+        }
+      } catch (err) {
+        console.error("Auth check failed:", err.response?.data || err.message);
+        setLog(false); // not logged in
+      }
+    };
+    checkAuth();
+  }, []);
 
   return (
     <Router>
@@ -46,7 +64,6 @@ function App() {
               </div>
               <Footer />
             </div>
-
           </div>
         )}
       </main>

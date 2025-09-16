@@ -103,7 +103,7 @@ const WithExplanation = () => {
             ) : (
               filteredData.map((item, index) => {
                 const isEven = index % 2 === 1;
-                const rowBg = isEven ? 'bg-gray-100' : 'bg-white';
+                const rowBg = isEven ? 'bg-gray-300' : 'bg-white';
                 const statusStyles = getStatusStyles(item.status);
 
                 return (

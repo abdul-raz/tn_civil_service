@@ -9,8 +9,8 @@ const QuestionBankUpdateModal = ({ isUpdateModalOpen, setIsUpdateModalOpen, edit
     file: editDocument?.pathUrl || null,
   });
 
-  const [errors, setErrors] = useState({}); // store field errors
-  const [showModal, setShowModal] = useState(false); // slide animation state
+  const [errors, setErrors] = useState({}); 
+  const [showModal, setShowModal] = useState(false); 
 
   useEffect(() => {
     if (isUpdateModalOpen) {

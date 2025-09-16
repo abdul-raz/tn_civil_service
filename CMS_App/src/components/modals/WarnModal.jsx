@@ -2,13 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { PiWarningCircleLight } from "react-icons/pi";
 import { IoCloseSharp } from "react-icons/io5";
 
-const WarnModal = ({ setIsWarnModalOpen, isWarnModalOpen }) => {
+const WarnModal = ({ setIsWarnModalOpen, isWarnModalOpen, onConfirm }) => {
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
-    if (isWarnModalOpen) {
-      setShowModal(true);
-    }
+    if (isWarnModalOpen) setShowModal(true);
   }, [isWarnModalOpen]);
 
   if (!isWarnModalOpen) return null;
@@ -37,7 +35,10 @@ const WarnModal = ({ setIsWarnModalOpen, isWarnModalOpen }) => {
         </p>
         
         <div className="flex gap-4 mt-4">
-          <button onClick={() => setIsWarnModalOpen(false)} className="bg-green-500 cursor-pointer md:px-3.5 md:py-1.5 px-3 py-1 text-white text-lg rounded-md hover:bg-green-600 transition">
+          <button
+            onClick={() => onConfirm()}
+            className="bg-red-500 cursor-pointer md:px-3.5 md:py-1.5 px-3 py-1 text-white text-lg rounded-md hover:bg-red-600 transition"
+          >
             Yes, delete it!
           </button>
         </div>

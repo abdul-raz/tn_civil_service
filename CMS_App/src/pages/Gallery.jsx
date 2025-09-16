@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import { IoMdAdd } from "react-icons/io";
 import { FiEye, FiEdit2 } from "react-icons/fi";
 import { RiDeleteBin6Line } from "react-icons/ri";
@@ -7,27 +8,67 @@ import GalleryUploadModal from '../components/modals/gallery/GalleryUploadModal'
 import WarnModal from '../components/modals/WarnModal';
 
 const Gallery = () => {
+  const [categories, setCategories] = useState([]);
+  // 🔹 Fetch categories on mount
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const res = await axios.get(`${baseUrl}/api/masterData/galleryCategories`, {
+          withCredentials: true,
+        });
+        setCategories(res.data);
+      } catch (error) {
+        console.error("Error fetching categories:", error);
+      }
+    };
+    fetchCategories();
+  }, []);
+  const baseUrl = "http://localhost:3000"; // base URL
+
   const [isAddNewModalOpen, setIsAddNewModalOpen] = useState(false);
   const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false);
   const [editDocument, setEditDocument] = useState({});
   const [searchQuery, setSearchQuery] = useState('');
   const [isWarnModalOpen, setIsWarnModalOpen] = useState(false);
+  const [galleryData, setGalleryData] = useState([]);
+  const [deleteId, setDeleteId] = useState(null); // Track item to delete
 
+  // Fetch gallery data
+  const fetchGalleryData = async () => {
+    try {
+      const res = await axios.get(`${baseUrl}/api/gallery`, { withCredentials: true });
+      setGalleryData(res.data);
+    } catch (error) {
+      console.error("Error fetching gallery data:", error.response?.data || error.message);
+    }
+  };
 
-  // Example data for the gallery
-  const galleryData = [
-    { id: 1, imageUrl: '/poster.avif', title: 'State-of-the-Art Classrooms', category: 'cate 1', description: 'State-of-the-Art Classrooms Regular practice tests conducted in real examination conditions,', status: 'Active' },
-    { id: 2, imageUrl: '/poster.avif', title: 'Mock Test Sessions', category: 'cate 2', description: 'Interview Training Regular practice tests conducted in real examination conditions', status: 'Inactive' },
-    { id: 3, imageUrl: '/poster.avif', title: 'Interview Training', category: 'cate 3', description: 'Regular practice tests conducted in real examination conditions', status: 'Active' },
-  ];
+  useEffect(() => {
+    fetchGalleryData();
+  }, []);
 
-// Filtering the gallery data based on search query
-const filteredGalleryData = galleryData.filter(item =>
-  item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-  item.category.toLowerCase().includes(searchQuery.toLowerCase())
-);
+  // Delete gallery function
+  const handleDeleteGallery = async () => {
+    if (!deleteId) return;
 
+    try {
+      await axios.delete(`${baseUrl}/api/gallery/${deleteId}`, { withCredentials: true });
+      setGalleryData((prev) => prev.filter(item => item.id !== deleteId));
+      setIsWarnModalOpen(false);
+      setDeleteId(null);
+    } catch (error) {
+      console.error("Error deleting gallery:", error.response?.data || error.message);
+      alert(error.response?.data?.message || "Failed to delete gallery.");
+    }
+  };
 
+  // Filter gallery data based on search query
+  const filteredGalleryData = galleryData.filter(item =>
+    item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    item.category?.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
+  // Status styling
   const getStatusStyles = (status) => {
     if (status === 'Active') {
       return {
@@ -45,7 +86,7 @@ const filteredGalleryData = galleryData.filter(item =>
   };
 
   return (
-    <section className='bg-white  md:p-5 px-3 py-5 rounded-md shadow-md relative'>
+    <section className='bg-white md:p-5 px-3 py-5 rounded-md shadow-md relative'>
       {/* Header */}
       <div className='flex justify-between md:mb-5'>
         <h1 className='text-xl text-[#002147] font-bold'>Galleries List</h1>
@@ -61,7 +102,7 @@ const filteredGalleryData = galleryData.filter(item =>
             Search:
             <input
               type="text"
-              className='border  border-gray-300 rounded-md  px-4 py-2 ml-2 outline-none text-sm'
+              className='border border-gray-300 rounded-md px-4 py-2 ml-2 outline-none text-sm'
               placeholder='Search by Title or Category...'
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
@@ -69,6 +110,7 @@ const filteredGalleryData = galleryData.filter(item =>
           </div>
         </div>
       </div>
+
       <div className="md:hidden block mb-4">
         <div className="flex items-center gap-2">
           <span className="whitespace-nowrap">Search:</span>
@@ -82,10 +124,8 @@ const filteredGalleryData = galleryData.filter(item =>
         </div>
       </div>
 
-
       {/* Table */}
       <div className="overflow-x-auto scrollbar-hide">
-
         <table className='w-full border border-gray-300 rounded-md overflow-hidden'>
           <thead>
             <tr className='bg-[#002147] text-white text-center border-b-2 border-[#fab82b]'>
@@ -101,23 +141,26 @@ const filteredGalleryData = galleryData.filter(item =>
           <tbody>
             {filteredGalleryData.length === 0 ? (
               <tr>
-                <td colSpan="6" className="p-3 text-center text-red-500">No results found</td>
+                <td colSpan="7" className="p-3 text-center text-red-500">No results found</td>
               </tr>
             ) : (
               filteredGalleryData.map((item, index) => {
                 const isEven = index % 2 === 1;
                 const rowBg = isEven ? 'bg-gray-100' : 'bg-white';
-                const statusStyles = getStatusStyles(item.status);
+                const statusStyles = getStatusStyles(item.status || 'Inactive');
 
                 return (
                   <tr key={item.id} className={rowBg}>
                     <td className='p-3 text-center'>{index + 1}</td>
                     <td className='p-3 text-center'>{item.title}</td>
-                    <td className='p-3 text-center'>{item.category}</td>
-
+                    <td className='p-3 text-center'>{item.category?.name || '-'}</td>
                     <td className='p-3 text-center'>{item.description}</td>
                     <td className='p-3 text-center'>
-                      <img src={item.imageUrl} alt={item.title} className='w-16 h-16 mx-auto object-cover rounded-md' />
+                      <img
+                        src={`${baseUrl}/${item.imageUrl.replace(/\\/g, "/")}`}
+                        alt={item.title}
+                        className='w-16 h-16 mx-auto object-cover rounded-md'
+                      />
                     </td>
                     <td className='p-3 text-center'>
                       <span
@@ -128,14 +171,23 @@ const filteredGalleryData = galleryData.filter(item =>
                     </td>
                     <td className='p-3 text-center'>
                       <div className='flex justify-center gap-4 text-[#002147] text-lg'>
-                        <a href={item.imageUrl} target="_blank" rel="noopener noreferrer">
+                        <a href={`${baseUrl}/${item.imageUrl.replace(/\\/g, "/")}`} target="_blank" rel="noopener noreferrer">
                           <FiEye className='cursor-pointer hover:text-blue-600' />
                         </a>
-                        <FiEdit2 className='cursor-pointer hover:text-yellow-600' onClick={() => {
-                          setEditDocument(item);
-                          setIsUpdateModalOpen(true);
-                        }} />
-                        <RiDeleteBin6Line onClick={() => setIsWarnModalOpen(true)} className='cursor-pointer hover:text-red-600' />
+                        <FiEdit2
+                          className='cursor-pointer hover:text-yellow-600'
+                          onClick={() => {
+                            setEditDocument(item);
+                            setIsUpdateModalOpen(true);
+                          }}
+                        />
+                        <RiDeleteBin6Line
+                          onClick={() => {
+                            setDeleteId(item.id);
+                            setIsWarnModalOpen(true);
+                          }}
+                          className='cursor-pointer hover:text-red-600'
+                        />
                       </div>
                     </td>
                   </tr>
@@ -145,9 +197,16 @@ const filteredGalleryData = galleryData.filter(item =>
           </tbody>
         </table>
       </div>
-      {isAddNewModalOpen && <GalleryUploadModal setIsAddNewModalOpen={setIsAddNewModalOpen} />}
-      {isUpdateModalOpen && <GalleryUpdateModal isUpdateModalOpen={isUpdateModalOpen} editDocument={editDocument} setIsUpdateModalOpen={setIsUpdateModalOpen} />}
-      {isWarnModalOpen && <WarnModal isWarnModalOpen={isWarnModalOpen} setIsWarnModalOpen={setIsWarnModalOpen} />}
+
+      {isAddNewModalOpen && <GalleryUploadModal categories={categories} setIsAddNewModalOpen={setIsAddNewModalOpen} />}
+      {isUpdateModalOpen && <GalleryUpdateModal categories={categories} isUpdateModalOpen={isUpdateModalOpen} editDocument={editDocument} setIsUpdateModalOpen={setIsUpdateModalOpen} />}
+      {isWarnModalOpen && (
+        <WarnModal
+          isWarnModalOpen={isWarnModalOpen}
+          setIsWarnModalOpen={setIsWarnModalOpen}
+          onConfirm={handleDeleteGallery} // Confirm deletion
+        />
+      )}
     </section>
   );
 };

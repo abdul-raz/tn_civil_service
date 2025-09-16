@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { IoCloseSharp } from "react-icons/io5";
 import axios from "axios";
 
-const GalleryUploadModal = ({ setIsAddNewModalOpen,categories }) => {
+const GalleryUploadModal = ({ setIsAddNewModalOpen,categories,fetchGalleryData }) => {
   const baseUrl = "http://localhost:3000"; // base URL
 
   const [formData, setFormData] = useState({
@@ -66,6 +66,7 @@ const GalleryUploadModal = ({ setIsAddNewModalOpen,categories }) => {
       }
     } finally {
       setLoading(false);
+      fetchGalleryData();
     }
   };
 

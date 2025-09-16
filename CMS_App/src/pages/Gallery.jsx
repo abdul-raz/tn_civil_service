@@ -198,8 +198,8 @@ const Gallery = () => {
         </table>
       </div>
 
-      {isAddNewModalOpen && <GalleryUploadModal categories={categories} setIsAddNewModalOpen={setIsAddNewModalOpen} />}
-      {isUpdateModalOpen && <GalleryUpdateModal categories={categories} isUpdateModalOpen={isUpdateModalOpen} editDocument={editDocument} setIsUpdateModalOpen={setIsUpdateModalOpen} />}
+      {isAddNewModalOpen && <GalleryUploadModal fetchGalleryData={fetchGalleryData} categories={categories} setIsAddNewModalOpen={setIsAddNewModalOpen} />}
+      {isUpdateModalOpen && <GalleryUpdateModal fetchGalleryData={fetchGalleryData} categories={categories} isUpdateModalOpen={isUpdateModalOpen} editDocument={editDocument} setIsUpdateModalOpen={setIsUpdateModalOpen} />}
       {isWarnModalOpen && (
         <WarnModal
           isWarnModalOpen={isWarnModalOpen}

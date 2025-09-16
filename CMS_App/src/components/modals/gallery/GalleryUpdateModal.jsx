@@ -3,6 +3,7 @@ import { IoCloseSharp } from "react-icons/io5";
 import axios from "axios";
 
 const GalleryUpdateModal = ({
+  fetchGalleryData,
   isUpdateModalOpen,
   setIsUpdateModalOpen,
   editDocument,
@@ -83,6 +84,7 @@ const GalleryUpdateModal = ({
       console.log("Gallery updated:", res.data);
       setIsUpdateModalOpen(false);
       alert("Gallery updated successfully!");
+      fetchGalleryData();
     } catch (error) {
       console.error(
         "Error updating gallery:",

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { IoCloseSharp } from "react-icons/io5";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
+import axios from "axios";
 
 const PasswordResetModal = ({ setIsPasswordResetOpen, isPasswordResetOpen }) => {
   const [showCurrentPassword, setShowCurrentPassword] = useState(false);
@@ -17,8 +18,9 @@ const PasswordResetModal = ({ setIsPasswordResetOpen, isPasswordResetOpen }) => 
     confirmPassword: "",
   });
 
-  // Error state
+  // Error & success messages
   const [errors, setErrors] = useState({});
+  const [message, setMessage] = useState("");
 
   useEffect(() => {
     if (isPasswordResetOpen) {
@@ -33,9 +35,8 @@ const PasswordResetModal = ({ setIsPasswordResetOpen, isPasswordResetOpen }) => 
     setErrors({ ...errors, [e.target.name]: "" }); // clear error on typing
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
     let newErrors = {};
 
     if (!formData.username.trim()) newErrors.username = "Username is required";
@@ -50,9 +51,27 @@ const PasswordResetModal = ({ setIsPasswordResetOpen, isPasswordResetOpen }) => 
     setErrors(newErrors);
 
     if (Object.keys(newErrors).length === 0) {
-      console.log("Form Submitted ✅", formData);
-      // API call goes here
-      setIsPasswordResetOpen(false);
+   try {
+  const res = await axios.put("http://localhost:3000/api/auth/resetPassword", {
+    email: formData.username,
+    oldPassword: formData.currentPassword,
+    newPassword: formData.newPassword,
+  });
+
+  setMessage(res.data.message); // success message
+  setFormData({
+    username: "",
+    currentPassword: "",
+    newPassword: "",
+    confirmPassword: "",
+  });
+  setTimeout(() => setIsPasswordResetOpen(false), 2000);
+} catch (error) {
+  console.error("Reset password error:", error);
+
+  // This will show backend error messages, e.g., "User not found"
+  setMessage(error.response?.data?.message || "Something went wrong");
+}
     }
   };
 
@@ -73,18 +92,24 @@ const PasswordResetModal = ({ setIsPasswordResetOpen, isPasswordResetOpen }) => 
           Reset Password
         </h2>
 
+        {message && (
+          <p className="mb-3 text-sm text-center requiredField">
+            {message}
+          </p>
+        )}
+
         <form className="space-y-4 flex flex-wrap justify-between" onSubmit={handleSubmit}>
           {/* Username */}
           <div className="md:w-[49%] w-full">
             <label className="block mb-1 text-sm text-gray-700 font-medium">
-              Username
+              Email
             </label>
             <input
               type="text"
               name="username"
               value={formData.username}
               onChange={handleChange}
-              placeholder="username"
+              placeholder="username or email"
               className="w-full border border-gray-300 rounded-md p-2 outline-none"
             />
             {errors.username && (

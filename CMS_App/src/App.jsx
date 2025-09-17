@@ -7,13 +7,41 @@ import QuestionBank from './pages/QuestionBank';
 import Gallery from './pages/Gallery';
 import AnswerKey from './pages/AnswerKey';
 import WithExplanation from './pages/WithExplanation';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Notification from './pages/Notification';
-import { useState, useEffect } from 'react';
 import Footer from './components/Footer';
+
+import { BrowserRouter as Router, Routes, Route, Navigate, Outlet } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import axios from "axios";
 
+// ✅ Protected Route
+const ProtectedRoute = ({ log }) => {
+  if (!log) return <Navigate to="/login" replace />;
+  return <Outlet />; // renders child routes
+};
+
+// ✅ Layout for all protected pages
+const Layout = ({ setLog, isSideBarOpen, setIsSideBarOpen }) => {
+  return (
+    <div className="flex flex-1">
+      <SideBar isSideBarOpen={isSideBarOpen} setIsSideBarOpen={setIsSideBarOpen} />
+      <div className="md:pt-[2%] md:px-[3%] p-[2%] w-full flex flex-col md:ml-[18%]">
+        <Header
+          setIsSideBarOpen={setIsSideBarOpen}
+          isSideBarOpen={isSideBarOpen}
+          setLog={setLog}
+        />
+        <div className="flex-grow mt-3">
+          <Outlet /> {/* where child page renders */}
+        </div>
+        <Footer />
+      </div>
+    </div>
+  );
+};
+
 function App() {
+  const baseUrl = "http://localhost:3000";
   const [log, setLog] = useState(false);
   const [isSideBarOpen, setIsSideBarOpen] = useState(false);
 
@@ -22,13 +50,10 @@ function App() {
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const res = await axios.get("http://localhost:3000/api/auth/me");
-        if (res.data) {
-          setLog(true); // user is authenticated
-        }
-      } catch (err) {
-        console.error("Auth check failed:", err.response?.data || err.message);
-        setLog(false); // not logged in
+        const res = await axios.get(`${baseUrl}/api/auth/me`);
+        if (res.data) setLog(true);
+      } catch {
+        setLog(false);
       }
     };
     checkAuth();
@@ -37,35 +62,28 @@ function App() {
   return (
     <Router>
       <main className="bg-[#f0eff5] min-h-screen flex flex-col">
-        {!log ? (
-          <LoginPage setLog={setLog} />
-        ) : (
-          <div className="flex flex-1">
-            <SideBar
-              isSideBarOpen={isSideBarOpen}
-              setIsSideBarOpen={setIsSideBarOpen}
-            />
-            <div className="md:pt-[2%] md:px-[3%] p-[2%] w-full flex flex-col md:ml-[18%]">
-              <Header
-                setIsSideBarOpen={setIsSideBarOpen}
-                isSideBarOpen={isSideBarOpen}
-                setLog={setLog}
-              />
+        <Routes>
+          {/* Login */}
+          <Route
+            path="/login"
+            element={log ? <Navigate to="/" replace /> : <LoginPage setLog={setLog} />}
+          />
 
-              <div className="flex-grow mt-3">
-                <Routes>
-                  <Route path="/" element={<Dashboard />} />
-                  <Route path="/questionbank" element={<QuestionBank />} />
-                  <Route path="/answerkey" element={<AnswerKey />} />
-                  <Route path="/withexplanation" element={<WithExplanation />} />
-                  <Route path="/gallery" element={<Gallery />} />
-                  <Route path="/notification" element={<Notification />} />
-                </Routes>
-              </div>
-              <Footer />
-            </div>
-          </div>
-        )}
+          {/* Protected Routes with Layout */}
+          <Route element={<ProtectedRoute log={log} />}>
+            <Route element={<Layout setLog={setLog} isSideBarOpen={isSideBarOpen} setIsSideBarOpen={setIsSideBarOpen} />}>
+              <Route path="/" element={<Dashboard />} />
+              <Route path="/questionbank" element={<QuestionBank />} />
+              <Route path="/answerkey" element={<AnswerKey />} />
+              <Route path="/withexplanation" element={<WithExplanation />} />
+              <Route path="/gallery" element={<Gallery />} />
+              <Route path="/notification" element={<Notification />} />
+            </Route>
+          </Route>
+
+          {/* Fallback */}
+          <Route path="*" element={<Navigate to={log ? "/" : "/login"} replace />} />
+        </Routes>
       </main>
     </Router>
   );

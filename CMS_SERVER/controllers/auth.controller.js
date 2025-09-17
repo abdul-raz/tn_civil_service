@@ -2,6 +2,45 @@ const { body, validationResult } = require("express-validator");
 const db = require("../models");
 const User = db.User;
 
+//Reset Password
+exports.resetPassword = [
+  body("email").isEmail().withMessage("Valid email required").normalizeEmail(),
+  body("oldPassword").notEmpty().withMessage("Old password required"),
+  body("newPassword")
+    .isLength({ min: 6 })
+    .withMessage("New password must be at least 6 characters"),
+
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
+    try {
+      const { email, oldPassword, newPassword } = req.body;
+
+      const user = await User.findOne({ where: { email } });
+      if (!user) {
+        return res.status(401).json({ message: "User not found" });
+      }
+
+      const isValid = await user.validPassword(oldPassword);
+      if (!isValid) {
+        return res.status(401).json({ message: "Old password is incorrect" });
+      }
+
+      // update password (hook will hash it)
+      user.password = newPassword;
+      await user.save();
+
+      res.json({ message: "Password reset successful" });
+    } catch (error) {
+      console.error("Reset password error:", error);
+      res.status(500).json({ message: "Server error" });
+    }
+  },
+];
+
 // Create Admin User (Registration)
 exports.createAdmin = [
   body("email")

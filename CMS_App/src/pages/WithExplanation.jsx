@@ -49,13 +49,13 @@ const WithExplanation = () => {
           <h1 className='text-xl text-[#002147] font-bold'>Key Explanation List</h1>
         </div>
         <div className='space-y-4 text-sm'>
-          <button
+          {/* <button
             onClick={() => setIsAddNewModalOpen(true)}
             className='flex ml-auto items-center gap-1 bg-[#002147] text-white rounded-md cursor-pointer px-4 py-2'
           >
             <IoMdAdd />
             Add New
-          </button>
+          </button> */}
           <div className='hidden md:block'>
             Search:
             <input
@@ -103,7 +103,7 @@ const WithExplanation = () => {
             ) : (
               filteredData.map((item, index) => {
                 const isEven = index % 2 === 1;
-                const rowBg = isEven ? 'bg-gray-100' : 'bg-white';
+                const rowBg = isEven ? 'bg-gray-300' : 'bg-white';
                 const statusStyles = getStatusStyles(item.status);
 
                 return (

@@ -1,22 +1,41 @@
 import React, { useState, useEffect } from 'react';
 import { IoCloseSharp } from "react-icons/io5";
+import axios from "axios";
 
-const QuestionBankUpdateModal = ({ isUpdateModalOpen, setIsUpdateModalOpen, editDocument, documentName }) => {
+const QuestionBankUpdateModal = ({ 
+  isUpdateModalOpen, 
+  setIsUpdateModalOpen, 
+  editDocument, 
+  documentName, 
+  years,
+  onSuccess
+}) => {
+
+  const baseUrl = "http://localhost:3000"; // base URL
+
+
   const [formData, setFormData] = useState({
+    name: editDocument?.name || "",
     type: editDocument?.type || "",
     year: editDocument?.year || "",
     status: editDocument?.status || "",
-    file: editDocument?.pathUrl || null,
   });
 
-  const [errors, setErrors] = useState({}); // store field errors
-  const [showModal, setShowModal] = useState(false); // slide animation state
+  const [errors, setErrors] = useState({});
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     if (isUpdateModalOpen) {
       setShowModal(true);
+      // Reset form with latest document when modal opens
+      setFormData({
+        name: editDocument?.name || "",
+        type: editDocument?.type || "",
+        year: editDocument?.year || "",
+        status: editDocument?.status || "",
+      });
     }
-  }, [isUpdateModalOpen]);
+  }, [isUpdateModalOpen, editDocument]);
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;
@@ -28,14 +47,14 @@ const QuestionBankUpdateModal = ({ isUpdateModalOpen, setIsUpdateModalOpen, edit
 
   const validate = () => {
     const newErrors = {};
+    if (!formData.name) newErrors.name = "Title is required.";
     if (!formData.type) newErrors.type = "Type is required.";
     if (!formData.year) newErrors.year = "Year is required.";
-    else if (formData.year < 2018) newErrors.year = "Year must be 2018 or above.";
     if (!formData.status) newErrors.status = "Status is required.";
     return newErrors;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const validationErrors = validate();
     if (Object.keys(validationErrors).length > 0) {
@@ -43,7 +62,27 @@ const QuestionBankUpdateModal = ({ isUpdateModalOpen, setIsUpdateModalOpen, edit
       return;
     }
     setErrors({});
-    console.log("Updated Data:", formData);
+
+  try {
+      const payload = {
+        name: formData.name,
+        type: formData.type,
+        status: formData.status,
+        year: formData.year, // send categoryId
+      };
+
+      const res = await axios.put(
+        `${baseUrl}/api/questionBank/${editDocument.id}`,
+        payload,
+        { withCredentials: true }
+      );
+
+      console.log("Question Bank updated:", res.data);
+      setIsUpdateModalOpen(false);
+      onSuccess();
+    } catch (error) {
+      console.error("Error updating:", error);
+    }
   };
 
   if (!isUpdateModalOpen) return null;
@@ -66,6 +105,22 @@ const QuestionBankUpdateModal = ({ isUpdateModalOpen, setIsUpdateModalOpen, edit
         </h2>
 
         <form onSubmit={handleSubmit} className="space-y-4 flex flex-wrap justify-between">
+          {/* Title */}
+          <div className="md:w-[49%] w-full">
+            <label className="block mb-1 text-sm text-gray-700 font-medium">
+              Title
+            </label>
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              placeholder="Title"
+              className={`w-full border rounded-md p-2 outline-none ${errors.title ? "border-red-500" : "border-gray-300"}`}
+            />
+            {errors.title && <p className="requiredField">{errors.name}</p>}
+          </div>
+          {/* Type select */}
           <div className="relative md:w-[49%] w-[100%]">
             <label className="block mb-1 text-sm text-gray-700 font-medium">
               Select Type
@@ -84,53 +139,27 @@ const QuestionBankUpdateModal = ({ isUpdateModalOpen, setIsUpdateModalOpen, edit
             {errors.type && <p className="requiredField">{errors.type}</p>}
           </div>
 
-          {/* Year input */}
-          <div className="md:w-[49%] w-[100%]">
+          {/* Year select */}
+          <div className="relative md:w-[49%] w-full">
             <label className="block mb-1 text-sm text-gray-700 font-medium">
-              Year
+              Select Year
             </label>
-            <input
-              type="number"
+            <select
               name="year"
               value={formData.year}
               onChange={handleChange}
-              placeholder="Year"
-              className="w-full border border-gray-300 rounded-md p-2 outline-none"
-            />
+              className={`w-full border rounded-md p-2 outline-none appearance-none ${
+                errors.year ? "border-red-500 focus:ring-red-500" : "border-gray-300"
+              }`}
+            >
+              <option value="">Select Year</option>
+              {years.map((year) => (
+                <option key={year.id} value={year.name}>
+                  {year.name}
+                </option>
+              ))}
+            </select>
             {errors.year && <p className="requiredField">{errors.year}</p>}
-          </div>
-
-          <div className="relative md:w-[49%] w-[100%]">
-            <label className="block mb-1 text-sm text-gray-700 font-medium">
-              {documentName === "questionbank"
-                ? "Question Paper"
-                : documentName === "answerkey"
-                ? "Answer Key"
-                : "Answer Key with Explanation"}
-            </label>
-
-            <input
-              type="file"
-              name="file"
-              accept="application/pdf"
-              onChange={handleChange}
-              className="w-full border border-gray-300 rounded-md p-2 outline-none"
-            />
-
-            {/* Existing PDF preview link */}
-            {editDocument?.pathUrl && (
-              <p className="flex pl-2.5 mt-1 gap-2 items-center">
-                <label>Current File:</label>
-                <a
-                  href={editDocument.pathUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center text-sm text-blue-600 w-fit gap-1"
-                >
-                  View PDF
-                </a>
-              </p>
-            )}
           </div>
 
           {/* Status select */}
@@ -151,6 +180,7 @@ const QuestionBankUpdateModal = ({ isUpdateModalOpen, setIsUpdateModalOpen, edit
             {errors.status && <p className="requiredField">{errors.status}</p>}
           </div>
 
+          {/* Submit button */}
           <div className="mt-4 w-full">
             <input
               type="submit"
@@ -172,3 +202,9 @@ const QuestionBankUpdateModal = ({ isUpdateModalOpen, setIsUpdateModalOpen, edit
 };
 
 export default QuestionBankUpdateModal;
+
+{/* <div className="relative md:w-[49%] w-[100%]"> */} 
+{/* <label className="block mb-1 text-sm text-gray-700 font-medium"> {documentName === "questionbank" ? "Question Paper" : documentName === "answerkey" ? "Answer Key" : "Answer Key with Explanation"} </label> */}
+{/* <input type="file" name="file" accept="application/pdf" onChange={handleChange} className="w-full border border-gray-300 rounded-md p-2 outline-none" /> */} {/* Existing PDF preview link */} 
+{/* {editDocument?.pathUrl && ( <p className="flex pl-2.5 mt-1 gap-2 items-center"> <label>Current File:</label> <a href={editDocument.pathUrl} target="_blank" rel="noopener noreferrer" className="flex items-center text-sm text-blue-600 w-fit gap-1" > View PDF </a> </p> )} */}
+ {/* </div> */}

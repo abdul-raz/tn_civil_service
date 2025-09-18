@@ -80,7 +80,7 @@ app.use((req, res) => {
       "/api/auth/me",
       "/api/questionBank",
       "/api/answerKey",
-      "api/masterData",
+      "/api/masterData",
     ],
   });
 });

@@ -100,14 +100,14 @@ exports.getGalleryById = async (req, res) => {
 exports.updateGallery = async (req, res) => {
   try {
     const id = req.params.id;
-    const { title, description, categoryId } = req.body;
+    const { title, description, categoryId ,status} = req.body;
 
     const gallery = await Gallery.findByPk(id);
     if (!gallery) {
       return res.status(404).send({ message: "Gallery entry not found." });
     }
 
-    await gallery.update({ title, description, categoryId });
+    await gallery.update({ title, description, categoryId ,status});
 
     res.status(200).send({ message: "Gallery updated successfully.", data: gallery });
   } catch (error) {

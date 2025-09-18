@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports = (sequelize, DataTypes) => {
   return sequelize.define(
     "QuestionBank",
@@ -23,9 +25,18 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.TEXT,
         allowNull: false,
       },
+       year: {
+        type: DataTypes.TEXT,
+        allowNull: false,
+      },
+      status: {  
+      type: DataTypes.ENUM('Active', 'Inactive'),
+      allowNull: false,
+      defaultValue: 'Inactive',
+    },
     },
     {
-      timestamps: true,
+      timestamps: true
     }
   );
 };

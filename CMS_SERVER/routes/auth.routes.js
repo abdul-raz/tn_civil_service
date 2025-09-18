@@ -14,4 +14,7 @@ router.post("/logout", authController.logout);
 // Get current logged-in admin
 router.get("/me", authController.getCurrentAdmin);
 
+//Reset Password
+router.put("/resetPassword",authController.isAdmin, authController.resetPassword)
+
 module.exports = router;

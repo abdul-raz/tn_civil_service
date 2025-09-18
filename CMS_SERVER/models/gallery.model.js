@@ -29,6 +29,11 @@ module.exports = (sequelize, DataTypes) => {
       onUpdate: 'CASCADE',
       onDelete: 'SET NULL',  // or 'CASCADE', depending on your logic
     },
+    status: {  // <-- new field
+      type: DataTypes.ENUM('Active', 'Inactive'),
+      allowNull: false,
+      defaultValue: 'Inactive',
+    },
   }, {
     tableName: 'Galleries', // or GalleryItems etc.
     timestamps: true,

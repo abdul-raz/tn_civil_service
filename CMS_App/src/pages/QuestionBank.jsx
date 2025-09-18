@@ -5,33 +5,79 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import QuestionBankUploadModal from '../components/modals/questionBank/QuestionBankUploadModal';
 import QuestionBankUpdateModal from '../components/modals/questionBank/QuestionBankUpdateModal';
 import WarnModal from '../components/modals/WarnModal';
+import axios from "axios";
 
 const QuestionBank = () => {
+  const baseUrl = "http://localhost:3000"; // base URL
   const [questionBankData, setQuestionBankData] = useState([]);
   const [isAddNewModalOpen, setIsAddNewModalOpen] = useState(false);
   const [isWarnModalOpen, setIsWarnModalOpen] = useState(false);
   const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false);
   const [editDocument, setEditDocument] = useState({});
   const [searchQuery, setSearchQuery] = useState('');
+  const [examTypes, setExamTypes] = useState([]);
+  const [years, setYears] = useState([]);
+  const [deleteId, setDeleteId] = useState(null); // 🔹 store id for deletion
+
+  // Fetch exam types on mount
+  useEffect(() => {
+    const fetchTypes = async () => {
+      try {
+        const resExam = await axios.get(`${baseUrl}/api/masterData/examTypes`, {
+          withCredentials: true,
+        });
+        const resYear = await axios.get(`${baseUrl}/api/masterData/years`, {
+          withCredentials: true,
+        });
+        setExamTypes(resExam.data);
+        setYears(resYear.data);
+      } catch (error) {
+        console.error("Error fetching categories:", error);
+      }
+    };
+    fetchTypes();
+  }, []);
 
   // Fetch all Question Bank entries on component mount
   useEffect(() => {
     fetchQuestionBanks();
   }, []);
-
   const fetchQuestionBanks = async () => {
     try {
-      const response = await fetch('http://localhost:3000/api/questionBank', {
-        credentials: 'include',
+      const response = await axios.get(`${baseUrl}/api/questionBank`, {
+        withCredentials: true, // same as fetch's credentials: 'include'
       });
-      const data = await response.json();
-      if (response.ok) {
-        setQuestionBankData(data);
+
+      setQuestionBankData(response.data); // axios auto-parses JSON
+    } catch (error) {
+      if (error.response) {
+        // Server responded with error
+        alert(error.response.data.message || 'Failed to fetch question bank data.');
       } else {
-        alert(data.message || 'Failed to fetch question bank data.');
+        // Network or other error
+        alert('Network error while fetching question bank data.');
+      }
+    }
+  };
+
+  // 🔹 Delete function
+  const handleDeleteQuestionBank = async () => {
+    try {
+      const res = await axios.delete(`${baseUrl}/api/questionBank/${deleteId}`, {
+        withCredentials: true,
+      });
+
+      if (res.status === 200) {
+        fetchQuestionBanks(); // refresh list
+      } else {
+        alert(res.data.message || "Failed to delete.");
       }
     } catch (error) {
-      alert('Network error while fetching question bank data.');
+      console.error("Delete error:", error);
+      alert(error.response?.data?.message || "Server error while deleting.");
+    } finally {
+      setIsWarnModalOpen(false);
+      setDeleteId(null);
     }
   };
 
@@ -138,8 +184,8 @@ const QuestionBank = () => {
                     </td>
                     <td className="p-3 text-center">
                       <div className="flex justify-center gap-4 text-[#002147] text-lg">
-                        <a href={item.pathUrl} target="_blank" rel="noreferrer">
-                          <FiEye className="cursor-pointer hover:text-blue-600" />
+                        <a href={`${baseUrl}/${item.path.replace(/\\/g, "/")}`} target="_blank" rel="noopener noreferrer">
+                          <FiEye className='cursor-pointer hover:text-blue-600' />
                         </a>
                         <FiEdit2
                           className="cursor-pointer hover:text-yellow-600"
@@ -150,7 +196,10 @@ const QuestionBank = () => {
                         />
                         <RiDeleteBin6Line
                           className="cursor-pointer hover:text-red-600"
-                          onClick={() => setIsWarnModalOpen(true)}
+                          onClick={() => {
+                            setDeleteId(item.id);
+                            setIsWarnModalOpen(true);
+                          }}
                         />
                       </div>
                     </td>
@@ -165,12 +214,16 @@ const QuestionBank = () => {
       {/* Modals */}
       {isAddNewModalOpen && (
         <QuestionBankUploadModal
+          years={years}
+          examTypes={examTypes}
           setIsAddNewModalOpen={setIsAddNewModalOpen}
           onSuccess={fetchQuestionBanks}
+          fetchQuestionBanks={fetchQuestionBanks}
         />
       )}
       {isUpdateModalOpen && (
         <QuestionBankUpdateModal
+          years={years}
           isUpdateModalOpen={isUpdateModalOpen}
           editDocument={editDocument}
           setIsUpdateModalOpen={setIsUpdateModalOpen}
@@ -182,10 +235,7 @@ const QuestionBank = () => {
         <WarnModal
           isWarnModalOpen={isWarnModalOpen}
           setIsWarnModalOpen={setIsWarnModalOpen}
-          onConfirm={() => {
-            // Implement your delete logic here if needed
-            setIsWarnModalOpen(false);
-          }}
+          onConfirm={handleDeleteQuestionBank}
         />
       )}
     </section>

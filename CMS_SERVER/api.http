@@ -12,4 +12,6 @@ GET http://localhost:3000/api/questionBank
 ###
 GET http://localhost:3000/api/auth/me
 ###
-GET http://localhost:3000/api/masterData/examTypes 
+GET http://localhost:3000/api/masterData/years 
+###
+DELETE http://localhost:3000/api/questionBank/1

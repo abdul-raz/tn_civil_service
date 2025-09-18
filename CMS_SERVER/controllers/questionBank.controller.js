@@ -30,34 +30,38 @@ exports.addQuestionBank = [
   upload.single("file"), // "file" is the field name in form-data
   async (req, res) => {
     try {
-      const { type } = req.body;
+      const { type, year } = req.body;
+
       if (!type) {
-        return res.status(400).send({ message: "Type is required." });
+        return res.status(400).json({ message: "Type is required." });
+      }
+      if (!year) {
+        return res.status(400).json({ message: "Year is required." });
       }
       if (!req.file) {
-        return res
-          .status(400)
-          .send({ message: "PDF file upload is required." });
+        return res.status(400).json({ message: "PDF file upload is required." });
       }
 
-      // Use uploaded file info for name and size
+      // Create entry in DB
       const newEntry = await QuestionBank.create({
         name: req.file.originalname,
         type,
-        size: req.file.size.toString(), // file size in bytes as string
-        path: req.file.path,
+        year,
+        size: req.file.size.toString(), // size in bytes as string
+        path: req.file.path, // or req.file.filename if you’re saving only file name
       });
 
-      return res.status(201).send({
+      return res.status(201).json({
         message: "Question Bank created successfully.",
         data: newEntry,
       });
     } catch (error) {
-      console.error(error);
-      return res.status(500).send({ message: "Server error." });
+      console.error("Error in addQuestionBank:", error);
+      return res.status(500).json({ message: "Server error." });
     }
   },
 ];
+
 
 // Get All Question Bank Entries
 exports.getAllQuestionBanks = async (req, res) => {
@@ -93,7 +97,9 @@ exports.getQuestionBankById = async (req, res) => {
 exports.updateQuestionBank = async (req, res) => {
   try {
     const id = req.params.id;
-    const { name, type, size } = req.body;
+    // const { name, type, size } = req.body;
+    const { name, type, status,year } = req.body;
+
 
     const entry = await QuestionBank.findByPk(id);
     if (!entry) {
@@ -102,7 +108,7 @@ exports.updateQuestionBank = async (req, res) => {
         .send({ message: "Question Bank entry not found." });
     }
 
-    await entry.update({ name, type, size });
+    await entry.update({ name, type, status,year });
 
     return res
       .status(200)

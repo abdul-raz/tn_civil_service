@@ -55,6 +55,8 @@ app.get("/", (req, res) => {
       questionBank: "/api/questionBank",
       answerKey: "/api/answerKey",
       gallery: "/api/gallery",
+      masterData: "/api/masterData",
+      notification: "/api/notification",
     },
   });
 });
@@ -80,6 +82,7 @@ app.use((req, res) => {
       "/api/questionBank",
       "/api/answerKey",
       "/api/masterData",
+      
     ],
   });
 });
@@ -109,8 +112,8 @@ db.sequelize
   .authenticate()
   .then(() => {
     console.log("Database connection established successfully.");
-    return db.sequelize.sync({ alter: false }); // <-- add alter:true here
-  })
+    return db.sequelize.sync({force: true}); // <-- add alter:true here
+  }) 
   .then(() => {
     console.log("Database synced successfully.");
     app.listen(PORT, () => {

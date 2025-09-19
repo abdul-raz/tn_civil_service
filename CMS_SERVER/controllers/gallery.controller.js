@@ -95,19 +95,35 @@ exports.getGalleryById = async (req, res) => {
     res.status(500).send({ message: "Server error." });
   }
 };
-
-// PUT update gallery (no image update)
+//update
 exports.updateGallery = async (req, res) => {
   try {
     const id = req.params.id;
-    const { title, description, categoryId ,status} = req.body;
+    const { title, description, categoryId, status } = req.body;
 
     const gallery = await Gallery.findByPk(id);
     if (!gallery) {
       return res.status(404).send({ message: "Gallery entry not found." });
     }
 
-    await gallery.update({ title, description, categoryId ,status});
+    const updateData = { title, description, categoryId, status };
+
+    if (req.file) {
+      // Save the buffer to disk with a unique filename
+      const filename = Date.now() + "-" + req.file.originalname;
+      const savePath = path.join("uploads/gallery", filename);
+
+      fs.writeFileSync(savePath, req.file.buffer);
+
+      // Optional: delete old image file from disk
+      if (gallery.imageUrl && fs.existsSync(gallery.imageUrl)) {
+        fs.unlinkSync(gallery.imageUrl);
+      }
+
+      updateData.imageUrl = savePath;
+    }
+
+    await gallery.update(updateData);
 
     res.status(200).send({ message: "Gallery updated successfully.", data: gallery });
   } catch (error) {
@@ -115,6 +131,8 @@ exports.updateGallery = async (req, res) => {
     res.status(500).send({ message: "Server error." });
   }
 };
+
+
 
 // DELETE gallery entry and remove file
 exports.deleteGallery = async (req, res) => {

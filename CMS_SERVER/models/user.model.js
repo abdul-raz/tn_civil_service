@@ -1,45 +1,42 @@
-const bcrypt = require("bcryptjs");
+const bcrypt = require('bcrypt');
+const { Model } = require('sequelize');
 
-module.exports = (sequelize, Sequelize) => {
-  const User = sequelize.define("User", {
-    id: {
-      type: Sequelize.INTEGER,
-      autoIncrement: true,
-      primaryKey: true,
-    },
-    email: {
-      type: Sequelize.STRING,
-      unique: true,
-      allowNull: false,
-      validate: { isEmail: true },
-    },
-    password: {
-      type: Sequelize.STRING,
-      allowNull: false,
-    },
-    role: {
-      type: Sequelize.STRING,
-      defaultValue: "admin",
-      allowNull: false,
-    },
-  });
+module.exports = (sequelize, DataTypes) => {
+  class User extends Model {
+    static associate(models) {}
 
-  // Hook to hash password before saving
-  User.beforeCreate(async (user, options) => {
-    const salt = await bcrypt.genSalt(10);
-    user.password = await bcrypt.hash(user.password, salt);
-  });
+    validPassword(password) {
+      return bcrypt.compareSync(password, this.password);
+    }
+  }
 
-    // Hook to hash password before Updating
-  User.beforeUpdate(async (user, options) => {
-    const salt = await bcrypt.genSalt(10);
-    user.password = await bcrypt.hash(user.password, salt);
-  });
-
-  // Instance method to compare password
-  User.prototype.validPassword = async function (password) {
-    return await bcrypt.compare(password, this.password);
-  };
+  User.init(
+    {
+      email: { type: DataTypes.STRING, unique: true, allowNull: false, validate: { isEmail: true } },
+      password: { type: DataTypes.STRING, allowNull: false },
+      role: { type: DataTypes.STRING, allowNull: false, defaultValue: 'user' },
+    },
+    {
+      sequelize,
+      modelName: 'User',
+      tableName: 'Users',
+      timestamps: true,
+      hooks: {
+        beforeCreate: async (user) => {
+          if (user.password) {
+            const salt = await bcrypt.genSalt(10);
+            user.password = await bcrypt.hash(user.password, salt);
+          }
+        },
+        beforeUpdate: async (user) => {
+          if (user.password && user.changed('password')) {
+            const salt = await bcrypt.genSalt(10);
+            user.password = await bcrypt.hash(user.password, salt);
+          }
+        },
+      },
+    }
+  );
 
   return User;
 };

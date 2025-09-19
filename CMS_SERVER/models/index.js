@@ -25,6 +25,7 @@ db.ProcessDocumentType = require("./processdocumenttype")(sequelize, Sequelize);
 db.GalleryCategory = require("./gallerycategory")(sequelize, Sequelize);
 db.NotificationType = require("./notificationtype")(sequelize, Sequelize);
 db.VideoCategory = require("./videocategory")(sequelize, Sequelize);
+db.Notification = require("./notification.model")(sequelize, Sequelize);
 
 // Setup associations if defined
 Object.keys(db).forEach((modelName) => {

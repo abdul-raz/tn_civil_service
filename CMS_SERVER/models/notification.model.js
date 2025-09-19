@@ -1,50 +1,50 @@
-// 'use strict';
+'use strict';
+const { Model } = require('sequelize');
 
-// module.exports = (sequelize, DataTypes) => {
-//   const Gallery = sequelize.define('Notification', {
-//     id: {
-//       type: DataTypes.INTEGER,
-//       autoIncrement: true,
-//       primaryKey: true,
-//     },
-//     title: {
-//       type: DataTypes.STRING,
-//       allowNull: false,
-//     },
-//     description: {
-//       type: DataTypes.TEXT,
-//       allowNull: true,
-//     },
-//     imageUrl: { // or videoUrl if applicable
-//       type: DataTypes.STRING,
-//       allowNull: false,
-//     },
-//     categoryId: {
-//       type: DataTypes.INTEGER,
-//       allowNull: false,
-//       references: {
-//         model: 'GalleryCategories',
-//         key: 'id',
-//       },
-//       onUpdate: 'CASCADE',
-//       onDelete: 'SET NULL',  // or 'CASCADE', depending on your logic
-//     },
-//     status: {  // <-- new field
-//       type: DataTypes.ENUM('Active', 'Inactive'),
-//       allowNull: false,
-//       defaultValue: 'Inactive',
-//     },
-//   }, {
-//     tableName: 'Galleries', // or GalleryItems etc.
-//     timestamps: true,
-//   });
+module.exports = (sequelize, DataTypes) => {
+  class Notification extends Model {
+    static associate(models) {
+      // Associate Notification with NotificationType
+      Notification.belongsTo(models.NotificationType, {
+        foreignKey: 'categoryTypeId',
+        as: 'categoryType',
+      });
+    }
+  }
 
-//   Gallery.associate = function(models) {
-//     Gallery.belongsTo(models.GalleryCategory, {
-//       foreignKey: 'categoryId',
-//       as: 'category',
-//     });
-//   };
+  Notification.init(
+    {
+      title: {
+        type: DataTypes.STRING,
+        allowNull: false, // make nullable as per your requirement
+      },
+      pdfPath: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      categoryTypeId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'NotificationTypes',
+          key: 'id',
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'RESTRICT',
+      },
+      status: {
+        type: DataTypes.ENUM('active', 'inactive'),
+        allowNull: false,
+        defaultValue: 'active',
+      },
+    },
+    {
+      sequelize,
+      modelName: 'Notification',
+      tableName: 'Notifications',
+      timestamps: true,
+    }
+  );
 
-//   return Gallery;
-// };
+  return Notification;
+};

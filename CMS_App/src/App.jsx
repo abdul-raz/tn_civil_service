@@ -8,6 +8,7 @@ import Gallery from './pages/Gallery';
 import AnswerKey from './pages/AnswerKey';
 import WithExplanation from './pages/WithExplanation';
 import Notification from './pages/Notification';
+import Result from './pages/Result';
 import Footer from './components/Footer';
 
 import { BrowserRouter as Router, Routes, Route, Navigate, Outlet } from 'react-router-dom';
@@ -78,6 +79,7 @@ function App() {
               <Route path="/withexplanation" element={<WithExplanation />} />
               <Route path="/gallery" element={<Gallery />} />
               <Route path="/notification" element={<Notification />} />
+              <Route path="/results" element={<Result />} />
             </Route>
           </Route>
 

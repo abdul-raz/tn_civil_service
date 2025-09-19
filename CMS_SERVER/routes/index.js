@@ -12,6 +12,8 @@ router.use("/answerKey", require("./answerKey.routes"));
 
 router.use("/gallery", require("./gallery.routes"));
 router.use("/masterData", require("./masterData.routes"));
+router.use("/notification", require("./notification.routes"));
+router.use("/result", require("./result.routes"));
 // Gallery routes (uncomment when implemented)
 // router.use("/gallery", require("./gallery.routes"));
 

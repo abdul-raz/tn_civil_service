@@ -41,6 +41,7 @@ const SideBar = ({ isSideBarOpen, setIsSideBarOpen }) => {
         { label: "Question Bank", path: "/questionbank" },
         { label: "Gallery", path: "/gallery" },
         { label: "Notification", path: "/notification" },
+        { label: "Results", path: "/results" },
       ],
     }
   ];

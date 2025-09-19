@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from "react";
 import { IoCloseSharp } from "react-icons/io5";
 import axios from "axios";
@@ -7,16 +8,16 @@ const GalleryUpdateModal = ({
   isUpdateModalOpen,
   setIsUpdateModalOpen,
   editDocument,
-  categories
+  categories,
 }) => {
   const baseUrl = "http://localhost:3000";
 
   const [formData, setFormData] = useState({
-    // imageUrl: editDocument?.imageUrl || null,
     title: editDocument?.title || "",
     status: editDocument?.status || "Inactive",
     description: editDocument?.description || "",
     category: editDocument?.category?.id || "", // store category id
+    imageUrl: null, // new field for uploaded image file
   });
 
   const [errors, setErrors] = useState({});
@@ -26,17 +27,25 @@ const GalleryUpdateModal = ({
   useEffect(() => {
     if (isUpdateModalOpen) {
       setAnimate(true);
+      setFormData({
+        title: editDocument?.title || "",
+        status: editDocument?.status || "Inactive",
+        description: editDocument?.description || "",
+        category: editDocument?.category?.id || "",
+        imageUrl: null, // reset image on modal open
+      });
+      setPreview(null);
     } else {
       const timer = setTimeout(() => setAnimate(false), 400);
       return () => clearTimeout(timer);
     }
-  }, [isUpdateModalOpen]);
+  }, [isUpdateModalOpen, editDocument]);
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;
     if (name === "image") {
       const file = files?.[0];
-      setFormData({ ...formData, imageUrl: file || null });
+      setFormData((prev) => ({ ...prev, imageUrl: file || null }));
       if (file) {
         const reader = new FileReader();
         reader.onloadend = () => setPreview(reader.result);
@@ -45,20 +54,17 @@ const GalleryUpdateModal = ({
         setPreview(null);
       }
     } else {
-      setFormData({ ...formData, [name]: value });
-      setErrors({ ...errors, [name]: "" });
+      setFormData((prev) => ({ ...prev, [name]: value }));
+      setErrors((prev) => ({ ...prev, [name]: "" }));
     }
   };
 
   const validateForm = () => {
     let newErrors = {};
-
     if (!formData.title.trim()) newErrors.title = "Title is required";
     if (!formData.category) newErrors.category = "Category is required";
-    if (!formData.description.trim())
-      newErrors.description = "Description is required";
+    if (!formData.description.trim()) newErrors.description = "Description is required";
     if (!formData.status) newErrors.status = "Status is required";
-
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -68,27 +74,31 @@ const GalleryUpdateModal = ({
     if (!validateForm()) return;
 
     try {
-      const payload = {
-        title: formData.title,
-        description: formData.description,
-        status: formData.status,
-        categoryId: formData.category, // send categoryId
-      };
+      const data = new FormData();
+      data.append("title", formData.title);
+      data.append("description", formData.description);
+      data.append("status", formData.status);
+      data.append("categoryId", formData.category);
+      if (formData.imageUrl) {
+        data.append("image", formData.imageUrl);
+      }
 
       const res = await axios.put(
         `${baseUrl}/api/gallery/${editDocument.id}`,
-        payload,
-        { withCredentials: true }
+        data,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+          withCredentials: true,
+        }
       );
 
       console.log("Gallery updated:", res.data);
       setIsUpdateModalOpen(false);
       fetchGalleryData();
     } catch (error) {
-      console.error(
-        "Error updating gallery:",
-        error.response?.data || error.message
-      );
+      console.error("Error updating gallery:", error.response?.data || error.message);
       alert(error.response?.data?.message || "Failed to update gallery.");
     }
   };
@@ -101,46 +111,41 @@ const GalleryUpdateModal = ({
       onClick={() => setIsUpdateModalOpen(false)}
     >
       <div
-        className={`bg-white z-50 w-[90%] md:w-[80%] md:p-6 p-4 max-w-3xl relative shadow-xl rounded-md
+        className={`bg-white z-50 w-[90%] md:w-[80%] p-6 max-w-3xl relative shadow-xl rounded-md
           transform transition-all duration-500 ease-in-out
           ${isUpdateModalOpen ? "translate-y-0 opacity-100" : "-translate-y-96 opacity-0"}
         `}
         onClick={(e) => e.stopPropagation()}
       >
-        <h2 className="text-lg font-semibold text-[#002147] mb-4">
-          Update Gallery
-        </h2>
+        <h2 className="text-lg font-semibold text-[#002147] mb-4">Update Gallery</h2>
 
-        <form
-          onSubmit={handleSubmit}
-          className="space-y-4 flex flex-wrap justify-between"
-        >
+        <form onSubmit={handleSubmit} className="space-y-4 flex flex-wrap justify-between">
           {/* Title */}
           <div className="md:w-[49%] w-full">
-            <label className="block mb-1 text-sm text-gray-700 font-medium">
-              Title
-            </label>
+            <label className="block mb-1 text-sm text-gray-700 font-medium">Title</label>
             <input
               type="text"
               name="title"
               value={formData.title}
               onChange={handleChange}
               placeholder="Title"
-              className={`w-full border rounded-md p-2 outline-none ${errors.title ? "border-red-500" : "border-gray-300"}`}
+              className={`w-full border rounded-md p-2 outline-none ${
+                errors.title ? "border-red-500" : "border-gray-300"
+              }`}
             />
             {errors.title && <p className="requiredField">{errors.title}</p>}
           </div>
 
           {/* Category */}
           <div className="relative md:w-[49%] w-full">
-            <label className="block mb-1 text-sm text-gray-700 font-medium">
-              Category
-            </label>
+            <label className="block mb-1 text-sm text-gray-700 font-medium">Category</label>
             <select
               name="category"
               value={formData.category}
               onChange={handleChange}
-              className={`w-full border rounded-md p-2 outline-none appearance-none ${errors.category ? "border-red-500" : "border-gray-300"}`}
+              className={`w-full border rounded-md p-2 outline-none appearance-none ${
+                errors.category ? "border-red-500" : "border-gray-300"
+              }`}
             >
               <option value="">Select Category</option>
               {categories.map((cat) => (
@@ -154,30 +159,30 @@ const GalleryUpdateModal = ({
 
           {/* Description */}
           <div className="md:w-[49%] w-full">
-            <label className="block mb-1 text-sm text-gray-700 font-medium">
-              Description
-            </label>
+            <label className="block mb-1 text-sm text-gray-700 font-medium">Description</label>
             <input
               type="text"
               name="description"
               value={formData.description}
               onChange={handleChange}
               placeholder="Description"
-              className={`w-full border rounded-md p-2 outline-none ${errors.description ? "border-red-500" : "border-gray-300"}`}
+              className={`w-full border rounded-md p-2 outline-none ${
+                errors.description ? "border-red-500" : "border-gray-300"
+              }`}
             />
             {errors.description && <p className="requiredField">{errors.description}</p>}
           </div>
 
           {/* Status */}
           <div className="relative md:w-[49%] w-full">
-            <label className="block mb-1 text-sm text-gray-700 font-medium">
-              Status
-            </label>
+            <label className="block mb-1 text-sm text-gray-700 font-medium">Status</label>
             <select
               name="status"
               value={formData.status}
               onChange={handleChange}
-              className={`w-full border rounded-md p-2 outline-none appearance-none ${errors.status ? "border-red-500" : "border-gray-300"}`}
+              className={`w-full border rounded-md p-2 outline-none appearance-none ${
+                errors.status ? "border-red-500" : "border-gray-300"
+              }`}
             >
               <option value="">Select Status</option>
               <option value="Active">Active</option>
@@ -186,17 +191,17 @@ const GalleryUpdateModal = ({
             {errors.status && <p className="requiredField">{errors.status}</p>}
           </div>
 
-          {/* Image */}
-          {/* <div className="md:w-[49%] w-full">
-            <label className="block mb-1 text-sm text-gray-700 font-medium">
-              Upload Image
-            </label>
+          {/* Image Upload */}
+          <div className="md:w-[49%] w-full">
+            <label className="block mb-1 text-sm text-gray-700 font-medium">Upload Image</label>
             <input
               type="file"
               name="image"
               accept="image/*"
               onChange={handleChange}
-              className={`w-full border rounded-md p-2 outline-none ${errors.image ? "border-red-500" : "border-gray-300"}`}
+              className={`w-full border rounded-md p-2 outline-none ${
+                errors.image ? "border-red-500" : "border-gray-300"
+              }`}
             />
             {preview && (
               <img
@@ -205,7 +210,7 @@ const GalleryUpdateModal = ({
                 className="mt-2 w-32 h-32 object-cover rounded-md border"
               />
             )}
-            {editDocument?.imageUrl && !preview && (
+            {!preview && editDocument?.imageUrl && (
               <p className="flex pl-2.5 mt-1 gap-2 items-center">
                 <label>Current Image:</label>
                 <a
@@ -218,7 +223,7 @@ const GalleryUpdateModal = ({
                 </a>
               </p>
             )}
-          </div> */}
+          </div>
 
           <div className="mt-4 w-full">
             <button

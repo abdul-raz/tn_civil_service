@@ -6,6 +6,7 @@ import Header from './components/Header';
 import QuestionBank from './pages/QuestionBank';
 import Gallery from './pages/Gallery';
 import Notification from './pages/Notification';
+import Result from './pages/Result';
 import Footer from './components/Footer';
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate, Outlet } from 'react-router-dom';
@@ -111,6 +112,7 @@ const fetchQuestionBanks = async () => {
               <Route path="/questionbank" element={<QuestionBank fetchQuestionBanks={fetchQuestionBanks} setQuestionBankData={setQuestionBankData} questionBankData={questionBankData} />} />
               <Route path="/gallery" element={<Gallery fetchGalleryData={fetchGalleryData} galleryData={galleryData}/>} />
               <Route path="/notification" element={<Notification />} />
+              <Route path="/results" element={<Result />} />
             </Route>
           </Route>
           {/* Fallback */}

@@ -7,11 +7,11 @@ import GalleryUpdateModal from '../components/modals/gallery/GalleryUpdateModal'
 import GalleryUploadModal from '../components/modals/gallery/GalleryUploadModal';
 import WarnModal from '../components/modals/WarnModal';
 
-const Gallery = () => {
-  const [categories, setCategories] = useState([]);
+const Gallery = ({galleryData,fetchGalleryData}) => {
   // 🔹 Fetch categories on mount
   useEffect(() => {
     const fetchCategories = async () => {
+      const [categories, setCategories] = useState([]);
       try {
         const res = await axios.get(`${baseUrl}/api/masterData/galleryCategories`, {
           withCredentials: true,
@@ -24,24 +24,15 @@ const Gallery = () => {
     fetchCategories();
   }, []);
   const baseUrl = "http://localhost:3000"; // base URL
-
+  
   const [isAddNewModalOpen, setIsAddNewModalOpen] = useState(false);
   const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false);
   const [editDocument, setEditDocument] = useState({});
   const [searchQuery, setSearchQuery] = useState('');
   const [isWarnModalOpen, setIsWarnModalOpen] = useState(false);
-  const [galleryData, setGalleryData] = useState([]);
   const [deleteId, setDeleteId] = useState(null); // Track item to delete
+  
 
-  // Fetch gallery data
-  const fetchGalleryData = async () => {
-    try {
-      const res = await axios.get(`${baseUrl}/api/gallery`, { withCredentials: true });
-      setGalleryData(res.data);
-    } catch (error) {
-      console.error("Error fetching gallery data:", error.response?.data || error.message);
-    }
-  };
 
   useEffect(() => {
     fetchGalleryData();

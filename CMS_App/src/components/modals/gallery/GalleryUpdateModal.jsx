@@ -83,7 +83,6 @@ const GalleryUpdateModal = ({
 
       console.log("Gallery updated:", res.data);
       setIsUpdateModalOpen(false);
-      alert("Gallery updated successfully!");
       fetchGalleryData();
     } catch (error) {
       console.error(

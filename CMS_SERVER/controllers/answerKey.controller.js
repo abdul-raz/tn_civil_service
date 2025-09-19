@@ -149,7 +149,14 @@ exports.getAllAnswerKeys = async (req, res) => {
   try {
     console.log("Fetching all answer keys...");
     const allKeys = await AnswerKey.findAll({
-      include: [{ model: QuestionBank, as: "questionBank" }],
+      attributes: ["id", "questionBankId", "answerKeyType", "name", "path"], // pick fields you need
+      include: [
+        {
+          model: QuestionBank,
+          as: "questionBank",
+          attributes: ["id", "name","type","year","status"], // only fetch required fields
+        },
+      ],
       order: [["createdAt", "DESC"]],
     });
     console.log(`Found ${allKeys.length} answer keys.`);
@@ -159,6 +166,7 @@ exports.getAllAnswerKeys = async (req, res) => {
     return res.status(500).send({ message: "Server error." });
   }
 };
+
 
 // Delete AnswerKey by ID
 exports.deleteAnswerKey = [

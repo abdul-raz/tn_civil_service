@@ -17,26 +17,93 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.TEXT,
         allowNull: false,
       },
-      size: {
+
+      // Question Paper
+      questionPaperPath: {
+        type: DataTypes.TEXT,
+        allowNull: false,  // must needed
+      },
+      questionPaperSize: {
+        type: DataTypes.TEXT,
+        allowNull: false,  // must needed
+      },
+
+      // Answer Key
+      answerKeyPath: {
+        type: DataTypes.TEXT,
+        allowNull: false,  // must needed
+      },
+      answerKeySize: {
+        type: DataTypes.TEXT,
+        allowNull: false,  // must needed
+      },
+
+      // Key Explanation (optional)
+      keyExplanationPath: {
         type: DataTypes.TEXT,
         allowNull: true,
       },
-      path: {
+      keyExplanationSize: {
+        type: DataTypes.TEXT,
+        allowNull: true,
+      },
+
+      year: {
         type: DataTypes.TEXT,
         allowNull: false,
       },
-       year: {
-        type: DataTypes.TEXT,
+      status: {
+        type: DataTypes.ENUM('Active', 'Inactive'),
         allowNull: false,
+        defaultValue: 'Inactive',
       },
-      status: {  
-      type: DataTypes.ENUM('Active', 'Inactive'),
-      allowNull: false,
-      defaultValue: 'Inactive',
-    },
     },
     {
-      timestamps: true
+      timestamps: true,
     }
   );
 };
+
+
+// 'use strict';
+
+// module.exports = (sequelize, DataTypes) => {
+//   return sequelize.define(
+//     "QuestionBank",
+//     {
+//       id: {
+//         type: DataTypes.INTEGER,
+//         autoIncrement: true,
+//         primaryKey: true,
+//       },
+//       name: {
+//         type: DataTypes.TEXT,
+//         allowNull: false,
+//       },
+//       type: {
+//         type: DataTypes.TEXT,
+//         allowNull: false,
+//       },
+//       size: {
+//         type: DataTypes.TEXT,
+//         allowNull: true,
+//       },
+//       path: {
+//         type: DataTypes.TEXT,
+//         allowNull: false,
+//       },
+//        year: {
+//         type: DataTypes.TEXT,
+//         allowNull: false,
+//       },
+//       status: {  
+//       type: DataTypes.ENUM('Active', 'Inactive'),
+//       allowNull: false,
+//       defaultValue: 'Inactive',
+//     },
+//     },
+//     {
+//       timestamps: true
+//     }
+//   );
+// };

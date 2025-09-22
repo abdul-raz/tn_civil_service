@@ -9,9 +9,9 @@ import WarnModal from '../components/modals/WarnModal';
 
 const Gallery = ({galleryData,fetchGalleryData}) => {
   // 🔹 Fetch categories on mount
+  const [categories, setCategories] = useState([]);
   useEffect(() => {
     const fetchCategories = async () => {
-      const [categories, setCategories] = useState([]);
       try {
         const res = await axios.get(`${baseUrl}/api/masterData/galleryCategories`, {
           withCredentials: true,

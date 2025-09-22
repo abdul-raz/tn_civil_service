@@ -12,12 +12,14 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Middleware
+
 app.use(
   cors({
     origin: process.env.FRONTEND_URL || "http://localhost:5173", // Allow frontend origin
     credentials: true, // Allow cookies to be sent
   })
 );
+// app.use(cors());
 
 app.use(express.json()); // Parse JSON request body
 app.use(express.urlencoded({ extended: true })); // Parse URL-encoded bodies
@@ -112,7 +114,7 @@ db.sequelize
   .authenticate()
   .then(() => {
     console.log("Database connection established successfully.");
-    return db.sequelize.sync({force: true}); // <-- add alter:true here
+    return db.sequelize.sync({alter: true}); // <-- add alter:true here
   }) 
   .then(() => {
     console.log("Database synced successfully.");

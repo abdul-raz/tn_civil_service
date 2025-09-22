@@ -78,6 +78,7 @@ const fetchQuestionBanks = async () => {
     try {
       const res = await axios.get(`${baseUrl}/api/gallery`, { withCredentials: true });
       setGalleryData(res.data);
+      console.log(res.data);
     } catch (error) {
       console.error("Error fetching gallery data:", error.response?.data || error.message);
     }

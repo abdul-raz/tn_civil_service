@@ -1,6 +1,7 @@
 const db = require("../models");
 const Notification = db.Notification;
-
+const path = require("path");
+const fs = require("fs");
 exports.createNotification = async (req, res) => {
   try {
     const { title, categoryId, categoryTypeId, status } = req.body;  // Include title here
@@ -61,22 +62,40 @@ exports.getNotificationById = async (req, res) => {
 exports.updateNotification = async (req, res) => {
   try {
     const { categoryTypeId, status, title } = req.body;
+
+    // Find existing notification
+    const notification = await Notification.findByPk(req.params.id);
+    if (!notification) {
+      return res.status(404).json({ message: "Notification not found" });
+    }
+
     const updateData = { categoryTypeId, status, title };
 
     if (req.file) {
-      updateData.pdfPath = req.file.path;
+      // Delete old file if exists
+      if (notification.pdfPath) {
+        const oldFilePath = path.resolve(notification.pdfPath);
+        if (fs.existsSync(oldFilePath)) {
+          try {
+            fs.unlinkSync(oldFilePath);
+            console.log(`Deleted old file at: ${oldFilePath}`);
+          } catch (err) {
+            console.error(`Failed to delete old file at ${oldFilePath}`, err);
+            return res.status(500).json({ message: "Failed to delete old file" });
+          }
+        }
+      }
+      // Set new file path
+      updateData.pdfPath = req.file.path.replace(/\\/g, '/');
     }
 
-    const [updated] = await Notification.update(updateData, { where: { id: req.params.id } });
+    // Update notification record
+    await notification.update(updateData);
 
-    if (updated) {
-      const updatedNotification = await Notification.findByPk(req.params.id);
-      return res.json(updatedNotification);
-    } else {
-      return res.status(404).json({ message: "Notification not found" });
-    }
+    return res.json(notification);
+
   } catch (error) {
-    console.error(error);
+    console.error("Error updating notification:", error);
     return res.status(500).json({ message: "Failed to update notification", error: error.message });
   }
 };
@@ -85,13 +104,35 @@ exports.updateNotification = async (req, res) => {
 // Delete Notification by id
 exports.deleteNotification = async (req, res) => {
   try {
-    const deleted = await Notification.destroy({ where: { id: req.params.id } });
-    if (deleted) {
-      res.status(204).json();
-    } else {
-      res.status(404).json({ message: "Notification not found" });
+    const id = req.params.id;
+
+    // Find notification first to get pdfPath
+    const notification = await Notification.findByPk(id);
+    if (!notification) {
+      return res.status(404).json({ message: "Notification not found" });
     }
+
+    // Delete the PDF file if exists
+    if (notification.pdfPath) {
+      const filePath = path.resolve(notification.pdfPath);
+      if (fs.existsSync(filePath)) {
+        try {
+          fs.unlinkSync(filePath);
+          console.log(`Deleted file at: ${filePath}`);
+        } catch (fsErr) {
+          console.error(`Failed to delete file at ${filePath}`, fsErr);
+          // Optionally return error here or continue deletion of DB record
+          return res.status(500).json({ message: "Failed to delete associated file" });
+        }
+      }
+    }
+
+    // Delete the notification record from DB
+    await notification.destroy();
+
+    res.status(204).json(); // No Content on successful delete
   } catch (error) {
+    console.error("Failed to delete notification:", error);
     res.status(500).json({ message: "Failed to delete notification", error });
   }
 };

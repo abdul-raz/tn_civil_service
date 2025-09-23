@@ -2,14 +2,12 @@ import React, { useState, useEffect } from "react";
 import { IoCloseSharp } from "react-icons/io5";
 import axios from "axios";
 
-const ResultUpload = ({ setIsAdd, types, years, onSuccess }) => {
-  const baseUrl = "http://localhost:3000";
-
+const ResultUploadModal = ({ setIsAddNewModalOpen, types, years, onSuccess, baseUrl = "http://localhost:3000" }) => {
   const [formData, setFormData] = useState({
     title: "",
     typeId: "",
     year: "",
-    status: "Inactive",
+    status: "1", // "1" for Active by default (string)
     file: null,
   });
 
@@ -17,18 +15,16 @@ const ResultUpload = ({ setIsAdd, types, years, onSuccess }) => {
   const [submitError, setSubmitError] = useState("");
 
   useEffect(() => {
-    if (setIsAdd) {
-      setFormData({
-        title: "",
-        typeId: "",
-        year: "",
-        status: "Inactive",
-        file: null,
-      });
-      setErrors({});
-      setSubmitError("");
-    }
-  }, [setIsAdd]);
+    setFormData({
+      title: "",
+      typeId: "",
+      year: "",
+      status: "1",
+      file: null,
+    });
+    setErrors({});
+    setSubmitError("");
+  }, [setIsAddNewModalOpen]);
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;
@@ -61,25 +57,25 @@ const ResultUpload = ({ setIsAdd, types, years, onSuccess }) => {
     data.append("title", formData.title);
     data.append("typeId", formData.typeId);
     data.append("year", formData.year);
-    data.append("status", formData.status);
+    data.append("status", Number(formData.status)); // convert string to number
     data.append("file", formData.file);
 
     try {
       await axios.post(`${baseUrl}/api/result`, data, {
-        headers: { "Content-Type": "multipart/form-data" },
         withCredentials: true,
       });
-      setIsAdd(false);
+      setIsAddNewModalOpen(false);
       onSuccess();
     } catch (error) {
-      setSubmitError(error.response?.data?.message || "Failed to create result");
+      console.error("Axios error:", error);
+      setSubmitError(error.message || "Failed to create result");
     }
   };
 
   return (
     <div
       className="fixed inset-0 z-50 flex items-center justify-center bg-black/30"
-      onClick={() => setIsAdd(false)}
+      onClick={() => setIsAddNewModalOpen(false)}
     >
       <div
         className="bg-white z-50 w-[90%] md:w-[80%] p-6 max-w-3xl rounded-md shadow-xl relative"
@@ -88,12 +84,14 @@ const ResultUpload = ({ setIsAdd, types, years, onSuccess }) => {
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-xl font-semibold text-[#002147]">Add New Result</h2>
           <button
-            onClick={() => setIsAdd(false)}
+            onClick={() => setIsAddNewModalOpen(false)}
             className="text-gray-500 hover:text-gray-800"
           >
             <IoCloseSharp size={24} />
           </button>
         </div>
+
+        {submitError && <p className="text-red-600 mb-3">{submitError}</p>}
 
         <form onSubmit={handleSubmit} className="space-y-4 flex flex-wrap justify-between">
           {/* Title */}
@@ -104,11 +102,11 @@ const ResultUpload = ({ setIsAdd, types, years, onSuccess }) => {
               name="title"
               value={formData.title}
               onChange={handleChange}
-              className={`w-full border rounded-md p-2 outline-none ${
+              className={`w-full border p-2 rounded-md outline-none ${
                 errors.title ? "border-red-600" : "border-gray-300"
               }`}
             />
-            {errors.title && <p className="requiredField">{errors.title}</p>}
+            {errors.title && <p className="text-red-600 mt-1">{errors.title}</p>}
           </div>
 
           {/* Type */}
@@ -118,18 +116,16 @@ const ResultUpload = ({ setIsAdd, types, years, onSuccess }) => {
               name="typeId"
               value={formData.typeId}
               onChange={handleChange}
-              className={`w-full border rounded-md p-2 outline-none ${
+              className={`w-full border p-2 rounded-md outline-none ${
                 errors.typeId ? "border-red-600" : "border-gray-300"
               }`}
             >
               <option value="">Select Type</option>
               {types.map((t) => (
-                <option key={t.id} value={t.id}>
-                  {t.name}
-                </option>
+                <option key={t.id} value={t.id}>{t.name}</option>
               ))}
             </select>
-            {errors.typeId && <p className="requiredField">{errors.typeId}</p>}
+            {errors.typeId && <p className="text-red-600 mt-1">{errors.typeId}</p>}
           </div>
 
           {/* Year */}
@@ -139,18 +135,16 @@ const ResultUpload = ({ setIsAdd, types, years, onSuccess }) => {
               name="year"
               value={formData.year}
               onChange={handleChange}
-              className={`w-full border rounded-md p-2 outline-none ${
+              className={`w-full border p-2 rounded-md outline-none ${
                 errors.year ? "border-red-600" : "border-gray-300"
               }`}
             >
               <option value="">Select Year</option>
               {years.map((y) => (
-                <option key={y.id} value={y.name}>
-                  {y.name}
-                </option>
+                <option key={y.id} value={y.name}>{y.name}</option>
               ))}
             </select>
-            {errors.year && <p className="requiredField">{errors.year}</p>}
+            {errors.year && <p className="text-red-600 mt-1">{errors.year}</p>}
           </div>
 
           {/* Status */}
@@ -160,14 +154,14 @@ const ResultUpload = ({ setIsAdd, types, years, onSuccess }) => {
               name="status"
               value={formData.status}
               onChange={handleChange}
-              className={`w-full border rounded-md p-2 outline-none ${
+              className={`w-full border p-2 rounded-md outline-none ${
                 errors.status ? "border-red-600" : "border-gray-300"
               }`}
             >
-              <option value="Inactive">Inactive</option>
-              <option value="Active">Active</option>
+              <option value="0">Inactive</option>
+              <option value="1">Active</option>
             </select>
-            {errors.status && <p className="requiredField">{errors.status}</p>}
+            {errors.status && <p className="text-red-600 mt-1">{errors.status}</p>}
           </div>
 
           {/* PDF Upload */}
@@ -178,17 +172,15 @@ const ResultUpload = ({ setIsAdd, types, years, onSuccess }) => {
               name="file"
               accept="application/pdf"
               onChange={handleChange}
-              className={`w-full border rounded-md p-2 cursor-pointer ${
+              className={`w-full border p-2 rounded-md cursor-pointer ${
                 errors.file ? "border-red-600" : "border-gray-300"
               }`}
             />
-            {errors.file && <p className="requiredField">{errors.file}</p>}
+            {errors.file && <p className="text-red-600 mt-1">{errors.file}</p>}
           </div>
 
+          {/* Submit Button */}
           <div className="w-full mt-4">
-            {submitError && (
-              <p className="requiredField text-center">{submitError}</p>
-            )}
             <button
               type="submit"
               className="w-full bg-[#002147] text-white p-2 rounded-md hover:bg-[#013168]"
@@ -202,4 +194,4 @@ const ResultUpload = ({ setIsAdd, types, years, onSuccess }) => {
   );
 };
 
-export default ResultUpload;
+export default ResultUploadModal;

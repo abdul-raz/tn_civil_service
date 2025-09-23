@@ -5,13 +5,13 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey: true,
       autoIncrement: true,
     },
-     title: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          notEmpty: { msg: "Title cannot be empty" },
-        },
+    title: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: { msg: "Title cannot be empty" },
       },
+    },
     typeId: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -27,18 +27,28 @@ module.exports = (sequelize, DataTypes) => {
         notEmpty: { msg: 'pdfPath cannot be empty' },
       },
     },
- year: {
-  type: DataTypes.STRING,
-  allowNull: false,
-  validate: {
-    notEmpty: { msg: 'Year cannot be empty' },
-    is: {
-      args: /^[0-9]{4}(-[0-9]{4})?$/,
-      msg: 'Year must be a 4-digit string or a range like "2019-2020"',
+    year: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: { msg: 'Year cannot be empty' },
+        is: {
+          args: /^\d{4}(-\d{4})?$/,
+          msg: 'Year must be a 4-digit year or a range like "2018-2019"',
+        },
+      },
     },
-  },
+  status: {
+  type: DataTypes.SMALLINT,  // PostgreSQL compatible small integer type
+  allowNull: false,
+  defaultValue: 1,           // default active
+  validate: {
+    isIn: {
+      args: [[0, 1]],
+      msg: "Status must be 0 (inactive) or 1 (active)"
+    }
+  }
 },
-
 
   }, {
     tableName: 'results',

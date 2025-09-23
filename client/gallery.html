@@ -525,38 +525,44 @@
     .catch(err => console.error("Error fetching gallery:", err));
 
   // Function to display items filtered by category
-  function displayGalleryItems(category) {
-    galleryRow.innerHTML = ""; // clear current items
+// Function to display items filtered by category
+function displayGalleryItems(category) {
+  galleryRow.innerHTML = ""; // clear current items
 
-    const filteredItems = category === "all"
-      ? allGalleryItems
-      : allGalleryItems.filter(item => item.categoryId === parseInt(category));
+  // Filter by category first
+  let filteredItems = category === "all"
+    ? allGalleryItems
+    : allGalleryItems.filter(item => item.categoryId === parseInt(category));
 
-    if (!filteredItems.length) {
-      galleryRow.innerHTML = "<p>No images found in this category</p>";
-      return;
-    }
+  // Further filter by status "Active"
+  filteredItems = filteredItems.filter(item => item.status === "Active");
 
-    filteredItems.forEach((item, index) => {
-      const col = document.createElement("div");
-      col.className = "col-lg-4 col-md-6 mb-4";
-      col.setAttribute("data-aos", "fade-up");
-      col.setAttribute("data-aos-delay", (index + 1) * 100);
-
-      col.innerHTML = `
-        <div class="gallery-item card h-100 shadow-sm border-0 rounded-3 overflow-hidden position-relative">
-          <img src="${baseUrl}/${item.imageUrl}" alt="${item.title}" class="card-img-top" style="height: 220px; object-fit: cover;">
-          <div class="gallery-overlay">
-            <h5 class="fw-bold">${item.title}</h5>
-            <p class="text-white">${item.description}</p>
-          </div>
-        </div>
-      `;
-      galleryRow.appendChild(col);
-    });
-
-    AOS.refresh(); // refresh animations
+  if (!filteredItems.length) {
+    galleryRow.innerHTML = "<p>No images found in this category</p>";
+    return;
   }
+
+  filteredItems.forEach((item, index) => {
+    const col = document.createElement("div");
+    col.className = "col-lg-4 col-md-6 mb-4";
+    col.setAttribute("data-aos", "fade-up");
+    col.setAttribute("data-aos-delay", (index + 1) * 100);
+
+    col.innerHTML = `
+      <div class="gallery-item card h-100 shadow-sm border-0 rounded-3 overflow-hidden position-relative">
+        <img src="${baseUrl}/${item.imageUrl}" alt="${item.title}" class="card-img-top" style="height: 220px; object-fit: cover;">
+        <div class="gallery-overlay">
+          <h5 class="fw-bold">${item.title}</h5>
+          <p class="text-white">${item.description}</p>
+        </div>
+      </div>
+    `;
+    galleryRow.appendChild(col);
+  });
+
+  AOS.refresh(); // refresh animations
+}
+
 </script>
 
 

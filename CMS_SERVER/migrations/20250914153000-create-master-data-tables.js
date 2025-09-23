@@ -39,6 +39,11 @@ module.exports = {
       id: { type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true },
       name: { type: Sequelize.STRING, allowNull: false, unique: true },
     });
+ // Create result type table (for result)
+    await queryInterface.createTable('ResultTypes', {
+      id: { type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true },
+      name: { type: Sequelize.STRING, allowNull: false, unique: true },
+    });
 
     // Create Users table
 await queryInterface.createTable('Users', {
@@ -61,5 +66,6 @@ await queryInterface.createTable('Users', {
     await queryInterface.dropTable('Years');
     await queryInterface.dropTable('ExamTypes');
     await queryInterface.dropTable('Users');
+    await queryInterface.dropTable('ResultTypes');
   },
 };

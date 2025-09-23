@@ -7,9 +7,8 @@ import QuestionBankUpdateModal from '../components/modals/questionBank/QuestionB
 import WarnModal from '../components/modals/WarnModal';
 import axios from "axios";
 
-const QuestionBank = () => {
+const QuestionBank = ({ setQuestionBankData, questionBankData, fetchQuestionBanks }) => {
   const baseUrl = "http://localhost:3000"; // base URL
-  const [questionBankData, setQuestionBankData] = useState([]);
   const [isAddNewModalOpen, setIsAddNewModalOpen] = useState(false);
   const [isWarnModalOpen, setIsWarnModalOpen] = useState(false);
   const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false);
@@ -17,48 +16,24 @@ const QuestionBank = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [examTypes, setExamTypes] = useState([]);
   const [years, setYears] = useState([]);
-  const [deleteId, setDeleteId] = useState(null); // 🔹 store id for deletion
+  const [deleteId, setDeleteId] = useState(null);
 
-  // Fetch exam types on mount
+  // Fetch exam types and years only
   useEffect(() => {
-    const fetchTypes = async () => {
+    const fetchData = async () => {
       try {
-        const resExam = await axios.get(`${baseUrl}/api/masterData/examTypes`, {
-          withCredentials: true,
-        });
-        const resYear = await axios.get(`${baseUrl}/api/masterData/years`, {
-          withCredentials: true,
-        });
+        const [resExam, resYear] = await Promise.all([
+          axios.get(`${baseUrl}/api/masterData/examTypes`, { withCredentials: true }),
+          axios.get(`${baseUrl}/api/masterData/years`, { withCredentials: true }),
+        ]);
         setExamTypes(resExam.data);
         setYears(resYear.data);
       } catch (error) {
-        console.error("Error fetching categories:", error);
+        console.error("Error fetching master data:", error);
       }
     };
-    fetchTypes();
+    fetchData();
   }, []);
-
-  // Fetch all Question Bank entries on component mount
-  useEffect(() => {
-    fetchQuestionBanks();
-  }, []);
-  const fetchQuestionBanks = async () => {
-    try {
-      const response = await axios.get(`${baseUrl}/api/questionBank`, {
-        withCredentials: true, // same as fetch's credentials: 'include'
-      });
-
-      setQuestionBankData(response.data); // axios auto-parses JSON
-    } catch (error) {
-      if (error.response) {
-        // Server responded with error
-        alert(error.response.data.message || 'Failed to fetch question bank data.');
-      } else {
-        // Network or other error
-        alert('Network error while fetching question bank data.');
-      }
-    }
-  };
 
   // 🔹 Delete function
   const handleDeleteQuestionBank = async () => {
@@ -68,7 +43,7 @@ const QuestionBank = () => {
       });
 
       if (res.status === 200) {
-        fetchQuestionBanks(); // refresh list
+        fetchQuestionBanks();
       } else {
         alert(res.data.message || "Failed to delete.");
       }
@@ -152,6 +127,8 @@ const QuestionBank = () => {
               <th className="p-3">Question Bank</th>
               <th className="p-3">Type</th>
               <th className="p-3">Year</th>
+              <th className="p-3">Answer Key</th>
+              <th className="p-3">Key Explanation</th>
               <th className="p-3">Status</th>
               <th className="p-3">Action</th>
             </tr>
@@ -159,7 +136,7 @@ const QuestionBank = () => {
           <tbody>
             {filteredData.length === 0 ? (
               <tr>
-                <td colSpan="6" className="p-3 text-center text-red-500">
+                <td colSpan="8" className="p-3 text-center text-red-500">
                   No results found
                 </td>
               </tr>
@@ -172,9 +149,44 @@ const QuestionBank = () => {
                 return (
                   <tr key={item.id} className={rowBg}>
                     <td className="p-3 text-center">{index + 1}</td>
-                    <td className="p-3 text-center">{item.name}</td>
+                    <td className="p-3 text-center">
+                      {item.name.slice(0, -4)}
+                    </td>
                     <td className="p-3 text-center">{item.type}</td>
                     <td className="p-3 text-center">{item.year || "-"}</td>
+
+                    {/* Answer Key Column */}
+                    <td className="p-3 text-center">
+                      {item.answerKeyPath ? (
+                        <a
+                          className='text-blue-400 hover:text-blue-600'
+                          href={`${baseUrl}/${item.answerKeyPath.replace(/\\/g, "/")}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          view
+                        </a>
+                      ) : (
+                        <IoMdAdd className="cursor-pointer hover:text-green-600 inline" />
+                      )}
+                    </td>
+
+                    {/* Explanation Column */}
+                    <td className="p-3 text-center">
+                      {item.keyExplanationPath ? (
+                        <a
+                          className="text-blue-400 hover:text-blue-600"
+                          href={`${baseUrl}/${item.keyExplanationPath.replace(/\\/g, "/")}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          view
+                        </a>
+                      ) : (
+                        <span className="text-gray-400">--</span>
+                      )}
+                    </td>
+
                     <td className="p-3 text-center">
                       <span
                         className={`rounded-sm px-2 py-0.5 border border-dashed ${statusStyles.text} ${statusStyles.bg} ${statusStyles.border}`}
@@ -184,7 +196,7 @@ const QuestionBank = () => {
                     </td>
                     <td className="p-3 text-center">
                       <div className="flex justify-center gap-4 text-[#002147] text-lg">
-                        <a href={`${baseUrl}/${item.path.replace(/\\/g, "/")}`} target="_blank" rel="noopener noreferrer">
+                        <a href={`${baseUrl}/${item.questionPaperPath.replace(/\\/g, "/")}`} target="_blank" rel="noopener noreferrer">
                           <FiEye className='cursor-pointer hover:text-blue-600' />
                         </a>
                         <FiEdit2
@@ -224,6 +236,7 @@ const QuestionBank = () => {
       {isUpdateModalOpen && (
         <QuestionBankUpdateModal
           years={years}
+          examTypes={examTypes}
           isUpdateModalOpen={isUpdateModalOpen}
           editDocument={editDocument}
           setIsUpdateModalOpen={setIsUpdateModalOpen}

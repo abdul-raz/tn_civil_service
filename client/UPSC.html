@@ -1,89 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Previous Year Questions – AICSCC</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- Bootstrap CSS CDN -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-       <!-- Google Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-        
-        <!-- Custom Styles -->
-        <link rel="stylesheet" href="styles.css">
-        <style>
-    
 
-    
-    .downloads-alt {
-  padding: 5rem 0;
-  background: var(--white);
-}
+<head>
+    <meta charset="UTF-8">
+    <title>Previous Year Questions – AICSCC</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
 
-.downloads-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .downloads-alt {
+            padding: 5rem 0;
+            background: var(--white);
+        }
 
-.download-category {
-  background: var(--primary-bg);
-  border-radius: 20px;
-  padding: 2rem;
-  box-shadow: var(--card-shadow);
-  transition: box-shadow 0.3s ease;
-}
+        .downloads-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-.download-category:hover {
-  box-shadow: var(--card-shadow-hover);
-}
+        .download-category {
+            background: var(--primary-bg);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: var(--card-shadow);
+            transition: box-shadow 0.3s ease;
+        }
 
-.download-category h3 {
-  color: var(--primary-text);
-  margin-bottom: 1.5rem;
-  font-size: 1.3rem;
-}
+        .download-category:hover {
+            box-shadow: var(--card-shadow-hover);
+        }
 
-.download-list {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
+        .download-category h3 {
+            color: var(--primary-text);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
 
-.download-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: var(--white);
-  padding: 1rem 1.5rem;
-  border-radius: 12px;
-  box-shadow: 0 1px 3px rgb(0 0 0 / 0.05);
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
+        .download-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
 
-.download-item:hover {
-  transform: translateX(5px);
-  box-shadow: var(--card-shadow-hover);
-}
+        .download-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--white);
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgb(0 0 0 / 0.05);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
 
-.download-name {
-  font-weight: 600;
-  color: var(--primary-text);
-}
+        .download-item:hover {
+            transform: translateX(5px);
+            box-shadow: var(--card-shadow-hover);
+        }
 
-.download-size {
-  font-size: 0.8rem;
-  color: var(--text-light);
-  margin-right: 1rem;
-  white-space: nowrap;
-}
+        .download-name {
+            font-weight: 600;
+            color: var(--primary-text);
+        }
 
-   /* .download-btn {
+        .download-size {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            margin-right: 1rem;
+            white-space: nowrap;
+        }
+
+        /* .download-btn {
       background: var(--accent-blue);
       color: var(--white);
       border: none;
@@ -104,37 +103,42 @@
       transform: scale(1.1);
       box-shadow: var(--card-shadow-hover);
     } */
-     .download-btn {
-  color:rgb(48, 74,107);
-  border: none;
-  border-radius: 6px;
-  padding: 0.3rem 0.8rem;
-  font-size: 0.95rem;
-  display: inline-flex;
-  align-items: center;
+        .download-btn {
+            color: rgb(48, 74, 107);
+            border: none;
+            border-radius: 6px;
+            padding: 0.3rem 0.8rem;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
 
-  font-weight: 500;
-  transition: all 0.2s ease;
-  text-decoration: none;
-}
+            font-weight: 500;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
 
-.download-btn i {
-  font-size: 1em;
-  transition: color 0.2s ease;
-}
+        .download-btn i {
+            font-size: 1em;
+            transition: color 0.2s ease;
+        }
 
-.download-btn:hover, .download-btn:focus {
-  background: var(); /* softer yellow */
-  color: var(--accent-gold, #f59e0b);
-  transform: scale(1.03); /* less aggressive zoom */
-  box-shadow: 0 2px 8px rgba(245,158,11,0.1);
-  text-decoration: none;
-}
+        .download-btn:hover,
+        .download-btn:focus {
+            background: var();
+            /* softer yellow */
+            color: var(--accent-gold, #f59e0b);
+            transform: scale(1.03);
+            /* less aggressive zoom */
+            box-shadow: 0 2px 8px rgba(245, 158, 11, 0.1);
+            text-decoration: none;
+        }
 
-.download-btn:hover i, .download-btn:focus i {
-  color: var(--accent-gold, #f59e0b);
-}
-.section-title {
+        .download-btn:hover i,
+        .download-btn:focus i {
+            color: var(--accent-gold, #f59e0b);
+        }
+
+        .section-title {
             text-align: center;
             font-size: 2rem;
             margin-bottom: 1rem;
@@ -164,164 +168,265 @@
             margin-left: auto;
             margin-right: auto;
         }
-     
-    
 
-    /* @media (max-width: 768px) {
+
+
+        /* @media (max-width: 768px) {
       .hero-overlay h1 {
         font-size: rem;
       }
       .hero-overlay p {
         font-size: 1rem;
       } */
-    /* } */
-    .hero-overlay h1 {
-          color: whitesmoke;
-           font-weight: 400;
-                    margin-bottom: 1.5rem;
-                    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-                    line-height: 1.2;
-    }
+        /* } */
+        .hero-overlay h1 {
+            color: whitesmoke;
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            line-height: 1.2;
+        }
 
-   /* @media (max-width: 480px) {
+        /* @media (max-width: 480px) {
       .hero-section {
         /* height: 100px; */
-      
-      /* .hero-overlay h1 {
+
+        /* .hero-overlay h1 {
         font-size: 1.6rem;
       }  .hero-overlay p {
         font-size: 0.9rem;
       } 
     }
     */
-        </style>
-    </head>
-    <body>
-        <!-- Navigation -->
-          <nav class="navbar navbar-expand-xl navbar-custom fixed-top" data-aos="fade-down">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#home">
-                    <img src="logo.png" alt="AICSCC Logo" class="me-0">
-                    <div class="brand-text">
-                        <h5>All India Civil Services Coaching Centre</h5>
-                        <small>A Unit of Anna Institute of Management</small>
-                    </div>
-                </a>
-                <button
-                    class="navbar-toggler"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#navbarNav"
-                >
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+    /* Filter Container Styles */
+.filter-container {
+    max-width: 1200px;
+    margin: 0 auto 3rem auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+}
+
+.filter-dropdown {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.filter-label {
+    font-weight: 600;
+    color: var(--primary-color, #304a6b);
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+.year-filter-select {
+    background: white;
+    border: 2px solid var(--accent-gold, #d4a574);
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--primary-color, #304a6b);
+    min-width: 150px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.year-filter-select:hover {
+    border-color: var(--primary-color, #304a6b);
+    box-shadow: 0 2px 8px rgba(48, 74, 107, 0.1);
+}
+
+.year-filter-select:focus {
+    border-color: var(--primary-color, #304a6b);
+    box-shadow: 0 0 0 3px rgba(212, 165, 116, 0.3);
+}
+
+.year-filter-select option {
+    padding: 10px;
+    background: white;
+    color: var(--primary-color, #304a6b);
+}
+
+.results-count {
+    color: var(--slate-grey, #6c757d);
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.results-count span {
+    background: rgba(212, 165, 116, 0.1);
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 1px solid rgba(212, 165, 116, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .filter-container {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+    }
+    
+    .filter-dropdown {
+        justify-content: center;
+    }
+    
+    .results-count {
+        text-align: center;
+    }
+    
+    .year-filter-select {
+        min-width: 120px;
+    }
+}
+
+@media (max-width: 480px) {
+    .filter-dropdown {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .filter-label {
+        font-size: 1rem;
+    }
+    
+    .year-filter-select {
+        width: 100%;
+        min-width: auto;
+    }
+}
+
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-xl navbar-custom fixed-top" data-aos="fade-down">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#home">
+                <img src="logo.png" alt="AICSCC Logo" class="me-0">
+                <div class="brand-text">
+                    <h5>All India Civil Services Coaching Centre</h5>
+                    <small>A Unit of Anna Institute of Management</small>
+                </div>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link " aria-current="page" href="index.html">Home</a>
-                        </li>
-                <li class="nav-item dropdown-hover">
-                    <a class="dropdown-toggle-custom" href="#">
-                        About Us
-                        <i class="chevron-icon fas fa-chevron-down"></i>
-                    </a>
-                    <ul class="dropdown-menu-custom">
-                        <li>
-                            <a class="dropdown-item dropdown-active" href="aboutus_new.html">Our Institution</a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="facilities.html">Facilities</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="nav-item dropdown-hover">
-                    <a class="dropdown-toggle-custom" href="#">
-                        Programs
-                        <i class="chevron-icon fas fa-chevron-down"></i>
-                    </a>
-                    <ul class="dropdown-menu-custom">
-                        <li>
-                            <a class="dropdown-item" href="programs.html">Coaching Programs</a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="eligibility.html">Eligibility</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="nav-item dropdown-hover">
-                    <a class="dropdown-toggle-custom" href="#">
-                        Question Bank
-                        <i class="chevron-icon fas fa-chevron-down"></i>
-                    </a>
-                    <ul class="dropdown-menu-custom">
-                        <li>
-                            <a class="dropdown-item" href="AICSCC.html">AICSCC Question Bank</a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="UPSC.html">UPSC Question Bank</a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="test_series.html">Test Series</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="exam_result.html">Exam Results</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="gallery.html">Gallery</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="Admission_notification.html">Notifications</a>
-                </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="video.html">Video</a>
-                </li>
-                <li class="nav-item">
-                    <a href="faq.html">
-                        <img src="letter-i.png" style="height: 22px; width: 22px; margin-top: 9px; margin-left: 2px;">
-                    </a>
-                </li>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link " aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item dropdown-hover">
+                        <a class="dropdown-toggle-custom" href="#">
+                            About Us
+                            <i class="chevron-icon fas fa-chevron-down"></i>
+                        </a>
+                        <ul class="dropdown-menu-custom">
+                            <li>
+                                <a class="dropdown-item dropdown-active" href="aboutus_new.html">Our Institution</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="facilities.html">Facilities</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown-hover">
+                        <a class="dropdown-toggle-custom" href="#">
+                            Programs
+                            <i class="chevron-icon fas fa-chevron-down"></i>
+                        </a>
+                        <ul class="dropdown-menu-custom">
+                            <li>
+                                <a class="dropdown-item" href="programs.html">Coaching Programs</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="eligibility.html">Eligibility</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown-hover">
+                        <a class="dropdown-toggle-custom" href="#">
+                            Question Bank
+                            <i class="chevron-icon fas fa-chevron-down"></i>
+                        </a>
+                        <ul class="dropdown-menu-custom">
+                            <li>
+                                <a class="dropdown-item" href="AICSCC.html">AICSCC Question Bank</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="UPSC.html">UPSC Question Bank</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="test_series.html">Test Series</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="exam_result.html">Exam Results</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="gallery.html">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Admission_notification.html">Notifications</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="video.html">Video</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="faq.html">
+                            <img src="letter-i.png"
+                                style="height: 22px; width: 22px; margin-top: 9px; margin-left: 2px;">
+                        </a>
+                    </li>
                 </ul>
-              
+
             </div>
+        </div>
+    </nav>
+    <section class="hero-section">
+        <div class="hero-content">
+
+            <h1 class="breadcrumb-tab">PREVIOUS YEAR QUESTIONS</h1>
+        </div>
+    </section>
+    <!-- Main Content -->
+    <section class="downloads-alt">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">
+                UPSC PREVIOUS YEAR QUESTIONS PAPERS & Answer Keys
+            </h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200">
+                Official previous year question papers and answer keys
+            </p>
+        </div>
+        <!-- Year Filter Dropdown -->
+        <div class="filter-container" data-aos="fade-up" data-aos-delay="300">
+            <div class="filter-dropdown mb-4">
+                <label for="yearFilter" class="filter-label me-2">Filter by Year:</label>
+                <select id="yearFilter" class="form-select d-inline-block w-auto" onchange="filterPapers()">
+                
+                </select>
             </div>
-        </nav> 
-           <section class="hero-section">
-            <div class="hero-content">
-              
-                <h1 class="breadcrumb-tab">PREVIOUS YEAR QUESTIONS</h1>
+            <div class="results-count">
+                <span id="resultCount">Showing all papers</span>
             </div>
-        </section>
-        <!-- Main Content -->
-        <section class="downloads-alt">
-            <div class="container">
-                <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">
-                    UPSC PREVIOUS YEAR QUESTIONS PAPERS & Answer Keys
-                </h2>
-                <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200">
-                    Official previous year question papers and answer keys
-                </p>
-            </div>
-            <div class="downloads-grid">
-                <div class="download-category" data-aos="fade-right" data-aos-delay="100">
-                    <h3>Question Papers</h3>
-                    <div class="download-list">
-                        <div class="download-item">
-                            <span class="download-name">Entrance Exam 2023</span>
-                            <span class="download-size">PDF • 1.2 MB</span>
-                            <a
-                                href="https://www.civilservicecoaching.com/questions/2023_q.pdf"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="download-btn"
-                                aria-label="View Entrance Exam 2023 Question Paper"
-                            >
-                                <i class="bi-eye-fill"></i>
-                                <span style="margin-left: 0.5em;">View</span>
-                            </a>
-                        </div>
-                        <!-- <div class="download-item">
+        </div>
+
+        <div class="downloads-grid">
+            <div class="download-category" data-aos="fade-right" data-aos-delay="100">
+                <h3>Question Papers</h3>
+                <div class="download-list" id="questionPapers">
+
+                    <!-- <div class="download-item">
             <span class="download-name">Entrance Exam 2022</span>
             <span class="download-size">PDF • 1.1 MB</span>
               <a href="https://www.civilservicecoaching.com/questions/2022_q.pdf" 
@@ -334,7 +439,7 @@
   <span style="margin-left: 0.5em;">View</span>
  </a>
           </div> -->
-                        <!-- <div class="download-item">
+                    <!-- <div class="download-item">
             <span class="download-name">Entrance Exam 2021</span>
             <span class="download-size">PDF • 1.0 MB</span>
              <a href="https://www.civilservicecoaching.com/questions/2021_q.pdf" 
@@ -351,10 +456,10 @@
            <div class="download-item">
             <span class="download-name">Entrance Exam 2019</span>
             <span class="download-size">PDF • 1.1 MB</span> -->
-                        <!-- <a href="questions2022.pdf" download class="download-btn" aria-label="Download Entrance Exam 2022 Question Paper">
+                    <!-- <a href="questions2022.pdf" download class="download-btn" aria-label="Download Entrance Exam 2022 Question Paper">
               <i class="fas fa-download"></i>
             </a> -->
-                        <!-- <a href="https://www.civilservicecoaching.com/questions/2019_q.pdf" 
+                    <!-- <a href="https://www.civilservicecoaching.com/questions/2019_q.pdf" 
    target="_blank" 
    rel="noopener noreferrer" 
    class="download-btn" 
@@ -364,8 +469,8 @@
   <span style="margin-left: 0.5em;">View</span>
 
 </a> -->
-                        <!-- </div> -->
-                        <!-- <div class="download-item">
+                    <!-- </div> -->
+                    <!-- <div class="download-item">
             <span class="download-name">Entrance Exam 2018</span>
             <span class="download-size">PDF • 1.1 MB</span>
               <a href="https://www.civilservicecoaching.com/questions/2018_q.pdf" 
@@ -379,26 +484,14 @@
 
 </a>
           </div> -->
-                    </div>
                 </div>
-                <div class="download-category" data-aos="fade-right" data-aos-delay="200">
-                    <h3>Answer Keys</h3>
-                    <div class="download-list">
-                        <div class="download-item">
-                            <span class="download-name">Entrance Exam 2023</span>
-                            <span class="download-size">PDF • 900 KB</span>
-                            <a
-                                href="https://www.civilservicecoaching.com/answers/2023_a.pdf"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="download-btn"
-                                aria-label="View Entrance Exam 2023 Answer Key"
-                            >
-                                <i class="bi-eye-fill"></i>
-                                <span style="margin-left: 0.5em;">View</span>
-                            </a>
-                        </div>
-                        <!-- <div class="download-item">
+            </div>
+            <div class="download-category" data-aos="fade-right" data-aos-delay="200">
+                <h3>Answer Keys</h3>
+                <div class="download-list" id="answerKeys">
+
+
+                    <!-- <div class="download-item">
             <span class="download-name">Entrance Exam 2022</span>
             <span class="download-size">PDF • 850 KB</span>
               <a href="https://www.civilservicecoaching.com/answers/2022_a.pdf" 
@@ -454,23 +547,18 @@
 
 </a>
           </div> -->
-                    </div>
                 </div>
             </div>
         </div>
+        </div>
     </section>
     <!-- Footer -->
-  <footer class="footer">
+    <footer class="footer">
         <div class="container">
             <div class="row g-4">
                 <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
                     <div class="d-flex align-items-center mb-3">
-                        <img
-                            src="logo.png"
-                            alt="AICSCC Logo"
-                            style="height: 50px;"
-                            class="me-3"
-                        >
+                        <img src="logo.png" alt="AICSCC Logo" style="height: 50px;" class="me-3">
                         <div class="footer-heading">
                             <h5 style="color: white;">AICSCC</h5>
                             <small>Anna Institute of Management</small>
@@ -478,7 +566,7 @@
                     </div>
                     <p>
                         Empowering civil service aspirants for over 60 years with world-class coaching and mentorship
-                            under the Government of Tamil Nadu.
+                        under the Government of Tamil Nadu.
                     </p>
                     <div class="youtube">
                         <!-- <a href="#" data-aos="zoom-in" data-aos-delay="200"> -->
@@ -492,107 +580,107 @@
                             <span style="font-size: 15px; color: #fff;">YouTube</span>
                         </a>
                         <!-- <img src="youtube.png" alt="YouTube" style="height: 60px; width: 60px;">    -->
-                    </a>
-                    <!-- <a href="#" data-aos="zoom-in" data-aos-delay="500"> -->
-                    <!-- <i class="fab fa-linkedin-in"></i> -->
-                    <!-- </a> -->
+                        </a>
+                        <!-- <a href="#" data-aos="zoom-in" data-aos-delay="500"> -->
+                        <!-- <i class="fab fa-linkedin-in"></i> -->
+                        <!-- </a> -->
+                    </div>
                 </div>
-            </div>
-            <div class="col-lg" data-aos="fade-up" data-aos-delay="200">
-                <h5>Quick Links</h5>
-                <ul class="list-unstyled" style="line-height: 2;">
-                    <li>
-                        <a href="#home" onclick="showPage('home')">Home</a>
-                    </li>
-                    <li>
-                        <a href="#about" onclick="showPage('about')">About Us</a>
-                    </li>
-                    <li>
-                        <a href="#gallery" onclick="showPage('gallery')">Gallery</a>
-                    </li>
-                    <li>
-                        <a href="#programs" onclick="showPage('programs')">Coaching Programs</a>
-                    </li>
-                    <li>
-                        <a href="#facilities" onclick="showPage('facilities')">Facilities</a>
-                    </li>
-                    <li>
-                        <a href="#eligibility" onclick="showPage('eligibility')">Eligibility</a>
-                    </li>
-                    <li>
-                        <a href="#contact" onclick="showPage('contact')">Contact</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="col-lg" data-aos="fade-up" data-aos-delay="300">
-                <h5>Programs</h5>
-                <ul class="list-unstyled" style="line-height: 2;">
-                    <li>
-                        <a href="#">UPSC Prelims</a>
-                    </li>
-                    <li>
-                        <a href="#">UPSC Mains</a>
-                    </li>
-                    <li>
-                        <a href="#">Interview Guidance</a>
-                    </li>
-                    <li>
-                        <a href="#">Mock Tests</a>
-                    </li>
-                    <li>
-                        <a href="#">Study Materials</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="col-lg" data-aos="fade-up" data-aos-delay="400">
-                <h5>Contact Info</h5>
-                <p>
-                    <i class="fas fa-map-marker-alt me-2"></i>
-                    R.A.Puram, Chennai - 600028
-                </p>
-                <p>
-                    <i class="fas fa-phone me-2"></i>
-                    044-24621475
-                </p>
-                <p>
-                    <i class="fas fa-envelope me-2"></i>
-                    aicscc.gov@gmail.com
-                </p>
-                <a href="contact.html" class="footer-quote">Reach out to us</a>
-            </div>
-        </div>
-        <hr class="my-4" style="border-color: #444;">
-        <!-- Copyright Section -->
-        <div class="row align-items-center" data-aos="fade-up" data-aos-delay="100">
-            <div class="col-12 text-center mb-3 d-none">
-                <div class="bg-warning text-dark rounded p-3 mb-3">
-                    <h6 class="mb-2">
-                        <i class="fas fa-copyright me-2"></i>
-                        Copyright Notice
-                    </h6>
-                    <p class="mb-0 small">
-                        All content, images, logos, and materials on this website are protected by
-                                copyright laws.
-                                Unauthorized reproduction, distribution, or use of any content without written permission is
-                                strictly prohibited.
+                <div class="col-lg" data-aos="fade-up" data-aos-delay="200">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled" style="line-height: 2;">
+                        <li>
+                            <a href="#home" onclick="showPage('home')">Home</a>
+                        </li>
+                        <li>
+                            <a href="#about" onclick="showPage('about')">About Us</a>
+                        </li>
+                        <li>
+                            <a href="#gallery" onclick="showPage('gallery')">Gallery</a>
+                        </li>
+                        <li>
+                            <a href="#programs" onclick="showPage('programs')">Coaching Programs</a>
+                        </li>
+                        <li>
+                            <a href="#facilities" onclick="showPage('facilities')">Facilities</a>
+                        </li>
+                        <li>
+                            <a href="#eligibility" onclick="showPage('eligibility')">Eligibility</a>
+                        </li>
+                        <li>
+                            <a href="#contact" onclick="showPage('contact')">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg" data-aos="fade-up" data-aos-delay="300">
+                    <h5>Programs</h5>
+                    <ul class="list-unstyled" style="line-height: 2;">
+                        <li>
+                            <a href="#">UPSC Prelims</a>
+                        </li>
+                        <li>
+                            <a href="#">UPSC Mains</a>
+                        </li>
+                        <li>
+                            <a href="#">Interview Guidance</a>
+                        </li>
+                        <li>
+                            <a href="#">Mock Tests</a>
+                        </li>
+                        <li>
+                            <a href="#">Study Materials</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg" data-aos="fade-up" data-aos-delay="400">
+                    <h5>Contact Info</h5>
+                    <p>
+                        <i class="fas fa-map-marker-alt me-2"></i>
+                        R.A.Puram, Chennai - 600028
                     </p>
+                    <p>
+                        <i class="fas fa-phone me-2"></i>
+                        044-24621475
+                    </p>
+                    <p>
+                        <i class="fas fa-envelope me-2"></i>
+                        aicscc.gov@gmail.com
+                    </p>
+                    <a href="contact.html" class="footer-quote">Reach out to us</a>
                 </div>
             </div>
-            <div class="col-md-6">
-                <p class="mb-0">
-                    &copy; 2025 All India Civil Services Coaching Centre, Anna Institute of Management.
-                            All Rights Reserved.
-                </p>
-                <!-- <small class="text-muted">No part of this website may be reproduced without permission.</small> -->
+            <hr class="my-4" style="border-color: #444;">
+            <!-- Copyright Section -->
+            <div class="row align-items-center" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-12 text-center mb-3 d-none">
+                    <div class="bg-warning text-dark rounded p-3 mb-3">
+                        <h6 class="mb-2">
+                            <i class="fas fa-copyright me-2"></i>
+                            Copyright Notice
+                        </h6>
+                        <p class="mb-0 small">
+                            All content, images, logos, and materials on this website are protected by
+                            copyright laws.
+                            Unauthorized reproduction, distribution, or use of any content without written permission is
+                            strictly prohibited.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <p class="mb-0">
+                        &copy; 2025 All India Civil Services Coaching Centre, Anna Institute of Management.
+                        All Rights Reserved.
+                    </p>
+                    <!-- <small class="text-muted">No part of this website may be reproduced without permission.</small> -->
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p>Government of Tamil Nadu | Official Website</p>
+                    <br>
+                    <!-- <small class="text-muted">Established under Tamil Nadu Government | Since 1963</small> -->
+                </div>
             </div>
-            <div class="col-md-6 text-md-end">
-                <p>Government of Tamil Nadu | Official Website</p>
-                <br>
-                <!-- <small class="text-muted">Established under Tamil Nadu Government | Since 1963</small> -->
-            </div>
-        </div>
-        <!-- Additional Legal Information -->
-        <!-- <div class="row mt-3" data-aos="fade-up" data-aos-delay="600">
+            <!-- Additional Legal Information -->
+            <!-- <div class="row mt-3" data-aos="fade-up" data-aos-delay="600">
                     <div class="col-12 text-center">
                         <div class="border-top pt-3" style="border-color: #444 !important;">
                             <small class="text-muted">
@@ -604,13 +692,174 @@
                         </div>
                     </div>
                 </div> -->
-    </div>
-</footer>
-<!-- Bootstrap JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-<!-- AOS Animation -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-<script>
+        </div>
+    </footer>
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS Animation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        const baseUrl = "http://localhost:3000"; // backend URL
+
+        // Select the correct containers
+        const questionPapersDiv = document.getElementById("questionPapers");
+        const answerKeysDiv = document.getElementById("answerKeys");
+
+        // Fetch all questionBank items
+        fetch(`${baseUrl}/api/questionBank`)
+            .then(res => res.json())
+            .then(data => {
+                // Filter only type "UPSC" and status "Active"
+                const upscItems = data.filter(item => item.type === "UPSC" && item.status === "Active");
+
+                // Clear existing content inside questionPapers and answerKeys
+                questionPapersDiv.innerHTML = "";
+                answerKeysDiv.innerHTML = "";
+
+                if (upscItems.length === 0) {
+                    questionPapersDiv.innerHTML = "<p>No Question Papers found.</p>";
+                    answerKeysDiv.innerHTML = "<p>No Answer Keys found.</p>";
+                    return;
+                }
+
+                upscItems.forEach(item => {
+                    // Add Question Paper
+                    if (item.questionPaperPath) {
+                        const fileSizeMB = (parseInt(item.questionPaperSize) / (1024 * 1024)).toFixed(2);
+                        const paperDiv = document.createElement("div");
+                        paperDiv.className = "download-item";
+                        paperDiv.dataset.year = item.year;
+
+                        paperDiv.innerHTML = `
+          <span class="download-name">${item.name}</span>
+          <span class="download-size">PDF • ${fileSizeMB} MB</span>
+          <a href="${baseUrl}/${item.questionPaperPath.replaceAll("\\", "/")}" target="_blank" rel="noopener noreferrer" class="download-btn" aria-label="View ${item.name} Question Paper">
+            <i class="bi-eye-fill"></i>
+            <span style="margin-left: 0.5em;">View</span>
+          </a>
+        `;
+                        questionPapersDiv.appendChild(paperDiv);
+                    }
+
+                    // Add Answer Key
+                    if (item.answerKeyPath) {
+                        const fileSizeMB = (parseInt(item.answerKeySize) / (1024 * 1024)).toFixed(2);
+                        const keyDiv = document.createElement("div");
+                        keyDiv.className = "download-item";
+                        keyDiv.dataset.year = item.year;
+
+                        keyDiv.innerHTML = `
+          <span class="download-name">${item.name}</span>
+          <span class="download-size">PDF • ${fileSizeMB} MB</span>
+          <a href="${baseUrl}/${item.answerKeyPath.replaceAll("\\", "/")}" target="_blank" rel="noopener noreferrer" class="download-btn" aria-label="View ${item.name} Answer Key">
+            <i class="bi-eye-fill"></i>
+            <span style="margin-left: 0.5em;">View</span>
+          </a>
+        `;
+                        answerKeysDiv.appendChild(keyDiv);
+                    }
+                });
+            })
+            .catch(err => console.error("Error fetching questionBank:", err));
+    </script>
+   <script>
+    const yearFilter = document.getElementById('yearFilter');
+    const resultCount = document.getElementById('resultCount');
+
+    // Function to populate year dropdown
+    function populateYearFilter(items) {
+        // Get all unique years
+        const years = [...new Set(items.map(item => item.year))].sort((a, b) => b - a);
+
+        // Add "All" option at the top
+        const allOption = document.createElement('option');
+        allOption.value = 'all';
+        allOption.textContent = 'All Years';
+        yearFilter.appendChild(allOption);
+
+        // Add other years
+        years.forEach(year => {
+            const option = document.createElement('option');
+            option.value = year;
+            option.textContent = year;
+            yearFilter.appendChild(option);
+        });
+    }
+
+    // Filter function
+    function filterPapers() {
+        const selectedYear = yearFilter.value;
+        const questionPapers = document.querySelectorAll('#questionPapers .download-item');
+        const answerKeys = document.querySelectorAll('#answerKeys .download-item');
+
+        let visibleCount = 0;
+
+        // Filter Question Papers
+        questionPapers.forEach(item => {
+            const itemYear = item.dataset.year;
+            if (selectedYear === 'all' || itemYear === selectedYear) {
+                item.style.display = 'flex';
+                visibleCount++;
+            } else {
+                item.style.display = 'none';
+            }
+        });
+
+        // Filter Answer Keys
+        answerKeys.forEach(item => {
+            const itemYear = item.dataset.year;
+            if (selectedYear === 'all' || itemYear === selectedYear) {
+                item.style.display = 'flex';
+                visibleCount++;
+            } else {
+                item.style.display = 'none';
+            }
+        });
+
+        // Update result count
+        if (selectedYear === 'all') {
+            resultCount.textContent = `Showing all papers`;
+        } else {
+            const paperCount = visibleCount / 2; // divide by 2 since each paper has a key
+            resultCount.textContent = `Showing ${paperCount} paper${paperCount !== 1 ? 's' : ''} for ${selectedYear}`;
+        }
+
+        // Show empty state if no results
+        const categories = document.querySelectorAll('.download-category');
+        categories.forEach(category => {
+            const items = category.querySelectorAll('.download-item:not([style*="display: none"])');
+            const list = category.querySelector('.download-list');
+
+            const existingEmpty = category.querySelector('.empty-state');
+            if (existingEmpty) existingEmpty.remove();
+
+            if (items.length === 0) {
+                const emptyState = document.createElement('div');
+                emptyState.className = 'empty-state text-center text-muted mt-2';
+                emptyState.innerHTML = `<i class="bi-search"></i> <p>No papers found for ${selectedYear}</p>`;
+                list.appendChild(emptyState);
+            }
+        });
+    }
+
+    // Populate year filter once data is fetched
+    fetch(`${baseUrl}/api/questionBank`)
+        .then(res => res.json())
+        .then(data => {
+            populateYearFilter(data); // Use all items to get all years
+        })
+        .catch(err => console.error("Error fetching years:", err));
+
+    // Initialize filter on page load
+    document.addEventListener('DOMContentLoaded', () => filterPapers());
+
+    // Filter papers when year changes
+    yearFilter.addEventListener('change', filterPapers);
+</script>
+
+
+
+    <script>
         // Initialize AOS
         AOS.init({
             duration: 1000,
@@ -757,6 +1006,7 @@
             link.href = url;
             document.head.appendChild(link);
         });
-</script>
+    </script>
 </body>
+
 </html>

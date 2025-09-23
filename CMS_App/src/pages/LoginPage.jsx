@@ -247,7 +247,7 @@ const LoginPage = ({ setLog }) => {
 
             <input
               onClick={handleLogin}
-              type="button"
+              type="submit"
               value="Sign In"
               className="bg-[#eead21] hover:bg-[#fab82b] p-1 px-2 md:p-3 md:rounded-xl rounded-md text-white font-medium mt-2 cursor-pointer"
             />

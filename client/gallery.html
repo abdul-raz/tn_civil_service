@@ -300,18 +300,7 @@
             <!-- Category Tabs -->
 <div class="tabs-filter-container">
   <ul class="nav nav-pills mb-0" id="categoryTabs" role="tablist" style="white-space: nowrap;">
-    <li class="nav-item" role="presentation">
-      <button class="nav-link active" data-category="all" type="button" role="tab">All</button>
-    </li>
-    <li class="nav-item" role="presentation">
-      <button class="nav-link" data-category="category1" type="button" role="tab">Category 1</button>
-    </li>
-    <li class="nav-item" role="presentation">
-      <button class="nav-link" data-category="category2" type="button" role="tab">Category 2</button>
-    </li>
-    <li class="nav-item" role="presentation">
-      <button class="nav-link" data-category="category3" type="button" role="tab">Category 3</button>
-    </li>
+    
   </ul>
   <!-- Add Filter Button here -->
 <button id="sortBtn" type="button" class="btn btn-outline-primary ms-3" aria-label="Sort">
@@ -359,73 +348,10 @@
         </div>
     </div>
 
-         <div class="row">
-  <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
-    <div class="gallery-item card h-100 shadow-sm border-0 rounded-3 overflow-hidden position-relative">
-      <img src="assets/asset_12.webp" alt="Modern Classroom"
-        class="card-img-top" style="height: 220px; object-fit: cover;">
-      <div class="gallery-overlay">
-        <h5 class="fw-bold">State-of-the-Art Classrooms</h5>
-        <p class="text-white">Modern learning environment with advanced teaching aids and technology integration</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
-    <div class="gallery-item card h-100 shadow-sm border-0 rounded-3 overflow-hidden position-relative">
-      <img src="assets/asset_13.webp" alt="Examination Hall" class="card-img-top"
-        style="height: 220px; object-fit: cover;">
-      <div class="gallery-overlay">
-        <h5 class="fw-bold">Mock Test Sessions</h5>
-        <p class="text-white">Regular practice tests conducted in real examination conditions</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
-    <div class="gallery-item card h-100 shadow-sm border-0 rounded-3 overflow-hidden position-relative">
-      <img src="assets/asset_14.webp" alt="Interview Preparation"
-        class="card-img-top" style="height: 220px; object-fit: cover;">
-      <div class="gallery-overlay">
-        <h5 class="fw-bold">Interview Training</h5>
-        <p class="text-white">Comprehensive personality development and mock interview sessions</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="400">
-    <div class="gallery-item card h-100 shadow-sm border-0 rounded-3 overflow-hidden position-relative">
-      <img src="assets/asset_15.webp" alt="Digital Library" class="card-img-top"
-        style="height: 220px; object-fit: cover;">
-      <div class="gallery-overlay">
-        <h5 class="fw-bold">Digital Library</h5>
-        <p class="text-white">Extensive collection of books, journals, and e-resources</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="500">
-    <div class="gallery-item card h-100 shadow-sm border-0 rounded-3 overflow-hidden position-relative">
-      <img src="https://www.civilservicecoaching.com/galleries/264152-..png" alt="Group Discussion" class="card-img-top"
-        style="height: 220px; object-fit: cover;">
-      <div class="gallery-overlay">
-        <h5 class="fw-bold">Group Discussions</h5>
-        <p class="text-white">Interactive sessions for current affairs and topic discussions</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="600">
-    <div class="gallery-item card h-100 shadow-sm border-0 rounded-3 overflow-hidden position-relative">
-      <img src="assets/asset_16.webp" alt="Success Celebration"
-        class="card-img-top" style="height: 220px; object-fit: cover;">
-      <div class="gallery-overlay">
-        <h5 class="fw-bold">Success Stories</h5>
-        <p class="text-white">Celebrating our achievers and their remarkable journeys</p>
-      </div>
-    </div>
-  </div>
+<div class="row" id="gallery-row">
+  <!-- Gallery items will be appended here from JS -->
 </div>
+
 
                 </div>
 
@@ -548,6 +474,92 @@
         
         <!-- AOS Animation -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+  const galleryRow = document.getElementById("gallery-row");
+  const categoryTabsContainer = document.getElementById("categoryTabs"); // ul container
+  const baseUrl = "http://localhost:3000";
+  let allGalleryItems = []; // store all gallery items
+  let categoryTabs = [];    // store buttons dynamically
+
+  // Fetch gallery categories and create buttons dynamically
+  fetch(`${baseUrl}/api/masterData/galleryCategories`)
+    .then(res => res.json())
+    .then(categories => {
+      // Add "All" button first
+      const allBtn = document.createElement("li");
+      allBtn.className = "nav-item";
+      allBtn.innerHTML = `<button class="nav-link active" data-category="all">All</button>`;
+      categoryTabsContainer.appendChild(allBtn);
+
+      // Add buttons for each category from backend
+      categories.forEach(cat => {
+        const li = document.createElement("li");
+        li.className = "nav-item";
+        li.innerHTML = `<button class="nav-link" data-category="${cat.id}">${cat.name}</button>`;
+        categoryTabsContainer.appendChild(li);
+      });
+
+      // After creating buttons, store references
+      categoryTabs = categoryTabsContainer.querySelectorAll("button");
+
+      // Attach click event to filter gallery
+      categoryTabs.forEach(tab => {
+        tab.addEventListener("click", () => {
+          categoryTabs.forEach(t => t.classList.remove("active"));
+          tab.classList.add("active");
+
+          const category = tab.dataset.category;
+          displayGalleryItems(category);
+        });
+      });
+    })
+    .catch(err => console.error("Error fetching gallery categories:", err));
+
+  // Fetch all gallery items once
+  fetch(`${baseUrl}/api/gallery`)
+    .then(res => res.json())
+    .then(data => {
+      allGalleryItems = data;
+      displayGalleryItems("all"); // show all initially
+    })
+    .catch(err => console.error("Error fetching gallery:", err));
+
+  // Function to display items filtered by category
+  function displayGalleryItems(category) {
+    galleryRow.innerHTML = ""; // clear current items
+
+    const filteredItems = category === "all"
+      ? allGalleryItems
+      : allGalleryItems.filter(item => item.categoryId === parseInt(category));
+
+    if (!filteredItems.length) {
+      galleryRow.innerHTML = "<p>No images found in this category</p>";
+      return;
+    }
+
+    filteredItems.forEach((item, index) => {
+      const col = document.createElement("div");
+      col.className = "col-lg-4 col-md-6 mb-4";
+      col.setAttribute("data-aos", "fade-up");
+      col.setAttribute("data-aos-delay", (index + 1) * 100);
+
+      col.innerHTML = `
+        <div class="gallery-item card h-100 shadow-sm border-0 rounded-3 overflow-hidden position-relative">
+          <img src="${baseUrl}/${item.imageUrl}" alt="${item.title}" class="card-img-top" style="height: 220px; object-fit: cover;">
+          <div class="gallery-overlay">
+            <h5 class="fw-bold">${item.title}</h5>
+            <p class="text-white">${item.description}</p>
+          </div>
+        </div>
+      `;
+      galleryRow.appendChild(col);
+    });
+
+    AOS.refresh(); // refresh animations
+  }
+</script>
+
+
 
         <script>
   // Sort functionality

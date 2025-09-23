@@ -8,17 +8,19 @@ const QuestionBankUpdateModal = ({
   editDocument, 
   documentName, 
   years,
-  onSuccess
+  onSuccess,
+  examTypes
 }) => {
-
-  const baseUrl = "http://localhost:3000"; // base URL
-
+  const baseUrl = "http://localhost:3000";
 
   const [formData, setFormData] = useState({
     name: editDocument?.name || "",
     type: editDocument?.type || "",
     year: editDocument?.year || "",
     status: editDocument?.status || "",
+    questionPaper: null,
+    answerKey: null,
+    keyExplanation: null,
   });
 
   const [errors, setErrors] = useState({});
@@ -27,12 +29,14 @@ const QuestionBankUpdateModal = ({
   useEffect(() => {
     if (isUpdateModalOpen) {
       setShowModal(true);
-      // Reset form with latest document when modal opens
       setFormData({
         name: editDocument?.name || "",
         type: editDocument?.type || "",
         year: editDocument?.year || "",
         status: editDocument?.status || "",
+        questionPaper: null,
+        answerKey: null,
+        keyExplanation: null,
       });
     }
   }, [isUpdateModalOpen, editDocument]);
@@ -63,18 +67,27 @@ const QuestionBankUpdateModal = ({
     }
     setErrors({});
 
-  try {
-      const payload = {
-        name: formData.name,
-        type: formData.type,
-        status: formData.status,
-        year: formData.year, // send categoryId
-      };
+    try {
+      const formDataToSend = new FormData();
+      formDataToSend.append("name", formData.name);
+      formDataToSend.append("type", formData.type);
+      formDataToSend.append("status", formData.status);
+      formDataToSend.append("year", formData.year);
+
+      if (formData.questionPaper) {
+        formDataToSend.append("questionPaper", formData.questionPaper);
+      }
+      if (formData.answerKey) {
+        formDataToSend.append("answerKey", formData.answerKey);
+      }
+      if (formData.keyExplanation) {
+        formDataToSend.append("keyExplanation", formData.keyExplanation);
+      }
 
       const res = await axios.put(
         `${baseUrl}/api/questionBank/${editDocument.id}`,
-        payload,
-        { withCredentials: true }
+        formDataToSend,
+        { withCredentials: true, headers: { "Content-Type": "multipart/form-data" } }
       );
 
       console.log("Question Bank updated:", res.data);
@@ -116,15 +129,14 @@ const QuestionBankUpdateModal = ({
               value={formData.name}
               onChange={handleChange}
               placeholder="Title"
-              className={`w-full border rounded-md p-2 outline-none ${errors.title ? "border-red-500" : "border-gray-300"}`}
+              className={`w-full border rounded-md p-2 outline-none ${errors.name ? "border-red-500" : "border-gray-300"}`}
             />
-            {errors.title && <p className="requiredField">{errors.name}</p>}
+            {errors.name && <p className="requiredField">{errors.name}</p>}
           </div>
-          {/* Type select */}
-          <div className="relative md:w-[49%] w-[100%]">
-            <label className="block mb-1 text-sm text-gray-700 font-medium">
-              Select Type
-            </label>
+
+          {/* Type */}
+          <div className="relative md:w-[49%] w-full">
+            <label className="block mb-1 text-sm text-gray-700 font-medium">Select Type</label>
             <select
               name="type"
               value={formData.type}
@@ -132,46 +144,40 @@ const QuestionBankUpdateModal = ({
               className="w-full border border-gray-300 rounded-md p-2 outline-none appearance-none"
             >
               <option value="">Select Type</option>
-              <option value="AICSCC">AICSCC</option>
-              <option value="UPSC">UPSC</option>
-              <option value="Test Series">Test Series</option>
+              {examTypes.map((exam) => (
+                <option key={exam.id} value={exam.name}>
+                  {exam.name}
+                </option>
+              ))}
             </select>
             {errors.type && <p className="requiredField">{errors.type}</p>}
           </div>
 
-          {/* Year select */}
+          {/* Year */}
           <div className="relative md:w-[49%] w-full">
-            <label className="block mb-1 text-sm text-gray-700 font-medium">
-              Select Year
-            </label>
+            <label className="block mb-1 text-sm text-gray-700 font-medium">Select Year</label>
             <select
               name="year"
               value={formData.year}
               onChange={handleChange}
-              className={`w-full border rounded-md p-2 outline-none appearance-none ${
-                errors.year ? "border-red-500 focus:ring-red-500" : "border-gray-300"
-              }`}
+              className={`w-full border rounded-md appearance-none p-2 outline-none ${errors.year ? "border-red-500" : "border-gray-300"}`}
             >
               <option value="">Select Year</option>
               {years.map((year) => (
-                <option key={year.id} value={year.name}>
-                  {year.name}
-                </option>
+                <option key={year.id} value={year.name}>{year.name}</option>
               ))}
             </select>
             {errors.year && <p className="requiredField">{errors.year}</p>}
           </div>
 
-          {/* Status select */}
-          <div className="relative md:w-[49%] w-[100%]">
-            <label className="block mb-1 text-sm text-gray-700 font-medium">
-              Status
-            </label>
+          {/* Status */}
+          <div className="relative md:w-[49%] w-full">
+            <label className="block mb-1 text-sm text-gray-700 font-medium">Status</label>
             <select
               name="status"
               value={formData.status}
               onChange={handleChange}
-              className="w-full border border-gray-300 rounded-md p-2 outline-none appearance-none"
+              className="w-full border border-gray-300 appearance-none rounded-md p-2 outline-none"
             >
               <option value="">Select Status</option>
               <option value="Active">Active</option>
@@ -180,12 +186,89 @@ const QuestionBankUpdateModal = ({
             {errors.status && <p className="requiredField">{errors.status}</p>}
           </div>
 
-          {/* Submit button */}
+          {/* Question Paper Upload */}
+          <div className="relative md:w-[49%] w-full">
+            <label className="block mb-1 text-sm text-gray-700 font-medium">Question Paper</label>
+            <input
+              type="file"
+              name="questionPaper"
+              accept="application/pdf"
+              onChange={handleChange}
+              className="w-full border border-gray-300 rounded-md p-2 outline-none"
+            />
+            {editDocument?.questionPaperPath && (
+              <p className="mt-1 text-sm ml-2">
+                Current File:{" "}
+                <a
+                  href={`${baseUrl}/${editDocument.questionPaperPath}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:text-blue-800"
+                >
+                  View PDF
+                </a>
+              </p>
+            )}
+          </div>
+
+          {/* Answer Key Upload */}
+          <div className="relative md:w-[49%] w-full">
+            <label className="block mb-1 text-sm text-gray-700 font-medium">Answer Key</label>
+            <input
+              type="file"
+              name="answerKey"
+              accept="application/pdf"
+              onChange={handleChange}
+              className="w-full border border-gray-300 rounded-md p-2 outline-none"
+            />
+            {editDocument?.answerKeyPath && (
+              <p className="mt-1 text-sm ml-2">
+                Current File:{" "}
+                <a
+                  href={`${baseUrl}/${editDocument.answerKeyPath}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:text-blue-800"
+                >
+                  View PDF
+                </a>
+              </p>
+            )}
+          </div>
+
+          {/* Key Explanation Upload */}
+          {formData.type==="Test Series" && <div className="relative md:w-[49%] w-full">
+            <label className="block mb-1 text-sm text-gray-700 font-medium">Answer Key with Explanation</label>
+            <input
+              type="file"
+              name="keyExplanation"
+              accept="application/pdf"
+              onChange={handleChange}
+              className="w-full border border-gray-300 rounded-md p-2 outline-none"
+            />
+            {editDocument?.keyExplanationPath ? (
+              <p className="mt-1 text-sm ml-2">
+                Current File:{" "}
+                <a
+                  href={`${baseUrl}/${editDocument.keyExplanationPath}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:text-blue-800"
+                >
+                  View PDF
+                </a>
+              </p>
+            ) : (
+              <p className="mt-1 ml-2 text-gray-500 text-sm">--</p>
+            )}
+          </div>}
+
+          {/* Submit */}
           <div className="mt-4 w-full">
             <input
               type="submit"
               value="Update"
-              className="px-4 font-medium cursor-pointer py-2 w-full bg-[#002147] hover:bg-[#013168] text-white rounded-md"
+              className="px-4 cursor-pointer font-medium py-2 w-full bg-[#002147] hover:bg-[#013168] text-white rounded-md"
             />
           </div>
         </form>
@@ -202,9 +285,3 @@ const QuestionBankUpdateModal = ({
 };
 
 export default QuestionBankUpdateModal;
-
-{/* <div className="relative md:w-[49%] w-[100%]"> */} 
-{/* <label className="block mb-1 text-sm text-gray-700 font-medium"> {documentName === "questionbank" ? "Question Paper" : documentName === "answerkey" ? "Answer Key" : "Answer Key with Explanation"} </label> */}
-{/* <input type="file" name="file" accept="application/pdf" onChange={handleChange} className="w-full border border-gray-300 rounded-md p-2 outline-none" /> */} {/* Existing PDF preview link */} 
-{/* {editDocument?.pathUrl && ( <p className="flex pl-2.5 mt-1 gap-2 items-center"> <label>Current File:</label> <a href={editDocument.pathUrl} target="_blank" rel="noopener noreferrer" className="flex items-center text-sm text-blue-600 w-fit gap-1" > View PDF </a> </p> )} */}
- {/* </div> */}

@@ -55,7 +55,6 @@ const GalleryUploadModal = ({ setIsAddNewModalOpen,categories,fetchGalleryData }
       });
 
       console.log("Gallery added:", res.data);
-      alert("Gallery added successfully!");
       setIsAddNewModalOpen(false);
     } catch (error) {
       console.error("Error uploading gallery:", error.response?.data || error.message);

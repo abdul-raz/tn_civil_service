@@ -38,9 +38,7 @@ const SideBar = ({ isSideBarOpen, setIsSideBarOpen }) => {
       label: "CMS Managements",
       icon: <BiSolidBookContent />,
       submenu: [
-        { label: "Question Paper", path: "/questionbank" },
-        { label: "Answer Key", path: "/answerkey" },
-        { label: "Key Explanation", path: "/withexplanation" },
+        { label: "Question Bank", path: "/questionbank" },
         { label: "Gallery", path: "/gallery" },
         { label: "Notification", path: "/notification" },
         { label: "Results", path: "/results" },

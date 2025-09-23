@@ -1,4 +1,4 @@
-
+const fs = require("fs");
 const db = require("../models");
 const QuestionBank = db.QuestionBank;
 const path = require("path");
@@ -158,19 +158,42 @@ exports.updateQuestionBank = [
   },
 ];
 
+
 // Delete
 exports.deleteQuestionBank = async (req, res) => {
   try {
-    const deleted = await QuestionBank.destroy({ where: { id: req.params.id } });
-    if (!deleted) {
+    const entry = await QuestionBank.findByPk(req.params.id);
+
+    if (!entry) {
       return res.status(404).send({ message: "Question Bank entry not found." });
     }
+
+    // Delete files if they exist
+    const filesToDelete = [
+      entry.questionPaperPath,
+      entry.answerKeyPath,
+      entry.keyExplanationPath,
+    ];
+
+    filesToDelete.forEach((filePath) => {
+      if (filePath && fs.existsSync(filePath)) {
+        fs.unlink(filePath, (err) => {
+          if (err) console.error("Error deleting file:", err);
+          else console.log(`Deleted file: ${filePath}`);
+        });
+      }
+    });
+
+    // Delete from DB
+    await entry.destroy();
+
     return res.status(200).send({ message: "Question Bank deleted successfully." });
   } catch (error) {
     console.error(error);
     return res.status(500).send({ message: "Server error." });
   }
 };
+
 
 // const db = require("../models");
 // const QuestionBank = db.QuestionBank;

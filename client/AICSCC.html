@@ -644,313 +644,148 @@
 <!-- AOS Animation -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 <script>
-const baseUrl = "http://localhost:3000"; // your backend
+const baseUrl = "http://localhost:3000"; // your backend URL
 const questionPapersDiv = document.getElementById("questionPapers");
 const answerKeysDiv = document.getElementById("answerKeys");
+const yearFilter = document.getElementById('yearFilter');
+const resultCount = document.getElementById('resultCount');
 
-// Fetch all questionBank items
+let upscItems = []; // store UPSC items globally
+
+// Fetch UPSC Question Bank items
 fetch(`${baseUrl}/api/questionBank`)
   .then(res => res.json())
   .then(data => {
-    // Filter only type "AICSCC" AND status "Active"
-    const aicsccItems = data.filter(item => item.type === "AICSCC" && item.status === "Active");
+    // Filter only UPSC & Active
+    upscItems = data.filter(item => item.type === "AICSCC" && item.status === "Active");
 
-    if(aicsccItems.length === 0){
+    if (upscItems.length === 0) {
       questionPapersDiv.innerHTML = "<p>No Question Papers found.</p>";
       answerKeysDiv.innerHTML = "<p>No Answer Keys found.</p>";
       return;
     }
 
-    // Populate Question Papers
-    questionPapersDiv.innerHTML = ""; // clear existing
-    aicsccItems.forEach(item => {
-      if(item.questionPaperPath){
-        const fileSizeMB = (parseInt(item.questionPaperSize) / (1024 * 1024)).toFixed(2);
-        const paperDiv = document.createElement("div");
-        paperDiv.className = "download-item";
-        paperDiv.dataset.year = item.year;
-
-        paperDiv.innerHTML = `
-          <span class="download-name">${item.name}</span>
-          <span class="download-size">PDF • ${fileSizeMB} MB</span>
-          <a href="${baseUrl}/${item.questionPaperPath.replaceAll("\\","/")}" target="_blank" rel="noopener noreferrer" class="download-btn" aria-label="View ${item.name} Question Paper">
-            <i class="bi-eye-fill"></i>
-            <span style="margin-left: 0.5em;">View</span>
-          </a>
-        `;
-        questionPapersDiv.appendChild(paperDiv);
-      }
-    });
-
-    // Populate Answer Keys
-    answerKeysDiv.innerHTML = ""; // clear existing
-    aicsccItems.forEach(item => {
-      if(item.answerKeyPath){
-        const fileSizeMB = (parseInt(item.answerKeySize) / (1024 * 1024)).toFixed(2);
-        const keyDiv = document.createElement("div");
-        keyDiv.className = "download-item";
-        keyDiv.dataset.year = item.year;
-
-        keyDiv.innerHTML = `
-          <span class="download-name">${item.name}</span>
-          <span class="download-size">PDF • ${fileSizeMB} MB</span>
-          <a href="${baseUrl}/${item.answerKeyPath.replaceAll("\\","/")}" target="_blank" rel="noopener noreferrer" class="download-btn" aria-label="View ${item.name} Answer Key">
-            <i class="bi-eye-fill"></i>
-            <span style="margin-left: 0.5em;">View</span>
-          </a>
-        `;
-        answerKeysDiv.appendChild(keyDiv);
-      }
-    });
+    populateYearFilter(upscItems); // populate year dropdown dynamically
+    renderPapers(upscItems);       // render papers initially
   })
-  .catch(err => console.error("Error fetching questionBank:", err));
-</script>
+  .catch(err => console.error("Error fetching UPSC questionBank:", err));
 
+// Populate year filter dynamically
+function populateYearFilter(items) {
+  yearFilter.innerHTML = '<option value="all">All Years</option>'; // clear & add All option
+  const years = [...new Set(items.map(item => item.year))].sort((a,b) => b.localeCompare(a));
 
-
-<script>
-    const yearFilter = document.getElementById('yearFilter');
-
-// Fetch years from backend
-fetch('http://localhost:3000/api/masterData/years')
-  .then(res => res.json())
-  .then(data => {
-    // Clear existing options except "All Years"
-    yearFilter.innerHTML = '<option value="all">All Years</option>';
-
-    // Append options dynamically
-    data.forEach(yearItem => {
-      const option = document.createElement('option');
-      option.value = yearItem.name; // assuming the backend returns { id, name }
-      option.textContent = yearItem.name;
-      yearFilter.appendChild(option);
-    });
-  })
-  .catch(err => console.error('Error fetching years:', err));
-    function filterPapers() {
-    const selectedYear = document.getElementById('yearFilter').value;
-    const questionPapers = document.querySelectorAll('#questionPapers .download-item');
-    const answerKeys = document.querySelectorAll('#answerKeys .download-item');
-    const resultCount = document.getElementById('resultCount');
-    
-    let visibleCount = 0;
-    
-    // Filter Question Papers
-    questionPapers.forEach(item => {
-        const itemYear = item.getAttribute('data-year');
-        if (selectedYear === 'all' || itemYear === selectedYear) {
-            item.classList.remove('fade-out');
-            item.classList.add('fade-in');
-            item.style.display = 'flex';
-            visibleCount++;
-        } else {
-            item.classList.add('fade-out');
-            item.classList.remove('fade-in');
-            setTimeout(() => {
-                item.style.display = 'none';
-            }, 300);
-        }
-    });
-    
-    // Filter Answer Keys
-    answerKeys.forEach(item => {
-        const itemYear = item.getAttribute('data-year');
-        if (selectedYear === 'all' || itemYear === selectedYear) {
-            item.classList.remove('fade-out');
-            item.classList.add('fade-in');
-            item.style.display = 'flex';
-            visibleCount++;
-        } else {
-            item.classList.add('fade-out');
-            item.classList.remove('fade-in');
-            setTimeout(() => {
-                item.style.display = 'none';
-            }, 300);
-        }
-    });
-    
-    // Update result count
-    if (selectedYear === 'all') {
-        resultCount.textContent = 'Showing all papers';
-    } else {
-        const paperCount = visibleCount / 2; // Divide by 2 because we have both question papers and answer keys
-        resultCount.textContent = `Showing ${paperCount} paper${paperCount !== 1 ? 's' : ''} for ${selectedYear}`;
-    }
-    
-    // Add empty state if no results
-    const categories = document.querySelectorAll('.download-category');
-    categories.forEach(category => {
-        const items = category.querySelectorAll('.download-item:not([style*="display: none"])');
-        const list = category.querySelector('.download-list');
-        
-        // Remove existing empty state
-        const existingEmpty = category.querySelector('.empty-state');
-        if (existingEmpty) {
-            existingEmpty.remove();
-        }
-        
-        if (items.length === 0) {
-            const emptyState = document.createElement('div');
-            emptyState.className = 'empty-state';
-            emptyState.innerHTML = `
-                <i class="bi-search"></i>
-                <p>No papers found for ${selectedYear}</p>
-            `;
-            list.appendChild(emptyState);
-        }
-    });
+  years.forEach(year => {
+    const option = document.createElement('option');
+    option.value = year;
+    option.textContent = year;
+    yearFilter.appendChild(option);
+  });
 }
 
-// Initialize filter on page load
-document.addEventListener('DOMContentLoaded', function() {
-    filterPapers();
-});
-        // Initialize AOS
-        AOS.init({
-            duration: 1000,
-            offset: 100,
-            once: true,
-            easing: 'ease-in-out'
-        });
+// Render question papers & answer keys
+function renderPapers(items) {
+  questionPapersDiv.innerHTML = '';
+  answerKeysDiv.innerHTML = '';
 
-        // Navbar scroll effect
-        window.addEventListener('scroll', function () {
-            const navbar = document.querySelector('.navbar-custom');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
+  items.forEach(item => {
+    // Question Paper
+    if(item.questionPaperPath){
+      const fileSizeMB = (parseInt(item.questionPaperSize)/(1024*1024)).toFixed(2);
+      const paperDiv = document.createElement("div");
+      paperDiv.className = "download-item";
+      paperDiv.dataset.year = item.year;
+      paperDiv.innerHTML = `
+        <span class="download-name">${item.name} (${item.year})</span>
+        <span class="download-size">PDF • ${fileSizeMB} MB</span>
+        <a href="${baseUrl}/${item.questionPaperPath.replaceAll("\\","/")}" target="_blank" rel="noopener noreferrer" class="download-btn" aria-label="View ${item.name} Question Paper">
+          <i class="bi-eye-fill"></i>
+          <span style="margin-left:0.5em;">View</span>
+        </a>
+      `;
+      questionPapersDiv.appendChild(paperDiv);
+    }
 
-        // Page navigation
-        function showPage(pageId) {
-            // Hide all pages
-            const pages = ['home', 'about', 'gallery', 'programs', 'facilities', 'eligibility', 'contact'];
-            pages.forEach(page => {
-                const pageElement = document.getElementById(page + '-page');
-                if (pageElement) {
-                    pageElement.classList.add('hidden');
-                }
-            });
+    // Answer Key
+    if(item.answerKeyPath){
+      const fileSizeMB = (parseInt(item.answerKeySize)/(1024*1024)).toFixed(2);
+      const keyDiv = document.createElement("div");
+      keyDiv.className = "download-item";
+      keyDiv.dataset.year = item.year;
+      keyDiv.innerHTML = `
+        <span class="download-name">${item.name} (${item.year})</span>
+        <span class="download-size">PDF • ${fileSizeMB} MB</span>
+        <a href="${baseUrl}/${item.answerKeyPath.replaceAll("\\","/")}" target="_blank" rel="noopener noreferrer" class="download-btn" aria-label="View ${item.name} Answer Key">
+          <i class="bi-eye-fill"></i>
+          <span style="margin-left:0.5em;">View</span>
+        </a>
+      `;
+      answerKeysDiv.appendChild(keyDiv);
+    }
+  });
 
-            // Show selected page
-            const targetPage = document.getElementById(pageId + '-page');
-            if (targetPage) {
-                targetPage.classList.remove('hidden');
-            }
+  filterPapers(); // apply current filter after render
+}
 
-            // Update active nav link
-            const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-            });
+// Filter papers by year
+function filterPapers() {
+  const selectedYear = yearFilter.value;
+  const questionPapers = document.querySelectorAll('#questionPapers .download-item');
+  const answerKeys = document.querySelectorAll('#answerKeys .download-item');
 
-            const activeLink = document.querySelector(`[href="#${pageId}"]`);
-            if (activeLink) {
-                activeLink.classList.add('active');
-            }
+  let visibleCount = 0;
 
-            // Scroll to top
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+  questionPapers.forEach(item => {
+    const itemYear = item.dataset.year;
+    if(selectedYear === 'all' || itemYear === selectedYear){
+      item.style.display = 'flex';
+      visibleCount++;
+    } else {
+      item.style.display = 'none';
+    }
+  });
 
-            // Collapse navbar on mobile
-            const navbarCollapse = document.querySelector('.navbar-collapse');
-            if (navbarCollapse.classList.contains('show')) {
-                const bsCollapse = new bootstrap.Collapse(navbarCollapse);
-                bsCollapse.hide();
-            }
+  answerKeys.forEach(item => {
+    const itemYear = item.dataset.year;
+    if(selectedYear === 'all' || itemYear === selectedYear){
+      item.style.display = 'flex';
+      visibleCount++;
+    } else {
+      item.style.display = 'none';
+    }
+  });
 
-            // Re-initialize AOS for new content
-            setTimeout(() => {
-                AOS.refresh();
-            }, 100);
-        }
+  // Update result count
+  if(selectedYear === 'all'){
+    resultCount.textContent = 'Showing all papers';
+  } else {
+    const paperCount = visibleCount/2; // divide by 2 since each paper has key
+    resultCount.textContent = `Showing ${paperCount} paper${paperCount !== 1 ? 's' : ''} for ${selectedYear}`;
+  }
 
-        // Form submission
-        document.addEventListener('DOMContentLoaded', function () {
-            const forms = document.querySelectorAll('form');
-            forms.forEach(form => {
-                form.addEventListener('submit', function (e) {
-                    e.preventDefault();
-                    alert('Thank you for your message! We will get back to you soon.');
-                    this.reset();
-                });
-            });
-        });
+  // Empty state if no results
+  const categories = document.querySelectorAll('.download-category');
+  categories.forEach(category => {
+    const items = category.querySelectorAll('.download-item:not([style*="display: none"])');
+    const list = category.querySelector('.download-list');
+    const existingEmpty = category.querySelector('.empty-state');
+    if(existingEmpty) existingEmpty.remove();
 
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target && !this.getAttribute('onclick')) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
+    if(items.length === 0){
+      const emptyState = document.createElement('div');
+      emptyState.className = 'empty-state text-center text-muted mt-2';
+      emptyState.innerHTML = `<i class="bi-search"></i><p>No papers found for ${selectedYear}</p>`;
+      list.appendChild(emptyState);
+    }
+  });
+}
 
-        // Counter animation for stats
-        function animateCounter(element, target, duration = 2000) {
-            const start = 0;
-            const increment = target / (duration / 16);
-            let current = start;
+// Event listener for year filter change
+yearFilter.addEventListener('change', filterPapers);
 
-            const timer = setInterval(() => {
-                current += increment;
-                if (current >= target) {
-                    current = target;
-                    clearInterval(timer);
-                }
-                const suffix = element.textContent.includes('+') ? '+' :
-                    element.textContent.includes('%') ? '%' : '';
-                element.textContent = Math.floor(current) + suffix;
-            }, 16);
-        }
-
-        // Intersection Observer for counter animation
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const counter = entry.target;
-                    const target = parseInt(counter.textContent.replace(/[^\d]/g, ''));
-                    animateCounter(counter, target);
-                    observer.unobserve(counter);
-                }
-            });
-        }, { threshold: 0.5 });
-
-        // Observe stat numbers
-        document.querySelectorAll('.stat-number').forEach(counter => {
-            observer.observe(counter);
-        });
-
-        // Performance optimization
-        let resizeTimer;
-        window.addEventListener('resize', function () {
-            clearTimeout(resizeTimer);
-            resizeTimer = setTimeout(function () {
-                AOS.refresh();
-            }, 250);
-        });
-
-        // Preload images for better performance
-        const imageUrls = [
-            'https://img.freepik.com/free-photo/room-interior-design_23-2148899444.jpg',
-            'https://img.freepik.com/free-photo/happy-male-candidate-greeting-member-human-resource-team-job-interview-office_637285-6567.jpg',
-            'https://media.licdn.com/dms/image/v2/C4D12AQGIP0kYaR5EOA/article-inline_image-shrink_1000_1488/article-inline_image-shrink_1000_1488/0/1650267975134'
-        ];
-
-        imageUrls.forEach(url => {
-            const link = document.createElement('link');
-            link.rel = 'preload';
-            link.as = 'image';
-            link.href = url;
-            document.head.appendChild(link);
-        });
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', filterPapers);
 </script>
+
 </body>
 </html>

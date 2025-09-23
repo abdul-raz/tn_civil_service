@@ -698,164 +698,121 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <!-- AOS Animation -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script>
-        const baseUrl = "http://localhost:3000"; // backend URL
+<script>
+  const baseUrl = "http://localhost:3000"; // backend URL
 
-        // Select the correct containers
-        const questionPapersDiv = document.getElementById("questionPapers");
-        const answerKeysDiv = document.getElementById("answerKeys");
+  const questionPapersDiv = document.getElementById("questionPapers");
+  const answerKeysDiv = document.getElementById("answerKeys");
+  const yearFilter = document.getElementById('yearFilter');
+  const resultCount = document.getElementById('resultCount');
 
-        // Fetch all questionBank items
-        fetch(`${baseUrl}/api/questionBank`)
-            .then(res => res.json())
-            .then(data => {
-                // Filter only type "UPSC" and status "Active"
-                const upscItems = data.filter(item => item.type === "UPSC" && item.status === "Active");
+  let upscItems = []; // store UPSC items globally
 
-                // Clear existing content inside questionPapers and answerKeys
-                questionPapersDiv.innerHTML = "";
-                answerKeysDiv.innerHTML = "";
+  // Populate year dropdown
+  function populateYearFilter(items) {
+      yearFilter.innerHTML = ''; // clear previous options
+      const years = [...new Set(items.map(item => item.year))].sort((a, b) => b - a);
 
-                if (upscItems.length === 0) {
-                    questionPapersDiv.innerHTML = "<p>No Question Papers found.</p>";
-                    answerKeysDiv.innerHTML = "<p>No Answer Keys found.</p>";
-                    return;
-                }
+      // All option
+      const allOption = document.createElement('option');
+      allOption.value = 'all';
+      allOption.textContent = 'All Years';
+      yearFilter.appendChild(allOption);
 
-                upscItems.forEach(item => {
-                    // Add Question Paper
-                    if (item.questionPaperPath) {
-                        const fileSizeMB = (parseInt(item.questionPaperSize) / (1024 * 1024)).toFixed(2);
-                        const paperDiv = document.createElement("div");
-                        paperDiv.className = "download-item";
-                        paperDiv.dataset.year = item.year;
+      // Years present in list
+      years.forEach(year => {
+          const option = document.createElement('option');
+          option.value = year;
+          option.textContent = year;
+          yearFilter.appendChild(option);
+      });
+  }
 
-                        paperDiv.innerHTML = `
-          <span class="download-name">${item.name}</span>
+  // Render papers
+  function renderPapers(items) {
+      questionPapersDiv.innerHTML = '';
+      answerKeysDiv.innerHTML = '';
+
+      if (items.length === 0) {
+          questionPapersDiv.innerHTML = "<p>No Question Papers found.</p>";
+          answerKeysDiv.innerHTML = "<p>No Answer Keys found.</p>";
+          return;
+      }
+
+      items.forEach(item => {
+          // Question Paper
+          if (item.questionPaperPath) {
+              const fileSizeMB = (parseInt(item.questionPaperSize) / (1024 * 1024)).toFixed(2);
+              const paperDiv = document.createElement("div");
+              paperDiv.className = "download-item";
+              paperDiv.dataset.year = item.year;
+
+              paperDiv.innerHTML = `
+          <span class="download-name">${item.name} (${item.year})</span>
           <span class="download-size">PDF • ${fileSizeMB} MB</span>
           <a href="${baseUrl}/${item.questionPaperPath.replaceAll("\\", "/")}" target="_blank" rel="noopener noreferrer" class="download-btn" aria-label="View ${item.name} Question Paper">
             <i class="bi-eye-fill"></i>
             <span style="margin-left: 0.5em;">View</span>
           </a>
         `;
-                        questionPapersDiv.appendChild(paperDiv);
-                    }
+              questionPapersDiv.appendChild(paperDiv);
+          }
 
-                    // Add Answer Key
-                    if (item.answerKeyPath) {
-                        const fileSizeMB = (parseInt(item.answerKeySize) / (1024 * 1024)).toFixed(2);
-                        const keyDiv = document.createElement("div");
-                        keyDiv.className = "download-item";
-                        keyDiv.dataset.year = item.year;
+          // Answer Key
+          if (item.answerKeyPath) {
+              const fileSizeMB = (parseInt(item.answerKeySize) / (1024 * 1024)).toFixed(2);
+              const keyDiv = document.createElement("div");
+              keyDiv.className = "download-item";
+              keyDiv.dataset.year = item.year;
 
-                        keyDiv.innerHTML = `
-          <span class="download-name">${item.name}</span>
+              keyDiv.innerHTML = `
+          <span class="download-name">${item.name} (${item.year})</span>
           <span class="download-size">PDF • ${fileSizeMB} MB</span>
           <a href="${baseUrl}/${item.answerKeyPath.replaceAll("\\", "/")}" target="_blank" rel="noopener noreferrer" class="download-btn" aria-label="View ${item.name} Answer Key">
             <i class="bi-eye-fill"></i>
             <span style="margin-left: 0.5em;">View</span>
           </a>
         `;
-                        answerKeysDiv.appendChild(keyDiv);
-                    }
-                });
-            })
-            .catch(err => console.error("Error fetching questionBank:", err));
-    </script>
-   <script>
-    const yearFilter = document.getElementById('yearFilter');
-    const resultCount = document.getElementById('resultCount');
+              answerKeysDiv.appendChild(keyDiv);
+          }
+      });
+  }
 
-    // Function to populate year dropdown
-    function populateYearFilter(items) {
-        // Get all unique years
-        const years = [...new Set(items.map(item => item.year))].sort((a, b) => b - a);
+  // Filter papers by year
+  function filterPapers() {
+      const selectedYear = yearFilter.value;
 
-        // Add "All" option at the top
-        const allOption = document.createElement('option');
-        allOption.value = 'all';
-        allOption.textContent = 'All Years';
-        yearFilter.appendChild(allOption);
+      const filteredItems = selectedYear === 'all'
+          ? upscItems
+          : upscItems.filter(item => item.year === selectedYear);
 
-        // Add other years
-        years.forEach(year => {
-            const option = document.createElement('option');
-            option.value = year;
-            option.textContent = year;
-            yearFilter.appendChild(option);
-        });
-    }
+      renderPapers(filteredItems);
 
-    // Filter function
-    function filterPapers() {
-        const selectedYear = yearFilter.value;
-        const questionPapers = document.querySelectorAll('#questionPapers .download-item');
-        const answerKeys = document.querySelectorAll('#answerKeys .download-item');
+      // Update result count
+      if (selectedYear === 'all') {
+          resultCount.textContent = `Showing all papers`;
+      } else {
+          resultCount.textContent = `Showing ${filteredItems.length} paper${filteredItems.length !== 1 ? 's' : ''} for ${selectedYear}`;
+      }
+  }
 
-        let visibleCount = 0;
+  // Fetch UPSC Question Bank items
+  fetch(`${baseUrl}/api/questionBank`)
+      .then(res => res.json())
+      .then(data => {
+          // Filter only UPSC & Active
+          upscItems = data.filter(item => item.type === "UPSC" && item.status === "Active");
 
-        // Filter Question Papers
-        questionPapers.forEach(item => {
-            const itemYear = item.dataset.year;
-            if (selectedYear === 'all' || itemYear === selectedYear) {
-                item.style.display = 'flex';
-                visibleCount++;
-            } else {
-                item.style.display = 'none';
-            }
-        });
+          populateYearFilter(upscItems); // Populate year filter
+          filterPapers(); // Render initial list
+      })
+      .catch(err => console.error("Error fetching questionBank:", err));
 
-        // Filter Answer Keys
-        answerKeys.forEach(item => {
-            const itemYear = item.dataset.year;
-            if (selectedYear === 'all' || itemYear === selectedYear) {
-                item.style.display = 'flex';
-                visibleCount++;
-            } else {
-                item.style.display = 'none';
-            }
-        });
+  // Event listener
+  yearFilter.addEventListener('change', filterPapers);
 
-        // Update result count
-        if (selectedYear === 'all') {
-            resultCount.textContent = `Showing all papers`;
-        } else {
-            const paperCount = visibleCount / 2; // divide by 2 since each paper has a key
-            resultCount.textContent = `Showing ${paperCount} paper${paperCount !== 1 ? 's' : ''} for ${selectedYear}`;
-        }
-
-        // Show empty state if no results
-        const categories = document.querySelectorAll('.download-category');
-        categories.forEach(category => {
-            const items = category.querySelectorAll('.download-item:not([style*="display: none"])');
-            const list = category.querySelector('.download-list');
-
-            const existingEmpty = category.querySelector('.empty-state');
-            if (existingEmpty) existingEmpty.remove();
-
-            if (items.length === 0) {
-                const emptyState = document.createElement('div');
-                emptyState.className = 'empty-state text-center text-muted mt-2';
-                emptyState.innerHTML = `<i class="bi-search"></i> <p>No papers found for ${selectedYear}</p>`;
-                list.appendChild(emptyState);
-            }
-        });
-    }
-
-    // Populate year filter once data is fetched
-    fetch(`${baseUrl}/api/questionBank`)
-        .then(res => res.json())
-        .then(data => {
-            populateYearFilter(data); // Use all items to get all years
-        })
-        .catch(err => console.error("Error fetching years:", err));
-
-    // Initialize filter on page load
-    document.addEventListener('DOMContentLoaded', () => filterPapers());
-
-    // Filter papers when year changes
-    yearFilter.addEventListener('change', filterPapers);
 </script>
+
 
 
 

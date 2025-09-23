@@ -61,3 +61,17 @@ exports.getVideoCategories = async (req, res) => {
 };
 
 
+exports.getResultTypes = async (req, res) => {
+  try {
+    const resultTypes = await db.resultType.findAll({
+      order: [['name', 'ASC']],
+    });
+    res.status(200).json(resultTypes);
+  } catch (error) {
+    console.error("Error fetching result types:", error);
+    res.status(500).json({ message: "Server error while fetching result types." });
+  }
+};
+
+
+

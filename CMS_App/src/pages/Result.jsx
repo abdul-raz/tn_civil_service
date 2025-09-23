@@ -27,7 +27,7 @@ const Result = () => {
     const fetchMasterData = async () => {
       try {
         const [typesRes, yearsRes] = await Promise.all([
-          axios.get(`${baseUrl}/api/masterData/processDocumentTypes`, { withCredentials: true }),
+          axios.get(`${baseUrl}/api/masterData/resultTypes`, { withCredentials: true }),
           axios.get(`${baseUrl}/api/masterData/years`, { withCredentials: true }),
         ]);
         setTypes(typesRes.data);

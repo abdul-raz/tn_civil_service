@@ -39,19 +39,29 @@ const Gallery = ({galleryData,fetchGalleryData}) => {
   }, []);
 
   // Delete gallery function
-  const handleDeleteGallery = async () => {
-    if (!deleteId) return;
+const handleDeleteGallery = async () => {
+  if (!deleteId) return;
 
-    try {
-      await axios.delete(`${baseUrl}/api/gallery/${deleteId}`, { withCredentials: true });
-      setGalleryData((prev) => prev.filter(item => item.id !== deleteId));
-      setIsWarnModalOpen(false);
-      setDeleteId(null);
-    } catch (error) {
-      console.error("Error deleting gallery:", error.response?.data || error.message);
-      alert(error.response?.data?.message || "Failed to delete gallery.");
+  try {
+    const res = await axios.delete(`${baseUrl}/api/gallery/${deleteId}`, {
+      withCredentials: true,
+    });
+
+    if (res.status === 200) {
+      // Refresh gallery data from backend after successful delete
+      fetchGalleryData();
+    } else {
+      alert(res.data?.message || "Failed to delete.");
     }
-  };
+  } catch (error) {
+    console.error("Error deleting gallery:", error);
+    alert(error.response?.data?.message || "Server error while deleting.");
+  } finally {
+    setIsWarnModalOpen(false);
+    setDeleteId(null);
+  }
+};
+
 
   // Filter gallery data based on search query
   const filteredGalleryData = galleryData.filter(item =>

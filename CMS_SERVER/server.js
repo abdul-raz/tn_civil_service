@@ -15,10 +15,11 @@ const PORT = process.env.PORT || 3000;
 
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL || "http://localhost:5173", // Allow frontend origin
+    origin: ['http://127.0.0.1:5500', 'http://localhost:5173'], // Allow both origins
     credentials: true, // Allow cookies to be sent
   })
 );
+
 // app.use(cors());
 
 app.use(express.json()); // Parse JSON request body
@@ -114,7 +115,7 @@ db.sequelize
   .authenticate()
   .then(() => {
     console.log("Database connection established successfully.");
-    return db.sequelize.sync({alter: false}); // <-- add alter:true here
+    return db.sequelize.sync({alter: true}); // <-- add alter:true here
   }) 
   .then(() => {
     console.log("Database synced successfully.");

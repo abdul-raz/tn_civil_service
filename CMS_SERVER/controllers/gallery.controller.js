@@ -96,41 +96,54 @@ exports.getGalleryById = async (req, res) => {
   }
 };
 //update
-exports.updateGallery = async (req, res) => {
-  try {
-    const id = req.params.id;
-    const { title, description, categoryId, status } = req.body;
+exports.updateGallery = [
+  upload.single("image"), // Multer middleware to handle image upload
 
-    const gallery = await Gallery.findByPk(id);
-    if (!gallery) {
-      return res.status(404).send({ message: "Gallery entry not found." });
-    }
+  async (req, res) => {
+    try {
+      const id = req.params.id;
+      const { title, description, categoryId, status } = req.body;
 
-    const updateData = { title, description, categoryId, status };
-
-    if (req.file) {
-      // Save the buffer to disk with a unique filename
-      const filename = Date.now() + "-" + req.file.originalname;
-      const savePath = path.join("uploads/gallery", filename);
-
-      fs.writeFileSync(savePath, req.file.buffer);
-
-      // Optional: delete old image file from disk
-      if (gallery.imageUrl && fs.existsSync(gallery.imageUrl)) {
-        fs.unlinkSync(gallery.imageUrl);
+      const gallery = await Gallery.findByPk(id);
+      if (!gallery) {
+        return res.status(404).send({ message: "Gallery entry not found." });
       }
 
-      updateData.imageUrl = savePath;
+      // Only include fields that are defined in the updateData
+      const updateData = {};
+      if (title !== undefined) updateData.title = title;
+      if (description !== undefined) updateData.description = description;
+      if (categoryId !== undefined) updateData.categoryId = categoryId;
+      if (status !== undefined) updateData.status = status;
+
+      if (req.file) {
+        // Save the buffer to disk with a unique filename
+        const filename = Date.now() + "-" + req.file.originalname;
+        const savePath = path.join("uploads/gallery", filename);
+
+        fs.writeFileSync(savePath, req.file.buffer);
+
+        // Delete old image file from disk safely
+        if (gallery.imageUrl) {
+          const oldImagePath = path.resolve(gallery.imageUrl);
+          if (fs.existsSync(oldImagePath)) {
+            fs.unlinkSync(oldImagePath);
+          }
+        }
+
+        updateData.imageUrl = savePath;
+      }
+
+      await gallery.update(updateData);
+
+      res.status(200).send({ message: "Gallery updated successfully.", data: gallery });
+    } catch (error) {
+      console.error("Error updating gallery:", error);
+      res.status(500).send({ message: "Server error." });
     }
+  },
+];
 
-    await gallery.update(updateData);
-
-    res.status(200).send({ message: "Gallery updated successfully.", data: gallery });
-  } catch (error) {
-    console.error("Error updating gallery:", error);
-    res.status(500).send({ message: "Server error." });
-  }
-};
 
 
 
@@ -149,9 +162,9 @@ exports.deleteGallery = async (req, res) => {
 
     await gallery.destroy();
 
-    res.status(200).send({ message: "Gallery entry deleted successfully." });
+    res.status(200).json({ message: "Gallery entry deleted successfully." });
   } catch (error) {
     console.error("Error deleting gallery:", error);
-    res.status(500).send({ message: "Server error." });
+    res.status(500).json({ message: "Server error." });
   }
 };

@@ -8,5 +8,5 @@ router.get("/processDocumentTypes", masterDataController.getProcessDocumentTypes
 router.get("/galleryCategories", masterDataController.getGalleryCategories);
 router.get("/notificationTypes", masterDataController.getNotificationTypes);
 router.get("/videoCategories", masterDataController.getVideoCategories);
-
+router.get("/resultTypes", masterDataController.getResultTypes);
 module.exports = router;

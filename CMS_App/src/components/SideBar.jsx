@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { FaHome, FaChevronDown, FaChevronUp } from "react-icons/fa";
 import { BiSolidBookContent } from "react-icons/bi";
 import { Link } from "react-router-dom";

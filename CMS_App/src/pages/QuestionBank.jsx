@@ -7,7 +7,7 @@ import QuestionBankUpdateModal from '../components/modals/questionBank/QuestionB
 import WarnModal from '../components/modals/WarnModal';
 import axios from "axios";
 
-const QuestionBank = ({ setQuestionBankData, questionBankData, fetchQuestionBanks }) => {
+const QuestionBank = () => {
   const baseUrl = "http://localhost:3000"; // base URL
   const [isAddNewModalOpen, setIsAddNewModalOpen] = useState(false);
   const [isWarnModalOpen, setIsWarnModalOpen] = useState(false);
@@ -17,7 +17,28 @@ const QuestionBank = ({ setQuestionBankData, questionBankData, fetchQuestionBank
   const [examTypes, setExamTypes] = useState([]);
   const [years, setYears] = useState([]);
   const [deleteId, setDeleteId] = useState(null);
+  // for storing question banks
+const [questionBankData, setQuestionBankData] = useState([]);
+useEffect(() => {
+  fetchQuestionBanks();
+}, []);
+const fetchQuestionBanks = async () => {
+  try {
+    const response = await axios.get(`${baseUrl}/api/questionBank`, {
+      withCredentials: true, // same as fetch's credentials: 'include'
+    });
 
+    setQuestionBankData(response.data); // axios auto-parses JSON
+  } catch (error) {
+    if (error.response) {
+      // Server responded with error
+      alert(error.response.data.message || 'Failed to fetch question bank data.');
+    } else {
+      // Network or other error
+      alert('Network error while fetching question bank data.');
+    }
+  }
+};
   // Fetch exam types and years only
   useEffect(() => {
     const fetchData = async () => {

@@ -7,7 +7,18 @@ import GalleryUpdateModal from '../components/modals/gallery/GalleryUpdateModal'
 import GalleryUploadModal from '../components/modals/gallery/GalleryUploadModal';
 import WarnModal from '../components/modals/WarnModal';
 
-const Gallery = ({galleryData,fetchGalleryData}) => {
+const Gallery = () => {
+    const [galleryData, setGalleryData] = useState([]);
+  // Fetch gallery data
+  const fetchGalleryData = async () => {
+    try {
+      const res = await axios.get(`${baseUrl}/api/gallery`, { withCredentials: true });
+      setGalleryData(res.data);
+      console.log(res.data);
+    } catch (error) {
+      console.error("Error fetching gallery data:", error.response?.data || error.message);
+    }
+  };
   // 🔹 Fetch categories on mount
   const [categories, setCategories] = useState([]);
   useEffect(() => {

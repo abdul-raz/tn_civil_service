@@ -1,10 +1,10 @@
 import React from 'react';
 import { FiUsers, FiBook, FiImage, FiBell } from 'react-icons/fi';
 
-const Dashboard = ({questionBankData,galleryData}) => {
+const Dashboard = () => {
   const summaryData = [
-    { id: 1, title: 'Question Banks', count: questionBankData.length, icon: <FiBook className='text-5xl primary' /> },
-    { id: 2, title: 'Galleries', count: galleryData.length, icon: <FiImage className='text-5xl primary' /> }
+    { id: 1, title: 'Question Banks', count: 12, icon: <FiBook className='text-5xl primary' /> },
+    { id: 2, title: 'Galleries', count: 15, icon: <FiImage className='text-5xl primary' /> }
     
   ];
 

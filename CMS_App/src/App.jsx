@@ -43,7 +43,7 @@ const Layout = ({ setLog, isSideBarOpen, setIsSideBarOpen }) => {
 };
 
 function App() {
-  const baseUrl = "http://localhost:3000";
+  const baseUrl = process.env.REACT_APP_BACKEND_URL;
   const [log, setLog] = useState(false);
   const [isSideBarOpen, setIsSideBarOpen] = useState(false);
 

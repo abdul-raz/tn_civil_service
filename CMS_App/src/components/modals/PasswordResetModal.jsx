@@ -9,6 +9,7 @@ const PasswordResetModal = ({ setIsPasswordResetOpen, isPasswordResetOpen }) => 
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const [showModal, setShowModal] = useState(false);
+const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
   // Form state
   const [formData, setFormData] = useState({
@@ -51,12 +52,12 @@ const PasswordResetModal = ({ setIsPasswordResetOpen, isPasswordResetOpen }) => 
     setErrors(newErrors);
 
     if (Object.keys(newErrors).length === 0) {
-   try {
-  const res = await axios.put("http://localhost:3000/api/auth/resetPassword", {
-    email: formData.username,
-    oldPassword: formData.currentPassword,
-    newPassword: formData.newPassword,
-  });
+      try {
+        const res = await axios.put(`${backendUrl}/api/auth/resetPassword`, {
+          email: formData.username,
+          oldPassword: formData.currentPassword,
+          newPassword: formData.newPassword,
+        }, { withCredentials: true });
 
   setMessage(res.data.message); // success message
   setFormData({

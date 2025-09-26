@@ -9,7 +9,7 @@ const ResultUpdateModal = ({
   onSuccess,
   types,
   years,
-  baseUrl = "http://localhost:3000"
+  baseUrl = process.env.REACT_APP_BACKEND_URL,
 }) => {
   const [formData, setFormData] = useState({
     title: "",
@@ -17,7 +17,7 @@ const ResultUpdateModal = ({
     year: "",
     status: "1", // default to active "1"
     file: null,
-    pdfPath: ""
+    pdfPath: "",
   });
 
   const [errors, setErrors] = useState({});
@@ -29,9 +29,10 @@ const ResultUpdateModal = ({
         title: editDocument.title || "",
         typeId: editDocument.typeId ? String(editDocument.typeId) : "",
         year: editDocument.year || "",
-        status: editDocument.status !== undefined ? String(editDocument.status) : "1",
+        status:
+          editDocument.status !== undefined ? String(editDocument.status) : "1",
         file: null,
-        pdfPath: editDocument.pdfPath || ""
+        pdfPath: editDocument.pdfPath || "",
       });
       setErrors({});
       setSubmitError("");
@@ -80,7 +81,9 @@ const ResultUpdateModal = ({
       setIsUpdateModalOpen(false);
       onSuccess();
     } catch (error) {
-      setSubmitError(error.response?.data?.message || "Failed to update result");
+      setSubmitError(
+        error.response?.data?.message || "Failed to update result"
+      );
     }
   };
 
@@ -97,7 +100,10 @@ const ResultUpdateModal = ({
       >
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-xl font-semibold text-gray-700">Update Result</h2>
-          <button onClick={() => setIsUpdateModalOpen(false)} className="text-gray-500 hover:text-gray-800">
+          <button
+            onClick={() => setIsUpdateModalOpen(false)}
+            className="text-gray-500 hover:text-gray-800"
+          >
             <IoCloseSharp size={24} />
           </button>
         </div>
@@ -113,9 +119,13 @@ const ResultUpdateModal = ({
               name="title"
               value={formData.title}
               onChange={handleChange}
-              className={`w-full border p-2 rounded-md outline-none ${errors.title ? "border-red-600" : "border-gray-300"}`}
+              className={`w-full border p-2 rounded-md outline-none ${
+                errors.title ? "border-red-600" : "border-gray-300"
+              }`}
             />
-            {errors.title && <p className="text-red-600 mt-1">{errors.title}</p>}
+            {errors.title && (
+              <p className="text-red-600 mt-1">{errors.title}</p>
+            )}
           </div>
 
           {/* Type */}
@@ -125,14 +135,20 @@ const ResultUpdateModal = ({
               name="typeId"
               value={formData.typeId}
               onChange={handleChange}
-              className={`w-full border p-2 rounded-md outline-none ${errors.typeId ? "border-red-600" : "border-gray-300"}`}
+              className={`w-full border p-2 rounded-md outline-none ${
+                errors.typeId ? "border-red-600" : "border-gray-300"
+              }`}
             >
               <option value="">Select Type</option>
               {types.map((type) => (
-                <option key={type.id} value={type.id}>{type.name}</option>
+                <option key={type.id} value={type.id}>
+                  {type.name}
+                </option>
               ))}
             </select>
-            {errors.typeId && <p className="text-red-600 mt-1">{errors.typeId}</p>}
+            {errors.typeId && (
+              <p className="text-red-600 mt-1">{errors.typeId}</p>
+            )}
           </div>
 
           {/* Year */}
@@ -142,11 +158,15 @@ const ResultUpdateModal = ({
               name="year"
               value={formData.year}
               onChange={handleChange}
-              className={`w-full border p-2 rounded-md outline-none ${errors.year ? "border-red-600" : "border-gray-300"}`}
+              className={`w-full border p-2 rounded-md outline-none ${
+                errors.year ? "border-red-600" : "border-gray-300"
+              }`}
             >
               <option value="">Select Year</option>
               {years.map((year) => (
-                <option key={year.id} value={year.name}>{year.name}</option>
+                <option key={year.id} value={year.name}>
+                  {year.name}
+                </option>
               ))}
             </select>
             {errors.year && <p className="text-red-600 mt-1">{errors.year}</p>}
@@ -159,17 +179,23 @@ const ResultUpdateModal = ({
               name="status"
               value={formData.status}
               onChange={handleChange}
-              className={`w-full border p-2 rounded-md outline-none ${errors.status ? "border-red-600" : "border-gray-300"}`}
+              className={`w-full border p-2 rounded-md outline-none ${
+                errors.status ? "border-red-600" : "border-gray-300"
+              }`}
             >
               <option value="0">Inactive</option>
               <option value="1">Active</option>
             </select>
-            {errors.status && <p className="text-red-600 mt-1">{errors.status}</p>}
+            {errors.status && (
+              <p className="text-red-600 mt-1">{errors.status}</p>
+            )}
           </div>
 
           {/* File Upload */}
           <div>
-            <label className="block mb-1 font-medium">Upload PDF (Leave empty to keep existing)</label>
+            <label className="block mb-1 font-medium">
+              Upload PDF (Leave empty to keep existing)
+            </label>
             <input
               type="file"
               name="file"
@@ -180,7 +206,12 @@ const ResultUpdateModal = ({
             {!formData.file && formData.pdfPath && (
               <p className="mt-1">
                 Current file:{" "}
-                <a href={`${baseUrl}/${formData.pdfPath.replace(/\\/g, "/")}`} target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">
+                <a
+                  href={`${baseUrl}/${formData.pdfPath.replace(/\\/g, "/")}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 underline"
+                >
                   View
                 </a>
               </p>

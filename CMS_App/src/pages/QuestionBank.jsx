@@ -8,7 +8,7 @@ import WarnModal from '../components/modals/WarnModal';
 import axios from "axios";
 
 const QuestionBank = () => {
-  const baseUrl = "http://localhost:3000"; // base URL
+  const baseUrl = process.env.REACT_APP_BACKEND_URL; // base URL
   const [isAddNewModalOpen, setIsAddNewModalOpen] = useState(false);
   const [isWarnModalOpen, setIsWarnModalOpen] = useState(false);
   const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false);

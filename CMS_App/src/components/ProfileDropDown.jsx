@@ -4,10 +4,11 @@ import { IoSettingsOutline, IoLogOutOutline } from "react-icons/io5";
 
 const ProfileDropDown = ({ setProfileDropDown, setIsPasswordResetOpen, setLog }) => {
   const size = 10;
+const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
   const handleLogout = async () => {
     try {
-      const response = await fetch("http://localhost:3000/api/auth/logout", {
+      const response = await fetch(`${backendUrl}/api/auth/logout`, {
         method: "POST",
         credentials: "include", // send session cookie
       });

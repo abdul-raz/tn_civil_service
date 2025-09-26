@@ -11,7 +11,7 @@ const QuestionBankUpdateModal = ({
   onSuccess,
   examTypes
 }) => {
-  const baseUrl = "http://localhost:3000";
+  const baseUrl = process.env.REACT_APP_BACKEND_URL;
 
   const [formData, setFormData] = useState({
     name: editDocument?.name || "",

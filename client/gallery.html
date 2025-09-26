@@ -356,9 +356,7 @@
                 </div>
 
       <div class="load-more-wrapper">
-        <button id="loadMoreBtn" aria-label="Load More" type="button">
-            <i class="fas fa-plus" aria-hidden="true"></i>
-        </button>
+        
       </div>
 
             </section>  
@@ -563,6 +561,63 @@ function displayGalleryItems(category) {
   AOS.refresh(); // refresh animations
 }
 
+</script>
+<script>
+  const loadMoreBtn = document.getElementById("loadMoreBtn");
+  const itemsPerPage = 6;
+  let currentPage = 1;
+  let currentFilteredItems = [];
+
+  // Call this function whenever filtered (and sorted) gallery items change!
+  // Pass the filtered & sorted array of items, resets pagination and shows first batch
+  function resetPagination(filteredItems) {
+    currentPage = 1;
+    currentFilteredItems = filteredItems;
+    displayItemsBatch();
+  }
+
+  // Display items for currentPage * itemsPerPage and handle Load More button visibility
+  function displayItemsBatch() {
+    galleryRow.innerHTML = ""; // Clear existing
+
+    const end = currentPage * itemsPerPage;
+    const itemsToShow = currentFilteredItems.slice(0, end);
+
+    if (itemsToShow.length === 0) {
+      galleryRow.innerHTML = "<p>No images found in this category</p>";
+      loadMoreBtn.style.display = "none";
+      return;
+    }
+
+    itemsToShow.forEach((item, index) => {
+      const col = document.createElement("div");
+      col.className = "col-lg-4 col-md-6 mb-4";
+      col.setAttribute("data-aos", "fade-up");
+      col.setAttribute("data-aos-delay", (index + 1) * 100);
+
+      col.innerHTML = `
+        <div class="gallery-item card h-100 shadow-sm border-0 rounded-3 overflow-hidden position-relative">
+          <img src="${baseUrl}/${item.imageUrl}" alt="${item.title}" class="card-img-top" style="height: 220px; object-fit: cover;">
+          <div class="gallery-overlay">
+            <h5 class="fw-bold">${item.title}</h5>
+            <p class="text-white">${item.description}</p>
+          </div>
+        </div>
+      `;
+      galleryRow.appendChild(col);
+    });
+
+    AOS.refresh();
+
+    // Hide Load More if all items shown
+    loadMoreBtn.style.display = end >= currentFilteredItems.length ? "none" : "block";
+  }
+
+  // Load More button event to show next batch
+  loadMoreBtn.addEventListener("click", () => {
+    currentPage++;
+    displayItemsBatch();
+  });
 </script>
 
 

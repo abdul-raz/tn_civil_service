@@ -2,13 +2,13 @@ import axios from "axios";
 import React, { useState } from "react";
 import { IoCloseSharp } from "react-icons/io5";
 
-const QuestionBankUploadModal = ({ 
-  fetchQuestionBanks, 
-  setIsAddNewModalOpen, 
-  examTypes, 
-  years 
+const QuestionBankUploadModal = ({
+  fetchQuestionBanks,
+  setIsAddNewModalOpen,
+  examTypes,
+  years,
 }) => {
-  const baseUrl = "http://localhost:3000"; // move to env later
+  const baseUrl = process.env.REACT_APP_BACKEND_URL; // move to env later
 
   const [type, setType] = useState("");
   const [year, setYear] = useState("");
@@ -90,7 +90,10 @@ const QuestionBankUploadModal = ({
           </p>
         )}
 
-        <form onSubmit={handleUpload} className="space-y-4 flex flex-wrap justify-between">
+        <form
+          onSubmit={handleUpload}
+          className="space-y-4 flex flex-wrap justify-between"
+        >
           {/* Type */}
           <div className="relative md:w-[49%] w-full">
             <label className="block mb-1 text-sm text-gray-700 font-medium">
@@ -100,7 +103,9 @@ const QuestionBankUploadModal = ({
               value={type}
               onChange={(e) => setType(e.target.value)}
               className={`w-full border rounded-md p-2 appearance-none outline-none ${
-                errors.type ? "border-red-500 focus:ring-red-500" : "border-gray-300"
+                errors.type
+                  ? "border-red-500 focus:ring-red-500"
+                  : "border-gray-300"
               }`}
             >
               <option value="">Select Type</option>
@@ -122,7 +127,9 @@ const QuestionBankUploadModal = ({
               value={year}
               onChange={(e) => setYear(e.target.value)}
               className={`w-full border rounded-md appearance-none p-2 outline-none ${
-                errors.year ? "border-red-500 focus:ring-red-500" : "border-gray-300"
+                errors.year
+                  ? "border-red-500 focus:ring-red-500"
+                  : "border-gray-300"
               }`}
             >
               <option value="">Select Year</option>
@@ -148,7 +155,9 @@ const QuestionBankUploadModal = ({
                   accept="application/pdf"
                   onChange={(e) => setQuestionPaper(e.target.files[0])}
                   className={`w-full border rounded-md p-2 outline-none ${
-                    errors.questionPaper ? "border-red-500 focus:ring-red-500" : "border-gray-300"
+                    errors.questionPaper
+                      ? "border-red-500 focus:ring-red-500"
+                      : "border-gray-300"
                   }`}
                 />
                 {errors.questionPaper && (
@@ -166,7 +175,9 @@ const QuestionBankUploadModal = ({
                   accept="application/pdf"
                   onChange={(e) => setAnswerKey(e.target.files[0])}
                   className={`w-full border rounded-md p-2 outline-none ${
-                    errors.answerKey ? "border-red-500 focus:ring-red-500" : "border-gray-300"
+                    errors.answerKey
+                      ? "border-red-500 focus:ring-red-500"
+                      : "border-gray-300"
                   }`}
                 />
                 {errors.answerKey && (
@@ -185,7 +196,9 @@ const QuestionBankUploadModal = ({
                     accept="application/pdf"
                     onChange={(e) => setExplanation(e.target.files[0])}
                     className={`w-full border rounded-md p-2 outline-none ${
-                      errors.explanation ? "border-red-500 focus:ring-red-500" : "border-gray-300"
+                      errors.explanation
+                        ? "border-red-500 focus:ring-red-500"
+                        : "border-gray-300"
                     }`}
                   />
                   {errors.explanation && (

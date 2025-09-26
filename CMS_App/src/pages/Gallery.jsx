@@ -8,11 +8,13 @@ import GalleryUploadModal from '../components/modals/gallery/GalleryUploadModal'
 import WarnModal from '../components/modals/WarnModal';
 
 const Gallery = () => {
+    const backendUrl = process.env.REACT_APP_BACKEND_URL;
+
     const [galleryData, setGalleryData] = useState([]);
   // Fetch gallery data
   const fetchGalleryData = async () => {
     try {
-      const res = await axios.get(`${baseUrl}/api/gallery`, { withCredentials: true });
+      const res = await axios.get(`${backendUrl}/api/gallery`, { withCredentials: true });
       setGalleryData(res.data);
       console.log(res.data);
     } catch (error) {
@@ -24,7 +26,7 @@ const Gallery = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const res = await axios.get(`${baseUrl}/api/masterData/galleryCategories`, {
+        const res = await axios.get(`${backendUrl}/api/masterData/galleryCategories`, {
           withCredentials: true,
         });
         setCategories(res.data);
@@ -34,7 +36,7 @@ const Gallery = () => {
     };
     fetchCategories();
   }, []);
-  const baseUrl = "http://localhost:3000"; // base URL
+
   
   const [isAddNewModalOpen, setIsAddNewModalOpen] = useState(false);
   const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false);
@@ -54,7 +56,7 @@ const handleDeleteGallery = async () => {
   if (!deleteId) return;
 
   try {
-    const res = await axios.delete(`${baseUrl}/api/gallery/${deleteId}`, {
+    const res = await axios.delete(`${backendUrl}/api/gallery/${deleteId}`, {
       withCredentials: true,
     });
 
@@ -169,7 +171,7 @@ const handleDeleteGallery = async () => {
                     <td className='p-3 text-center'>{item.description}</td>
                     <td className='p-3 text-center'>
                       <img
-                        src={`${baseUrl}/${item.imageUrl.replace(/\\/g, "/")}`}
+                        src={`${backendUrl}/${item.imageUrl.replace(/\\/g, "/")}`}
                         alt={item.title}
                         className='w-16 h-16 mx-auto object-cover rounded-md'
                       />
@@ -183,7 +185,7 @@ const handleDeleteGallery = async () => {
                     </td>
                     <td className='p-3 text-center'>
                       <div className='flex justify-center gap-4 text-[#002147] text-lg'>
-                        <a href={`${baseUrl}/${item.imageUrl.replace(/\\/g, "/")}`} target="_blank" rel="noopener noreferrer">
+                        <a href={`${backendUrl}/${item.imageUrl.replace(/\\/g, "/")}`} target="_blank" rel="noopener noreferrer">
                           <FiEye className='cursor-pointer hover:text-blue-600' />
                         </a>
                         <FiEdit2

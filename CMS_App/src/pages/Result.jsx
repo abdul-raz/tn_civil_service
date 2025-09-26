@@ -21,14 +21,18 @@ const Result = () => {
   const [years, setYears] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
 
-  const baseUrl = "http://localhost:3000";
+  const baseUrl = process.env.REACT_APP_BACKEND_URL;
 
   useEffect(() => {
     const fetchMasterData = async () => {
       try {
         const [typesRes, yearsRes] = await Promise.all([
-          axios.get(`${baseUrl}/api/masterData/resultTypes`, { withCredentials: true }),
-          axios.get(`${baseUrl}/api/masterData/years`, { withCredentials: true }),
+          axios.get(`${baseUrl}/api/masterData/resultTypes`, {
+            withCredentials: true,
+          }),
+          axios.get(`${baseUrl}/api/masterData/years`, {
+            withCredentials: true,
+          }),
         ]);
         setTypes(typesRes.data);
         setYears(yearsRes.data);
@@ -41,7 +45,9 @@ const Result = () => {
 
   const fetchResults = async () => {
     try {
-      const res = await axios.get(`${baseUrl}/api/result`, { withCredentials: true });
+      const res = await axios.get(`${baseUrl}/api/result`, {
+        withCredentials: true,
+      });
       setResultData(res.data);
     } catch (error) {
       console.error("Failed to fetch results:", error);
@@ -55,7 +61,9 @@ const Result = () => {
   const handleDeleteConfirm = async () => {
     if (!deleteId) return;
     try {
-      await axios.delete(`${baseUrl}/api/result/${deleteId}`, { withCredentials: true });
+      await axios.delete(`${baseUrl}/api/result/${deleteId}`, {
+        withCredentials: true,
+      });
       setIsWarnModalOpen(false);
       setDeleteId(null);
       fetchResults();
@@ -66,7 +74,8 @@ const Result = () => {
 
   const filteredData = resultData.filter((item) => {
     const q = searchQuery.toLowerCase();
-    const typeName = types.find((t) => t.id === item.typeId)?.name?.toLowerCase() || "";
+    const typeName =
+      types.find((t) => t.id === item.typeId)?.name?.toLowerCase() || "";
     return (
       item.title?.toLowerCase().includes(q) ||
       item.year?.toLowerCase().includes(q) ||
@@ -76,11 +85,24 @@ const Result = () => {
 
   const getStatusStyles = (status) => {
     // Accept numeric 0/1 or string "Active"/"Inactive" but style exactly like Notification
-    const s = typeof status === "number" ? (status === 1 ? "active" : "inactive") : String(status || "").toLowerCase();
+    const s =
+      typeof status === "number"
+        ? status === 1
+          ? "active"
+          : "inactive"
+        : String(status || "").toLowerCase();
     if (s === "active") {
-      return { text: "text-[#53d28c]", bg: "bg-[#dff7e9]", border: "border-[#53d28c]" };
+      return {
+        text: "text-[#53d28c]",
+        bg: "bg-[#dff7e9]",
+        border: "border-[#53d28c]",
+      };
     }
-    return { text: "text-[#d26d53]", bg: "bg-[#f7e9df]", border: "border-[#d26d53]" };
+    return {
+      text: "text-[#d26d53]",
+      bg: "bg-[#f7e9df]",
+      border: "border-[#d26d53]",
+    };
   };
 
   const displayStatus = (status) => {
@@ -155,7 +177,8 @@ const Result = () => {
             ) : (
               filteredData.map((item, index) => {
                 const rowBg = index % 2 ? "bg-gray-100" : "bg-white";
-                const typeName = types.find((t) => t.id === item.typeId)?.name || "Unknown";
+                const typeName =
+                  types.find((t) => t.id === item.typeId)?.name || "Unknown";
                 const styles = getStatusStyles(item.status);
                 return (
                   <tr key={item.id} className={rowBg}>
@@ -164,14 +187,19 @@ const Result = () => {
                     <td className="p-3 text-center">{typeName}</td>
                     <td className="p-3 text-center">{item.year}</td>
                     <td className="p-3 text-center">
-                      <span className={`rounded-sm px-2 py-0.5 border border-dashed ${styles.text} ${styles.bg} ${styles.border}`}>
+                      <span
+                        className={`rounded-sm px-2 py-0.5 border border-dashed ${styles.text} ${styles.bg} ${styles.border}`}
+                      >
                         {displayStatus(item.status)}
                       </span>
                     </td>
                     <td className="p-3 text-center">
                       <div className="flex justify-center gap-4 text-[#002147] text-lg">
                         <a
-                          href={`http://localhost:3000/${item.pdfPath?.replace(/\\/g, "/")}`}
+                          href={`http://localhost:3000/${item.pdfPath?.replace(
+                            /\\/g,
+                            "/"
+                          )}`}
                           target="_blank"
                           rel="noopener noreferrer"
                         >

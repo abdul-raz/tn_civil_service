@@ -12,12 +12,17 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Middleware
+const allowedOrigins = process.env.FRONTEND_ORIGINS
+  ? process.env.FRONTEND_ORIGINS.split(',')
+  : ['http://localhost:5173']; // default fallback origin
+
 app.use(
   cors({
-    origin: ['http://127.0.0.1:5500', 'http://localhost:5173'], // Allow both origins
-    credentials: true, // Allow cookies to be sent
-  })
+    origin: allowedOrigins,
+    credentials: true,
+  })
 );
+
 // app.use(
 //   cors({
 //     origin: process.env.FRONTEND_URL || "http://localhost:5173", // Allow frontend origin

@@ -541,7 +541,7 @@
         <script>
 async function fetchNotifications() {
   try {
-    const response = await fetch('http://localhost:3000/api/notification');
+    const response = await fetch('http://localhost:3001/api/notification');
     if (!response.ok) throw new Error("Failed to fetch notifications");
     const notifications = await response.json();
 
@@ -554,7 +554,7 @@ async function fetchNotifications() {
 
       // Fix backslashes then prefix with backend origin
       const fixedPdfPath = pdfPath.replace(/\\/g, '/');
-      const fullPdfUrl = fixedPdfPath.startsWith('http') ? fixedPdfPath : `http://localhost:3000/${fixedPdfPath}`;
+      const fullPdfUrl = fixedPdfPath.startsWith('http') ? fixedPdfPath : `http://localhost:3001/${fixedPdfPath}`;
 
       const item = document.createElement('div');
       item.className = 'download-item';

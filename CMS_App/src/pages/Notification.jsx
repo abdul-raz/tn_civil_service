@@ -10,7 +10,7 @@ import NotificationUpdateModal from "../components/modals/notification/Notificat
 import WarnModal from "../components/modals/WarnModal";
 
 const Notification = () => {
-  const backendUrl = process.env.REACT_APP_BACKEND_URL;
+  const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
 
   const [isAddNewModalOpen, setIsAddNewModalOpen] = useState(false);
   const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false);
@@ -27,11 +27,16 @@ const Notification = () => {
   const fetchNotifications = async () => {
     try {
       const response = await axios.get(`${backendUrl}/api/notification`);
-      setNotifications(response.data);
+      // Ensure it's always an array
+      setNotifications(Array.isArray(response.data) ? response.data : []);
     } catch (error) {
       console.error("Failed to fetch notifications:", error);
+      setNotifications([]); // fallback to empty array
     }
   };
+
+
+
 
   const handleDelete = async () => {
     if (!deleteId) return;
@@ -44,12 +49,14 @@ const Notification = () => {
       console.error("Failed to delete notification:", error);
     }
   };
-
-  const filteredData = notifications.filter((item) => {
-    const titleMatch = item.title?.toLowerCase().includes(searchQuery.toLowerCase());
-    const categoryMatch = item.categoryType?.name?.toLowerCase().includes(searchQuery.toLowerCase());
-    return titleMatch || categoryMatch;
+  // Safe filter
+  const filteredData = (notifications || []).filter((item) => {
+    const title = item.title?.toLowerCase() || '';
+    const category = item.categoryType?.name?.toLowerCase() || '';
+    const query = searchQuery.toLowerCase();
+    return title.includes(query) || category.includes(query);
   });
+
 
   const getStatusStyles = (status) => {
     if (status?.toLowerCase() === "active") {
@@ -146,30 +153,46 @@ const Notification = () => {
                     </td>
                     <td className="p-3 text-center">
                       <div className="flex justify-center gap-4 text-[#002147] text-lg">
-                       <a
-  href={`{${backendUrl}}/${item.pdfPath.replace(/\\/g, "/")}`}
-  target="_blank"
-  rel="noopener noreferrer"
->
-  <FiEye className="cursor-pointer hover:text-blue-600" />
-</a>
+                        <div className="relative group">
+                          <a
+                            href={`${backendUrl}/${item.pdfPath.replace(/\\/g, "/")}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <FiEye className="cursor-pointer hover:text-blue-600" />
+                          </a>
+                          <span className="absolute bottom-full mb-1 left-1/2 -translate-x-1/2 scale-0 group-hover:scale-100 transition-transform text-gray-800 border-gray-800 border-1 bg-white text-xs px-2 py-1 rounded">
+                            View
+                          </span>
+                        </div>
 
 
-                        <FiEdit2
-                          onClick={() => {
-                            setEditDocument(item);
-                            setIsUpdateModalOpen(true);
-                          }}
-                          className="cursor-pointer hover:text-yellow-600"
-                        />
+                        <div className="relative group">
 
-                        <RiDeleteBinLine
+                          <FiEdit2
+                            onClick={() => {
+                              setEditDocument(item);
+                              setIsUpdateModalOpen(true);
+                            }}
+                            className="cursor-pointer hover:text-yellow-600"
+                          />
+                          <span className="absolute bottom-full mb-1 left-1/2 -translate-x-1/2 scale-0 group-hover:scale-100 transition-transform text-gray-800 border-gray-800 border-1 bg-white text-xs px-2 py-1 rounded">
+                            Edit
+                          </span>
+                        </div>
+
+                        <div className="relative group">
+                          <RiDeleteBinLine
                           onClick={() => {
                             setDeleteId(item.id);
                             setIsWarnModalOpen(true);
                           }}
                           className="cursor-pointer hover:text-red-600"
                         />
+                        <span className="absolute bottom-full mb-1 left-1/2 -translate-x-1/2 scale-0 group-hover:scale-100 transition-transform text-gray-800 border-gray-800 border-1 bg-white text-xs px-2 py-1 rounded">
+                            Delete
+                          </span>
+                        </div>
                       </div>
                     </td>
                   </tr>
@@ -189,10 +212,11 @@ const Notification = () => {
         />
       )}
 
-      {isAddNewModalOpen && <NotificationUploadModal setIsAddNewModalOpen={setIsAddNewModalOpen} />}
+      {isAddNewModalOpen && <NotificationUploadModal fetchNotifications={fetchNotifications} setIsAddNewModalOpen={setIsAddNewModalOpen} />}
 
       {isUpdateModalOpen && (
         <NotificationUpdateModal
+          fetchNotifications={fetchNotifications}
           isUpdateModalOpen={isUpdateModalOpen}
           editDocument={editDocument}
           setIsUpdateModalOpen={setIsUpdateModalOpen}

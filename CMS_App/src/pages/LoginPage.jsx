@@ -4,7 +4,7 @@ import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 
 
 const LoginPage = ({ setLog }) => {
-  const backendUrl = process.env.REACT_APP_BACKEND_URL;
+  const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
 
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({ email: "", password: "" });
@@ -115,7 +115,7 @@ const LoginPage = ({ setLog }) => {
             <div className="relative">
               <div className="flex justify-between items-center md:mb-1 mb-2">
                 <label className="primary text-sm font-bold">Password</label>
-                <p className="primary text-sm cursor-pointer hover:text-blue-400">
+                <p className="hidden primary text-sm cursor-pointer hover:text-blue-400">
                   Forgot Password?
                 </p>
               </div>

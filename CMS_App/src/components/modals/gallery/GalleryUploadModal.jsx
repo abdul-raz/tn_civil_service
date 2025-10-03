@@ -3,7 +3,7 @@ import { IoCloseSharp } from "react-icons/io5";
 import axios from "axios";
 
 const GalleryUploadModal = ({ setIsAddNewModalOpen,categories,fetchGalleryData }) => {
-  const baseUrl = process.env.REACT_APP_BACKEND_URL; // base URL
+  const baseUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL; // base URL
 
   const [formData, setFormData] = useState({
     title: "",

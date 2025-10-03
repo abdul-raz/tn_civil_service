@@ -8,7 +8,7 @@ import WarnModal from '../components/modals/WarnModal';
 import axios from "axios";
 
 const QuestionBank = () => {
-  const baseUrl = process.env.REACT_APP_BACKEND_URL; // base URL
+  const baseUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL; // base URL
   const [isAddNewModalOpen, setIsAddNewModalOpen] = useState(false);
   const [isWarnModalOpen, setIsWarnModalOpen] = useState(false);
   const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false);
@@ -18,27 +18,28 @@ const QuestionBank = () => {
   const [years, setYears] = useState([]);
   const [deleteId, setDeleteId] = useState(null);
   // for storing question banks
-const [questionBankData, setQuestionBankData] = useState([]);
-useEffect(() => {
-  fetchQuestionBanks();
-}, []);
-const fetchQuestionBanks = async () => {
-  try {
-    const response = await axios.get(`${baseUrl}/api/questionBank`, {
-      withCredentials: true, // same as fetch's credentials: 'include'
-    });
+  const [questionBankData, setQuestionBankData] = useState([]);
+  useEffect(() => {
+    fetchQuestionBanks();
+  }, []);
+  const fetchQuestionBanks = async () => {
+    try {
+      const response = await axios.get(`${baseUrl}/api/questionBank`, {
+        withCredentials: true,
+      });
 
-    setQuestionBankData(response.data); // axios auto-parses JSON
-  } catch (error) {
-    if (error.response) {
-      // Server responded with error
-      alert(error.response.data.message || 'Failed to fetch question bank data.');
-    } else {
-      // Network or other error
-      alert('Network error while fetching question bank data.');
+      // Ensure it's an array
+      setQuestionBankData(Array.isArray(response.data) ? response.data : []);
+    } catch (error) {
+      if (error.response) {
+        alert(error.response.data.message || 'Failed to fetch question bank data.');
+      } else {
+        alert('Network error while fetching question bank data.');
+      }
+      setQuestionBankData([]); // fallback to empty array
     }
-  }
-};
+  };
+
   // Fetch exam types and years only
   useEffect(() => {
     const fetchData = async () => {
@@ -47,14 +48,21 @@ const fetchQuestionBanks = async () => {
           axios.get(`${baseUrl}/api/masterData/examTypes`, { withCredentials: true }),
           axios.get(`${baseUrl}/api/masterData/years`, { withCredentials: true }),
         ]);
-        setExamTypes(resExam.data);
-        setYears(resYear.data);
+
+        // Ensure the data is always arrays
+        setExamTypes(Array.isArray(resExam.data) ? resExam.data : []);
+        setYears(Array.isArray(resYear.data) ? resYear.data : []);
+
       } catch (error) {
         console.error("Error fetching master data:", error);
+        setExamTypes([]); // fallback
+        setYears([]);     // fallback
       }
     };
+
     fetchData();
   }, []);
+
 
   // 🔹 Delete function
   const handleDeleteQuestionBank = async () => {
@@ -78,10 +86,13 @@ const fetchQuestionBanks = async () => {
   };
 
   // Filter data by name or type
-  const filteredData = questionBankData.filter(item =>
-    item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    item.type.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  const filteredData = questionBankData.filter(item => {
+    const name = item.name?.toLowerCase() || '';
+    const type = item.type?.toLowerCase() || '';
+    const query = searchQuery.toLowerCase();
+    return name.includes(query) || type.includes(query);
+  });
+
 
   const getStatusStyles = (status) => {
     if (status === 'Active') {
@@ -171,7 +182,7 @@ const fetchQuestionBanks = async () => {
                   <tr key={item.id} className={rowBg}>
                     <td className="p-3 text-center">{index + 1}</td>
                     <td className="p-3 text-center">
-                      {item.name.slice(0, -4)}
+                      {item.name}
                     </td>
                     <td className="p-3 text-center">{item.type}</td>
                     <td className="p-3 text-center">{item.year || "-"}</td>
@@ -217,24 +228,49 @@ const fetchQuestionBanks = async () => {
                     </td>
                     <td className="p-3 text-center">
                       <div className="flex justify-center gap-4 text-[#002147] text-lg">
-                        <a href={`${baseUrl}/${item.questionPaperPath.replace(/\\/g, "/")}`} target="_blank" rel="noopener noreferrer">
-                          <FiEye className='cursor-pointer hover:text-blue-600' />
-                        </a>
-                        <FiEdit2
-                          className="cursor-pointer hover:text-yellow-600"
-                          onClick={() => {
-                            setEditDocument(item);
-                            setIsUpdateModalOpen(true);
-                          }}
-                        />
-                        <RiDeleteBin6Line
-                          className="cursor-pointer hover:text-red-600"
-                          onClick={() => {
-                            setDeleteId(item.id);
-                            setIsWarnModalOpen(true);
-                          }}
-                        />
+                        {/* View */}
+                        <div className="relative group">
+                          <a
+                            href={`${baseUrl}/${item.questionPaperPath.replace(/\\/g, "/")}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <FiEye className="cursor-pointer hover:text-blue-600" />
+                          </a>
+                          <span className="absolute bottom-full mb-1 left-1/2 -translate-x-1/2 scale-0 group-hover:scale-100 transition-transform text-gray-800 border-gray-800 border-1 bg-white text-xs px-2 py-1 rounded">
+                            View
+                          </span>
+                        </div>
+
+                        {/* Edit */}
+                        <div className="relative group">
+                          <FiEdit2
+                            className="cursor-pointer hover:text-yellow-600"
+                            onClick={() => {
+                              setEditDocument(item);
+                              setIsUpdateModalOpen(true);
+                            }}
+                          />
+                          <span className="absolute bottom-full mb-1 left-1/2 -translate-x-1/2 scale-0 group-hover:scale-100 transition-transform text-gray-800 border-gray-800 border-1 bg-white text-xs px-2 py-1 rounded">
+                            Edit
+                          </span>
+                        </div>
+
+                        {/* Delete */}
+                        <div className="relative group">
+                          <RiDeleteBin6Line
+                            className="cursor-pointer hover:text-red-600"
+                            onClick={() => {
+                              setDeleteId(item.id);
+                              setIsWarnModalOpen(true);
+                            }}
+                          />
+                          <span className="absolute bottom-full mb-1 left-1/2 -translate-x-1/2 scale-0 group-hover:scale-100 transition-transform text-gray-800 border-gray-800 border-1 bg-white text-xs px-2 py-1 rounded">
+                            Delete
+                          </span>
+                        </div>
                       </div>
+
                     </td>
                   </tr>
                 );

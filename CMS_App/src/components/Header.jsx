@@ -13,7 +13,7 @@ const Header = ({setIsSideBarOpen, isSideBarOpen ,setLog}) => {
   const path = location.pathname.split("/").filter(Boolean).pop() || "Dashboard";
 
   let headerTitle = path;
-  if (headerTitle === "notification" || headerTitle === "questionbank" || headerTitle === "gallery" || headerTitle === "answerkey" || headerTitle === "withexplanation") {
+  if (headerTitle === "notification"|| headerTitle === "results" || headerTitle === "questionbank" || headerTitle === "gallery" || headerTitle === "answerkey" || headerTitle === "withexplanation") {
     headerTitle = "CMS Managements";
   }else if (headerTitle === "dashboard") {
     headerTitle = "Dashboard";

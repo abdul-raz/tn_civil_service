@@ -21,38 +21,46 @@ const Result = () => {
   const [years, setYears] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
 
-  const baseUrl = process.env.REACT_APP_BACKEND_URL;
-
-  useEffect(() => {
-    const fetchMasterData = async () => {
-      try {
-        const [typesRes, yearsRes] = await Promise.all([
-          axios.get(`${baseUrl}/api/masterData/resultTypes`, {
-            withCredentials: true,
-          }),
-          axios.get(`${baseUrl}/api/masterData/years`, {
-            withCredentials: true,
-          }),
-        ]);
-        setTypes(typesRes.data);
-        setYears(yearsRes.data);
-      } catch (error) {
-        console.error("Failed to fetch master data:", error);
-      }
-    };
-    fetchMasterData();
-  }, []);
-
-  const fetchResults = async () => {
+  const baseUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
+useEffect(() => {
+  const fetchMasterData = async () => {
     try {
-      const res = await axios.get(`${baseUrl}/api/result`, {
-        withCredentials: true,
-      });
-      setResultData(res.data);
+      const [typesRes, yearsRes] = await Promise.all([
+        axios.get(`${baseUrl}/api/masterData/resultTypes`, { withCredentials: true }),
+        axios.get(`${baseUrl}/api/masterData/years`, { withCredentials: true }),
+      ]);
+
+      // Ensure states are always arrays
+      setTypes(Array.isArray(typesRes.data) ? typesRes.data : []);
+      setYears(Array.isArray(yearsRes.data) ? yearsRes.data : []);
+
     } catch (error) {
-      console.error("Failed to fetch results:", error);
+      console.error("Failed to fetch master data:", error);
+      setTypes([]); // fallback
+      setYears([]); // fallback
     }
   };
+
+  fetchMasterData();
+}, []);
+
+
+const fetchResults = async () => {
+  try {
+    const res = await axios.get(`${baseUrl}/api/result`, {
+      withCredentials: true,
+    });
+
+    // Ensure resultData is always an array
+    const data = Array.isArray(res.data) ? res.data : [];
+    setResultData(data);
+
+  } catch (error) {
+    console.error("Failed to fetch results:", error);
+    setResultData([]); // fallback to empty array
+  }
+};
+
 
   useEffect(() => {
     fetchResults();
@@ -195,7 +203,8 @@ const Result = () => {
                     </td>
                     <td className="p-3 text-center">
                       <div className="flex justify-center gap-4 text-[#002147] text-lg">
-                        <a
+                        <div className="relative group">
+                          <a
                           href={`http://localhost:3000/${item.pdfPath?.replace(
                             /\\/g,
                             "/"
@@ -205,20 +214,34 @@ const Result = () => {
                         >
                           <FiEye className="cursor-pointer hover:text-blue-600" />
                         </a>
-                        <FiEdit2
+                         <span className="absolute bottom-full mb-1 left-1/2 -translate-x-1/2 scale-0 group-hover:scale-100 transition-transform text-gray-800 border-gray-800 border-1 bg-white text-xs px-2 py-1 rounded">
+                            View
+                          </span>
+                        </div>
+                       <div className="relative group">
+                         <FiEdit2
                           onClick={() => {
                             setEditDocument(item);
                             setIsUpdateModalOpen(true);
                           }}
                           className="cursor-pointer hover:text-yellow-600"
                         />
-                        <RiDeleteBinLine
+                        <span className="absolute bottom-full mb-1 left-1/2 -translate-x-1/2 scale-0 group-hover:scale-100 transition-transform text-gray-800 border-gray-800 border-1 bg-white text-xs px-2 py-1 rounded">
+                            Edit
+                          </span>
+                       </div>
+                       <div className="relative group">
+                         <RiDeleteBinLine
                           onClick={() => {
                             setDeleteId(item.id);
                             setIsWarnModalOpen(true);
                           }}
                           className="cursor-pointer hover:text-red-600"
                         />
+                        <span className="absolute bottom-full mb-1 left-1/2 -translate-x-1/2 scale-0 group-hover:scale-100 transition-transform text-gray-800 border-gray-800 border-1 bg-white text-xs px-2 py-1 rounded">
+                            Delete
+                          </span>
+                       </div>
                       </div>
                     </td>
                   </tr>

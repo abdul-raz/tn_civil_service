@@ -5,8 +5,9 @@ const NotificationUpdateModal = ({
   isUpdateModalOpen,
   setIsUpdateModalOpen,
   editDocument,
+  fetchNotifications
 }) => {
-  const backendUrl = process.env.REACT_APP_BACKEND_URL;
+  const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
 
   const [formData, setFormData] = useState({
     pathUrl: editDocument?.pathUrl || null,
@@ -103,6 +104,7 @@ const NotificationUpdateModal = ({
       if (response.ok) {
         const data = await response.json();
         console.log("Notification updated successfully:", data);
+        fetchNotifications();
         setIsUpdateModalOpen(false);
         // optionally refresh notification list via callback
       } else {
@@ -201,7 +203,7 @@ const NotificationUpdateModal = ({
               name="file"
               accept="application/pdf"
               onChange={handleChange}
-              className="w-full border rounded-md p-2 outline-none"
+              className="w-full border border-gray-300 rounded-md p-2 outline-none"
             />
             {formData.pathUrl && typeof formData.pathUrl === "string" && (
               <p className="flex pl-2.5 mt-1 gap-2 items-center">

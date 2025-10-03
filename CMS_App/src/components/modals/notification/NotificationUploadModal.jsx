@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { IoCloseSharp } from "react-icons/io5";
 
-const NotificationUploadModal = ({ setIsAddNewModalOpen }) => {
-  const backendUrl = process.env.REACT_APP_BACKEND_URL;
+const NotificationUploadModal = ({ setIsAddNewModalOpen,fetchNotifications }) => {
+  const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
 
   const [formData, setFormData] = useState({
     title: "",
@@ -58,6 +58,7 @@ const NotificationUploadModal = ({ setIsAddNewModalOpen }) => {
         if (response.ok) {
           const data = await response.json();
           console.log("Notification created successfully:", data);
+          fetchNotifications();
           setIsAddNewModalOpen(false);
         } else {
           console.error("Failed to create notification");

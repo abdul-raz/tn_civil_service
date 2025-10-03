@@ -7,7 +7,7 @@ const ResultUploadModal = ({
   types,
   years,
   onSuccess,
-  baseUrl = process.env.REACT_APP_BACKEND_URL,
+  baseUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL,
 }) => {
   const [formData, setFormData] = useState({
     title: "",
@@ -93,7 +93,7 @@ const ResultUploadModal = ({
           </h2>
           <button
             onClick={() => setIsAddNewModalOpen(false)}
-            className="text-gray-500 hover:text-gray-800"
+            className="absolute -top-3 -right-3 bg-white shadow-md hover:shadow-none rounded-md p-2 cursor-pointer text-gray-500 text-xl hover:translate-y-3 hover:-translate-x-3 transition-all duration-300"
           >
             <IoCloseSharp size={24} />
           </button>
@@ -113,6 +113,7 @@ const ResultUploadModal = ({
             <input
               type="text"
               name="title"
+              placeholder="title"
               value={formData.title}
               onChange={handleChange}
               className={`w-full border p-2 rounded-md outline-none ${

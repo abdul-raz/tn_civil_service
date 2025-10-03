@@ -9,7 +9,7 @@ const ResultUpdateModal = ({
   onSuccess,
   types,
   years,
-  baseUrl = process.env.REACT_APP_BACKEND_URL,
+  baseUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL,
 }) => {
   const [formData, setFormData] = useState({
     title: "",
@@ -102,7 +102,7 @@ const ResultUpdateModal = ({
           <h2 className="text-xl font-semibold text-gray-700">Update Result</h2>
           <button
             onClick={() => setIsUpdateModalOpen(false)}
-            className="text-gray-500 hover:text-gray-800"
+            className="absolute -top-3 -right-3 bg-white shadow-md hover:shadow-none rounded-md p-2 cursor-pointer text-gray-500 text-xl hover:translate-y-3 hover:-translate-x-3 transition-all duration-300"
           >
             <IoCloseSharp size={24} />
           </button>
@@ -201,18 +201,18 @@ const ResultUpdateModal = ({
               name="file"
               accept="application/pdf"
               onChange={handleChange}
-              className="w-full border p-2 rounded-md cursor-pointer"
+              className="w-full border border-gray-300 p-2 rounded-md cursor-pointer"
             />
             {!formData.file && formData.pdfPath && (
-              <p className="mt-1">
+              <p className="mt-1 ml-2">
                 Current file:{" "}
                 <a
                   href={`${baseUrl}/${formData.pdfPath.replace(/\\/g, "/")}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-600 underline"
+                  className="text-blue-600"
                 >
-                  View
+                  View PDF
                 </a>
               </p>
             )}
@@ -220,7 +220,7 @@ const ResultUpdateModal = ({
 
           <button
             type="submit"
-            className="w-full py-3 bg-blue-700 text-white rounded-md hover:bg-blue-800 transition"
+            className="w-full py-3 bg-[#002147] hover:bg-[#013168] text-white rounded-md cursor-pointer transition"
           >
             Update
           </button>

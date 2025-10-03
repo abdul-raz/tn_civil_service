@@ -12,9 +12,13 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Middleware
-const allowedOrigins = process.env.FRONTEND_ORIGINS
+const defaultOrigins = ['http://localhost:5173', 'https://ccc.devops-in22labs.com'];
+
+const envOrigins = process.env.FRONTEND_ORIGINS
   ? process.env.FRONTEND_ORIGINS.split(',')
-  : ['http://localhost:5173']; // default fallback origin
+  : [];
+
+const allowedOrigins = [...defaultOrigins, ...envOrigins];
 
 app.use(
   cors({
@@ -22,6 +26,7 @@ app.use(
     credentials: true,
   })
 );
+
 
 // app.use(
 //   cors({

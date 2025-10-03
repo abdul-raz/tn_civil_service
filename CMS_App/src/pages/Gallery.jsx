@@ -8,34 +8,43 @@ import GalleryUploadModal from '../components/modals/gallery/GalleryUploadModal'
 import WarnModal from '../components/modals/WarnModal';
 
 const Gallery = () => {
-    const backendUrl = process.env.REACT_APP_BACKEND_URL;
+    const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
 
     const [galleryData, setGalleryData] = useState([]);
   // Fetch gallery data
-  const fetchGalleryData = async () => {
-    try {
-      const res = await axios.get(`${backendUrl}/api/gallery`, { withCredentials: true });
-      setGalleryData(res.data);
-      console.log(res.data);
-    } catch (error) {
-      console.error("Error fetching gallery data:", error.response?.data || error.message);
-    }
-  };
+const fetchGalleryData = async () => {
+  try {
+    const res = await axios.get(`${backendUrl}/api/gallery`, { withCredentials: true });
+    
+    // Ensure galleryData is always an array
+    const data = Array.isArray(res.data) ? res.data : [];
+    setGalleryData(data);
+
+    console.log(data);
+  } catch (error) {
+    console.error("Error fetching gallery data:", error.response?.data || error.message);
+    setGalleryData([]); // fallback to empty array
+  }
+};
+
   // 🔹 Fetch categories on mount
   const [categories, setCategories] = useState([]);
-  useEffect(() => {
-    const fetchCategories = async () => {
-      try {
-        const res = await axios.get(`${backendUrl}/api/masterData/galleryCategories`, {
-          withCredentials: true,
-        });
-        setCategories(res.data);
-      } catch (error) {
-        console.error("Error fetching categories:", error);
-      }
-    };
-    fetchCategories();
-  }, []);
+useEffect(() => {
+  const fetchCategories = async () => {
+    try {
+      const res = await axios.get(`${backendUrl}/api/masterData/galleryCategories`, {
+        withCredentials: true,
+      });
+      // Ensure categories is always an array
+      setCategories(Array.isArray(res.data) ? res.data : []);
+    } catch (error) {
+      console.error("Error fetching categories:", error);
+      setCategories([]); // fallback to empty array
+    }
+  };
+  fetchCategories();
+}, []);
+
 
   
   const [isAddNewModalOpen, setIsAddNewModalOpen] = useState(false);
@@ -77,10 +86,13 @@ const handleDeleteGallery = async () => {
 
 
   // Filter gallery data based on search query
-  const filteredGalleryData = galleryData.filter(item =>
-    item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    item.category?.name.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+const filteredGalleryData = (galleryData || []).filter(item => {
+  const title = item.title?.toLowerCase() || '';
+  const category = item.category?.name?.toLowerCase() || '';
+  const query = searchQuery.toLowerCase();
+  return title.includes(query) || category.includes(query);
+});
+
 
   // Status styling
   const getStatusStyles = (status) => {
@@ -185,23 +197,38 @@ const handleDeleteGallery = async () => {
                     </td>
                     <td className='p-3 text-center'>
                       <div className='flex justify-center gap-4 text-[#002147] text-lg'>
-                        <a href={`${backendUrl}/${item.imageUrl.replace(/\\/g, "/")}`} target="_blank" rel="noopener noreferrer">
+                       <div className="relative group">
+                         <a href={`${backendUrl}/${item.imageUrl.replace(/\\/g, "/")}`} target="_blank" rel="noopener noreferrer">
                           <FiEye className='cursor-pointer hover:text-blue-600' />
                         </a>
-                        <FiEdit2
+                        <span className="absolute bottom-full mb-1 left-1/2 -translate-x-1/2 scale-0 group-hover:scale-100 transition-transform text-gray-800 border-gray-800 border-1 bg-white text-xs px-2 py-1 rounded">
+                            View
+                          </span>
+                       </div>
+                       <div className="relative group">
+                         <FiEdit2
                           className='cursor-pointer hover:text-yellow-600'
                           onClick={() => {
                             setEditDocument(item);
                             setIsUpdateModalOpen(true);
                           }}
                         />
-                        <RiDeleteBin6Line
+                        <span className="absolute bottom-full mb-1 left-1/2 -translate-x-1/2 scale-0 group-hover:scale-100 transition-transform text-gray-800 border-gray-800 border-1 bg-white text-xs px-2 py-1 rounded">
+                            Edit
+                          </span>
+                       </div>
+                       <div className="relative group">
+                         <RiDeleteBin6Line
                           onClick={() => {
                             setDeleteId(item.id);
                             setIsWarnModalOpen(true);
                           }}
                           className='cursor-pointer hover:text-red-600'
                         />
+                        <span className="absolute bottom-full mb-1 left-1/2 -translate-x-1/2 scale-0 group-hover:scale-100 transition-transform text-gray-800 border-gray-800 border-1 bg-white text-xs px-2 py-1 rounded">
+                            Delete
+                          </span>
+                       </div>
                       </div>
                     </td>
                   </tr>

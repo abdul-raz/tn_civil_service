@@ -41,7 +41,7 @@ module.exports = (sequelize, DataTypes) => {
   status: {
   type: DataTypes.SMALLINT,  // PostgreSQL compatible small integer type
   allowNull: false,
-  defaultValue: 1,           // default active
+  defaultValue: 0,           // default inactive
   validate: {
     isIn: {
       args: [[0, 1]],

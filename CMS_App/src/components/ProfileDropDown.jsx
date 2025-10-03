@@ -4,7 +4,7 @@ import { IoSettingsOutline, IoLogOutOutline } from "react-icons/io5";
 
 const ProfileDropDown = ({ setProfileDropDown, setIsPasswordResetOpen, setLog }) => {
   const size = 10;
-const backendUrl = process.env.REACT_APP_BACKEND_URL;
+const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
 
   const handleLogout = async () => {
     try {

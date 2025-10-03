@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { FiUsers, FiBook, FiImage, FiBell } from "react-icons/fi";
 
-
 const Dashboard = () => {
-  const backendUrl = process.env.REACT_APP_BACKEND_URL;
+  const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
 
   const [counts, setCounts] = useState({
-    questionBanks: 0,
-    galleries: 0,
-    results: 0,
-    notifications: 0,
+    questionBanks: { total: 0, active: 0 },
+    galleries: { total: 0, active: 0 },
+    results: { total: 0, active: 0 },
+    notifications: { total: 0, active: 0 },
   });
 
   useEffect(() => {
@@ -17,10 +16,10 @@ const Dashboard = () => {
       try {
         const res = await fetch(url);
         const data = await res.json();
-        return Object.values(data)[0]; // Get the first value from the returned json {key: count}
+        return data; // {total: x, active: y}
       } catch (error) {
         console.error(`Error fetching from ${url}`, error);
-        return 0;
+        return { total: 0, active: 0 };
       }
     };
 
@@ -32,7 +31,7 @@ const Dashboard = () => {
           fetchCount(`${backendUrl}/api/dashboard/result-count`),
           fetchCount(`${backendUrl}/api/dashboard/notification-count`),
         ]);
-
+        
       setCounts({
         galleries,
         questionBanks,
@@ -58,16 +57,16 @@ const Dashboard = () => {
       icon: <FiImage className="text-5xl primary" />,
     },
     {
-      id: 3,
-      title: "Results",
-      count: counts.results,
-      icon: <FiUsers className="text-5xl primary" />,
-    },
-    {
       id: 4,
       title: "Notifications",
       count: counts.notifications,
       icon: <FiBell className="text-5xl primary" />,
+    },
+    {
+      id: 3,
+      title: "Results",
+      count: counts.results,
+      icon: <FiUsers className="text-5xl primary" />,
     },
   ];
 
@@ -85,7 +84,12 @@ const Dashboard = () => {
           >
             <div>{item.icon}</div>
             <span className="text-lg">{item.title}</span>
-            <span className="text-2xl font-bold">{item.count}</span>
+            <div className="flex gap-5">
+              <span className="text-md">
+              Active: {item.count.active}
+            </span>
+            <span className="text-md">Total: {item.count.total}</span>
+            </div>
           </div>
         ))}
       </div>

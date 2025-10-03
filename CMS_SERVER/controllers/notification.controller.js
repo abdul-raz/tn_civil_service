@@ -15,7 +15,7 @@ exports.createNotification = async (req, res) => {
       title,  // Save title
       pdfPath,
       categoryTypeId,
-      status: status || "active",
+      status: status || "inactive",
     });
     res.status(201).json(notification);
   } catch (error) {

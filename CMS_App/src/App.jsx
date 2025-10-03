@@ -43,7 +43,7 @@ const Layout = ({ setLog, isSideBarOpen, setIsSideBarOpen }) => {
 };
 
 function App() {
-  const baseUrl = process.env.REACT_APP_BACKEND_URL;
+  const baseUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL ;
   const [log, setLog] = useState(false);
   const [isSideBarOpen, setIsSideBarOpen] = useState(false);
 

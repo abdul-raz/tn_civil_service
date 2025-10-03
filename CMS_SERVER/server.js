@@ -9,7 +9,7 @@ const db = require("./models"); // Sequelize models index
 const routes = require("./routes"); // API routes aggregated
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
 
 // Middleware
 const defaultOrigins = ['http://localhost:5173', 'https://ccc.devops-in22labs.com'];

@@ -21,7 +21,7 @@ const Result = () => {
   const [years, setYears] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
 
-  const baseUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
+  const baseUrl = import.meta.env.VITE_REACT_APP_API_BACKEND_URL;
 useEffect(() => {
   const fetchMasterData = async () => {
     try {
@@ -205,7 +205,7 @@ const fetchResults = async () => {
                       <div className="flex justify-center gap-4 text-[#002147] text-lg">
                         <div className="relative group">
                           <a
-                          href={`http://localhost:3000/${item.pdfPath?.replace(
+                          href={`/${item.pdfPath?.replace(
                             /\\/g,
                             "/"
                           )}`}

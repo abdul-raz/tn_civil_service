@@ -91,7 +91,6 @@ app.use((req, res) => {
       "/api/questionBank",
       "/api/answerKey",
       "/api/masterData",
-      
     ],
   });
 });

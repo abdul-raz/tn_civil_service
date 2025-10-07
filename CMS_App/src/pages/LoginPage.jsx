@@ -114,7 +114,7 @@ const LoginPage = ({ setLog }) => {
       <div className="relative w-full max-w-5xl flex flex-col md:flex-row shadow-lg rounded-xl overflow-hidden">
         <div className="md:w-1/2 bg-gradient-to-br from-[#a7a5a5d4] to-[#bebcbc80] p-4">
           <img
-            src="/poster.avif"
+            src="/cms/poster.avif"
             alt="Login Poster"
             className="h-full w-full object-cover rounded-tl-xl rounded-bl-xl"
           />
@@ -122,7 +122,7 @@ const LoginPage = ({ setLog }) => {
 
         <div className="relative z-10 md:w-1/2 w-full bg-white/90 backdrop-blur-sm md:backdrop-blur-0 md:bg-white p-6 sm:px-10 sm:py-20 md:space-y-10 space-y-4">
           <div className="flex justify-center items-center md:gap-4 gap-2">
-            <img src="/TN_logo.png" alt="TN_logo" className="w-10 h-10" />
+            <img src="/cms/TN_logo.png" alt="TN_logo" className="w-10 h-10" />
             <div className="flex flex-col">
               <p className="primary font-bold md:text-sm text-[13px]">
                 All India Civil Services Coaching Centre

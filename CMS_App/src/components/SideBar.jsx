@@ -65,7 +65,7 @@ const SideBar = ({ isSideBarOpen, setIsSideBarOpen }) => {
         className={`bg-white scrollbar-hide shadow-md h-screen z-30 transition-transform duration-300 ease-in-out w-[80%] md:w-[18%] fixed top-0 left-0 bottom-0 mx-0 overflow-y-auto ${isSideBarOpen ? "translate-x-0" : "-translate-x-full"} md:translate-x-0`}
       >
         <div className="flex w-full py-4 items-center justify-center gap-2 mb-4 sticky top-0 bg-white z-10">
-          <img src="/TN_logo.png" alt="TN_logo" className="w-12 h-12" />
+          <img src="/cms/TN_logo.png" alt="TN_logo" className="w-12 h-12" />
           <small className="text-[#002147] text-xl font-extrabold">AICSCC</small>
         </div>
 

@@ -53,7 +53,7 @@ const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
 
     if (Object.keys(newErrors).length === 0) {
       try {
-        const res = await axios.put(`${backendUrl}/api/auth/resetPassword`, {
+        const res = await axios.put(`${backendUrl}/api/auth/changePassword`, {
           email: formData.username,
           oldPassword: formData.currentPassword,
           newPassword: formData.newPassword,
@@ -108,6 +108,7 @@ const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
             <input
               type="text"
               name="username"
+              autoComplete="new-email"
               value={formData.username}
               onChange={handleChange}
               placeholder="username or email"
@@ -126,6 +127,7 @@ const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
             <input
               type={showCurrentPassword ? "text" : "password"}
               name="currentPassword"
+              autoComplete="new-password"
               value={formData.currentPassword}
               onChange={handleChange}
               placeholder="current password"

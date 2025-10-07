@@ -1,9 +1,105 @@
 const { body, validationResult } = require("express-validator");
 const db = require("../models");
 const User = db.User;
+const nodemailer = require("nodemailer");
+const bcrypt = require("bcryptjs");
 
-//Reset Password
+// Email setup (example using Gmail SMTP)
+const transporter = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS,
+  },
+});
+
+// POST /createOtp
+exports.createOtp = [
+  body("email").isEmail().withMessage("Valid email required").normalizeEmail(),
+
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) return res.status(400).json({ errors: errors.array() });
+
+    try {
+      const { email } = req.body;
+      const user = await User.findOne({ where: { email } });
+      if (!user) return res.status(404).json({ message: "User not found" });
+
+      // Generate OTP and save hashed value
+      const otp = await user.setOtp();
+
+      // Send OTP email
+      await transporter.sendMail({
+        from: process.env.EMAIL_USER,
+        to: "rajrathinam2005@gmail.com",
+        subject: "AICSCC - OTP for Reset Password",
+        text: `Your OTP code is: ${otp}. It will expire in 60 seconds.`,
+      });
+
+      res.json({ message: "OTP sent to email" });
+    } catch (error) {
+      console.error("Create OTP error:", error);
+      res.status(500).json({ message: "Server error" });
+    }
+  },
+];
+
+// POST /verifyOtp
+exports.verifyOtp = [
+  body("email").isEmail().withMessage("Valid email required").normalizeEmail(),
+  body("otp").isLength({ min: 6, max: 6 }).withMessage("OTP must be 6 digits"),
+
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) return res.status(400).json({ errors: errors.array() });
+
+    try {
+      const { email, otp } = req.body;
+      const user = await User.findOne({ where: { email } });
+      if (!user) return res.status(404).json({ verified: false, message: "User not found" });
+
+      const isValid = await user.verifyOtp(otp);
+      if (!isValid) return res.status(400).json({ verified: false, message: "Invalid or expired OTP" });
+
+      res.json({ verified: true });
+    } catch (error) {
+      console.error("Verify OTP error:", error);
+      res.status(500).json({ message: "Server error" });
+    }
+  },
+];
+
+//reset the password
 exports.resetPassword = [
+  body("email").isEmail().withMessage("Valid email required").normalizeEmail(),
+  body("newPassword").isLength({ min: 6 }).withMessage("Password must be at least 6 characters"),
+
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) return res.status(400).json({ errors: errors.array() });
+
+    try {
+      const { email, newPassword } = req.body;
+      const user = await User.findOne({ where: { email } });
+      if (!user) return res.status(404).json({ message: "User not found" });
+
+      // Assign new password — hook will hash it
+      user.password = newPassword;
+      user.otp = null;
+      await user.save();
+
+      res.json({ message: "Password updated successfully" });
+    } catch (error) {
+      console.error("Reset password error:", error);
+      res.status(500).json({ message: "Server error" });
+    }
+  },
+];
+
+
+//change Password
+exports.changePassword = [
   body("email").isEmail().withMessage("Valid email required").normalizeEmail(),
   body("oldPassword").notEmpty().withMessage("Old password required"),
   body("newPassword")

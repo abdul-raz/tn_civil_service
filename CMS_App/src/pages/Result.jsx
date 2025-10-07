@@ -182,72 +182,70 @@ const fetchResults = async () => {
                   No results found
                 </td>
               </tr>
-            ) : (
-              filteredData.map((item, index) => {
-                const rowBg = index % 2 ? "bg-gray-100" : "bg-white";
-                const typeName =
-                  types.find((t) => t.id === item.typeId)?.name || "Unknown";
-                const styles = getStatusStyles(item.status);
-                return (
-                  <tr key={item.id} className={rowBg}>
-                    <td className="p-3 text-center">{index + 1}</td>
-                    <td className="p-3 text-center">{item.title}</td>
-                    <td className="p-3 text-center">{typeName}</td>
-                    <td className="p-3 text-center">{item.year}</td>
-                    <td className="p-3 text-center">
-                      <span
-                        className={`rounded-sm px-2 py-0.5 border border-dashed ${styles.text} ${styles.bg} ${styles.border}`}
-                      >
-                        {displayStatus(item.status)}
-                      </span>
-                    </td>
-                    <td className="p-3 text-center">
-                      <div className="flex justify-center gap-4 text-[#002147] text-lg">
-                        <div className="relative group">
-                          <a
-                          href={`http://localhost:3000/${item.pdfPath?.replace(
-                            /\\/g,
-                            "/"
-                          )}`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <FiEye className="cursor-pointer hover:text-blue-600" />
-                        </a>
-                         <span className="absolute bottom-full mb-1 left-1/2 -translate-x-1/2 scale-0 group-hover:scale-100 transition-transform text-gray-800 border-gray-800 border-1 bg-white text-xs px-2 py-1 rounded">
-                            View
-                          </span>
-                        </div>
-                       <div className="relative group">
-                         <FiEdit2
-                          onClick={() => {
-                            setEditDocument(item);
-                            setIsUpdateModalOpen(true);
-                          }}
-                          className="cursor-pointer hover:text-yellow-600"
-                        />
-                        <span className="absolute bottom-full mb-1 left-1/2 -translate-x-1/2 scale-0 group-hover:scale-100 transition-transform text-gray-800 border-gray-800 border-1 bg-white text-xs px-2 py-1 rounded">
-                            Edit
-                          </span>
-                       </div>
-                       <div className="relative group">
-                         <RiDeleteBinLine
-                          onClick={() => {
-                            setDeleteId(item.id);
-                            setIsWarnModalOpen(true);
-                          }}
-                          className="cursor-pointer hover:text-red-600"
-                        />
-                        <span className="absolute bottom-full mb-1 left-1/2 -translate-x-1/2 scale-0 group-hover:scale-100 transition-transform text-gray-800 border-gray-800 border-1 bg-white text-xs px-2 py-1 rounded">
-                            Delete
-                          </span>
-                       </div>
-                      </div>
-                    </td>
-                  </tr>
-                );
-              })
-            )}
+            ) : filteredData.map((item, index) => {
+  const rowBg = index % 2 === 1 ? "bg-gray-300" : "bg-white"; // odd rows gray, even rows white
+  const typeName = types.find((t) => t.id === item.typeId)?.name || "Unknown";
+  const styles = getStatusStyles(item.status);
+
+  return (
+    <tr key={item.id} className={rowBg}>
+      <td className="p-3 text-center">{index + 1}</td>
+      <td className="p-3 text-center">{item.title}</td>
+      <td className="p-3 text-center">{typeName}</td>
+      <td className="p-3 text-center">{item.year}</td>
+      <td className="p-3 text-center">
+        <span
+          className={`rounded-sm px-2 py-0.5 border border-dashed ${styles.text} ${styles.bg} ${styles.border}`}
+        >
+          {displayStatus(item.status)}
+        </span>
+      </td>
+      <td className="p-3 text-center">
+        <div className="flex justify-center gap-4 text-[#002147] text-lg">
+          <div className="relative group">
+            <a
+              href={`${baseUrl}/${item.pdfPath?.replace(/\\/g, "/")}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FiEye className="cursor-pointer hover:text-blue-600" />
+            </a>
+            <span className="absolute bottom-full mb-1 left-1/2 -translate-x-1/2 scale-0 group-hover:scale-100 transition-transform text-gray-800 border-gray-800 border-1 bg-white text-xs px-2 py-1 rounded">
+              View
+            </span>
+          </div>
+
+          <div className="relative group">
+            <FiEdit2
+              onClick={() => {
+                setEditDocument(item);
+                setIsUpdateModalOpen(true);
+              }}
+              className="cursor-pointer hover:text-yellow-600"
+            />
+            <span className="absolute bottom-full mb-1 left-1/2 -translate-x-1/2 scale-0 group-hover:scale-100 transition-transform text-gray-800 border-gray-800 border-1 bg-white text-xs px-2 py-1 rounded">
+              Edit
+            </span>
+          </div>
+
+          <div className="relative group">
+            <RiDeleteBinLine
+              onClick={() => {
+                setDeleteId(item.id);
+                setIsWarnModalOpen(true);
+              }}
+              className="cursor-pointer hover:text-red-600"
+            />
+            <span className="absolute bottom-full mb-1 left-1/2 -translate-x-1/2 scale-0 group-hover:scale-100 transition-transform text-gray-800 border-gray-800 border-1 bg-white text-xs px-2 py-1 rounded">
+              Delete
+            </span>
+          </div>
+        </div>
+      </td>
+    </tr>
+  );
+})
+}
           </tbody>
         </table>
       </div>

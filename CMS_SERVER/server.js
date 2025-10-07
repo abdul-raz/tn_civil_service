@@ -9,16 +9,16 @@ const db = require("./models"); // Sequelize models index
 const routes = require("./routes"); // API routes aggregated
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
 
-// Middleware
-const defaultOrigins = ['http://localhost:5173', 'https://ccc.devops-in22labs.com'];
+
 
 const envOrigins = process.env.FRONTEND_ORIGINS
   ? process.env.FRONTEND_ORIGINS.split(',')
   : [];
 
-const allowedOrigins = [...defaultOrigins, ...envOrigins];
+const allowedOrigins = [...envOrigins];
+console.log(envOrigins[1]);
 
 app.use(
   cors({
@@ -28,14 +28,7 @@ app.use(
 );
 
 
-// app.use(
-//   cors({
-//     origin: process.env.FRONTEND_URL || "http://localhost:5173", // Allow frontend origin
-//     credentials: true, // Allow cookies to be sent
-//   })
-// );
 
-// app.use(cors());
 
 app.use(express.json()); // Parse JSON request body
 app.use(express.urlencoded({ extended: true })); // Parse URL-encoded bodies

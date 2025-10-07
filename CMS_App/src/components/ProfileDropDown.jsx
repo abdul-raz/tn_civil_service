@@ -60,7 +60,7 @@ const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
             className="text-gray-500 flex items-center border-b-1 border-gray-200 p-3 gap-3 md:px-10 px-5 hover:bg-gray-300 cursor-pointer"
           >
             <IoSettingsOutline className="text-xl" />
-            Reset Password
+            Change Password
           </li>
 
           <li
@@ -70,7 +70,7 @@ const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
             }}
             className="text-gray-500 flex items-center border-b-1 border-gray-200 p-3 gap-3 md:px-10 px-5 hover:bg-gray-300 cursor-pointer rounded-b-xl"
           >
-            <IoLogOutOutline className="text-xl" />
+            <IoLogOutOutline className="text-xl"/>
             Log Out
           </li>
         </ul>

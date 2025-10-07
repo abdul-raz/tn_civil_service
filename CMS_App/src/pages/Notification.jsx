@@ -135,70 +135,72 @@ const Notification = () => {
                   No results found
                 </td>
               </tr>
-            ) : (
-              filteredData.map((item, index) => {
-                const rowBg = index % 2 ? "bg-gray-100" : "bg-white";
-                const statusStyles = getStatusStyles(item.status);
-                return (
-                  <tr key={item.id} className={rowBg}>
-                    <td className="p-3 text-center">{index + 1}</td>
-                    <td className="p-3 text-center">{item.title}</td>
-                    <td className="p-3 text-center">{item.categoryType?.name}</td>
-                    <td className="p-3 text-center">
-                      <span
-                        className={`rounded-sm px-2 py-0.5 border border-dashed ${statusStyles.text} ${statusStyles.bg} ${statusStyles.border}`}
-                      >
-                        {item.status}
-                      </span>
-                    </td>
-                    <td className="p-3 text-center">
-                      <div className="flex justify-center gap-4 text-[#002147] text-lg">
-                        <div className="relative group">
-                          <a
-                            href={`${backendUrl}/${item.pdfPath.replace(/\\/g, "/")}`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            <FiEye className="cursor-pointer hover:text-blue-600" />
-                          </a>
-                          <span className="absolute bottom-full mb-1 left-1/2 -translate-x-1/2 scale-0 group-hover:scale-100 transition-transform text-gray-800 border-gray-800 border-1 bg-white text-xs px-2 py-1 rounded">
-                            View
-                          </span>
-                        </div>
+            ) : filteredData.map((item, index) => {
+  const isEven = index % 2 === 1; // odd rows
+  const rowBg = isEven ? "bg-gray-300" : "bg-white";
+  const statusStyles = getStatusStyles(item.status);
 
+  return (
+    <tr key={item.id} className={rowBg}>
+      <td className="p-3 text-center">{index + 1}</td>
+      <td className="p-3 text-center">{item.title}</td>
+      <td className="p-3 text-center">{item.categoryType?.name}</td>
+      <td className="p-3 text-center">
+        <span
+          className={`rounded-sm capitalize px-2 py-0.5 border border-dashed ${statusStyles.text} ${statusStyles.bg} ${statusStyles.border}`}
+        >
+          {item.status}
+        </span>
+      </td>
+      <td className="p-3 text-center">
+        <div className="flex justify-center gap-4 text-[#002147] text-lg">
+          {/* View */}
+          <div className="relative group">
+            <a
+              href={`${backendUrl}/${item.pdfPath.replace(/\\/g, "/")}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FiEye className="cursor-pointer hover:text-blue-600" />
+            </a>
+            <span className="absolute bottom-full mb-1 left-1/2 -translate-x-1/2 scale-0 group-hover:scale-100 transition-transform text-gray-800 border-gray-800 border-1 bg-white text-xs px-2 py-1 rounded">
+              View
+            </span>
+          </div>
 
-                        <div className="relative group">
+          {/* Edit */}
+          <div className="relative group">
+            <FiEdit2
+              onClick={() => {
+                setEditDocument(item);
+                setIsUpdateModalOpen(true);
+              }}
+              className="cursor-pointer hover:text-yellow-600"
+            />
+            <span className="absolute bottom-full mb-1 left-1/2 -translate-x-1/2 scale-0 group-hover:scale-100 transition-transform text-gray-800 border-gray-800 border-1 bg-white text-xs px-2 py-1 rounded">
+              Edit
+            </span>
+          </div>
 
-                          <FiEdit2
-                            onClick={() => {
-                              setEditDocument(item);
-                              setIsUpdateModalOpen(true);
-                            }}
-                            className="cursor-pointer hover:text-yellow-600"
-                          />
-                          <span className="absolute bottom-full mb-1 left-1/2 -translate-x-1/2 scale-0 group-hover:scale-100 transition-transform text-gray-800 border-gray-800 border-1 bg-white text-xs px-2 py-1 rounded">
-                            Edit
-                          </span>
-                        </div>
-
-                        <div className="relative group">
-                          <RiDeleteBinLine
-                          onClick={() => {
-                            setDeleteId(item.id);
-                            setIsWarnModalOpen(true);
-                          }}
-                          className="cursor-pointer hover:text-red-600"
-                        />
-                        <span className="absolute bottom-full mb-1 left-1/2 -translate-x-1/2 scale-0 group-hover:scale-100 transition-transform text-gray-800 border-gray-800 border-1 bg-white text-xs px-2 py-1 rounded">
-                            Delete
-                          </span>
-                        </div>
-                      </div>
-                    </td>
-                  </tr>
-                );
-              })
-            )}
+          {/* Delete */}
+          <div className="relative group">
+            <RiDeleteBinLine
+              onClick={() => {
+                setDeleteId(item.id);
+                setIsWarnModalOpen(true);
+              }}
+              className="cursor-pointer hover:text-red-600"
+            />
+            <span className="absolute bottom-full mb-1 left-1/2 -translate-x-1/2 scale-0 group-hover:scale-100 transition-transform text-gray-800 border-gray-800 border-1 bg-white text-xs px-2 py-1 rounded">
+              Delete
+            </span>
+          </div>
+        </div>
+      </td>
+    </tr>
+  );
+})
+}
           </tbody>
         </table>
       </div>

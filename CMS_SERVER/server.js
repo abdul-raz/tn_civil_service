@@ -12,7 +12,6 @@ const app = express();
 const PORT = process.env.PORT;
 
 
-
 const envOrigins = process.env.FRONTEND_ORIGINS
   ? process.env.FRONTEND_ORIGINS.split(',')
   : [];

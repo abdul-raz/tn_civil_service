@@ -9,7 +9,7 @@ const ResultUpdateModal = ({
   onSuccess,
   types,
   years,
-  baseUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL,
+  baseUrl = import.meta.env.VITE_REACT_APP_API_BACKEND_URL,
 }) => {
   const [formData, setFormData] = useState({
     title: "",

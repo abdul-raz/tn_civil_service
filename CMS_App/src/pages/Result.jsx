@@ -21,7 +21,7 @@ const Result = () => {
   const [years, setYears] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
 
-  const baseUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
+  const baseUrl = import.meta.env.VITE_REACT_APP_API_BACKEND_URL;
 useEffect(() => {
   const fetchMasterData = async () => {
     try {

@@ -8,7 +8,7 @@ import WarnModal from '../components/modals/WarnModal';
 import axios from "axios";
 
 const QuestionBank = () => {
-  const baseUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL; // base URL
+  const baseUrl = import.meta.env.VITE_REACT_APP_API_BACKEND_URL; // base URL
   const [isAddNewModalOpen, setIsAddNewModalOpen] = useState(false);
   const [isWarnModalOpen, setIsWarnModalOpen] = useState(false);
   const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false);

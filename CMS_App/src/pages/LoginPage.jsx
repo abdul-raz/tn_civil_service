@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 
 const LoginPage = ({ setLog }) => {
-  const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
+  const backendUrl = import.meta.env.VITE_REACT_APP_API_BACKEND_URL;
 
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({

@@ -8,7 +8,7 @@ import GalleryUploadModal from '../components/modals/gallery/GalleryUploadModal'
 import WarnModal from '../components/modals/WarnModal';
 
 const Gallery = () => {
-    const backendUrl = import.meta.env.VITE_REACT_APP_API_BACKEND_URL;
+    const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
 
     const [galleryData, setGalleryData] = useState([]);
   // Fetch gallery data

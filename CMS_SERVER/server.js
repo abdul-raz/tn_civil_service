@@ -36,8 +36,7 @@ app.use(express.urlencoded({ extended: true })); // Parse URL-encoded bodies
 app.use(
   session({
     secret:
-      process.env.SESSION_SECRET ||
-      "aicscc-super-secret-key-2025-change-this-in-production",
+      process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
     cookie: {

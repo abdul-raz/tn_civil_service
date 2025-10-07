@@ -8,7 +8,7 @@ const QuestionBankUploadModal = ({
   examTypes,
   years,
 }) => {
-  const baseUrl = import.meta.env.VITE_REACT_APP_API_BACKEND_URL; // move to env later
+  const baseUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL; // move to env later
 
   const [type, setType] = useState("");
   const [year, setYear] = useState("");

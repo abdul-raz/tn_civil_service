@@ -10,7 +10,7 @@ import NotificationUpdateModal from "../components/modals/notification/Notificat
 import WarnModal from "../components/modals/WarnModal";
 
 const Notification = () => {
-  const backendUrl = import.meta.env.VITE_REACT_APP_API_BACKEND_URL;
+  const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
 
   const [isAddNewModalOpen, setIsAddNewModalOpen] = useState(false);
   const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false);

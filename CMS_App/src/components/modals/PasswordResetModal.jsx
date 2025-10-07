@@ -9,7 +9,7 @@ const PasswordResetModal = ({ setIsPasswordResetOpen, isPasswordResetOpen }) => 
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const [showModal, setShowModal] = useState(false);
-const backendUrl = import.meta.env.VITE_REACT_APP_API_BACKEND_URL;
+const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
 
   // Form state
   const [formData, setFormData] = useState({

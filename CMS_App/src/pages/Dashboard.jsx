@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { FiUsers, FiBook, FiImage, FiBell } from "react-icons/fi";
 
 const Dashboard = () => {
-  const backendUrl = import.meta.env.VITE_REACT_APP_API_BACKEND_URL;
+  const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
 console.loh
   const [counts, setCounts] = useState({
     questionBanks: { total: 0, active: 0 },

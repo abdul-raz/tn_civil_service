@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { IoCloseSharp } from "react-icons/io5";
 
 const NotificationUploadModal = ({ setIsAddNewModalOpen,fetchNotifications }) => {
-  const backendUrl = import.meta.env.VITE_REACT_APP_API_BACKEND_URL;
+  const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
 
   const [formData, setFormData] = useState({
     title: "",

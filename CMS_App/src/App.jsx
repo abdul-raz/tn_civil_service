@@ -14,13 +14,9 @@ import axios from "axios";
 
 // ✅ Protected Route
 const ProtectedRoute = ({ log }) => {
-
-
   if (!log) return <Navigate to="/login" replace />;
-  return <Outlet />; // renders child routes
+  return <Outlet />; 
 };
-
-
 
 // ✅ Layout for all protected pages
 const Layout = ({ setLog, isSideBarOpen, setIsSideBarOpen }) => {
@@ -43,30 +39,38 @@ const Layout = ({ setLog, isSideBarOpen, setIsSideBarOpen }) => {
 };
 
 function App() {
-  const baseUrl = import.meta.env.VITE_REACT_APP_API_BACKEND_URL ;
+  const baseUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL ;
   const [log, setLog] = useState(false);
   const [isSideBarOpen, setIsSideBarOpen] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   axios.defaults.withCredentials = true;
-
-
-
-
 
   useEffect(() => {
     const checkAuth = async () => {
       try {
         const res = await axios.get(`${baseUrl}/api/auth/me`);
         if (res.data) setLog(true);
+        else setLog(false);
       } catch {
         setLog(false);
+      } finally {
+        setLoading(false);
       }
     };
     checkAuth();
   }, []);
 
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        Loading...
+      </div>
+    );
+  }
+
   return (
-    <Router>
+    <Router basename="/cms">
       <main className="bg-[#f0eff5] min-h-screen flex flex-col">
         <Routes>
           {/* Login */}
@@ -75,7 +79,7 @@ function App() {
             element={log ? <Navigate to="/" replace /> : <LoginPage setLog={setLog} />}
           />
 
-          {/* Protected Routes with Layout */}
+          {/* Protected Routes */}
           <Route element={<ProtectedRoute log={log} />}>
             <Route element={<Layout setLog={setLog} isSideBarOpen={isSideBarOpen} setIsSideBarOpen={setIsSideBarOpen} />}>
               <Route path="/" element={<Dashboard/>} />
@@ -85,6 +89,7 @@ function App() {
               <Route path="/results" element={<Result />} />
             </Route>
           </Route>
+
           {/* Fallback */}
           <Route path="*" element={<Navigate to={log ? "/" : "/login"} replace />} />
         </Routes>

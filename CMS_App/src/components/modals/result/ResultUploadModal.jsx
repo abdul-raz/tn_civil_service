@@ -325,7 +325,7 @@ const ResultUploadModal = ({
           </button>
         </div>
 
-        {submitError && <p className="text-red-600 mb-3">{submitError}</p>}
+        {submitError && <p className="requiredField">{submitError}</p>}
 
         <form
           onSubmit={handleSubmit}
@@ -345,7 +345,7 @@ const ResultUploadModal = ({
               }`}
             />
             {errors.title && (
-              <p className="text-red-600 mt-1">{errors.title}</p>
+              <p className="requiredField">{errors.title}</p>
             )}
           </div>
 
@@ -368,7 +368,7 @@ const ResultUploadModal = ({
               ))}
             </select>
             {errors.typeId && (
-              <p className="text-red-600 mt-1">{errors.typeId}</p>
+              <p className="requiredField">{errors.typeId}</p>
             )}
           </div>
 
@@ -380,7 +380,7 @@ const ResultUploadModal = ({
               value={formData.year}
               onChange={handleChange}
               className={`w-full border p-2 rounded-md outline-none ${
-                errors.year ? "border-red-600" : "border-gray-300"
+                errors.year ? "requiredField" : "border-gray-300"
               }`}
             >
               <option value="">Select Year</option>
@@ -390,7 +390,7 @@ const ResultUploadModal = ({
                 </option>
               ))}
             </select>
-            {errors.year && <p className="text-red-600 mt-1">{errors.year}</p>}
+            {errors.year && <p className="requiredField">{errors.year}</p>}
           </div>
 
           {/* PDF Upload */}
@@ -407,7 +407,7 @@ const ResultUploadModal = ({
                 errors.file ? "border-red-600" : "border-gray-300"
               }`}
             />
-            {errors.file && <p className="text-red-600 mt-1">{errors.file}</p>}
+            {errors.file && <p className="requiredField">{errors.file}</p>}
           </div>
 
           {/* Submit Button */}

@@ -108,7 +108,7 @@ const ResultUpdateModal = ({
           </button>
         </div>
 
-        {submitError && <p className="text-red-600 mb-3">{submitError}</p>}
+        {submitError && <p className="requiredField">{submitError}</p>}
 
         <form onSubmit={handleSubmit} className="space-y-4">
           {/* Title */}
@@ -124,7 +124,7 @@ const ResultUpdateModal = ({
               }`}
             />
             {errors.title && (
-              <p className="text-red-600 mt-1">{errors.title}</p>
+              <p className="requiredField">{errors.title}</p>
             )}
           </div>
 
@@ -147,7 +147,7 @@ const ResultUpdateModal = ({
               ))}
             </select>
             {errors.typeId && (
-              <p className="text-red-600 mt-1">{errors.typeId}</p>
+              <p className="requiredField">{errors.typeId}</p>
             )}
           </div>
 
@@ -169,7 +169,7 @@ const ResultUpdateModal = ({
                 </option>
               ))}
             </select>
-            {errors.year && <p className="text-red-600 mt-1">{errors.year}</p>}
+            {errors.year && <p className="requiredField">{errors.year}</p>}
           </div>
 
           {/* Status */}
@@ -187,7 +187,7 @@ const ResultUpdateModal = ({
               <option value="1">Active</option>
             </select>
             {errors.status && (
-              <p className="text-red-600 mt-1">{errors.status}</p>
+              <p className="requiredField">{errors.status}</p>
             )}
           </div>
 

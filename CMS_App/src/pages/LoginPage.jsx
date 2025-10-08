@@ -259,55 +259,62 @@ const LoginPage = ({ setLog }) => {
 
           {/* Login form */}
           {isLoginForm && !otpSent && !otpVerified && (
-            <form className="flex flex-col gap-4" onSubmit={(e) => e.preventDefault()} noValidate>
-              <div>
-                <label className="primary text-sm font-bold md:mb-1 mb-2">Email</label>
-                <input
-                  type="email"
-                  name="email"
-                  autoComplete="new-email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="Enter your email"
-                  className={`w-full border ${errors.email ? "border-red-500" : "border-gray-300"} md:rounded-xl rounded-md placeholder:text-gray-400 placeholder:text-sm md:placeholder:text-[15px] p-1 px-2 md:p-3 outline-none`}
-                />
-              </div>
+  <form className="flex flex-col gap-4" onSubmit={(e) => e.preventDefault()} noValidate>
+    <div>
+      <label className="primary text-sm font-bold md:mb-1 mb-2">Email</label>
+      <input
+        type="email"
+        name="email"
+        autoComplete="new-email"
+        value={formData.email}
+        onChange={handleChange}
+        placeholder="Enter your email"
+        className={`w-full border ${errors.email ? "border-red-500" : "border-gray-300"} md:rounded-xl rounded-md placeholder:text-gray-400 placeholder:text-sm md:placeholder:text-[15px] p-1 px-2 md:p-3 outline-none`}
+      />
+      {/* Show email error */}
+      {errors.email && <p className="requiredField">{errors.email}</p>}
+    </div>
 
-              <div className="relative">
-                <div className="flex justify-between items-center md:mb-1 mb-2">
-                  <label className="primary text-sm font-bold">Password</label>
-                  <p onClick={() => setLoginForm(false)} className="primary text-sm cursor-pointer hover:text-blue-400">
-                    Forgot Password?
-                  </p>
-                </div>
-                <input
-                  type={showPassword ? "text" : "password"}
-                  name="password"
-                  autoComplete="new-password"
-                  value={formData.password}
-                  onChange={handleChange}
-                  placeholder="Enter your password"
-                  className={`w-full border ${errors.password ? "border-red-500" : "border-gray-300"} md:rounded-xl rounded-md placeholder:text-gray-400 placeholder:text-sm md:placeholder:text-[15px] p-1 px-2 md:p-3 outline-none pr-10`}
-                />
-                <button
-                  type="button"
-                  className="absolute right-3 cursor-pointer top-[38px] text-gray-500"
-                  onClick={() => setShowPassword(!showPassword)}
-                >
-                  {showPassword ? <AiOutlineEye /> : <AiOutlineEyeInvisible />}
-                </button>
-              </div>
+    <div className="relative">
+      <div className="flex justify-between items-center md:mb-1 mb-2">
+        <label className="primary text-sm font-bold">Password</label>
+        <p onClick={() => setLoginForm(false)} className="primary text-sm cursor-pointer hover:text-blue-400">
+          Forgot Password?
+        </p>
+      </div>
+      <input
+        type={showPassword ? "text" : "password"}
+        name="password"
+        autoComplete="new-password"
+        value={formData.password}
+        onChange={handleChange}
+        placeholder="Enter your password"
+        className={`w-full border ${errors.password ? "border-red-500" : "border-gray-300"} md:rounded-xl rounded-md placeholder:text-gray-400 placeholder:text-sm md:placeholder:text-[15px] p-1 px-2 md:p-3 outline-none pr-10`}
+      />
+      <button
+        type="button"
+        className="absolute right-3 cursor-pointer top-[38px] text-gray-500"
+        onClick={() => setShowPassword(!showPassword)}
+      >
+        {showPassword ? <AiOutlineEye /> : <AiOutlineEyeInvisible />}
+      </button>
 
-              {errors.general && <p className="requiredField text-red-600 text-center">{errors.general}</p>}
+      {/* Show password error */}
+      {errors.password && <p className="requiredField">{errors.password}</p>}
+    </div>
 
-              <input
-                type="submit"
-                value="Sign In"
-                onClick={handleLogin}
-                className="bg-[#eead21] hover:bg-[#fab82b] p-1 px-2 md:p-3 md:rounded-xl rounded-md text-white font-medium mt-2 cursor-pointer"
-              />
-            </form>
-          )}
+    {/* General error (below both fields) */}
+    {errors.general && <p className="requiredField text-center">{errors.general}</p>}
+
+    <input
+      type="submit"
+      value="Sign In"
+      onClick={handleLogin}
+      className="bg-[#eead21] hover:bg-[#fab82b] p-1 px-2 md:p-3 md:rounded-xl rounded-md text-white font-medium mt-2 cursor-pointer"
+    />
+  </form>
+)}
+
         </div>
       </div>
     </section>
